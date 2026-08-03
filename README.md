@@ -32,9 +32,15 @@ promises false.
 Add the kit as a submodule and write one config file:
 
 ```sh
-git submodule add <url> Tools/appsite
-cp Tools/appsite/template/* Tools/appstore/
+git submodule add https://github.com/ikunin/appsite.git vendor/appsite
+cp vendor/appsite/template/* <wherever this repo keeps its tooling>/
 ```
+
+**`vendor/appsite`, in every repository, exactly.** Not `Tools/` or `tools/` —
+those are the same directory on a case-insensitive Mac and two different ones
+on Linux CI, which is a trap worth stepping around once rather than debugging
+per repo. `site_config.py` finds the kit by walking up to it, so the config
+itself can live wherever the repo already keeps its scripts.
 
 `site_config.py` is the whole interface:
 
@@ -89,7 +95,7 @@ than no policy.
 ## Tests
 
 ```sh
-python3 -m pytest tests
+python3 tests/test_appsite.py
 ```
 
 The kit's own gate, when it was extracted, was that it re-rendered a shipped

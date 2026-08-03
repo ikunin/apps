@@ -1,14 +1,32 @@
 """Everything `appsite` needs to know about THIS APP.
 
-The kit at Tools/appsite/ holds the structure — navigation, the document, the
+The kit at vendor/appsite/ holds the structure — navigation, the document, the
 page blocks, the checker. This file holds the facts that make those pages this
-app's. Nothing else in Tools/appstore/ should describe the site's shape.
+app's. Nothing else in this repository should describe the site's shape.
 """
 
 import os
 import sys
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "appsite"))
+
+def _kit():
+    """vendor/appsite, wherever in the tree this file happens to sit.
+
+    Walking up beats a fixed number of `..` segments: the same config works
+    from Tools/appstore/ in one repository and docs/appstore/ in another, and a
+    missing submodule says so instead of failing as ModuleNotFoundError three
+    imports later.
+    """
+    directory = os.path.dirname(os.path.abspath(__file__))
+    while directory != os.path.dirname(directory):
+        kit = os.path.join(directory, "vendor", "appsite")
+        if os.path.isdir(os.path.join(kit, "appsite")):
+            return kit
+        directory = os.path.dirname(directory)
+    raise SystemExit("vendor/appsite is missing — run: git submodule update --init")
+
+
+sys.path.insert(0, _kit())
 
 from appsite import Chrome, Page, Site  # noqa: E402
 

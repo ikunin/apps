@@ -2,7 +2,7 @@
 """Copy the kit's stylesheet into site/.
 
 site/style.css is generated, like every other page here. The source is
-Tools/appsite/appsite/assets/style.css; edit that, not the copy.
+vendor/appsite/appsite/assets/style.css; edit that, not the copy.
 """
 
 from site_config import SITE
