@@ -66,7 +66,7 @@ def main():
             # kit's history.
             run("git", "clone", "--depth", "1", args.remote, checkout)
             run("git", "checkout", "--orphan", BRANCH, cwd=checkout)
-            run("git", "rm", "-rq", "--ignore-unmatch", ".", cwd=checkout)
+            run("git", "rm", "-rqf", "--ignore-unmatch", ".", cwd=checkout)
             with open(os.path.join(checkout, ".nojekyll"), "w") as handle:
                 handle.write("")   # serve _-prefixed paths and skip Jekyll
             with open(os.path.join(checkout, "index.html"), "w") as handle:
