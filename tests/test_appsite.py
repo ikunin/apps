@@ -7,7 +7,9 @@ The real gate is coarser and lives in the app — build the site, `git diff`,
 expect nothing — but a failure here says *which* rule broke.
 """
 
+import ast
 import os
+import pathlib
 import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
@@ -37,7 +39,25 @@ def check(name, condition):
         failures.append(name)
 
 
-print("chrome")
+#: The oldest Python an app's CI runs. Nothing here may need newer syntax:
+#: this package is imported by three repositories and cannot pick their
+#: interpreter.
+OLDEST = (3, 11)
+
+print(f"syntax, as Python {OLDEST[0]}.{OLDEST[1]}")
+
+KIT = pathlib.Path(__file__).resolve().parent.parent
+for source in sorted(KIT.rglob("*.py")):
+    if ".git" in source.parts:
+        continue
+    try:
+        ast.parse(source.read_text(), filename=str(source), feature_version=OLDEST)
+        ok, detail = True, ""
+    except SyntaxError as error:
+        ok, detail = False, f" — line {error.lineno}: {error.msg}"
+    check(f"{source.relative_to(KIT)} parses{detail}", ok)
+
+print("\nchrome")
 
 header, _, _, root = CHROME.render("en", "index.html")
 check("english home links itself as ./", '<a href="./" aria-current="page">' in header)

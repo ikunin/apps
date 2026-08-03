@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      # 3.11 is the floor because that is what the apps' own CI runs, and this
+      # package cannot choose their interpreter. A backslash inside an f-string
+      # expression parses on 3.12 and not on 3.11, which is exactly how this
+      # package first reached an app's CI broken.
+      matrix:
+        python: ["3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python3 tests/test_appsite.py

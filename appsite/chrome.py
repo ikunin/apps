@@ -107,12 +107,15 @@ class Chrome:
                       '  </div>\n</footer>\n')
             return header, footer, "", root
 
-        switcher = "".join(
-            f'<a href="{href(code)}" hreflang="{code}" lang="{code}"'
-            f'{" aria-current=\"page\"" if code == language else ""}>'
-            f'{html.escape(LANGUAGES[code].name)}</a>'
-            for code in self.language_codes()
-        )
+        def switch(code):
+            # Not inlined into the f-string below: a backslash inside an
+            # f-string expression is a syntax error before Python 3.12, and
+            # this file has to parse on the oldest Python any app's CI runs.
+            here = ' aria-current="page"' if code == language else ""
+            return (f'<a href="{href(code)}" hreflang="{code}" lang="{code}"'
+                    f'{here}>{html.escape(LANGUAGES[code].name)}</a>')
+
+        switcher = "".join(switch(code) for code in self.language_codes())
         footer = (
             '<footer class="site">\n  <div class="wrap">\n'
             f'    <span>{self.copyright}</span>\n'
