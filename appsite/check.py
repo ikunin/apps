@@ -31,8 +31,8 @@ class Links(HTMLParser):
 def local_target(value):
     """The file a link points at, or None if it leaves the site."""
     # `tel:` belongs here with `mailto:` — an Impressum carries a telephone
-    # link, and without this the checker looks for a file called
-    # "tel:+493056007689".
+    # link, and without this the checker looked for a file named after the
+    # whole `tel:` URI.
     if value.startswith(("http://", "https://", "mailto:", "tel:", "#", "//",
                          "data:")):
         return None

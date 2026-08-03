@@ -15,7 +15,7 @@ SUPPORT = {
 "en": {
  "title": "Support", "meta": "Help with TappyMusic: how it works, restoring purchases, backups, and how to get in touch.",
  "h": "Support",
- "intro": 'Most questions are answered below. If yours is not, write to <a href="mailto:tappymusic.support@gmail.com?subject=TappyMusic">tappymusic.support@gmail.com</a> and say which device and iOS version you are on — it usually saves a round trip.',
+ "intro": 'Most questions are answered below. If yours is not, write to <a href="mailto:support@example.com?subject=Support">support@example.com</a> and say which device and iOS version you are on — it usually saves a round trip.',
  "faq": [
   ("My child taps and hears nothing.", "Check the silent switch and the volume, then check that the device is not connected to something else over Bluetooth. If the app is playing through a speaker in another room, the screen still lights up and the sound goes somewhere else."),
   ("The notes feel late.", "Bluetooth audio adds a delay that no app can remove. Use the built-in speaker or wired headphones — the difference is large and immediate. The app says so in Settings, under Audio."),
@@ -34,7 +34,7 @@ SUPPORT = {
 "de": {
  "title": "Hilfe", "meta": "Hilfe zu TappyMusic: wie es funktioniert, Käufe wiederherstellen, Backups und Kontakt.",
  "h": "Hilfe",
- "intro": 'Die meisten Fragen sind unten beantwortet. Wenn Ihre nicht dabei ist, schreiben Sie an <a href="mailto:tappymusic.support@gmail.com?subject=TappyMusic">tappymusic.support@gmail.com</a> und nennen Sie Gerät und iOS-Version — das spart meist eine Rückfrage.',
+ "intro": 'Die meisten Fragen sind unten beantwortet. Wenn Ihre nicht dabei ist, schreiben Sie an <a href="mailto:support@example.com?subject=Support">support@example.com</a> und nennen Sie Gerät und iOS-Version — das spart meist eine Rückfrage.',
  "faq": [
   ("Mein Kind tippt und hört nichts.", "Prüfen Sie den Stummschalter und die Lautstärke, und ob das Gerät gerade über Bluetooth mit etwas anderem verbunden ist. Spielt die App über einen Lautsprecher im Nebenzimmer, leuchtet der Bildschirm trotzdem und der Ton geht woanders hin."),
   ("Die Töne kommen zu spät.", "Bluetooth-Audio fügt eine Verzögerung hinzu, die keine App entfernen kann. Nutzen Sie den eingebauten Lautsprecher oder kabelgebundene Kopfhörer — der Unterschied ist groß und sofort hörbar. Die App sagt das auch in den Einstellungen unter Audio."),
@@ -53,7 +53,7 @@ SUPPORT = {
 "fr": {
  "title": "Aide", "meta": "Aide pour TappyMusic : fonctionnement, restauration des achats, sauvegardes et contact.",
  "h": "Aide",
- "intro": 'La plupart des questions trouvent leur réponse ci-dessous. Si ce n’est pas le cas de la vôtre, écrivez à <a href="mailto:tappymusic.support@gmail.com?subject=TappyMusic">tappymusic.support@gmail.com</a> en précisant votre appareil et votre version d’iOS — cela évite généralement un aller-retour.',
+ "intro": 'La plupart des questions trouvent leur réponse ci-dessous. Si ce n’est pas le cas de la vôtre, écrivez à <a href="mailto:support@example.com?subject=Support">support@example.com</a> en précisant votre appareil et votre version d’iOS — cela évite généralement un aller-retour.',
  "faq": [
   ("Mon enfant tape et n’entend rien.", "Vérifiez le bouton silence et le volume, puis si l’appareil est connecté à autre chose en Bluetooth. Si l’app joue sur une enceinte dans une autre pièce, l’écran s’allume quand même et le son part ailleurs."),
   ("Les notes semblent en retard.", "L’audio Bluetooth ajoute un délai qu’aucune app ne peut supprimer. Utilisez le haut-parleur intégré ou un casque filaire : la différence est nette et immédiate. L’app le dit aussi dans Réglages, section Audio."),
@@ -72,7 +72,7 @@ SUPPORT = {
 "es": {
  "title": "Ayuda", "meta": "Ayuda con TappyMusic: cómo funciona, restaurar compras, copias de seguridad y contacto.",
  "h": "Ayuda",
- "intro": 'La mayoría de las preguntas están respondidas abajo. Si la tuya no lo está, escribe a <a href="mailto:tappymusic.support@gmail.com?subject=TappyMusic">tappymusic.support@gmail.com</a> indicando tu dispositivo y tu versión de iOS: normalmente ahorra una ida y vuelta.',
+ "intro": 'La mayoría de las preguntas están respondidas abajo. Si la tuya no lo está, escribe a <a href="mailto:support@example.com?subject=Support">support@example.com</a> indicando tu dispositivo y tu versión de iOS: normalmente ahorra una ida y vuelta.',
  "faq": [
   ("Mi hijo toca y no se oye nada.", "Comprueba el interruptor de silencio y el volumen, y si el dispositivo está conectado a otra cosa por Bluetooth. Si la app suena por un altavoz de otra habitación, la pantalla se ilumina igual y el sonido va a otro sitio."),
   ("Las notas suenan tarde.", "El audio por Bluetooth añade un retardo que ninguna app puede quitar. Usa el altavoz del dispositivo o auriculares con cable: la diferencia es grande e inmediata. La app también lo dice en Ajustes, en Audio."),
@@ -91,7 +91,7 @@ SUPPORT = {
 "it": {
  "title": "Aiuto", "meta": "Aiuto per TappyMusic: come funziona, ripristinare gli acquisti, backup e contatti.",
  "h": "Aiuto",
- "intro": 'Quasi tutte le domande trovano risposta qui sotto. Se la tua non c’è, scrivi a <a href="mailto:tappymusic.support@gmail.com?subject=TappyMusic">tappymusic.support@gmail.com</a> indicando dispositivo e versione di iOS: di solito risparmia un giro.',
+ "intro": 'Quasi tutte le domande trovano risposta qui sotto. Se la tua non c’è, scrivi a <a href="mailto:support@example.com?subject=Support">support@example.com</a> indicando dispositivo e versione di iOS: di solito risparmia un giro.',
  "faq": [
   ("Mio figlio tocca e non sente nulla.", "Controlla l’interruttore del silenzioso e il volume, poi se il dispositivo è collegato a qualcos’altro via Bluetooth. Se l’app suona da un altoparlante in un’altra stanza, lo schermo si illumina lo stesso e il suono va altrove."),
   ("Le note arrivano in ritardo.", "L’audio Bluetooth aggiunge un ritardo che nessuna app può togliere. Usa l’altoparlante integrato o cuffie con filo: la differenza è netta e immediata. L’app lo dice anche in Impostazioni, sezione Audio."),
@@ -110,7 +110,7 @@ SUPPORT = {
 "pt": {
  "title": "Ajuda", "meta": "Ajuda com o TappyMusic: como funciona, restaurar compras, backups e contato.",
  "h": "Ajuda",
- "intro": 'A maioria das dúvidas está respondida abaixo. Se a sua não estiver, escreva para <a href="mailto:tappymusic.support@gmail.com?subject=TappyMusic">tappymusic.support@gmail.com</a> dizendo o aparelho e a versão do iOS — costuma poupar uma ida e volta.',
+ "intro": 'A maioria das dúvidas está respondida abaixo. Se a sua não estiver, escreva para <a href="mailto:support@example.com?subject=Support">support@example.com</a> dizendo o aparelho e a versão do iOS — costuma poupar uma ida e volta.',
  "faq": [
   ("Meu filho toca e não sai som.", "Verifique o botão de silencioso e o volume, e se o aparelho está conectado a outra coisa por Bluetooth. Se o app estiver tocando numa caixa de som de outro cômodo, a tela acende do mesmo jeito e o som vai para outro lugar."),
   ("As notas parecem atrasadas.", "O áudio por Bluetooth acrescenta um atraso que nenhum app consegue remover. Use o alto-falante do aparelho ou fones com fio: a diferença é grande e imediata. O app também diz isso em Ajustes, em Áudio."),
@@ -129,7 +129,7 @@ SUPPORT = {
 "ja": {
  "title": "サポート", "meta": "TappyMusic のサポート：使いかた、購入の復元、バックアップ、お問い合わせ。",
  "h": "サポート",
- "intro": 'ほとんどのご質問は以下で解決します。見当たらない場合は <a href="mailto:tappymusic.support@gmail.com?subject=TappyMusic">tappymusic.support@gmail.com</a> まで、機種と iOS のバージョンを添えてご連絡ください。やり取りが一往復減ります。',
+ "intro": 'ほとんどのご質問は以下で解決します。見当たらない場合は <a href="mailto:support@example.com?subject=Support">support@example.com</a> まで、機種と iOS のバージョンを添えてご連絡ください。やり取りが一往復減ります。',
  "faq": [
   ("タップしても音が出ません。", "消音スイッチと音量、そして Bluetooth で別の機器につながっていないかをご確認ください。別の部屋のスピーカーから鳴っている場合、画面は光っても音はそちらへ行きます。"),
   ("音が遅れて感じます。", "Bluetooth の音声には、どのアプリにも取り除けない遅れがあります。本体スピーカーか有線イヤホンをお使いください。違いははっきりしていて、すぐ分かります。設定の「オーディオ」にも同じ案内があります。"),
@@ -148,7 +148,7 @@ SUPPORT = {
 "ko": {
  "title": "지원", "meta": "TappyMusic 지원: 사용법, 구입 복원, 백업, 문의.",
  "h": "지원",
- "intro": '대부분의 질문은 아래에 답이 있습니다. 없다면 <a href="mailto:tappymusic.support@gmail.com?subject=TappyMusic">tappymusic.support@gmail.com</a> 로 기기와 iOS 버전을 함께 적어 보내 주세요. 보통 한 번의 왕복을 줄여 줍니다.',
+ "intro": '대부분의 질문은 아래에 답이 있습니다. 없다면 <a href="mailto:support@example.com?subject=Support">support@example.com</a> 로 기기와 iOS 버전을 함께 적어 보내 주세요. 보통 한 번의 왕복을 줄여 줍니다.',
  "faq": [
   ("아이가 두드리는데 소리가 안 나요.", "무음 스위치와 볼륨을 확인하시고, 기기가 블루투스로 다른 장치에 연결되어 있는지 보세요. 다른 방의 스피커로 재생 중이라면 화면은 그대로 반응하고 소리만 그쪽으로 갑니다."),
   ("음이 늦게 들려요.", "블루투스 오디오에는 어떤 앱도 없앨 수 없는 지연이 있습니다. 기기 스피커나 유선 이어폰을 쓰세요. 차이가 크고 바로 느껴집니다. 앱의 설정 ▸ 오디오에도 같은 안내가 있습니다."),
@@ -167,7 +167,7 @@ SUPPORT = {
 "el": {
  "title": "Βοήθεια", "meta": "Βοήθεια για το TappyMusic: πώς λειτουργεί, επαναφορά αγορών, αντίγραφα και επικοινωνία.",
  "h": "Βοήθεια",
- "intro": 'Οι περισσότερες απορίες απαντώνται παρακάτω. Αν η δική σου δεν είναι εδώ, γράψε στο <a href="mailto:tappymusic.support@gmail.com?subject=TappyMusic">tappymusic.support@gmail.com</a> αναφέροντας συσκευή και έκδοση iOS — συνήθως γλιτώνει έναν γύρο.',
+ "intro": 'Οι περισσότερες απορίες απαντώνται παρακάτω. Αν η δική σου δεν είναι εδώ, γράψε στο <a href="mailto:support@example.com?subject=Support">support@example.com</a> αναφέροντας συσκευή και έκδοση iOS — συνήθως γλιτώνει έναν γύρο.',
  "faq": [
   ("Το παιδί μου αγγίζει και δεν ακούγεται τίποτα.", "Έλεγξε τον διακόπτη σίγασης και την ένταση, και μετά αν η συσκευή είναι συνδεδεμένη με κάτι άλλο μέσω Bluetooth. Αν η εφαρμογή παίζει σε ηχείο άλλου δωματίου, η οθόνη ανάβει κανονικά και ο ήχος πάει αλλού."),
   ("Οι νότες ακούγονται αργοπορημένες.", "Ο ήχος μέσω Bluetooth προσθέτει καθυστέρηση που καμία εφαρμογή δεν μπορεί να αφαιρέσει. Χρησιμοποίησε το ηχείο της συσκευής ή ενσύρματα ακουστικά — η διαφορά είναι μεγάλη και άμεση. Το λέει και η εφαρμογή στις Ρυθμίσεις, στην ενότητα Ήχος."),
@@ -186,7 +186,7 @@ SUPPORT = {
 "uk": {
  "title": "Допомога", "meta": "Допомога з TappyMusic: як це працює, відновлення покупок, резервні копії та контакти.",
  "h": "Допомога",
- "intro": 'Більшість питань має відповідь нижче. Якщо вашого тут немає, напишіть на <a href="mailto:tappymusic.support@gmail.com?subject=TappyMusic">tappymusic.support@gmail.com</a> і вкажіть пристрій та версію iOS — це зазвичай економить одне листування.',
+ "intro": 'Більшість питань має відповідь нижче. Якщо вашого тут немає, напишіть на <a href="mailto:support@example.com?subject=Support">support@example.com</a> і вкажіть пристрій та версію iOS — це зазвичай економить одне листування.',
  "faq": [
   ("Дитина торкається, але нічого не чути.", "Перевірте перемикач беззвучного режиму й гучність, а потім — чи не підключено пристрій по Bluetooth до чогось іншого. Якщо застосунок грає через колонку в іншій кімнаті, екран усе одно світиться, а звук іде туди."),
   ("Ноти звучать із запізненням.", "Звук через Bluetooth додає затримку, яку жоден застосунок не прибере. Скористайтеся вбудованим динаміком або дротовими навушниками — різниця велика й помітна одразу. Застосунок каже про це і в Параметрах, у розділі «Звук»."),
@@ -205,7 +205,7 @@ SUPPORT = {
 "ru": {
  "title": "Помощь", "meta": "Помощь с TappyMusic: как это работает, восстановление покупок, резервные копии и контакты.",
  "h": "Помощь",
- "intro": 'На большинство вопросов ответы ниже. Если вашего здесь нет, напишите на <a href="mailto:tappymusic.support@gmail.com?subject=TappyMusic">tappymusic.support@gmail.com</a> и укажите устройство и версию iOS — обычно это экономит одну переписку.',
+ "intro": 'На большинство вопросов ответы ниже. Если вашего здесь нет, напишите на <a href="mailto:support@example.com?subject=Support">support@example.com</a> и укажите устройство и версию iOS — обычно это экономит одну переписку.',
  "faq": [
   ("Ребёнок касается, а звука нет.", "Проверьте переключатель бесшумного режима и громкость, а затем — не подключено ли устройство по Bluetooth к чему-то ещё. Если приложение играет через колонку в другой комнате, экран всё равно светится, а звук уходит туда."),
   ("Ноты звучат с опозданием.", "Звук через Bluetooth добавляет задержку, которую не уберёт ни одно приложение. Используйте встроенный динамик или проводные наушники — разница большая и заметна сразу. Приложение говорит об этом и в Настройках, в разделе «Звук»."),
