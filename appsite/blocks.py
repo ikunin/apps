@@ -24,14 +24,20 @@ def actions(buttons, *, style=""):
     return f'  <div class="actions"{attr}>\n{inner}  </div>\n'
 
 
-def shots(images):
-    """The fanned screenshots under the hero. Each: (src, alt, w, h, loading)."""
+def shots(images, *, wide=False):
+    """The screenshots under the hero. Each: (src, alt, w, h, loading).
+
+    Portrait shots are fanned, which reads as a phone. `wide=True` lays
+    landscape shots out as a grid instead — three fanned letterboxes are a
+    stack of slivers with nothing visible in them.
+    """
     figures = "".join(
         f'    <figure><img src="{src}" alt="{html.escape(alt)}" '
         f'width="{w}" height="{h}" loading="{loading}"></figure>\n'
         for src, alt, w, h, loading in images
     )
-    return f'  <div class="shots">\n{figures}  </div>\n'
+    kind = "shots wide" if wide else "shots"
+    return f'  <div class="{kind}">\n{figures}  </div>\n'
 
 
 def stats(pairs):

@@ -271,6 +271,23 @@ h1 {
 
 .shots figure:hover img { transform: rotateY(0) translateZ(0) translateY(-0.4rem); }
 
+/* Landscape screenshots. A fan of three wide images is a stack of letterboxes
+   with nothing to see; they want width instead, one under the other on a
+   phone and side by side once there is room. */
+.shots.wide { display: grid; grid-template-columns: 1fr; perspective: none; }
+
+.shots.wide img { width: 100%; }
+
+.shots.wide figure:first-child img,
+.shots.wide figure:last-child img,
+.shots.wide figure:nth-child(2) img { transform: none; width: 100%; }
+
+.shots.wide figure:hover img { transform: translateY(-0.4rem); }
+
+@media (min-width: 46rem) {
+  .shots.wide { grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); }
+}
+
 /* --- stats --------------------------------------------------------------- */
 
 .stats {
