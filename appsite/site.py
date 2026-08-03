@@ -27,6 +27,10 @@ class Site:
     #: CSS custom properties to override the kit's defaults — `{"accent":
     #: "#fed508"}`. Empty means the kit's palette, unchanged.
     palette: dict = field(default_factory=dict)
+    #: § 5 DDG provider identification: name, street, postcode, city, country,
+    #: phone, email, app — and optionally vat and subject. One operator, one
+    #: address; see appsite/impressum.py for why this is shared and not owned.
+    impressum: dict = field(default_factory=dict)
     #: Language codes this site is built in, in switcher order. The default is
     #: every language the kit knows.
     languages: tuple = tuple(LANGUAGES)
