@@ -32,12 +32,17 @@ def headline(site, language):
     """The subtitle, split into a plain half and a half worth lighting up.
 
     Usually two sentences, and the second carries the promise, so it takes the
-    colour. Japanese subtitles often have no sentence break and Korean ones no
-    punctuation at all — hence the comma fallback, and a last one that colours
-    the whole line rather than leaving an empty span.
+    colour. Three splits, in order: a full stop and a space; a Japanese 。,
+    which is never followed by a space; a comma, for Korean subtitles that
+    carry no sentence punctuation at all. If none fires, the whole line glows
+    rather than leaving an empty span.
     """
     subtitle = read(site, language, "subtitle")
-    parts = re.split(r"(?<=[.!?。！？])\s+", subtitle, maxsplit=1)
+    parts = re.split(r"(?<=[.!?])\s+", subtitle, maxsplit=1)
+    if len(parts) == 1:
+        # Japanese and Chinese do not put a space after 。, so the rule above
+        # never fires and the whole subtitle ended up in the glowing half.
+        parts = re.split(r"(?<=[。！？])(?=.)", subtitle, maxsplit=1)
     if len(parts) == 1:
         comma = re.split(r"(?<=[、，,])\s*", subtitle, maxsplit=1)
         parts = comma if len(comma) > 1 and comma[1] else ["", subtitle]
