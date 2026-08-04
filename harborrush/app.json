@@ -13,6 +13,22 @@
     "postcode": "10587",
     "street": "Fraunhoferstr. 23A"
   },
+  "palette": {
+    "accent": "#ffd23f",
+    "accent-ink": "#1d2a0a",
+    "bg": "#061f33",
+    "bg-2": "#0a2c46",
+    "cyan": "#7fe8d8",
+    "dim": "#8fadc4",
+    "ink": "#e9f3fb",
+    "ink-2": "#bcd6e8",
+    "line": "#1d5a85",
+    "line-soft": "#164a70",
+    "pink": "#ffb3a7",
+    "surface": "#0d3a5f",
+    "surface-2": "#11486f",
+    "violet": "#8fd0ff"
+  },
   "slogan": "Draw a route. Keep it flowing",
   "store": ""
 }
