@@ -49,7 +49,35 @@ TEXT = {
 }
 
 
-def body(site, language):
+def about_the_app(site, language):
+    """The two paragraphs that describe an app rather than its operator.
+
+    Separated out because the portfolio at the root of the Pages site carries
+    the same § 5 identification and is not an app: it has no privacy page of
+    its own, and "die App" there would be three of them. One § 5 block, two
+    callers, rather than a second copy that would go stale the next time the
+    law's wording did.
+    """
+    return f"""  <h3>Verkauf über den App&nbsp;Store</h3>
+  <p>
+    Die App und alle In-App-Käufe werden über den Apple App&nbsp;Store
+    vertrieben. Vertragspartner für den Kauf ist Apple; Rückerstattungen
+    laufen über
+    <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.
+  </p>
+
+  <h3>Datenschutz</h3>
+  <p>
+    Verantwortlicher im Sinne der DSGVO ist der oben genannte Diensteanbieter.
+    Einzelheiten in der
+    <a href="{site.local(language, "privacy.html")}">Datenschutzerklärung</a>,
+    siehe auch die
+    <a href="{site.local(language, "terms.html")}">Nutzungsbedingungen</a>.
+  </p>
+"""
+
+
+def body(site, language, *, about=None):
     """The German provider identification. Identical in every language."""
     it = site.impressum
     subject = it.get("subject", it["app"]).replace(" ", "%20")
@@ -91,23 +119,7 @@ def body(site, language):
     Plattform wurde am 20. Juli 2025 eingestellt.
   </p>
 
-  <h3>Verkauf über den App&nbsp;Store</h3>
-  <p>
-    Die App und alle In-App-Käufe werden über den Apple App&nbsp;Store
-    vertrieben. Vertragspartner für den Kauf ist Apple; Rückerstattungen
-    laufen über
-    <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.
-  </p>
-
-  <h3>Datenschutz</h3>
-  <p>
-    Verantwortlicher im Sinne der DSGVO ist der oben genannte Diensteanbieter.
-    Einzelheiten in der
-    <a href="{site.local(language, "privacy.html")}">Datenschutzerklärung</a>,
-    siehe auch die
-    <a href="{site.local(language, "terms.html")}">Nutzungsbedingungen</a>.
-  </p>
-
+{about if about is not None else about_the_app(site, language)}
   <h3>Haftung für Links</h3>
   <p>
     Diese Seiten enthalten Links zu externen Websites Dritter, auf deren
@@ -118,16 +130,27 @@ def body(site, language):
 """
 
 
-def page(site, language):
+def page(site, language, *, about=None, note=None):
+    """One Impressum page.
+
+    `about` and `note` are the parts that talk about an app rather than about
+    the operator, and the portfolio at the root of the Pages site — which is not
+    an app and has no privacy or support page of its own — supplies its own.
+    Left alone, this renders exactly what it always did.
+    """
     missing = [k for k in REQUIRED if not site.impressum.get(k)]
     if missing:
         raise SystemExit("Site.impressum is missing " + ", ".join(missing)
                          + " — § 5 DDG requires each of them")
-    meta, note = TEXT[language]
-    markup = body(site, language)
-    if note:
+    meta, standard = TEXT[language]
+    if note is None:
+        # {support} is this app's own support page. A caller that brings its
+        # own note brings its own links with it, and is not formatted again.
         support = f'<a href="{site.local(language, "support.html")}">Support</a>'
-        markup += f'\n  <div class="note">\n    <p>{note.format(support=support)}</p>\n  </div>\n'
+        note = standard.format(support=support)
+    markup = body(site, language, about=about)
+    if note:
+        markup += f'\n  <div class="note">\n    <p>{note}</p>\n  </div>\n'
     main = ('<main class="legal"><div class="wrap">\n\n'
             f'<section>\n  <h2>Impressum</h2>\n{markup}</section>\n\n'
             '</div></main>\n')

@@ -68,7 +68,10 @@ def hero(*, headline, lead, eyebrow=None, emblem=None, buttons=None, parts=()):
     if eyebrow:
         out.append(f'  <p class="eyebrow">{html.escape(eyebrow)}</p>\n')
     out.append(f"  <h1>{headline}</h1>\n")
-    out.append(f'  <p class="lead">{html.escape(lead)}</p>\n')
+    # A page whose headline says the whole thing gets no lead rather than an
+    # empty paragraph under it.
+    if lead:
+        out.append(f'  <p class="lead">{html.escape(lead)}</p>\n')
     if buttons:
         out.append(buttons)
     for part in parts:

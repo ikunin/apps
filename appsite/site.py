@@ -21,7 +21,11 @@ class Site:
     #: mirrors it under Marketing/.
     metadata: str = os.path.join("fastlane", "metadata")
     theme_color: str = "#07060d"
+    #: Either may be empty, and then that <link> is not written. The portfolio
+    #: at the root of the Pages site has one SVG mark and no touch icon; an app
+    #: has both, so its pages do not move.
     favicon: str = "img/favicon-32.png"
+    favicon_sizes: str = "32x32"
     apple_touch: str = "img/apple-touch-icon.png"
     stylesheet: str = "style.css"
     #: CSS custom properties to override the kit's defaults — `{"accent":
@@ -34,6 +38,10 @@ class Site:
     #: Language codes this site is built in, in switcher order. The default is
     #: every language the kit knows.
     languages: tuple = tuple(LANGUAGES)
+    #: The App Store listing, if the app is live. The portfolio card shows a
+    #: button for it and omits the button when this is empty; nothing else in
+    #: the kit reads it.
+    store: str = ""
 
     def directory(self, language):
         return self.out if language == "en" else os.path.join(self.out, language)
@@ -44,6 +52,12 @@ class Site:
         # A page that exists in one language declares no alternates, and must
         # not leave a blank line in <head> where they would have been.
         alternates = f"{alternates}\n" if alternates else ""
+        icons = ""
+        if self.favicon:
+            icons += (f'<link rel="icon" href="{root}{self.favicon}" '
+                      f'sizes="{self.favicon_sizes}">\n')
+        if self.apple_touch:
+            icons += f'<link rel="apple-touch-icon" href="{root}{self.apple_touch}">\n'
         return f"""<!doctype html>
 <html lang="{language}">
 <head>
@@ -53,9 +67,7 @@ class Site:
 <meta name="description" content="{description}">
 <meta name="color-scheme" content="dark light">
 <meta name="theme-color" content="{self.theme_color}">
-<link rel="icon" href="{root}{self.favicon}" sizes="32x32">
-<link rel="apple-touch-icon" href="{root}{self.apple_touch}">
-<link rel="stylesheet" href="{root}{self.stylesheet}">
+{icons}<link rel="stylesheet" href="{root}{self.stylesheet}">
 {alternates}</head>
 <body>
 

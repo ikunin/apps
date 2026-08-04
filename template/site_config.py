@@ -12,8 +12,8 @@ import sys
 def _kit():
     """vendor/appsite, wherever in the tree this file happens to sit.
 
-    Walking up beats a fixed number of `..` segments: the same config works
-    from Tools/appstore/ in one repository and docs/appstore/ in another, and a
+    Walking up beats a fixed number of `..` segments: this file belongs in
+    appstore/ in every repository, but it keeps working from anywhere, and a
     missing submodule says so instead of failing as ModuleNotFoundError three
     imports later.
     """
@@ -50,8 +50,13 @@ SITE = Site(
     out="site",
     metadata=os.path.join("fastlane", "metadata"),
     # Token overrides on the kit's stylesheet. Start with the app icon's
-    # dominant colour as --accent and leave the rest.
+    # dominant colour as --accent and leave the rest. --accent is also the
+    # colour this app's card takes on the portfolio at the root of the site.
     palette={},                             # TODO(app)
+    # The App Store listing, once the app is live. The portfolio card shows a
+    # button for it and leaves the button off while this is empty, so an
+    # unreleased app needs no placeholder here.
+    store="",                               # TODO(app)
 )
 
 #: What the App Store listing points at, so a renamed page fails the build

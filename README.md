@@ -20,6 +20,7 @@ app and rots on the others.
 | Legal-page structure and the standard Apple links | Every sentence of the privacy policy and terms |
 | The stylesheet | Its palette, as token overrides |
 | The checker | What the listing is required to point at |
+| The index of every app, at the site root | The card it contributes to it |
 
 The split is not arbitrary. **Structure is single-sourced because a bug in it is
 one bug.** **Prose is owned because a sentence that has to change for one app
@@ -33,14 +34,18 @@ Add the kit as a submodule and write one config file:
 
 ```sh
 git submodule add https://github.com/ikunin/appsite.git vendor/appsite
-cp vendor/appsite/template/* <wherever this repo keeps its tooling>/
+mkdir appstore && cp vendor/appsite/template/* appstore/
 ```
 
-**`vendor/appsite`, in every repository, exactly.** Not `Tools/` or `tools/` —
-those are the same directory on a case-insensitive Mac and two different ones
-on Linux CI, which is a trap worth stepping around once rather than debugging
-per repo. `site_config.py` finds the kit by walking up to it, so the config
-itself can live wherever the repo already keeps its scripts.
+**`vendor/appsite` and `appstore/`, in every repository, exactly.** Both
+lowercase: `Tools/` and `tools/` are the same directory on a case-insensitive
+Mac and two different ones on Linux CI, a trap worth stepping around once
+rather than debugging per repo. And one name for the config everywhere means a
+recipe written here runs in any of these repositories unedited — three names
+for the same directory is a lookup table the docs have to carry forever.
+
+`site_config.py` finds the kit by walking up to it, so nothing breaks if a
+repository does put it elsewhere. It should not.
 
 `site_config.py` is the whole interface:
 
@@ -58,10 +63,11 @@ Then, in the app's Makefile:
 
 ```make
 site:
-	python3 Tools/appstore/install_site_assets.py
-	python3 Tools/appstore/make_site_translations.py
-	python3 Tools/appstore/make_site_legal.py
-	python3 Tools/appstore/check_site.py
+	python3 appstore/install_site_assets.py
+	python3 appstore/make_site_translations.py
+	python3 appstore/make_site_legal.py
+	python3 appstore/make_site_card.py
+	python3 appstore/check_site.py
 ```
 
 ## The listing is the source of the pitch
@@ -71,6 +77,30 @@ The landing page's headline and opening paragraph are read from
 which App Store Connect's own tools also expect. Those words are already
 translated and already reviewed, and they are what a customer meets before they
 ever reach the site. Translating the same pitch twice guarantees the two drift.
+
+## The apps make the index
+
+One Pages site serves every app, a directory each, and its root lists them:
+`ikunin.github.io/apps/`. That page is not a list anybody keeps up to date.
+
+`make_site_card.py` writes `site/app.json` — the app's name, the App Store
+subtitle it already ships, its icon and its accent, every one of them read from
+`site_config.py` or the listing. Publishing copies `site/` wholesale, so the
+card lands on the branch with the pages, and `publish.py` rebuilds the index
+from every card it finds there.
+
+An app is on that page because it published. A fourth app needs no edit in this
+repository at all, and an app whose card is missing has simply not been rebuilt
+since this existed.
+
+A card is an icon, a name and one slogan. **Nothing on that page describes the
+apps as a group** — they differ in what they collect, and a sentence true of
+two of them is a false statement about the third. Its own wording lives in
+`portfolio_config.py`.
+
+```sh
+python3 vendor/appsite/publish.py --index-only     # rebuild just the root
+```
 
 ## Translating a page
 

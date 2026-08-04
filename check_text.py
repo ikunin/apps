@@ -4,7 +4,7 @@
 Run from an app's repository, pointing at the directory holding its
 site_text_*.py and make_site_translations.py:
 
-    python3 vendor/appsite/check_text.py --texts docs/appstore
+    python3 vendor/appsite/check_text.py --texts appstore
 
 Two checks, both from real failures:
 

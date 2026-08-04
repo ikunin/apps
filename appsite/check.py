@@ -39,6 +39,14 @@ def local_target(value):
     return value.split("#", 1)[0].split("?", 1)[0] or None
 
 
+def images_without_alt(markup):
+    """Every <img> on a page that a screen reader would have nothing to say
+    about. One definition, so the portfolio at the root of the Pages site is
+    held to the same rule as the app pages."""
+    return [img for img in re.findall(r"<img\b[^>]*>", markup)
+            if 'alt="' not in img]
+
+
 def check_pages(site, *, required, impressum):
     problems = []
     out = site.out
@@ -71,9 +79,8 @@ def check_pages(site, *, required, impressum):
                 problems.append(f"{out}/{page}:{line}: {value} does not exist")
 
         # An image with no alt text is unreadable to a screen reader.
-        for img in re.findall(r"<img\b[^>]*>", markup):
-            if 'alt="' not in img:
-                problems.append(f"{out}/{page}: an <img> has no alt text")
+        for _ in images_without_alt(markup):
+            problems.append(f"{out}/{page}: an <img> has no alt text")
 
         if "<title>" not in markup:
             problems.append(f"{out}/{page}: no <title>")

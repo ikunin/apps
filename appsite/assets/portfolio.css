@@ -1,0 +1,101 @@
+/* The root of the Pages site — the card grid, and nothing else.
+ *
+ * Appended to the kit's stylesheet when `appsite/portfolio.py` builds the root,
+ * rather than served beside it: one file, one request, and no second copy of a
+ * token to disagree with the first. The app sites never load this.
+ *
+ * Every card sets `--accent` to its own app's colour inline, so the rules below
+ * name the token and each card comes out in the right one. That is the whole
+ * trick — there is no per-app CSS anywhere.
+ */
+
+/* This page belongs to no single app, so it does not take one app's accent —
+   the kit's default is TappyMusic's yellow. A neutral violet instead, in both
+   themes: `Site.palette` writes one unconditional block and would override the
+   light one too, which is how a pale violet link ends up on a white page. */
+:root {
+  --accent:     #b3a2ff;
+  --accent-ink: #141024;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --accent:     #6b3df0;
+    --accent-ink: #ffffff;
+  }
+}
+
+/* The kit's hero leaves room for a lead paragraph under the headline. This page
+   has one word and then the apps, so the gap closes up. */
+.hero { padding-bottom: 0; }
+main > .wrap > section { padding-top: clamp(1.75rem, 5vw, 3rem); }
+main { padding-bottom: clamp(2rem, 6vw, 4rem); }
+
+.apps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16.5rem, 1fr));
+  gap: 1.25rem;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2.25rem 1.5rem 1.75rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: transform 0.35s var(--ease), border-color 0.35s var(--ease);
+}
+
+.app:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+
+/* The icon at the size iOS draws it on the home screen, lit by the app's own
+   accent so three cards do not read as one grey list. */
+.app img {
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 1.3rem;
+  margin-bottom: 1.1rem;
+  box-shadow: 0 0 2.5rem rgba(255, 255, 255, 0.10),
+              0 0 0 1px rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 2.5rem color-mix(in oklab, var(--accent) 35%, transparent),
+              0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.app h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.app h3 a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.app h3 a:hover { text-decoration: underline; }
+
+/* The app's own App Store subtitle, and the only prose on the page. */
+.app p {
+  margin: 0.4rem 0 1.4rem;
+  color: var(--dim);
+  font-size: 0.95rem;
+  max-width: 20rem;
+}
+
+/* Pinned to the bottom, so buttons line up across cards whose slogans run to
+   different lengths. */
+.app .actions { margin-top: auto; }
+
+/* The kit's button glow is a fixed yellow; inside a card it follows the card. */
+.app .button {
+  box-shadow: 0 0.6rem 1.6rem color-mix(in oklab, var(--accent) 25%, transparent);
+}
+
+.app .button:hover {
+  box-shadow: 0 0.9rem 2rem color-mix(in oklab, var(--accent) 32%, transparent);
+}

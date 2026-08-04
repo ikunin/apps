@@ -10,9 +10,11 @@ the one that is maintained; do not copy it.
 
 ## What exists
 
-One GitHub Pages site, three apps, eleven languages each:
+One GitHub Pages site, three apps, eleven languages each, and an index at the
+root that lists them:
 
 ```
+https://ikunin.github.io/apps/                the index — generated, see below
 https://ikunin.github.io/apps/tappymusic/     46 pages
 https://ikunin.github.io/apps/harborrush/     45 pages
 https://ikunin.github.io/apps/speedycards/    45 pages
@@ -35,22 +37,23 @@ change for one app must not change for the others.
 | The stylesheet (`assets/style.css`) | Its palette, as token overrides |
 | The checkers (`check.py`, `check_text.py`) | What the listing must point at |
 | The publish step (`publish.py`) | — |
+| The index of the apps (`portfolio.py`, `portfolio_config.py`) | Its card (`site/app.json`) |
 
 ## Where each app keeps its words
 
-The submodule is at **`vendor/appsite`** in every repository — not `Tools/`,
-not `tools/`, which are the same directory on a case-insensitive Mac and two
-different ones on Linux CI.
+Two paths, the same in every repository: the kit is the submodule at
+**`vendor/appsite`**, and that app's own words are in **`appstore/`**. Both
+lowercase — `Tools/` and `tools/` are the same directory on a case-insensitive
+Mac and two different ones on Linux CI. All three apps build with `make site`.
 
-| App | Text tables | Build |
-|---|---|---|
-| TappyMusic | `Tools/appstore/` | `make site` |
-| Harbor Rush | `docs/appstore/` | `make site` |
-| SpeedyCards | `scripts/site/` | `make site` |
-
-In each: `site_config.py` (the whole interface to the kit),
+In `appstore/`: `site_config.py` (the whole interface to the kit),
 `make_site_translations.py` (landing page + the `T` table),
-`site_text_{support,privacy,terms}.py`, and generated `site/`.
+`site_text_{support,privacy,terms}.py`, `make_site_card.py`, and generated
+`site/` at the repository root.
+
+These directories used to be `Tools/appstore/`, `docs/appstore/` and
+`scripts/site/` — one name each, for no reason. If you find a doc still saying
+so, it is stale.
 
 ---
 
@@ -86,7 +89,29 @@ python3 vendor/appsite/publish.py --app <app>        # copy onto gh-pages
 subdirectory, so it cannot take another app down. Pages takes about a minute.
 
 **Never edit the `gh-pages` branch directly.** It is output. The next publish
-overwrites it.
+overwrites it — including the index at the root.
+
+### Change the index at the root
+
+`ikunin.github.io/apps/` lists the apps, and is rebuilt from the branch on
+every publish: each app's `make site` writes `site/app.json`, publishing
+carries it up, and `portfolio.py` reads every one it finds. So —
+
+- **an app missing from the index has not been rebuilt** since `app.json`
+  existed. Run its `make site` and publish it.
+- **its card changed on its own?** Something in that app's `site_config.py` or
+  its `subtitle.txt` changed. The card has no words of its own.
+- **the page's own wording, colours and § 5 address** are in
+  `portfolio_config.py` here. After editing it:
+
+```sh
+python3 vendor/appsite/publish.py --index-only --dry-run
+```
+
+**A card is an icon, a name and that app's own App Store subtitle.** Do not add
+a sentence about the apps to that page. They differ in what they collect, and
+one sentence about all three is a false statement about at least one of them —
+which is the mistake below, in a place where it would be published fastest.
 
 ### Add a language
 
@@ -115,6 +140,10 @@ landing page in eleven languages before anyone checked its privacy manifest.
 SpeedyCards' privacy policy described *melody packs and cliparts*, and claimed
 the app was "designed for children and rated 4+", and was live that way.
 
+The index at the root is the fastest place to make this mistake, because it is
+the one page that has all three apps on it. It is built so that it cannot: a
+card carries only what its own app says about itself.
+
 **A blanket rename renames the app, not what the app is about.** Replacing
 `TappyMusic` with `SpeedyCards` across a file leaves "a particular song" and
 "melody packs" in place, wearing the new name. `check_text.py` looks for this.
@@ -122,7 +151,7 @@ the app was "designed for children and rated 4+", and was live that way.
 **Run both checkers before publishing.**
 
 ```sh
-python3 vendor/appsite/check_text.py --texts <text dir> --app <app>
+python3 vendor/appsite/check_text.py --texts appstore --app <app>
 make site        # runs check_site.py
 ```
 
@@ -144,8 +173,9 @@ expression is legal from 3.12 and a `SyntaxError` before it; the package
 imported fine locally and could not be imported at all by CI. The test suite
 now checks every file with `ast.parse(feature_version=(3, 11))`.
 
-**`site/` is generated.** Only `site/impressum.html` is written by hand.
-Everything else, `style.css` included, is overwritten on the next build.
+**`site/` is generated** — every page, `style.css`, and `app.json` with it.
+All of it is overwritten on the next build, so an edit made there is lost
+without ever being wrong enough to notice.
 
 **Never publish a private email address.** Harbor Rush's old site published
 one. Every app now shares one contact address, `support.kunin@gmail.com`, and
@@ -159,7 +189,7 @@ links from there rather than writing the address out again.
 
 ```sh
 cd vendor/appsite && python3 tests/test_appsite.py    # kit: syntax floor, chrome, blocks
-python3 vendor/appsite/check_text.py --texts <dir> --app <app>
+python3 vendor/appsite/check_text.py --texts appstore --app <app>
 make site                                             # links, alt text, listing URLs
 ```
 
