@@ -4,26 +4,11 @@
  * rather than served beside it: one file, one request, and no second copy of a
  * token to disagree with the first. The app sites never load this.
  *
- * Every card sets `--accent` to its own app's colour inline, so the rules below
- * name the token and each card comes out in the right one. That is the whole
- * trick — there is no per-app CSS anywhere.
+ * Nothing here names a colour. The page's palette is the one the app named in
+ * portfolio_config.py publishes, and every card overrides `--accent` inline
+ * with its own app's — so these rules name tokens only, and each card comes
+ * out in the right colour. There is no per-app CSS anywhere.
  */
-
-/* This page belongs to no single app, so it does not take one app's accent —
-   the kit's default is TappyMusic's yellow. A neutral violet instead, in both
-   themes: `Site.palette` writes one unconditional block and would override the
-   light one too, which is how a pale violet link ends up on a white page. */
-:root {
-  --accent:     #b3a2ff;
-  --accent-ink: #141024;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --accent:     #6b3df0;
-    --accent-ink: #ffffff;
-  }
-}
 
 /* The kit's hero leaves room for a lead paragraph under the headline. This page
    has one word and then the apps, so the gap closes up. */

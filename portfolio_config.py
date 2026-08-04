@@ -43,13 +43,26 @@ SITE = Site(
     favicon_sizes="any",
     apple_touch="",
     languages=("en",),
-    # No palette override. `Site.palette` writes one unconditional `:root`
-    # block, which would override the stylesheet's light theme as well as its
-    # dark one; this page's neutral accent is set per theme at the top of
-    # appsite/assets/portfolio.css instead. Each card still carries its own
-    # app's accent inline, which is what makes the row of them read.
+    # Empty on purpose — see PALETTE_FROM below. The palette is not written
+    # here because it is not owned here.
     palette={},
 )
+
+#: Whose colours this page wears.
+#:
+#: A page about three apps has to look like something, and the kit's default
+#: palette is TappyMusic's. SpeedyCards' felt-and-brass is the one that reads
+#: as a shelf rather than as one of the products, so the root takes it.
+#:
+#: It is a *name*, not a copy of the tokens: the palette is read from the card
+#: SpeedyCards publishes, so restyling that app and republishing it restyles
+#: this page too, and the two cannot fall out of step. Set it to "" to go back
+#: to the kit's own colours.
+#:
+#: Note that this makes the root single-theme, as SpeedyCards' own site is —
+#: `Site.palette` writes one unconditional `:root` block, which overrides the
+#: stylesheet's light theme along with its dark one.
+PALETTE_FROM = "speedycards"
 
 #: § 5 DDG, the two fields of it that describe a page rather than a person.
 #: The address, telephone number and contact mail are NOT here: they live in

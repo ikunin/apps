@@ -89,6 +89,10 @@ def manifest(site):
         "accent_ink": (site.palette.get("accent-ink")
                        or assets.default_token("accent-ink")),
         "store": site.store,
+        # The whole token table, not just the accent: the root wears one app's
+        # colours (see PALETTE_FROM in portfolio_config.py) and follows it from
+        # here rather than keeping a second copy of it to fall behind.
+        "palette": dict(site.palette),
         # The § 5 operator, so the root's Impressum can be built without a
         # second copy of an address that lives in this app's site_config.py
         # and nowhere else. Everything here is already on 45 published pages.
@@ -189,35 +193,59 @@ def operator(apps):
     return block
 
 
-def site_at(config, root, apps=()):
+def borrowed_palette(config, apps):
+    """The colours of the app this page dresses as, or nothing.
+
+    This page belongs to no app, so it has to take *some* palette, and the
+    kit's default is TappyMusic's. Naming one app and reading its tokens off
+    the card it publishes keeps the root in step with that app's own site:
+    restyle the app, republish, and this follows.
+    """
+    wanted = getattr(config, "PALETTE_FROM", "")
+    if not wanted:
+        return {}
+    for slug, app in apps:
+        if slug != wanted:
+            continue
+        if app.get("palette"):
+            return app["palette"]
+        print(f"  warn {wanted}'s card carries no palette — rebuild it with "
+              "make_site_card.py; the index is in the kit's colours meanwhile")
+        return {}
+    print(f"  warn {wanted} has not published a card, so the index cannot take "
+          "its colours; using the kit's own")
+    return {}
+
+
+def site_at(config, root, apps):
     """The config's `Site`, pointed at the directory being written.
 
     Its § 5 block is the operator the apps report, under the name and mail
-    subject this page uses — which are the only two of those fields that
-    describe a site rather than a person.
+    subject this page uses — the only two of those fields that describe a site
+    rather than a person. Its colours are the app named in the config.
     """
-    site = dataclasses.replace(config.SITE, out=root)
-    if not apps:
+    site = dataclasses.replace(config.SITE, out=root,
+                               impressum={**operator(apps), **config.IMPRESSUM})
+    palette = borrowed_palette(config, apps)
+    if not palette:
         return site
-    return dataclasses.replace(site, impressum={**operator(apps),
-                                                **config.IMPRESSUM})
+    # The address bar takes the same background the page does.
+    return dataclasses.replace(site, palette=palette,
+                               theme_color=palette.get("bg", site.theme_color))
 
 
-def index(config, root, apps):
-    site = site_at(config, root)
+def index(config, site, apps):
     return site.document("en", "index.html", title=config.TITLE,
                          description=config.DESCRIPTION, main=body(config, apps))
 
 
-def provider(config, root, apps):
+def provider(config, site, apps):
     """The root's Impressum: the same § 5 block every app page carries.
 
     Its DSGVO paragraph names each app's own privacy page rather than one of
     its own, because this page has none — and its note sends a reader to the
     support page of whichever app they came for.
     """
-    site = site_at(config, root, apps)
-
     def named(page):
         return ", ".join(f'<a href="{slug}/{page}">{html.escape(app["name"])}</a>'
                          for slug, app in apps)
@@ -262,14 +290,14 @@ def load_config(path=CONFIG):
     return module
 
 
-def install(config, root):
+def install(site):
     """The root's stylesheet and its mark.
 
     The card rules are appended to the kit's own stylesheet rather than served
     beside it: one file, one request, and no chance of the two disagreeing
-    about a token.
+    about a token. They come after the palette, and name tokens rather than
+    colours, so the page comes out in whatever the palette says.
     """
-    site = site_at(config, root)
     target = assets.install(site)
     with open(STYLES, encoding="utf-8") as handle:
         card_rules = handle.read()
@@ -277,7 +305,15 @@ def install(config, root):
         handle.write("\n" + card_rules)
     with open(FAVICON, encoding="utf-8") as handle:
         mark = handle.read()
-    with open(os.path.join(root, "favicon.svg"), "w", encoding="utf-8") as handle:
+    # The mark is four tiles in the page's own colours, so it cannot be a flat
+    # file: it is the one asset that has to know the palette.
+    for token, default in (("bg-2", "#0e0c19"), ("accent", "#c7b9ff"),
+                           ("cyan", "#7fd8f7"), ("pink", "#ff9ec4"),
+                           ("violet", "#c7b9ff")):
+        mark = mark.replace("{%s}" % token,
+                            site.palette.get(token) or assets.default_token(token)
+                            or default)
+    with open(os.path.join(site.out, "favicon.svg"), "w", encoding="utf-8") as handle:
         handle.write(mark)
 
 
@@ -293,9 +329,10 @@ def build(root, config=None):
         raise SystemExit(
             f"{root}: no {MANIFEST} anywhere — no app has published a card, "
             "and an index with nothing on it is worse than none")
-    install(config, root)
-    for name, markup in (("index.html", index(config, root, apps)),
-                         ("impressum.html", provider(config, root, apps))):
+    site = site_at(config, root, apps)
+    install(site)
+    for name, markup in (("index.html", index(config, site, apps)),
+                         ("impressum.html", provider(config, site, apps))):
         with open(os.path.join(root, name), "w", encoding="utf-8") as handle:
             handle.write(markup)
     return apps
