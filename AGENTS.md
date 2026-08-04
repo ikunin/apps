@@ -147,8 +147,9 @@ now checks every file with `ast.parse(feature_version=(3, 11))`.
 **`site/` is generated.** Only `site/impressum.html` is written by hand.
 Everything else, `style.css` included, is overwritten on the next build.
 
-**Never publish a personal email address.** Harbor Rush's old site published
-one. Contact addresses are `<app>.support@gmail.com`.
+**Never publish a private email address.** Harbor Rush's old site published
+one. Every app now shares one contact address, `support.kunin@gmail.com`, and
+the `mailto:` subject names the app so replies can be sorted.
 
 ---
 
@@ -162,8 +163,8 @@ make site                                             # links, alt text, listing
 
 ## What needs a human, not an agent
 
-- **Creating the support mailboxes.** `harborrush.support@gmail.com` and
-  `speedycards.support@gmail.com` are on 90 live pages and do not exist yet.
+- **Creating the support mailbox.** `support.kunin@gmail.com` is the shared
+  address on every app's live pages. Confirm it exists before publishing.
 - **Deciding whether an app ships analytics.** Setting a TelemetryDeck App ID
   changes the privacy policy, the App Store privacy label and the landing copy
   in eleven languages. Ask; do not infer it from the code.
