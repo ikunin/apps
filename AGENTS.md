@@ -149,7 +149,9 @@ Everything else, `style.css` included, is overwritten on the next build.
 
 **Never publish a private email address.** Harbor Rush's old site published
 one. Every app now shares one contact address, `support.kunin@gmail.com`, and
-the `mailto:` subject names the app so replies can be sorted.
+the `mailto:` subject names the app so replies can be sorted. It lives in that
+app's `site_config.py` (`impressum["email"]`) and nowhere else — build the
+links from there rather than writing the address out again.
 
 ---
 
@@ -163,8 +165,8 @@ make site                                             # links, alt text, listing
 
 ## What needs a human, not an agent
 
-- **Creating the support mailbox.** `support.kunin@gmail.com` is the shared
-  address on every app's live pages. Confirm it exists before publishing.
+- **Creating the support mailbox.** `support.kunin@gmail.com` is the one address
+  every app publishes; confirm it exists and is watched before publishing.
 - **Deciding whether an app ships analytics.** Setting a TelemetryDeck App ID
   changes the privacy policy, the App Store privacy label and the landing copy
   in eleven languages. Ask; do not infer it from the code.
