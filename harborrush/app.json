@@ -1,0 +1,18 @@
+{
+  "accent": "#ffd23f",
+  "accent_ink": "#1d2a0a",
+  "icon": "img/icon-512.png",
+  "icon_size": 512,
+  "name": "Harbor Rush",
+  "operator": {
+    "city": "Berlin",
+    "country": "Deutschland",
+    "email": "support.kunin@gmail.com",
+    "name": "Igor Kunin",
+    "phone": "+49 30 56007689",
+    "postcode": "10587",
+    "street": "Fraunhoferstr. 23A"
+  },
+  "slogan": "Draw a route. Keep it flowing",
+  "store": ""
+}
