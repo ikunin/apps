@@ -13,6 +13,22 @@
     "postcode": "10587",
     "street": "Fraunhoferstr. 23A"
   },
+  "palette": {
+    "accent": "#d8a657",
+    "accent-ink": "#1a1305",
+    "bg": "#101820",
+    "bg-2": "#16212b",
+    "cyan": "#8fd0d8",
+    "dim": "#9a9284",
+    "ink": "#f4efe6",
+    "ink-2": "#cfc6b6",
+    "line": "#314856",
+    "line-soft": "#263a45",
+    "pink": "#e0a3a3",
+    "surface": "#1b2a33",
+    "surface-2": "#22343f",
+    "violet": "#9fc9a8"
+  },
   "slogan": "Think Fast. Play Faster.",
   "store": ""
 }
