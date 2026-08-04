@@ -103,17 +103,18 @@ def main():
         if problems:
             sys.exit(f"the index has {len(problems)} problems, not publishing")
         listed = ", ".join(slug for slug, _ in apps)
+        count = f"{len(apps)} app" + ("" if len(apps) == 1 else "s")
         what = f"Publish {args.app}: {len(pages)} pages" if args.app \
-            else f"Rebuild the index: {len(apps)} apps"
+            else f"Rebuild the index: {count}"
 
         run("git", "add", "-A", cwd=checkout)
         status = run("git", "status", "--short", cwd=checkout).stdout.strip()
         if not status:
             print(f"{args.app or 'index'}: already published, nothing changed")
             return
-        print(f"index: {len(apps)} apps — {listed}")
+        print(f"index: {count} — {listed}")
         if args.dry_run:
-            print(f"would commit {what.lower()}\n{status[:600]}")
+            print(f"would commit: {what}\n{status[:600]}")
             return
 
         run("git", "-c", "user.email=kunin.igor@gmail.com", "-c", "user.name=ikunin",
