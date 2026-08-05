@@ -153,6 +153,52 @@ nav.site a[aria-current="page"] {
   background: rgba(255, 255, 255, 0.09);
 }
 
+/* The two links that leave this site: the other apps, and the App Store. A
+   hairline sets them off, so the header does not read as one undifferentiated
+   row of seven. It is drawn as a pseudo-element rather than a border, because
+   these pills are pill-shaped and a border-left comes out as a crescent. */
+nav.site .away {
+  position: relative;
+  margin-left: 0.75rem;
+}
+
+nav.site .away::before {
+  content: "";
+  position: absolute;
+  left: -0.45rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 1.15rem;
+  background: var(--line);
+}
+
+/* `nav.site a` is more specific than `.button`, so the header's button has to
+   name its own colours or it comes out in the navigation's grey. */
+nav.site .button {
+  color: var(--accent-ink);
+  margin-left: 0.5rem;
+}
+
+nav.site .button:hover { color: var(--accent-ink); background: var(--accent); }
+
+/* The header's own size of button: the page's call to action is in the hero,
+   and this one must not shout over it. */
+.button.small {
+  font-size: 0.85rem;
+  padding: 0.42rem 1rem;
+  box-shadow: none;
+}
+
+.button.small:hover { transform: none; box-shadow: none; filter: brightness(1.08); }
+
+/* Two links plus five pages is a wide header. On a phone the nav wraps to its
+   own line and the two outward links stay together at its end. */
+@media (max-width: 34rem) {
+  nav.site { margin-left: 0; width: 100%; }
+  nav.site .away { margin-left: auto; }
+}
+
 /* --- hero ---------------------------------------------------------------- */
 
 .hero { padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(2rem, 5vw, 3.5rem); text-align: center; }
