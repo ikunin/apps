@@ -82,6 +82,24 @@ check("a translated page links a sibling flat", '<a href="support.html">' in hea
 check("an untranslated page is reached one level up", '<a href="../extra.html">' in header)
 check("the brand goes to this language's home", '<a class="brand" href="./">' in header)
 
+header, _, _, _ = CHROME.render("en", "support.html")
+check("with no store and no siblings, nothing outward is written",
+      'class="away"' not in header and 'class="button' not in header)
+
+header, _, _, _ = CHROME.render("en", "support.html",
+                                store="https://apps.apple.com/app/id1", more_apps="../")
+check("the store is a button at the top of an inner page",
+      'href="https://apps.apple.com/app/id1"' in header and "button small" in header)
+check("the other apps are one link away", '<a class="away" href="../">More apps</a>' in header)
+
+header, _, _, _ = CHROME.render("ja", "privacy.html",
+                                store="https://apps.apple.com/app/id1", more_apps="../")
+check("that link is written from a translated page's own depth",
+      '<a class="away" href="../../">' in header)
+check("and carries that language's label", "ほかのアプリ" in header)
+check("the store link is not rewritten for depth",
+      'href="https://apps.apple.com/app/id1"' in header)
+
 _, _, alternates, _ = CHROME.render("de", "support.html")
 check("alternates point at each language's copy of THIS page",
       '<link rel="alternate" hreflang="fr" href="../fr/support.html">' in alternates)

@@ -38,17 +38,22 @@ class Site:
     #: Language codes this site is built in, in switcher order. The default is
     #: every language the kit knows.
     languages: tuple = tuple(LANGUAGES)
-    #: The App Store listing, if the app is live. The portfolio card shows a
-    #: button for it and omits the button when this is empty; nothing else in
-    #: the kit reads it.
+    #: The App Store listing, if the app is live. It becomes a button at the
+    #: top of every page and the button on this app's portfolio card; empty
+    #: writes neither, so an unreleased app carries no dead link.
     store: str = ""
+    #: Where the other apps are, relative to this site's root — "../" when the
+    #: sites are published side by side. Becomes one link in the header of
+    #: every page. Empty writes nothing.
+    more_apps: str = ""
 
     def directory(self, language):
         return self.out if language == "en" else os.path.join(self.out, language)
 
     def document(self, language, current, *, title, description, main):
         """A complete page. `main` is the whole <main> element."""
-        header, footer, alternates, root = self.chrome.render(language, current)
+        header, footer, alternates, root = self.chrome.render(
+            language, current, store=self.store, more_apps=self.more_apps)
         # A page that exists in one language declares no alternates, and must
         # not leave a blank line in <head> where they would have been.
         alternates = f"{alternates}\n" if alternates else ""

@@ -53,11 +53,18 @@ class Chrome:
     def language_codes(self):
         return list(LANGUAGES)
 
-    def render(self, language, current):
+    def render(self, language, current, *, store="", more_apps=""):
         """Returns (header, footer, alternates, root) for one page.
 
         `current` is the page's file name: it marks the right nav item, and it
         decides the depth every other link is written relative to.
+
+        `store` and `more_apps` are the two links that leave this site — the
+        App Store listing and the index of the other apps. They belong at the
+        top, on every page rather than only on the landing page: somebody who
+        arrived at the support page from the store listing is one of the people
+        most likely to want the other apps. Either one empty writes nothing,
+        which is how an app that is not on the store yet gets no dead link.
         """
         root = "" if language == "en" else "../"
         translated = {page.file for page in self.pages if page.translated}
@@ -81,6 +88,21 @@ class Chrome:
             mark = ' aria-current="page"' if page.file == current else ""
             return f'      <a href="{target}"{mark}>{html.escape(page.label(language))}</a>\n'
 
+        # A path is written relative to this site's root, so it is correct from
+        # a translated page one directory down; a full URL is left alone.
+        def outward(target):
+            return target if "//" in target else f"{root}{target}"
+
+        away = ""
+        if more_apps:
+            away += (f'      <a class="away" href="{outward(more_apps)}">'
+                     f'{html.escape(LANGUAGES[language].nav["apps"])}</a>\n')
+        if store:
+            # "App Store" is Apple's own name for it in every one of these
+            # languages, so it is not translated.
+            away += (f'      <a class="button small" href="{outward(store)}">'
+                     'App&nbsp;Store</a>\n')
+
         header = (
             '<header class="site">\n  <div class="wrap">\n'
             f'    <a class="brand" href="./">'
@@ -88,6 +110,7 @@ class Chrome:
             f'width="{self.icon_size}" height="{self.icon_size}">'
             f'{self.brand}</a>\n    <nav class="site">\n'
             + "".join(link(page) for page in self.pages)
+            + away
             + '    </nav>\n  </div>\n</header>\n'
         )
 

@@ -24,52 +24,52 @@ class Language:
     governing: str = ""   # translations say which version wins; "" for the original
 
 
-def _nav(home, support, privacy, terms):
+def _nav(home, support, privacy, terms, apps):
     return {"home": home, "support": support, "privacy": privacy,
-            "terms": terms, "impressum": "Impressum"}
+            "terms": terms, "impressum": "Impressum", "apps": apps}
 
 
 # Order matters: it is the order of the language switcher and of the hreflang
 # links, and English comes first because it is the original.
 LANGUAGES = {
     "en": Language("en", "English", "en-US",
-                   _nav("Home", "Support", "Privacy", "Terms")),
+                   _nav("Home", "Support", "Privacy", "Terms", "More apps")),
     "de": Language("de", "Deutsch", "de-DE",
-                   _nav("Start", "Hilfe", "Datenschutz", "Nutzung"),
+                   _nav("Start", "Hilfe", "Datenschutz", "Nutzung", "Mehr Apps"),
                    "Dies ist eine Übersetzung. Maßgeblich ist im Zweifel die "
                    "englische Fassung: {link}."),
     "fr": Language("fr", "Français", "fr-FR",
-                   _nav("Accueil", "Aide", "Confidentialité", "Conditions"),
+                   _nav("Accueil", "Aide", "Confidentialité", "Conditions", "Autres apps"),
                    "Ceci est une traduction. En cas de divergence, la version "
                    "anglaise fait foi : {link}."),
     "es": Language("es", "Español", "es-ES",
-                   _nav("Inicio", "Ayuda", "Privacidad", "Condiciones"),
+                   _nav("Inicio", "Ayuda", "Privacidad", "Condiciones", "Más apps"),
                    "Esto es una traducción. En caso de discrepancia, prevalece "
                    "la versión en inglés: {link}."),
     "it": Language("it", "Italiano", "it",
-                   _nav("Home", "Aiuto", "Privacy", "Condizioni"),
+                   _nav("Home", "Aiuto", "Privacy", "Condizioni", "Altre app"),
                    "Questa è una traduzione. In caso di difformità prevale la "
                    "versione inglese: {link}."),
     "pt": Language("pt", "Português", "pt-BR",
-                   _nav("Início", "Ajuda", "Privacidade", "Termos"),
+                   _nav("Início", "Ajuda", "Privacidade", "Termos", "Mais apps"),
                    "Esta é uma tradução. Em caso de divergência, prevalece a "
                    "versão em inglês: {link}."),
     "ja": Language("ja", "日本語", "ja",
-                   _nav("ホーム", "サポート", "プライバシー", "利用規約"),
+                   _nav("ホーム", "サポート", "プライバシー", "利用規約", "ほかのアプリ"),
                    "これは翻訳です。相違がある場合は英語版が優先します：{link}。"),
     "ko": Language("ko", "한국어", "ko",
-                   _nav("홈", "지원", "개인정보", "이용약관"),
+                   _nav("홈", "지원", "개인정보", "이용약관", "다른 앱"),
                    "이 문서는 번역본입니다. 내용이 다를 경우 영어판이 우선합니다: {link}."),
     "el": Language("el", "Ελληνικά", "el",
-                   _nav("Αρχική", "Βοήθεια", "Απόρρητο", "Όροι"),
+                   _nav("Αρχική", "Βοήθεια", "Απόρρητο", "Όροι", "Άλλες εφαρμογές"),
                    "Αυτή είναι μετάφραση. Σε περίπτωση απόκλισης υπερισχύει η "
                    "αγγλική έκδοση: {link}."),
     "uk": Language("uk", "Українська", "uk",
-                   _nav("Головна", "Допомога", "Приватність", "Умови"),
+                   _nav("Головна", "Допомога", "Приватність", "Умови", "Інші застосунки"),
                    "Це переклад. У разі розбіжностей чинною є англійська "
                    "версія: {link}."),
     "ru": Language("ru", "Русский", "ru",
-                   _nav("Главная", "Помощь", "Приватность", "Условия"),
+                   _nav("Главная", "Помощь", "Приватность", "Условия", "Другие приложения"),
                    "Это перевод. При расхождениях действует английская "
                    "версия: {link}."),
 }

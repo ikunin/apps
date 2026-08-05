@@ -153,6 +153,37 @@ nav.site a[aria-current="page"] {
   background: rgba(255, 255, 255, 0.09);
 }
 
+/* The two links that leave this site: the other apps, and the App Store. Set
+   off from the pages of this site by a rule, so the nav does not read as one
+   undifferentiated row of seven. */
+nav.site .away, nav.site .button {
+  margin-left: 0.35rem;
+  border-left: 1px solid var(--line);
+  padding-left: 0.85rem;
+}
+
+nav.site .button {
+  border-left: 0;
+  padding-left: 1rem;
+}
+
+/* The header's own size of button: the page's call to action is in the hero,
+   and this one must not shout over it. */
+.button.small {
+  font-size: 0.85rem;
+  padding: 0.42rem 1rem;
+  box-shadow: none;
+}
+
+.button.small:hover { transform: none; box-shadow: none; filter: brightness(1.08); }
+
+/* Two links plus five pages is a wide header. On a phone the nav wraps to its
+   own line and the two outward links stay together at its end. */
+@media (max-width: 34rem) {
+  nav.site { margin-left: 0; width: 100%; }
+  nav.site .away { margin-left: auto; }
+}
+
 /* --- hero ---------------------------------------------------------------- */
 
 .hero { padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(2rem, 5vw, 3.5rem); text-align: center; }
