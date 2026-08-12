@@ -1,2 +1,5 @@
 __pycache__/
 *.pyc
+
+# localci run logs.
+.localci/

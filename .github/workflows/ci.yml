@@ -7,6 +7,8 @@ on:
 
 jobs:
   tests:
+    # Skipped when CI runs on a developer machine; see .localci.yml.
+    if: vars.CI_LOCATION != 'local'
     runs-on: ubuntu-latest
     strategy:
       # 3.11 is the floor because that is what the apps' own CI runs, and this

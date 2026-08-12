@@ -1,0 +1,12 @@
+# How this repository's CI runs on a developer machine. See ~/Projects/localci.
+#
+# One job, eleven seconds, and it runs twice — the matrix covers Python 3.11 and
+# 3.13 because this kit cannot choose the interpreter of the apps that vendor
+# it. That is the whole gate, so it blocks a push.
+#
+# The apps carry this repository as vendor/appsite and run these same tests in
+# their own pipelines. That is a second line of defence, not the first: a break
+# here should fail here, not in whichever app is built next.
+
+tiers:
+  tests: preflight
