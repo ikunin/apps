@@ -239,8 +239,10 @@ with tempfile.TemporaryDirectory() as work:
           entry["name"] == "Harbor Rush")
     check("its slogan is the App Store subtitle, not a second one",
           entry["slogan"] == "Draw a route. Keep it flowing")
-    check("it carries the app's own accent pair",
-          (entry["accent"], entry["accent_ink"]) == ("#ffd23f", "#1d2a0a"))
+    check("it carries the app's own accent",
+          entry["accent"] == "#ffd23f")
+    check("and no ink for it — nothing on a card is painted with the accent",
+          "accent_ink" not in entry)
     check("and the § 5 operator, so the root keeps no second copy of it",
           entry["operator"]["email"] == "a@b.example"
           and "app" not in entry["operator"])
@@ -269,6 +271,9 @@ with tempfile.TemporaryDirectory() as root:
             open(os.path.join(root, slug, page_name), "w").close()
         with open(os.path.join(root, slug, "app.json"), "w", encoding="utf-8") as handle:
             json.dump({"name": name, "slogan": slogan, "icon": "img/icon.png",
+                       # `accent_ink` is a field cards published before the
+                       # split still carry. It is here so the check below
+                       # proves that a card ignores it rather than paints with it.
                        "icon_size": 512, "accent": accent, "accent_ink": "#fff",
                        "store": "",
                        "operator": {"name": "N", "street": "S", "postcode": "1",
@@ -283,8 +288,10 @@ with tempfile.TemporaryDirectory() as root:
 
     markup = portfolio.card("apple", dict(found)["apple"])
     check("a card links the directory it was found in", 'href="apple/"' in markup)
-    check("it takes its app's colours inline",
-          'style="--accent: #222222; --accent-ink: #fff"' in markup)
+    check("it lights its own icon with its app's accent",
+          'style="--card-accent: #222222"' in markup)
+    check("and overrides no --accent, so every card's buttons are the page's",
+          "--accent:" not in markup)
     check("with no store link, the way in is the app's own site",
           "Open site" in markup and "App Store" not in markup)
 

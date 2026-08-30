@@ -81,13 +81,11 @@ def manifest(site):
         "slogan": slogan,
         "icon": site.chrome.icon,
         "icon_size": site.chrome.icon_size,
-        # The colours this app's own site renders in — its overrides, or the
-        # stylesheet's defaults when it has none. Both, because a button is an
-        # accent background with accent-ink on it, and half a pair is a
-        # yellow button with white text on it.
+        # The colour this app's own site renders in — its override, or the
+        # stylesheet's default when it has none. One colour, no ink to go with
+        # it: on the index the accent lights the card's icon and nothing is
+        # painted with it, so there is no background needing legible text on it.
         "accent": site.palette.get("accent") or assets.default_token("accent"),
-        "accent_ink": (site.palette.get("accent-ink")
-                       or assets.default_token("accent-ink")),
         "store": site.store,
         # The whole token table, not just the accent: the root wears one app's
         # colours (see PALETTE_FROM in portfolio_config.py) and follows it from
@@ -141,14 +139,13 @@ STORE = "App Store"
 
 def card(slug, app):
     """One app. Its icon, its name, its own slogan, and the way in."""
-    # The card's own accent overrides the token for everything inside it, so
-    # the button and the icon's halo come out in the app's colour without a
-    # line of per-app CSS. The pair travels together: the ink is what is
-    # legible *on* that accent, and the page's own would not be.
-    tokens = [f"--{name}: {app[key]}"
-              for name, key in (("accent", "accent"), ("accent-ink", "accent_ink"))
-              if app.get(key)]
-    style = f' style="{"; ".join(tokens)}"' if tokens else ""
+    # The app's own colour, under a token that belongs to the card. It is
+    # deliberately not `--accent`: that token paints the buttons, and three
+    # cards offering three differently-coloured ways in read as three sites
+    # rather than as one shelf. The actions stay in the page's palette and the
+    # app's colour lights its icon. See the rule in AGENTS.md.
+    accent = app.get("accent")
+    style = f' style="--card-accent: {accent}"' if accent else ""
     size = app.get("icon_size", 512)
     store = app.get("store")
     buttons = [button(OPEN, f"{slug}/", ghost=bool(store))]

@@ -113,6 +113,21 @@ a sentence about the apps to that page. They differ in what they collect, and
 one sentence about all three is a false statement about at least one of them —
 which is the mistake below, in a place where it would be published fastest.
 
+**Every card's buttons are the page's colour; only its icon is the app's.** A
+card carries its app's accent as `--card-accent`, and that reaches two things:
+the halo under its icon and its hover edge. Three warmths, so the grid does not
+read as one grey list.
+
+A card must **never** set `--accent`. That token paints `.button`, it cascades
+into everything inside the card, and three differently-coloured ways in read as
+three sites side by side rather than as one shelf — which is how the page
+shipped until it was fixed. The index's own `--accent` is one colour for the
+whole page: whatever `PALETTE_FROM` in `portfolio_config.py` names.
+
+The rule lives in `portfolio.card()`, the two tokens are split in
+`assets/portfolio.css`, and `tests/test_appsite.py` fails if a card writes
+`--accent` again.
+
 ### Add a language
 
 `languages.py` in the kit: add a `Language` with its endonym, App Store
