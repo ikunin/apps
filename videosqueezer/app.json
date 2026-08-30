@@ -1,0 +1,34 @@
+{
+  "accent": "#3B82F6",
+  "accent_ink": "#04162E",
+  "icon": "img/icon-512.png",
+  "icon_size": 512,
+  "name": "VideoSqueezer",
+  "operator": {
+    "city": "Berlin",
+    "country": "Deutschland",
+    "email": "support.kunin@gmail.com",
+    "name": "Igor Kunin",
+    "phone": "+49 30 56007689",
+    "postcode": "10587",
+    "street": "Fraunhoferstr. 23A"
+  },
+  "palette": {
+    "accent": "#3B82F6",
+    "accent-ink": "#04162E",
+    "bg": "#0B0A12",
+    "bg-2": "#15131F",
+    "cyan": "#34D399",
+    "dim": "#8B86A3",
+    "ink": "#FFFFFF",
+    "ink-2": "#A8A3BC",
+    "line": "#2E2842",
+    "line-soft": "#221D33",
+    "pink": "#EC4899",
+    "surface": "#1E1B2C",
+    "surface-2": "#241F35",
+    "violet": "#A5C4FF"
+  },
+  "slogan": "Smaller videos. Same picture",
+  "store": ""
+}
