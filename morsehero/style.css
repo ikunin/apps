@@ -710,116 +710,20 @@ footer.site nav.languages a[aria-current="page"] {
   nav.site a:hover, footer.site a:hover { background: rgba(0, 0, 0, 0.05); }
 }
 
-/* Igor&nbsp;Kunin */
+/* MorseHero */
 :root {
-  --accent: #d8a657;
-  --accent-ink: #1a1305;
-  --bg: #101820;
-  --bg-2: #16212b;
-  --cyan: #8fd0d8;
-  --dim: #9a9284;
-  --ink: #f4efe6;
-  --ink-2: #cfc6b6;
-  --line: #314856;
-  --line-soft: #263a45;
-  --pink: #e0a3a3;
-  --surface: #1b2a33;
-  --surface-2: #22343f;
-  --violet: #9fc9a8;
-}
-
-/* The root of the Pages site — the card grid, and nothing else.
- *
- * Appended to the kit's stylesheet when `appsite/portfolio.py` builds the root,
- * rather than served beside it: one file, one request, and no second copy of a
- * token to disagree with the first. The app sites never load this.
- *
- * Nothing here names a colour. The page's palette is the one the app named in
- * portfolio_config.py publishes, and these rules name tokens only — so there is
- * no per-app CSS anywhere.
- *
- * Two accents, and the split is the point. `--accent` is the page's, and it
- * paints every button on it, so the cards offer one way in rather than three.
- * `--card-accent` is the app's own, written inline on its card by
- * `portfolio.py`; it lights that card's icon and its hover edge and reaches
- * nothing else. A card must never override `--accent` itself — see AGENTS.md.
- */
-
-/* The kit's hero leaves room for a lead paragraph under the headline. This page
-   has one word and then the apps, so the gap closes up. */
-.hero { padding-bottom: 0; }
-main > .wrap > section { padding-top: clamp(1.75rem, 5vw, 3rem); }
-main { padding-bottom: clamp(2rem, 6vw, 4rem); }
-
-.apps {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16.5rem, 1fr));
-  gap: 1.25rem;
-}
-
-.app {
-  /* The app's own colour, when its card carries one. A card built from a
-     manifest that has none falls back to the page's, rather than to nothing. */
-  --card-accent: var(--accent);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 2.25rem 1.5rem 1.75rem;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  transition: transform 0.35s var(--ease), border-color 0.35s var(--ease);
-}
-
-.app:hover {
-  transform: translateY(-3px);
-  border-color: var(--card-accent);
-}
-
-/* The icon at the size iOS draws it on the home screen, lit by the app's own
-   accent so three cards do not read as one grey list. */
-.app img {
-  width: 5.5rem;
-  height: 5.5rem;
-  border-radius: 1.3rem;
-  margin-bottom: 1.1rem;
-  box-shadow: 0 0 2.5rem rgba(255, 255, 255, 0.10),
-              0 0 0 1px rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 2.5rem color-mix(in oklab, var(--card-accent) 35%, transparent),
-              0 0 0 1px rgba(255, 255, 255, 0.08);
-}
-
-.app h3 {
-  margin: 0;
-  font-size: 1.2rem;
-}
-
-.app h3 a {
-  color: var(--ink);
-  text-decoration: none;
-}
-
-.app h3 a:hover { text-decoration: underline; }
-
-/* The app's own App Store subtitle, and the only prose on the page. */
-.app p {
-  margin: 0.4rem 0 1.4rem;
-  color: var(--dim);
-  font-size: 0.95rem;
-  max-width: 20rem;
-}
-
-/* Pinned to the bottom, so buttons line up across cards whose slogans run to
-   different lengths. */
-.app .actions { margin-top: auto; }
-
-/* The kit's button glow is a fixed yellow; on this page it follows the page's
-   own accent — the same glow under every card's buttons, not the card's. */
-.app .button {
-  box-shadow: 0 0.6rem 1.6rem color-mix(in oklab, var(--accent) 25%, transparent);
-}
-
-.app .button:hover {
-  box-shadow: 0 0.9rem 2rem color-mix(in oklab, var(--accent) 32%, transparent);
+  --bg: #0B0B0D;
+  --bg-2: #100E0C;
+  --surface: #1B1814;
+  --surface-2: #241F19;
+  --line: #2A241B;
+  --line-soft: #1E1A15;
+  --ink: #F5F2EA;
+  --ink-2: #B8B2A4;
+  --dim: #8A8478;
+  --accent: #C2A15C;
+  --accent-ink: #100E0C;
+  --violet: #C2A15C;
+  --cyan: #86FF52;
+  --pink: #FFB84A;
 }

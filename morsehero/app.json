@@ -1,0 +1,33 @@
+{
+  "accent": "#C2A15C",
+  "icon": "img/icon-512.png",
+  "icon_size": 512,
+  "name": "MorseHero",
+  "operator": {
+    "city": "Berlin",
+    "country": "Deutschland",
+    "email": "support.kunin@gmail.com",
+    "name": "Igor Kunin",
+    "phone": "+49 30 56007689",
+    "postcode": "10587",
+    "street": "Fraunhoferstr. 23A"
+  },
+  "palette": {
+    "accent": "#C2A15C",
+    "accent-ink": "#100E0C",
+    "bg": "#0B0B0D",
+    "bg-2": "#100E0C",
+    "cyan": "#86FF52",
+    "dim": "#8A8478",
+    "ink": "#F5F2EA",
+    "ink-2": "#B8B2A4",
+    "line": "#2A241B",
+    "line-soft": "#1E1A15",
+    "pink": "#FFB84A",
+    "surface": "#1B1814",
+    "surface-2": "#241F19",
+    "violet": "#C2A15C"
+  },
+  "slogan": "Learn Morse, then let it go",
+  "store": ""
+}
