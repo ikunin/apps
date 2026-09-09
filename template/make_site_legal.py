@@ -21,8 +21,17 @@ from site_text_support import SUPPORT
 from site_text_terms import TERMS
 
 from appsite import LANGUAGES
+from appsite.portfolio import plain
 from appsite.legal import (APPLE_EULA, APPLE_REFUNDS, GITHUB_PRIVACY, bullets,
                            faq, heading, link, muted, note, p, page)
+
+#: This app's own name, read from the config rather than written here.
+#:
+#: It used to be the SOURCE app's name as a literal, and nothing in the recipe
+#: tells you to edit this file — § 4 sends you to the text tables. Three apps
+#: remembered anyway and the fourth did not, so thirty-three legal pages went
+#: out in eleven languages advertising a different program.
+BRAND = plain(SITE.impressum.get("app") or SITE.chrome.brand)
 
 TERMS_MAIL = "mailto:support@example.com?subject=Terms"   # TODO(app)
 SOUNDFONT = "https://example.com/"                        # TODO(app)
@@ -30,7 +39,7 @@ SOUNDFONT = "https://example.com/"                        # TODO(app)
 
 def render(language, name, text, blocks, governs=True):
     return page(SITE, language, name,
-                title=f'{html.escape(text["title"])} — TappyMusic',
+                title=f'{html.escape(text["title"])} — {BRAND}',
                 description=html.escape(text["meta"]),
                 headline=text["h"], blocks=blocks,
                 say_which_version_governs=governs)

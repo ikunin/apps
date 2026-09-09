@@ -14,6 +14,8 @@ import re
 import sys
 from html.parser import HTMLParser
 
+from . import portfolio
+
 
 class Links(HTMLParser):
     """Every href and src on a page, with the line it came from."""
@@ -47,9 +49,30 @@ def images_without_alt(markup):
             if 'alt="' not in img]
 
 
+#: Every app in the family, by its printed name. Extend when one joins.
+#:
+#: A built page must never carry a name that is not this app's own. The kit
+#: seeds a new site with a shipped app's words on purpose — § 4 of the recipe is
+#: rewriting them — and what survives that rewrite is another app's promise on
+#: this app's legal page, in eleven languages, linked from an App Store listing.
+#: It reached the open web once as a page title, because the recipe sends you to
+#: the text tables and the name was in the plumbing.
+FAMILY = ["TappyMusic", "Harbor Rush", "SpeedyCards", "VideoSqueezer", "MorseHero"]
+
+
+def other_apps_named(markup, own):
+    """Names in `markup` that belong to a different app in the family.
+
+    Case-sensitive on purpose: a slug in a URL — `apps/tappymusic/` on that
+    app's own pages, `../../` on everyone else's — is a path, not a claim.
+    """
+    return [name for name in FAMILY if name != own and name in markup]
+
+
 def check_pages(site, *, required, impressum):
     problems = []
     out = site.out
+    own = portfolio.plain(site.impressum.get("app") or site.chrome.brand)
 
     # Every page, at the root and in each language directory. Walking rather
     # than naming them is the point: a translated page nobody remembered to
@@ -84,6 +107,9 @@ def check_pages(site, *, required, impressum):
 
         if "<title>" not in markup:
             problems.append(f"{out}/{page}: no <title>")
+
+        for name in other_apps_named(markup, own):
+            problems.append(f"{out}/{page}: says {name}, which is a different app")
 
         # German law requires the provider identification to be reachable from
         # every page — "leicht erkennbar, unmittelbar erreichbar und ständig
@@ -225,6 +251,7 @@ def main(site, *, required, impressum="impressum.html"):
 
     print(f"  ok   {pages} pages, every internal link resolves")
     print("  ok   every image has alt text")
+    print("  ok   no page names another app in the family")
     print("  ok   the listing URLs point into this site, in every locale")
     print("  ok   every listing field is within App Store Connect's limits")
     print("\nall tests passed")
