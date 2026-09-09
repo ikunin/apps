@@ -327,6 +327,47 @@ with tempfile.TemporaryDirectory() as bare:
     check("an index with no apps on it is refused, not published empty",
           raises(portfolio.build, bare, CONFIG))
 
+# ---------------------------------------------------------------- the template
+#
+# The README tells you to copy template/ and then run a recipe. For two apps the
+# recipe named two scripts the template did not contain, so every app copied
+# them from whichever sibling it happened to look at — and the docs said
+# something that was not true of what they told you to copy. This is the check
+# that keeps the two in step.
+
+print("\ntemplate")
+
+KIT = pathlib.Path(__file__).resolve().parent.parent
+TEMPLATE = KIT / "template"
+README = (KIT / "README.md").read_text(encoding="utf-8")
+
+recipe = {line.split("appstore/")[1].strip()
+          for line in README.splitlines()
+          if "python3 appstore/" in line and line.endswith(".py")}
+check("the README's recipe names at least the five original scripts",
+      len(recipe) >= 5)
+missing = sorted(script for script in recipe if not (TEMPLATE / script).exists())
+check(f"every script the README tells you to run is in template/{': missing ' + ', '.join(missing) if missing else ''}",
+      not missing)
+
+for script in sorted(TEMPLATE.glob("*.py")):
+    try:
+        ast.parse(script.read_text(encoding="utf-8"))
+    except SyntaxError as error:
+        check(f"template/{script.name} parses", False)
+        break
+else:
+    check("every file in template/ parses", True)
+
+# A landing page has nothing to inherit, so the template ships English only —
+# and must stop rather than publish a site in one language.
+landing = ast.parse((TEMPLATE / "make_site_translations.py").read_text(encoding="utf-8"))
+table = next((node.value for node in ast.walk(landing)
+              if isinstance(node, ast.Assign)
+              and getattr(node.targets[0], "id", None) == "T"), None)
+check("the template's landing copy is English only, so a build says what is missing",
+      table is not None and [k.value for k in table.keys] == ["en"])
+
 print()
 if failures:
     print(f"{len(failures)} failed")

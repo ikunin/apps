@@ -66,9 +66,14 @@ site:
 	python3 appstore/install_site_assets.py
 	python3 appstore/make_site_translations.py
 	python3 appstore/make_site_legal.py
+	python3 appstore/make_site_impressum.py
 	python3 appstore/make_site_card.py
 	python3 appstore/check_site.py
 ```
+
+Order matters at both ends: `install_site_assets.py` writes the stylesheet the
+pages reference, and `check_site.py` is the gate. An app with a page the kit does
+not know about adds its own generator between them.
 
 ## The listing is the source of the pitch
 
@@ -116,11 +121,26 @@ it.
 
 ## `template/`
 
-A starting point to copy into an app, not a dependency. The legal text tables
-come from a real shipped app, so most of the eleven-language work is already
-done — but **each file's header lists the keys that describe that app and must
-be rewritten.** Read them. A privacy policy inherited without reading is worse
-than no policy.
+A starting point to copy into an app, not a dependency. It holds every script
+the recipe above runs, so a new app's `make site` works before a word of its own
+copy exists — and then refuses to finish, naming what is missing.
+
+| File | What you do with it |
+|---|---|
+| `site_config.py` | Write it: brand, palette, Impressum, which pages exist |
+| `site_text_privacy.py`, `_support.py`, `_terms.py` | **Rewrite the app-specific keys.** Each file's header lists them |
+| `make_site_translations.py` | Write it: the landing page below the hero, in eleven languages |
+| `install_site_assets.py`, `make_site_legal.py`, `make_site_impressum.py`, `make_site_card.py`, `check_site.py` | Nothing. Copy and leave alone |
+
+The legal text tables come from a real shipped app, so most of the
+eleven-language work is already done — but **each file's header lists the keys
+that describe that app and must be rewritten.** Read them. A privacy policy
+inherited without reading is worse than no policy, and it is a promise about a
+program it was not written for.
+
+`make_site_translations.py` carries English only, on purpose: there is nothing to
+inherit for a landing page, and a build that stops with *no landing copy for: de,
+fr, …* is a better instruction than ten paragraphs about another app.
 
 ## Tests
 
