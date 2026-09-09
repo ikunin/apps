@@ -19,7 +19,7 @@ app and rots on the others.
 | Page blocks: hero, cards, showcase, note, lockup, stats | Which blocks, in what order, with what copy |
 | Legal-page structure and the standard Apple links | Every sentence of the privacy policy and terms |
 | The stylesheet | Its palette, as token overrides |
-| The checker | What the listing is required to point at |
+| The checker, and App Store Connect's field limits | What the listing is required to point at |
 | The index of every app, at the site root | The card it contributes to it |
 
 The split is not arbitrary. **Structure is single-sourced because a bug in it is
@@ -74,6 +74,15 @@ site:
 Order matters at both ends: `install_site_assets.py` writes the stylesheet the
 pages reference, and `check_site.py` is the gate. An app with a page the kit does
 not know about adds its own generator between them.
+
+
+`check_site.py` also measures every listing field against what App Store Connect
+accepts — name and subtitle at 30 characters, keywords at 100, promotional text
+at 170, descriptions and release notes at 4000. Connect **rejects** rather than
+truncates, and it does so at upload, so without this the first you hear of one
+extra character is a failed submission of a build that has already been made.
+Measured in every locale, because a translation is longer than its source more
+often than not: the overrun that prompted this was French, at 31 against 30.
 
 ## The listing is the source of the pitch
 

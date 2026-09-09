@@ -163,11 +163,59 @@ def check_listing_urls(site):
     return problems
 
 
+#: What App Store Connect will accept, in characters. It REJECTS rather than
+#: truncates, and it does so at upload — so a subtitle one character over costs
+#: a round trip through a build that has already been made. Counted in Python
+#: characters, which is what Connect counts too: a Japanese subtitle of eleven
+#: characters is eleven, not its length in bytes.
+#:
+#: Sources: App Store Connect's own field limits. `name` is 30 and `subtitle`
+#: is 30; the pair is the most common overrun, and the one that has happened.
+LISTING_LIMITS = {
+    "name": 30,
+    "subtitle": 30,
+    "keywords": 100,
+    "promotional_text": 170,
+    "description": 4000,
+    "release_notes": 4000,
+}
+
+
+def check_listing_limits(site, limits=None):
+    """Listing fields are within what App Store Connect accepts.
+
+    Every locale, not just the development one: a translation is longer than
+    its English source more often than not, and the one that overran here was
+    French at 31 characters against a limit of 30.
+    """
+    limits = LISTING_LIMITS if limits is None else limits
+    problems = []
+    if not os.path.isdir(site.metadata):
+        return [f"{site.metadata}: missing"]
+
+    for locale in sorted(os.listdir(site.metadata)):
+        directory = os.path.join(site.metadata, locale)
+        if not os.path.isdir(directory) or locale == "review_information":
+            continue
+        for field, limit in sorted(limits.items()):
+            path = os.path.join(directory, f"{field}.txt")
+            if not os.path.exists(path):
+                continue
+            with open(path, encoding="utf-8") as handle:
+                length = len(handle.read().strip())
+            if length > limit:
+                problems.append(
+                    f"{locale}/{field}.txt: {length} characters, "
+                    f"App Store Connect allows {limit}"
+                )
+    return problems
+
+
 def main(site, *, required, impressum="impressum.html"):
     """Run every check and exit non-zero on any problem."""
     print("Website")
     problems, pages = check_pages(site, required=required, impressum=impressum)
-    listing = check_listing_urls(site)
+    listing = check_listing_urls(site) + check_listing_limits(site)
 
     for problem in problems + listing:
         print(f"  FAIL {problem}")
@@ -178,4 +226,5 @@ def main(site, *, required, impressum="impressum.html"):
     print(f"  ok   {pages} pages, every internal link resolves")
     print("  ok   every image has alt text")
     print("  ok   the listing URLs point into this site, in every locale")
+    print("  ok   every listing field is within App Store Connect's limits")
     print("\nall tests passed")

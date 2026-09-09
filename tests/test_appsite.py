@@ -17,6 +17,8 @@ import tempfile
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from appsite import Chrome, Page, Site, assets, impressum, portfolio
+# Not `check`: this file's own assertion helper owns that name.
+from appsite import check as site_check
 from appsite.blocks import cards, hero, landing, section
 from appsite.legal import bullets, heading, muted, note, p, render
 
@@ -326,6 +328,48 @@ with tempfile.TemporaryDirectory() as root:
 with tempfile.TemporaryDirectory() as bare:
     check("an index with no apps on it is refused, not published empty",
           raises(portfolio.build, bare, CONFIG))
+
+# ------------------------------------------------------- App Store field limits
+#
+# Connect rejects an over-length field at upload rather than truncating it, so
+# without this the first you hear of it is a failed submission of a build that
+# has already been made. One real overrun: a French subtitle at 31 against 30.
+
+print("\nlisting limits")
+
+with tempfile.TemporaryDirectory() as metadata:
+    def locale(name, **fields):
+        os.makedirs(os.path.join(metadata, name), exist_ok=True)
+        for field, value in fields.items():
+            with open(os.path.join(metadata, name, f"{field}.txt"), "w",
+                      encoding="utf-8") as handle:
+                handle.write(value + "\n")
+
+    limited = Site(chrome=CHROME, out="site", metadata=metadata)
+
+    locale("en-US", subtitle="Do a thing, quickly", keywords="a,b,c")
+    locale("ja", subtitle="ちいさなことを、はやく")
+    check("fields inside the limits pass",
+          site_check.check_listing_limits(limited) == [])
+
+    # 31 characters against 30 — the one that actually happened.
+    locale("fr-FR", subtitle="Apprendre le morse, et le lacher")
+    problems = site_check.check_listing_limits(limited)
+    check("a subtitle one character over is caught",
+          len(problems) == 1 and "fr-FR/subtitle.txt: 32" in problems[0])
+
+    # Counted in characters, not bytes: eleven kana are eleven, and a check
+    # that measured bytes would fail every CJK locale for being under.
+    locale("ko", subtitle="가" * 31)
+    check("length is characters, not bytes",
+          any("ko/subtitle.txt: 31" in problem
+              for problem in site_check.check_listing_limits(limited)))
+
+    # review_information is App Review's private notes, not a listing.
+    locale("review_information", subtitle="x" * 400)
+    check("review_information is not measured as a listing",
+          not any("review_information" in problem
+                  for problem in site_check.check_listing_limits(limited)))
 
 # ---------------------------------------------------------------- the template
 #
