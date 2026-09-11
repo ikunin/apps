@@ -1,6 +1,5 @@
 {
   "accent": "#3B82F6",
-  "accent_ink": "#04162E",
   "icon": "img/icon-512.png",
   "icon_size": 512,
   "name": "VideoSqueezer",
@@ -29,6 +28,6 @@
     "surface-2": "#241F35",
     "violet": "#A5C4FF"
   },
-  "slogan": "Free up gigabytes of video",
+  "slogan": "Free up storage, keep quality",
   "store": ""
 }
