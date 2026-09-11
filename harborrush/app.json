@@ -1,6 +1,5 @@
 {
   "accent": "#ffd23f",
-  "accent_ink": "#1d2a0a",
   "icon": "img/icon-512.png",
   "icon_size": 512,
   "name": "Harbor Rush",
@@ -29,6 +28,6 @@
     "surface-2": "#11486f",
     "violet": "#8fd0ff"
   },
-  "slogan": "Draw a route. Keep it flowing",
+  "slogan": "Draw the line. Dock the ship.",
   "store": ""
 }

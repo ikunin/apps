@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Harbor Rush — 航路を引く。 港の流れを止めるな</title>
-<meta name="description" content="Harbor Rush は、ひとつの無理のない操作を軸にした見下ろし型の港湾交通ゲームです。船から岸壁へ線を引く。あとは他の船や障害物がひしめく中を進んでいくのを見守るだけ。">
+<title>Harbor Rush — 線を引いて。 船を岸壁へ。</title>
+<meta name="description" content="船から岸壁へ線を引くと、船はその線をたどって入港します。次の船も、その次の船も。Harbor Rush は静かに始まり、やがて心地よいパニックへと変わっていきます。指一本、49の港、そして広告はひとつもありません。">
 <meta name="color-scheme" content="dark light">
 <meta name="theme-color" content="#061f33">
 <link rel="icon" href="../img/favicon-32.png" sizes="32x32">
@@ -42,96 +42,209 @@
 <main>
 
 <div class="hero wrap">
-  <div class="emblem">
-    <img src="../img/icon-512.png" alt="" width="512" height="512" loading="eager">
-  </div>
-  <p class="eyebrow">iPhone と iPad に対応</p>
-  <h1>航路を引く。<br><span class="glow">港の流れを止めるな</span></h1>
-  <p class="lead">Harbor Rush は、ひとつの無理のない操作を軸にした見下ろし型の港湾交通ゲームです。船から岸壁へ線を引く。あとは他の船や障害物がひしめく中を進んでいくのを見守るだけ。</p>
+  <p class="eyebrow">iPhone と iPad に対応 · 無料でお試し</p>
+  <h1>線を引いて。<br><span class="glow">船を岸壁へ。</span></h1>
+  <p class="lead">船から岸壁へ線を引くと、船はその線をたどって入港します。次の船も、その次の船も。Harbor Rush は静かに始まり、やがて心地よいパニックへと変わっていきます。指一本、49の港、そして広告はひとつもありません。</p>
   <div class="actions">
-    <a class="button" href="#how">遊びかた</a>
+    <a class="button" href="#how">遊びかたを見る</a>
     <a class="button ghost" href="support.html">サポート</a>
   </div>
 
   <div class="shots wide">
-    <figure><img src="../img/draw.png" alt="プレイ中の港。船から岸壁へ航路が引かれています。" width="660" height="304" loading="eager"></figure>
-    <figure><img src="../img/hazards.png" alt="北極の港の航路を、氷山が横切って流れています。" width="660" height="304" loading="lazy"></figure>
-    <figure><img src="../img/cannons.png" alt="沿岸砲の砲撃を受けながら、接岸が続く港。" width="660" height="304" loading="lazy"></figure>
+    <figure><img src="../img/draw.jpg" alt="船から岸壁へ、指一本で引いた航路。後ろから次の船が入ってきます。" width="660" height="350" loading="eager"></figure>
+    <figure><img src="../img/rush.jpg" alt="にぎわう岩礁の港。交差する航路を8隻の船が進み、接岸する船も、入港してくる船もいます。" width="660" height="350" loading="lazy"></figure>
+    <figure><img src="../img/pirates.jpg" alt="貨物船に迫る海賊船と、狙いを定める沿岸砲。" width="660" height="350" loading="lazy"></figure>
   </div>
 
   <div class="stats">
-    <div><b>7</b><span>海域</span></div>
     <div><b>49</b><span>港</span></div>
+    <div><b>7</b><span>海域</span></div>
+    <div><b>0</b><span>広告</span></div>
     <div><b>11</b><span>言語</span></div>
-    <div><b>0</b><span>トラッカー</span></div>
   </div>
 </div>
 
 <div class="wrap">
 
 <section id="how">
-  <h2>操作はひとつだけ</h2>
-  <p>船から岸壁まで線を引く。操作はこれだけです。あとは、どの船を、いつ動かすかを決めるだけ。</p>
+  <h2>指一本で、すべての船を。</h2>
+  <p>船に触れて、同じ色の岸壁まで航路を引き、指を離す。操作はこれだけです。あとは、どの船を、いつ動かすか——それを決めるのがこのゲームです。</p>
   <div class="cards">
     <div class="card">
-      <h3>操縦ではなく、線を引く</h3>
-      <p>指一本で航路をなぞって離すだけ。船はその線のとおりに、自分の速さで進みます。そのあいだに次の船へ。</p>
+      <h3>線を引く</h3>
+      <p>船はあなたが引いた線のとおりに、自分の速さで進みます。そのあいだに次の船へ。気が変わったら、線を引き直せばいいだけです。</p>
     </div>
     <div class="card">
-      <h3>線を交差させない</h3>
-      <p>航路が交わる二隻は、衝突の予告です。どちらかを引き直せば交差は消えます。</p>
+      <h3>荷を降ろして、送り返す</h3>
+      <p>船は岸壁で荷降ろしを終えると、海へ戻るための2本目の線が必要になります。出ていく船も、入ってくる船と同じくらい危険です。</p>
     </div>
     <div class="card">
-      <h3>積荷を合わせる</h3>
-      <p>船体には色があり、受け入れる岸壁はひとつだけ。色覚に配慮した記号は、色の代わりではなく色の上に重ねてあります。</p>
+      <h3>ぶつけない</h3>
+      <p>航路は交差してもかまいませんが、船同士はだめ。タイミングをずらしてすれ違わせるか、航路を引き直しましょう。一度の衝突で勤務終了です。</p>
     </div>
   </div>
 </section>
 
 <section>
-  <h2>7つの海域、49の港</h2>
-  <p>北極の氷から火山の海峡まで、どの港も自動生成ではなく手作業で調整されています。固定の地形、固定の障害、そして交通をさばく正解がひとつ——それを見つけるのがこのゲームです。</p>
-  <p><strong>無料でお試しいただけます。</strong> 最初の港は無料で、残りは一度の購入ですべて解放されます。広告もサブスクもありません。</p>
+  <h2>静かな海。そして、ラッシュ。</h2>
+  <p>勤務は1隻の船と、からっぽの港から始まります。届けるたびに次の船が早くやってきて——やがて2隻同時に。そして、岸壁を6秒間ふさぐ貨物船のまわりを、3隻の小舟がぐるぐる回りはじめます。</p>
+  <p>その高まりこそが、このゲームです。迫りくる衝突を片目で見ながら、線を引き続けるあの瞬間。心地よいパニックが終わっても、「もう一度」はワンタップ先です。</p>
 </section>
 
 <section>
-  <h2>港も黙ってはいません</h2>
+  <h2>49の港。同じ港はひとつもない。</h2>
+  <div class="showcase">
+    <img src="../img/world.jpg" alt="4つの海域の4つの港：北極の氷、火山の火口、南国の岩礁、工業運河。" width="480" height="360" loading="lazy">
+    <div>
+      <h3>流氷、岩礁、閘門、機雷、火山の海岸</h3>
+      <p>7つの海域に7つずつ、すべて手作りの港です。決まった海岸線、その港だけの障害、そして交通をさばく正解がひとつ——それを見つけるのはあなたです。どの港にも銅・銀・金のメダルがあり、港ごとに Game Center のランキングがあります。</p>
+    </div>
+  </div>
   <div class="cards">
     <div class="card">
-      <h3>氷山、機雷、渦潮</h3>
-      <p>氷山が航路を横切って流れ、機雷はちょうど線を引きたい場所にあり、渦潮は船を航路から完全に引き離します。</p>
+      <h3>母なる海</h3>
+      <p>すべてはここから。岩礁、渦潮、クラーケン、そして最初の海賊。</p>
     </div>
     <div class="card">
-      <h3>潮、海流、水門</h3>
-      <p>跳ね橋と閘門は自分の時間割で開きます。海流は、船が着くころには船体を進路から押し流しています。</p>
+      <h3>凍てつく海域</h3>
+      <p>航路に流氷が漂い、ぶつかった船を沈めます。</p>
     </div>
+    <div class="card">
+      <h3>夕映えの浅瀬</h3>
+      <p>潮が引くと航路をふさぐ砂州が現れます。海賊に、VIP船も。</p>
+    </div>
+    <div class="card">
+      <h3>製鉄運河</h3>
+      <p>工業運河に跳ね橋と閘門、そして2か所に寄る配送。</p>
+    </div>
+    <div class="card">
+      <h3>黒礁海峡</h3>
+      <p>機雷、突風、クラーケン、そして海賊の船団。</p>
+    </div>
+    <div class="card">
+      <h3>緑なす三角州</h3>
+      <p>川の流れ、潮汐、そして待ってくれない生鮮貨物。</p>
+    </div>
+    <div class="card">
+      <h3>残火海岸</h3>
+      <p>溶岩の流れ、機雷、大渦、そして VIP のフィナーレ。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>海も黙ってはいない</h2>
+  <div class="cards">
     <div class="card">
       <h3>海賊と沿岸砲</h3>
-      <p>砲撃を受けている港もあります。その最中も、接岸作業は続きます。</p>
+      <p>海賊はいちばん近くの船を追いかけます。浜から沿岸砲で狙いを定め、船を引きずっていかれる前に沈めましょう。</p>
+    </div>
+    <div class="card">
+      <h3>クラーケン</h3>
+      <p>水中から触手が現れて、岸壁をふさぎます。タップして海に沈め返しましょう。</p>
+    </div>
+    <div class="card">
+      <h3>氷、潮汐、海流</h3>
+      <p>流氷が航路を横切り、干潮になると航路に砂州が現れ、海流は船を線から押し流します。</p>
+    </div>
+    <div class="card">
+      <h3>閘門と跳ね橋</h3>
+      <p>ゲートは自分の時間割で開きます——タップすれば、あなたのタイミングでも。着くタイミングを誤れば、足止めです。</p>
     </div>
   </div>
 </section>
 
 <section>
-  <h2>同じ配置で誰かと競う</h2>
-  <p>対戦では、両者にまったく同じ港と同じ船が配られます。違うのは、どう捌いたかだけ。リンクか短いコードを送れば始まります——すぐ隣でも、地球の反対側でも。</p>
-  <p>アカウントも登録も不要です。挑戦状は、普段お使いのアプリで送れる短いコードです。</p>
+  <h2>友だちと遊ぼう</h2>
+  <div class="showcase">
+    <img src="../img/duel.jpg" alt="1つの画面での2人対戦。上部に各プレイヤーのスコアと試合の残り時間。" width="480" height="360" loading="lazy">
+    <div>
+      <h3>1つの画面で、近くで、オンラインで</h3>
+      <p>iPhone や iPad を1台で共有。それぞれ自分の側から入ってくる船を担当し、岸壁の持ち主は試合中に入れ替わっていきます。3分後、貨物を多く運んだほうの勝ちです。</p>
+      <p>2台の端末でも遊べます——近くならインターネット接続なしで、オンラインなら Game Center の友だちや、ランダムな相手と。</p>
+    </div>
+  </div>
+</section>
+
+<section id="price">
+  <h2>無料でお試し。買えばずっと遊べる。</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>2つの港は、ずっと無料</h3>
+      <p>母なる海の最初の2つの港は無料。広告もなく、期限もありません。</p>
+    </div>
+    <div class="card">
+      <h3>1つの海域を、1回の購入で</h3>
+      <p>どの海域も一度の購入で解放できます。自動更新はなく、ほかの端末でも復元できます。</p>
+    </div>
+    <div class="card">
+      <h3>ワールドパス</h3>
+      <p>全海域をまとめて一度に。今後追加される海域もすべて含まれます。</p>
+    </div>
+  </div>
+  <div class="note"><p><strong>広告なし。スタミナなし。待ち時間なし。ガチャなし。サブスクなし。</strong>何を買ってもスコアは一切変わらないので、どのランキングも公平です。</p></div>
 </section>
 
 <section>
-  <h2>プレイされる方へ</h2>
-  <div class="note"><p><strong>広告なし。トラッキングなし。アカウント登録なし。</strong> 広告も、アプリをまたぐ追跡も、登録も一切ありません。Game Center は任意で、それは Apple のものであり当方のものではありません。利用状況のカウンターは匿名で、お客様と結びつけることはできません——何が送られるかは<a href='privacy.html'>プライバシーポリシー</a>に正確に書いてあります。購入は一度きりで、自動更新はありません。</p></div>
-  <p>対応11言語：日本語、英語、ドイツ語、フランス語、スペイン語、イタリア語、ブラジルポルトガル語、韓国語、ギリシャ語、ウクライナ語、ロシア語。</p>
+  <h2>すべてのプレイヤーのために</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>色覚サポート</h3>
+      <p>貨物の色ごとに、丸・三角・四角の専用記号が、船と岸壁の両方に付いています。</p>
+    </div>
+    <div class="card">
+      <h3>通信なしで遊べる</h3>
+      <p>ひとりプレイならネット接続は一切不要。飛行機の中でもどうぞ。</p>
+    </div>
+    <div class="card">
+      <h3>メダルとチャレンジ</h3>
+      <p>どの港でも銅・銀・金のメダルを集めたら、チャレンジ勤務に挑戦。貨物船のみ、岸壁ひとつ、沿岸砲なし。</p>
+    </div>
+    <div class="card">
+      <h3>iPhone と iPad</h3>
+      <p>港はお使いの画面いっぱいに広がります。11言語に対応。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>データではなく、ゲームを</h2>
+  <div class="note"><p><strong>広告なし。トラッキングなし。アカウント不要。</strong>広告も、アプリをまたいだ追跡も、登録するものもありません。Game Center は任意で、当方ではなく Apple のサービスです。利用状況のカウンターは匿名で、あなたと結びつけることはできません——何が送信されるかは<a href='privacy.html'>プライバシーポリシー</a>に正確に書いてあります。</p></div>
   <div class="actions" style="justify-content: flex-start;">
     <a class="button" href="privacy.html">プライバシーポリシーを読む</a>
     <a class="button ghost" href="support.html">サポートを見る</a>
   </div>
+</section>
 
+<section id="faq">
+  <h2>ダウンロードの前に</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>本当に無料？</h3>
+      <p>2つの港はずっと無料で、広告も期限もありません。1つ目はすぐに遊べて、2つ目は1つ目の港で貨物を25個届けると開きます。それ以外は海域ごとの買い切り、またはすべてが遊べるワールドパスです。</p>
+    </div>
+    <div class="card">
+      <h3>サブスクリプションはある？</h3>
+      <p>ありません。購入はすべて一度きりの解放で、ずっとあなたのもの。ほかの端末でも復元できます。</p>
+    </div>
+    <div class="card">
+      <h3>インターネット接続は必要？</h3>
+      <p>ひとりで遊ぶなら不要です。海域の購入、Game Center のランキング、オンライン対戦には接続が必要です。近くの相手との対戦は、インターネットなしで遊べます。</p>
+    </div>
+    <div class="card">
+      <h3>1台で2人で遊べる？</h3>
+      <p>はい。1つの港を分け合い、それぞれ自分の側から来る船を担当して、3分間の試合をします。貨物を多く運んだほうの勝ちです。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Harbor Rush</h2>
   <div class="lockup">
     <img src="../img/icon-512.png" alt="" width="512" height="512">
     <div>
       <h3>Harbor Rush</h3>
-      <p>お試しは無料、一度の購入で全解放。iPhone と iPad、11言語、アカウント不要。</p>
+      <p>無料でお試し、買い切りで解放。iPhone と iPad、11言語、アカウント不要。</p>
     </div>
   </div>
 </section>
