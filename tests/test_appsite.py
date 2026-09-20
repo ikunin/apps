@@ -545,6 +545,12 @@ with tempfile.TemporaryDirectory() as out:
     check("and the build stops on it rather than publishing the page",
           pages == 1 and any("placeholder" in problem for problem in problems))
 
+# The family list is the count: a name missing from it is a name this check
+# cannot see on another app's page. JustTalk published while it was absent.
+check("an app that joined the family is caught on another app's page",
+      site_check.other_apps_named("<p>Made with JustTalk</p>", "MorseHero") == ["JustTalk"]
+      and site_check.other_apps_named("<p>Made with JustTalk</p>", "JustTalk") == [])
+
 print()
 if failures:
     print(f"{len(failures)} failed")

@@ -11,8 +11,10 @@ the one that is maintained; do not copy it.
 
 ## What exists
 
-One GitHub Pages site, five apps, eleven languages each, and an index at the
-root that lists them:
+One GitHub Pages site, one directory per app, eleven languages each, and an
+index at the root that lists them — the apps are named in `FAMILY` in
+`appsite/check.py`, which is the list to read rather than a number written
+here, because a number written here is wrong the next time one publishes:
 
 ```
 https://ikunin.github.io/apps/                 the index — generated, see below
@@ -52,7 +54,7 @@ change for one app must not change for the others.
 Two paths, the same in every repository: the kit is the submodule at
 **`vendor/appsite`**, and that app's own words are in **`appstore/`**. Both
 lowercase — `Tools/` and `tools/` are the same directory on a case-insensitive
-Mac and two different ones on Linux CI. All five apps build with `make site`.
+Mac and two different ones on Linux CI. Every app builds with `make site`.
 
 In `appstore/`: `site_config.py` (the whole interface to the kit),
 `make_site_translations.py` (landing page + the `T` table),
@@ -75,7 +77,7 @@ behind its English — only a person reading both.
 
 ### Change how a page is shaped
 
-That belongs in the kit and lands on all five apps.
+That belongs in the kit and lands on every app.
 
 ```sh
 cd vendor/appsite && python3 tests/test_appsite.py
@@ -83,8 +85,8 @@ cd - && make site && git diff --stat site/      # expect only what you intended
 ```
 
 The kit's own gate is that a shipped site re-renders **byte-identically**
-unless you meant to change it. Run `make site` in all five apps after any
-kit change and read the diff.
+unless you meant to change it. Run `make site` in every app after any kit
+change and read the diff.
 
 ### Publish
 
@@ -118,17 +120,18 @@ python3 vendor/appsite/publish.py --index-only --dry-run
 
 **A card is an icon, a name and that app's own App Store subtitle.** Do not add
 a sentence about the apps to that page. They differ in what they collect, and
-one sentence about all five is a false statement about at least one of them —
+one sentence about all of them is a false statement about at least one —
 which is the mistake below, in a place where it would be published fastest.
 
 **Every card's buttons are the page's colour; only its icon is the app's.** A
 card carries its app's accent as `--card-accent`, and that reaches two things:
-the halo under its icon and its hover edge. Five warmths, so the grid does not
-read as one grey list.
+the halo under its icon and its hover edge. A warmth per app, so the grid does
+not read as one grey list.
 
 A card must **never** set `--accent`. That token paints `.button`, it cascades
-into everything inside the card, and five differently-coloured ways in read as
-five sites side by side rather than as one shelf — which is how the page
+into everything inside the card, and a differently-coloured way in per app
+reads as separate sites side by side rather than as one shelf — which is how
+the page
 shipped until it was fixed. The index's own `--accent` is one colour for the
 whole page: whatever `PALETTE_FROM` in `portfolio_config.py` names.
 
@@ -184,7 +187,7 @@ SpeedyCards' privacy policy described *melody packs and cliparts*, and claimed
 the app was "designed for children and rated 4+", and was live that way.
 
 The index at the root is the fastest place to make this mistake, because it is
-the one page that has all five apps on it. It is built so that it cannot: a
+the one page that has every app on it. It is built so that it cannot: a
 card carries only what its own app says about itself.
 
 **A blanket rename renames the app, not what the app is about.** Replacing
@@ -242,7 +245,7 @@ title or anywhere else the app has to name itself; writing
 `plain(SITE.impressum.get("app") or SITE.chrome.brand)` again is how
 `mail_href` came to raise `KeyError` on a config that had no `app` key.
 
-Four of the five apps used to build this link themselves, each writing its own
+All but one app used to build this link themselves, each writing its own
 name into it, and the copies drifted: MorseHero shipped the template's
 `support@example.com` on a published terms page, two apps capitalised the terms
 subject and three did not, and two support pages promised an address at the

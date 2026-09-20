@@ -47,7 +47,10 @@ def images_without_alt(markup):
             if 'alt="' not in img]
 
 
-#: Every app in the family, by its printed name. Extend when one joins.
+#: Every app in the family, by its printed name. Extend when one joins — and
+#: this list, not a number in prose, is what says how many there are: JustTalk
+#: published while the docs still said five, and a name missing from here is a
+#: name the check below cannot catch on somebody else's page.
 #:
 #: A built page must never carry a name that is not this app's own. The kit
 #: seeds a new site with a shipped app's words on purpose — § 4 of the recipe is
@@ -55,7 +58,8 @@ def images_without_alt(markup):
 #: this app's legal page, in eleven languages, linked from an App Store listing.
 #: It reached the open web once as a page title, because the recipe sends you to
 #: the text tables and the name was in the plumbing.
-FAMILY = ["TappyMusic", "Harbor Rush", "SpeedyCards", "VideoSqueezer", "MorseHero"]
+FAMILY = ["TappyMusic", "Harbor Rush", "SpeedyCards", "VideoSqueezer",
+          "MorseHero", "JustTalk"]
 
 
 def other_apps_named(markup, own):

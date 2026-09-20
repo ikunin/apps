@@ -3,11 +3,11 @@
 
 One GitHub Pages site serves every app, one directory each:
 
-    ikunin.github.io/apps/tappymusic/
-    ikunin.github.io/apps/harborrush/
-    ikunin.github.io/apps/speedycards/
-    ikunin.github.io/apps/videosqueezer/
-    ikunin.github.io/apps/morsehero/
+    ikunin.github.io/apps/<app>/
+
+Which apps those are is not written here — the branch itself says, one
+`app.json` per directory, and a list kept in a docstring is a list that is
+wrong the next time an app publishes.
 
 `main` stays the kit — code, template, tests. `gh-pages` holds only generated
 output. Keeping them apart matters for the same reason the kit exists: a
