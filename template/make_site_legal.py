@@ -23,7 +23,7 @@ from site_text_terms import TERMS
 from appsite import LANGUAGES
 from appsite.portfolio import plain
 from appsite.legal import (APPLE_EULA, APPLE_REFUNDS, GITHUB_PRIVACY, bullets,
-                           faq, heading, link, muted, note, p, page)
+                           faq, heading, link, mail, muted, note, p, page)
 
 #: This app's own name, read from the config rather than written here.
 #:
@@ -33,7 +33,10 @@ from appsite.legal import (APPLE_EULA, APPLE_REFUNDS, GITHUB_PRIVACY, bullets,
 #: out in eleven languages advertising a different program.
 BRAND = plain(SITE.impressum.get("app") or SITE.chrome.brand)
 
-TERMS_MAIL = "mailto:support@example.com?subject=Terms"   # TODO(app)
+# Every mailto: on these pages comes from `mail(SITE, ...)`: the address and a
+# subject that names the app, both out of `Site.impressum`. Nothing here writes
+# an address, so no page can ship a placeholder one or a subject that does not
+# say which app the reader is writing about — one mailbox serves all the apps.
 SOUNDFONT = "https://example.com/"                        # TODO(app)
 
 
@@ -48,7 +51,7 @@ def render(language, name, text, blocks, governs=True):
 def support(language):
     s = SUPPORT[language]
     return render(language, "support.html", s, [
-        p(s["intro"]),
+        p(s["intro"].format(contact=mail(SITE))),
         faq(s["faq"]),
         heading(s["h_report"]),
         p(html.escape(s["p_report"])),
@@ -105,7 +108,7 @@ def terms(language):
         heading(s["h_changes"]),
         p(html.escape(s["p_changes"])),
         heading(s["h_contact"]),
-        p(link(TERMS_MAIL, "support@example.com")),
+        p(mail(SITE, "terms")),
     ])
 
 

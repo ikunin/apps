@@ -11,6 +11,7 @@ app whose terms do not, does not.
 """
 
 import html
+from urllib.parse import quote
 
 from .languages import LANGUAGES, ORIGINAL_LINK_LABEL
 
@@ -24,6 +25,33 @@ GITHUB_PRIVACY = ("https://docs.github.com/site-policy/privacy-policies/"
 
 def link(href, text):
     return f'<a href="{href}">{text}</a>'
+
+
+# ----------------------------------------------------------- the mailbox ---
+# One address serves all the apps, so every link into it has to say which app
+# it is about; a message titled "Support" could be about any of them. The app
+# does not write the address or the subject — both are built from what its
+# `Site.impressum` already declares, because an address written by hand in an
+# app is an address that can be a placeholder (the template's own
+# support@example.com reached a published terms page that way) or carry no
+# subject at all.
+
+def mail_href(site, topic=""):
+    """`mailto:` for this app's support address, its subject naming the app.
+
+    `topic` is added to that name rather than replacing it — "SpeedyCards
+    terms", not "terms" — so the app is still the first thing the mailbox
+    sorts on. An app whose mail is filed under something else sets
+    `impressum["subject"]` once and every link follows.
+    """
+    it = site.impressum
+    subject = it.get("subject") or it["app"]
+    return f'mailto:{it["email"]}?subject={quote(f"{subject} {topic}".strip())}'
+
+
+def mail(site, topic="", text=None):
+    """The same link, written out. Reads as the address unless given words."""
+    return link(mail_href(site, topic), text or html.escape(site.impressum["email"]))
 
 
 # --------------------------------------------------------------- blocks ---

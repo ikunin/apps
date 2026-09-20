@@ -20,7 +20,8 @@ from appsite import Chrome, Page, Site, assets, impressum, languages, portfolio
 # Not `check`: this file's own assertion helper owns that name.
 from appsite import check as site_check
 from appsite.blocks import cards, hero, landing, section
-from appsite.legal import bullets, heading, muted, note, p, render
+from appsite.legal import (bullets, heading, mail, mail_href, muted, note, p,
+                           render)
 
 PAGES = (
     Page("home", "index.html"),
@@ -437,6 +438,54 @@ table = next((node.value for node in ast.walk(landing)
               and getattr(node.targets[0], "id", None) == "T"), None)
 check("the template's landing copy is English only, so a build says what is missing",
       table is not None and [k.value for k in table.keys] == ["en"])
+
+print("\nthe support address")
+
+# One mailbox serves every app, so a message that does not say which app it is
+# about cannot be sorted — and until now each app wrote its own mailto: by
+# hand. MorseHero shipped the template's support@example.com on its published
+# terms page and JustTalk shipped a link with no subject at all; both are what
+# happens when the address is written in an app rather than built from its
+# config.
+MAIL_SITE = Site(
+    chrome=Chrome(brand="App", icon="img/i.png", pages=IMPRESSUM_PAGES, copyright="©"),
+    out="site",
+    impressum={"app": "Harbor Rush", "name": "N", "street": "S", "postcode": "1",
+               "city": "C", "country": "D", "phone": "+49 30 1",
+               "email": "a@b.example"},
+)
+check("the subject names the app, so a reply can be sorted",
+      mail_href(MAIL_SITE) == "mailto:a@b.example?subject=Harbor%20Rush")
+check("a topic is added to the app's name, never instead of it",
+      mail_href(MAIL_SITE, "terms") == "mailto:a@b.example?subject=Harbor%20Rush%20terms")
+check("the link reads as the address unless the caller says otherwise",
+      mail(MAIL_SITE) == '<a href="mailto:a@b.example?subject=Harbor%20Rush">a@b.example</a>'
+      and ">write to us<" in mail(MAIL_SITE, text="write to us"))
+
+# An app whose mailbox is sorted by something other than its own name says so
+# once, in its config, and every link on every page follows.
+SUBJECT_SITE = Site(
+    chrome=Chrome(brand="App", icon="img/i.png", pages=IMPRESSUM_PAGES, copyright="©"),
+    out="site",
+    impressum=dict(MAIL_SITE.impressum, subject="HR support"),
+)
+check("an explicit subject wins over the app's name",
+      mail_href(SUBJECT_SITE) == "mailto:a@b.example?subject=HR%20support")
+
+# The § 5 identification carries the same address, and built it separately
+# until now. One seam: change the rule above and the Impressum follows.
+check("the impressum writes the same link as every other page",
+      mail_href(MAIL_SITE) in impressum.page(MAIL_SITE, "de"))
+
+# The template is what a new app copies, and a placeholder address that still
+# resolves as a link is the one kind of TODO nothing catches later.
+legal_src = (TEMPLATE / "make_site_legal.py").read_text(encoding="utf-8")
+support_src = (TEMPLATE / "site_text_support.py").read_text(encoding="utf-8")
+check("the template writes no address of its own",
+      "support@example.com" not in legal_src
+      and '"mailto:' not in legal_src and '"mailto:' not in support_src)
+check("and its support page takes the contact from the kit",
+      "{contact}" in support_src)
 
 print()
 if failures:

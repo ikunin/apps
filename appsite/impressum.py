@@ -18,6 +18,8 @@ supplies its own support address and name through `Site.impressum`.
 
 import html
 
+from .legal import mail_href
+
 #: § 5 DDG requires each of these. A missing one is worse than no Impressum.
 REQUIRED = ("name", "street", "postcode", "city", "country", "phone", "email")
 
@@ -80,8 +82,7 @@ def about_the_app(site, language):
 def body(site, language, *, about=None):
     """The German provider identification. Identical in every language."""
     it = site.impressum
-    subject = it.get("subject", it["app"]).replace(" ", "%20")
-    mail = f'mailto:{it["email"]}?subject={subject}'
+    mail = mail_href(site)
     tel = "tel:+" + "".join(c for c in it["phone"] if c.isdigit())
     return f"""  <p class="muted">Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz).</p>
 
