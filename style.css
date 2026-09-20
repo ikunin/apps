@@ -735,14 +735,9 @@ footer.site nav.languages a[aria-current="page"] {
  * token to disagree with the first. The app sites never load this.
  *
  * Nothing here names a colour. The page's palette is the one the app named in
- * portfolio_config.py publishes, and these rules name tokens only — so there is
- * no per-app CSS anywhere.
- *
- * Two accents, and the split is the point. `--accent` is the page's, and it
- * paints every button on it, so the cards offer one way in rather than three.
- * `--card-accent` is the app's own, written inline on its card by
- * `portfolio.py`; it lights that card's icon and its hover edge and reaches
- * nothing else. A card must never override `--accent` itself — see AGENTS.md.
+ * portfolio_config.py publishes, and every card overrides `--accent` inline
+ * with its own app's — so these rules name tokens only, and each card comes
+ * out in the right colour. There is no per-app CSS anywhere.
  */
 
 /* The kit's hero leaves room for a lead paragraph under the headline. This page
@@ -758,9 +753,6 @@ main { padding-bottom: clamp(2rem, 6vw, 4rem); }
 }
 
 .app {
-  /* The app's own colour, when its card carries one. A card built from a
-     manifest that has none falls back to the page's, rather than to nothing. */
-  --card-accent: var(--accent);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -774,7 +766,7 @@ main { padding-bottom: clamp(2rem, 6vw, 4rem); }
 
 .app:hover {
   transform: translateY(-3px);
-  border-color: var(--card-accent);
+  border-color: var(--accent);
 }
 
 /* The icon at the size iOS draws it on the home screen, lit by the app's own
@@ -786,7 +778,7 @@ main { padding-bottom: clamp(2rem, 6vw, 4rem); }
   margin-bottom: 1.1rem;
   box-shadow: 0 0 2.5rem rgba(255, 255, 255, 0.10),
               0 0 0 1px rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 2.5rem color-mix(in oklab, var(--card-accent) 35%, transparent),
+  box-shadow: 0 0 2.5rem color-mix(in oklab, var(--accent) 35%, transparent),
               0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
@@ -814,8 +806,7 @@ main { padding-bottom: clamp(2rem, 6vw, 4rem); }
    different lengths. */
 .app .actions { margin-top: auto; }
 
-/* The kit's button glow is a fixed yellow; on this page it follows the page's
-   own accent — the same glow under every card's buttons, not the card's. */
+/* The kit's button glow is a fixed yellow; inside a card it follows the card. */
 .app .button {
   box-shadow: 0 0.6rem 1.6rem color-mix(in oklab, var(--accent) 25%, transparent);
 }
