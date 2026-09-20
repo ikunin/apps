@@ -53,6 +53,14 @@ SITE = Site(
     # dominant colour as --accent and leave the rest. --accent is also the
     # colour this app's card takes on the portfolio at the root of the site.
     palette={},                             # TODO(app)
+    # TODO(app): the languages this app is actually translated into, in
+    # switcher order. The kit would default to every language it knows, but
+    # the switcher and the hreflang links are built from this list, so a site
+    # that advertises a language the app does not carry is a page a reader
+    # hits a 404 on. Say it here even when it is all eleven: the list is then
+    # this app's own fact, checkable against its metadata/ directories,
+    # rather than the kit's table inherited by accident.
+    languages=("en", "de", "fr", "es", "it", "pt", "ja", "ko", "el", "uk", "ru"),
     # The App Store listing, once the app is live. The portfolio card shows a
     # button for it and leaves the button off while this is empty, so an
     # unreleased app needs no placeholder here.

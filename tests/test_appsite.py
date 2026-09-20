@@ -439,6 +439,21 @@ table = next((node.value for node in ast.walk(landing)
 check("the template's landing copy is English only, so a build says what is missing",
       table is not None and [k.value for k in table.keys] == ["en"])
 
+# And the template says which languages it ships in rather than letting the
+# kit's table decide: the default is every language `appsite` knows, so an app
+# that copies this file and translates eight of them advertises eleven, and
+# check_site counts the other three as dead links. Naming the list here is
+# also where an app deletes from.
+config = ast.parse((TEMPLATE / "site_config.py").read_text(encoding="utf-8"))
+site_call = next((node.value for node in ast.walk(config)
+                  if isinstance(node, ast.Assign)
+                  and getattr(node.targets[0], "id", None) == "SITE"), None)
+declared = next((keyword.value for keyword in getattr(site_call, "keywords", ())
+                 if keyword.arg == "languages"), None)
+codes = [element.value for element in declared.elts] if declared is not None else []
+check("the template declares its own language list",
+      codes == list(languages.LANGUAGES))
+
 print("\nthe support address")
 
 # One mailbox serves every app, so a message that does not say which app it is
