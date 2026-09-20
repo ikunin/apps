@@ -10,7 +10,8 @@
     "name": "Igor Kunin",
     "phone": "+49 30 56007689",
     "postcode": "10587",
-    "street": "Fraunhoferstr. 23A"
+    "street": "Fraunhoferstr. 23A",
+    "vat": "DE465106803"
   },
   "palette": {
     "accent": "#3B82F6",
