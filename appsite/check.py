@@ -67,6 +67,21 @@ def other_apps_named(markup, own):
     return [name for name in FAMILY if name != own and name in markup]
 
 
+#: The reserved placeholder domains (RFC 2606). None of them can be a real
+#: destination, so one on a built page is a TODO that got published rather
+#: than a link — which is how `support@example.com` reached a live terms page
+#: in eleven languages. Caught here rather than in each app because every app
+#: already runs this checker at the end of `make site`, and the next
+#: placeholder will not be an address: the template still hands a new app
+#: `SOUNDFONT = "https://example.com/"` to edit, and its terms copy links it.
+PLACEHOLDER_DOMAINS = ("example.com", "example.net", "example.org")
+
+
+def placeholders(markup):
+    """The reserved domains appearing on a page, each named once."""
+    return [domain for domain in PLACEHOLDER_DOMAINS if domain in markup]
+
+
 def check_pages(site, *, required, impressum):
     problems = []
     out = site.out
@@ -105,6 +120,11 @@ def check_pages(site, *, required, impressum):
 
         if "<title>" not in markup:
             problems.append(f"{out}/{page}: no <title>")
+
+        for domain in placeholders(markup):
+            problems.append(
+                f"{out}/{page}: links {domain}, which is a placeholder — "
+                "a TODO in the recipe that renders as a working link")
 
         for name in other_apps_named(markup, own):
             problems.append(f"{out}/{page}: says {name}, which is a different app")

@@ -525,6 +525,26 @@ check("the template writes no address of its own",
 check("and its support page takes the contact from the kit",
       "{contact}" in support_src)
 
+print("\nplaceholders that got published")
+
+# A reserved domain cannot be a real destination, so one on a built page is a
+# TODO that rendered as a working link. The checker is the seam: every app
+# runs it at the end of `make site`, and nobody has to remember which of the
+# template's constants they were supposed to edit.
+check("a reserved domain is found, and clean markup is left alone",
+      site_check.placeholders('<a href="https://example.com/">Sound</a>') == ["example.com"]
+      and site_check.placeholders('<a href="mailto:a@b.example">a</a>') == [])
+
+with tempfile.TemporaryDirectory() as out:
+    with open(os.path.join(out, "terms.html"), "w", encoding="utf-8") as handle:
+        handle.write('<title>Terms</title>'
+                     '<p>Sounds from <a href="https://example.com/">MuseScore_General</a>.</p>')
+    LEFTOVER = Site(chrome=Chrome(brand="App", icon="img/i.png", pages=PAGES,
+                                  copyright="©"), out=out)
+    problems, pages = site_check.check_pages(LEFTOVER, required=(), impressum=None)
+    check("and the build stops on it rather than publishing the page",
+          pages == 1 and any("placeholder" in problem for problem in problems))
+
 print()
 if failures:
     print(f"{len(failures)} failed")

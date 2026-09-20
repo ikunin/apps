@@ -36,7 +36,12 @@ BRAND = SITE.name
 # subject that names the app, both out of `Site.impressum`. Nothing here writes
 # an address, so no page can ship a placeholder one or a subject that does not
 # say which app the reader is writing about — one mailbox serves all the apps.
-SOUNDFONT = "https://example.com/"                        # TODO(app)
+# TODO(app): the sound source this app's terms credit, or delete this and the
+# {sf} it fills out of site_text_terms.py if the app makes its own sound.
+# Left as a reserved domain deliberately: check_site refuses to pass a built
+# page that still links one, so forgetting this stops the build rather than
+# publishing a credit that leads nowhere.
+SOUNDFONT = "https://example.com/"
 
 
 def render(language, name, text, blocks, governs=True):
