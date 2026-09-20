@@ -103,13 +103,13 @@ subtitle it already ships, its icon and its accent, every one of them read from
 card lands on the branch with the pages, and `publish.py` rebuilds the index
 from every card it finds there.
 
-An app is on that page because it published. A fourth app needs no edit in this
+An app is on that page because it published. The next app needs no edit in this
 repository at all, and an app whose card is missing has simply not been rebuilt
 since this existed.
 
 A card is an icon, a name and one slogan. **Nothing on that page describes the
 apps as a group** — they differ in what they collect, and a sentence true of
-two of them is a false statement about the third. Its own wording lives in
+one of them is a false statement about the next. Its own wording lives in
 `portfolio_config.py`.
 
 ```sh

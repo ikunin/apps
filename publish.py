@@ -6,6 +6,8 @@ One GitHub Pages site serves every app, one directory each:
     ikunin.github.io/apps/tappymusic/
     ikunin.github.io/apps/harborrush/
     ikunin.github.io/apps/speedycards/
+    ikunin.github.io/apps/videosqueezer/
+    ikunin.github.io/apps/morsehero/
 
 `main` stays the kit — code, template, tests. `gh-pages` holds only generated
 output. Keeping them apart matters for the same reason the kit exists: a
@@ -22,7 +24,7 @@ publishing one app cannot remove another.
 
 The root index is then rebuilt from every `app.json` on the branch — see
 `appsite/portfolio.py`. It is derived, never edited: an app appears there
-because it has published, and a fourth app needs no change here.
+because it has published, and one more app needs no change here.
 
     python3 vendor/appsite/publish.py --index-only
 

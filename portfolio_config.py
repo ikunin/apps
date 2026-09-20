@@ -7,7 +7,7 @@ only place its wording, its colours and its § 5 address are written down.
 
 The page deliberately says very little. A card carries an app's own icon, name
 and App Store subtitle, and that is all. Anything written *about the apps* would
-be a sentence about three different programs at once, and the three differ in
+be a sentence about every one of those programs at once, and they differ in
 what they collect; AGENTS.md records the time such a sentence was published and
 was false. If you want to say more about an app, say it on that app's site.
 """
@@ -50,7 +50,7 @@ SITE = Site(
 
 #: Whose colours this page wears.
 #:
-#: A page about three apps has to look like something, and the kit's default
+#: A page about a shelf of apps has to look like something, and the kit's default
 #: palette is TappyMusic's. SpeedyCards' felt-and-brass is the one that reads
 #: as a shelf rather than as one of the products, so the root takes it.
 #:
@@ -84,7 +84,7 @@ LEAD = ""
 
 #: The English note on the root's Impressum, which is otherwise German because
 #: § 5 DDG is German law. `{support}` becomes a link to each app's support page:
-#: this page has none of its own, and "the app" would be three apps here.
+#: this page has none of its own, and "the app" would be all of them here.
 IMPRESSUM_NOTE = (
     "<strong>In English:</strong> this page is the provider identification "
     "German law requires of commercial websites (§ 5 DDG). It names who "

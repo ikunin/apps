@@ -1,21 +1,21 @@
 """The page at the root of the Pages site: every app that has published one.
 
-One GitHub Pages site serves three apps, a directory each, and its root said
-"Nothing here" until this existed. This is that root — a card per app, each
+One GitHub Pages site serves every one of them, a directory each, and its root
+said "Nothing here" until this existed. This is that root — a card per app, each
 carrying the app's icon, its name and the one-line slogan it already ships on
 the App Store.
 
 **Nothing here is a list somebody keeps up to date.** Each app's build writes an
 `app.json` into its own `site/`; publishing copies that up with the pages; this
 module then rebuilds the index from whatever manifests are on the branch. An app
-that has published is on the page. One that has not, is not. A fourth app needs
+that has published is on the page. One that has not, is not. The next app needs
 no edit here at all — it publishes, and it is there.
 
 **What a card may say is deliberately narrow.** The app's own icon, name and
 subtitle, and a link into its own site. No counts, no aggregate sentence about
-"the apps". The three differ in what they collect — one ships analytics, one
-ships nothing — and a sentence written about all of them at once is a sentence
-that is false about at least one. That has already been published once; see
+"the apps". They differ in what they collect — one syncs a player's progress to
+iCloud, the rest let nothing leave the device — and a sentence written about all
+of them at once is a sentence that is false about at least one. That has already been published once; see
 AGENTS.md.
 """
 
@@ -93,7 +93,7 @@ def manifest(site):
         "palette": dict(site.palette),
         # The § 5 operator, so the root's Impressum can be built without a
         # second copy of an address that lives in this app's site_config.py
-        # and nowhere else. Everything here is already on 45 published pages.
+        # and nowhere else. Everything here is already on that app's published pages.
         "operator": {key: site.impressum[key] for key in OPERATOR
                      if site.impressum.get(key)},
     }
@@ -140,8 +140,8 @@ STORE = "App Store"
 def card(slug, app):
     """One app. Its icon, its name, its own slogan, and the way in."""
     # The app's own colour, under a token that belongs to the card. It is
-    # deliberately not `--accent`: that token paints the buttons, and three
-    # cards offering three differently-coloured ways in read as three sites
+    # deliberately not `--accent`: that token paints the buttons, and a row
+    # of cards offering differently-coloured ways in reads as that many sites
     # rather than as one shelf. The actions stay in the page's palette and the
     # app's colour lights its icon. See the rule in AGENTS.md.
     accent = app.get("accent")

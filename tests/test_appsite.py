@@ -53,7 +53,7 @@ def raises(function, *arguments):
 
 
 #: The oldest Python an app's CI runs. Nothing here may need newer syntax:
-#: this package is imported by three repositories and cannot pick their
+#: this package is imported by every app's repository and cannot pick their
 #: interpreter.
 OLDEST = (3, 11)
 

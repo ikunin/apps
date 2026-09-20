@@ -1,7 +1,8 @@
 # Maintaining the app sites
 
 Instructions for an AI agent — Claude Code, Gemini CLI, or any other — working
-on the websites for TappyMusic, Harbor Rush, SpeedyCards and VideoSqueezer.
+on the websites for TappyMusic, Harbor Rush, SpeedyCards, VideoSqueezer and
+MorseHero.
 
 `CLAUDE.md` and `GEMINI.md` in this repository both point here. This file is
 the one that is maintained; do not copy it.
@@ -10,7 +11,7 @@ the one that is maintained; do not copy it.
 
 ## What exists
 
-One GitHub Pages site, four apps, eleven languages each, and an index at the
+One GitHub Pages site, five apps, eleven languages each, and an index at the
 root that lists them:
 
 ```
@@ -19,11 +20,13 @@ https://ikunin.github.io/apps/tappymusic/      66 pages
 https://ikunin.github.io/apps/harborrush/      55 pages
 https://ikunin.github.io/apps/speedycards/     55 pages
 https://ikunin.github.io/apps/videosqueezer/   55 pages
+https://ikunin.github.io/apps/morsehero/       55 pages
 ```
 
 Five pages in each of eleven languages — landing, support, privacy, terms and
 Impressum — and TappyMusic carries a sixth, `songs.html`. These counts are what
-is on `gh-pages` today; nothing reads them, so they go stale quietly.
+was on `gh-pages` on 20 September 2026; nothing reads them, so they go stale
+quietly.
 
 Served from the **`gh-pages` branch of this repository**. `main` is the kit —
 code, template, tests, and this file.
@@ -49,7 +52,7 @@ change for one app must not change for the others.
 Two paths, the same in every repository: the kit is the submodule at
 **`vendor/appsite`**, and that app's own words are in **`appstore/`**. Both
 lowercase — `Tools/` and `tools/` are the same directory on a case-insensitive
-Mac and two different ones on Linux CI. All four apps build with `make site`.
+Mac and two different ones on Linux CI. All five apps build with `make site`.
 
 In `appstore/`: `site_config.py` (the whole interface to the kit),
 `make_site_translations.py` (landing page + the `T` table),
@@ -72,7 +75,7 @@ behind its English — only a person reading both.
 
 ### Change how a page is shaped
 
-That belongs in the kit and lands on all four apps.
+That belongs in the kit and lands on all five apps.
 
 ```sh
 cd vendor/appsite && python3 tests/test_appsite.py
@@ -80,7 +83,7 @@ cd - && make site && git diff --stat site/      # expect only what you intended
 ```
 
 The kit's own gate is that a shipped site re-renders **byte-identically**
-unless you meant to change it. Run `make site` in all four apps after any
+unless you meant to change it. Run `make site` in all five apps after any
 kit change and read the diff.
 
 ### Publish
@@ -115,17 +118,17 @@ python3 vendor/appsite/publish.py --index-only --dry-run
 
 **A card is an icon, a name and that app's own App Store subtitle.** Do not add
 a sentence about the apps to that page. They differ in what they collect, and
-one sentence about all four is a false statement about at least one of them —
+one sentence about all five is a false statement about at least one of them —
 which is the mistake below, in a place where it would be published fastest.
 
 **Every card's buttons are the page's colour; only its icon is the app's.** A
 card carries its app's accent as `--card-accent`, and that reaches two things:
-the halo under its icon and its hover edge. Three warmths, so the grid does not
+the halo under its icon and its hover edge. Five warmths, so the grid does not
 read as one grey list.
 
 A card must **never** set `--accent`. That token paints `.button`, it cascades
-into everything inside the card, and four differently-coloured ways in read as
-four sites side by side rather than as one shelf — which is how the page
+into everything inside the card, and five differently-coloured ways in read as
+five sites side by side rather than as one shelf — which is how the page
 shipped until it was fixed. The index's own `--accent` is one colour for the
 whole page: whatever `PALETTE_FROM` in `portfolio_config.py` names.
 
@@ -148,18 +151,32 @@ Every item here has already happened once.
 **Never copy a privacy or terms claim between these apps.** They differ in
 ways that make a copied sentence a false statement:
 
-| | TappyMusic | Harbor Rush | SpeedyCards | VideoSqueezer |
-|---|---|---|---|---|
-| `PrivacyInfo.xcprivacy` | collects nothing | `ProductInteraction`, unlinked | collects nothing | collects nothing\* |
-| Analytics | none | TelemetryDeck linked | TelemetryDeck linked, App ID empty | none\* |
-| iCloud | no | no | streaks and XP in the user's KVS | no\* |
-| Age rating | 4+ | 9+ | not a children's app | not a children's app\* |
+| | TappyMusic | Harbor Rush | SpeedyCards | VideoSqueezer | MorseHero |
+|---|---|---|---|---|---|
+| `PrivacyInfo.xcprivacy` | collects nothing | collects nothing | collects nothing | collects nothing | collects nothing |
+| Declared APIs | `UserDefaults` | `UserDefaults` | `UserDefaults` | `UserDefaults`, `FileTimestamp`, `DiskSpace` | `UserDefaults`, `SystemBootTime`, `FileTimestamp` |
+| Analytics SDK | none, ever | removed | removed | none | none |
+| iCloud | no | no | streaks and XP in the user's KVS | no | no |
+| Age rating | 4+ † | 9+ † | 4+ expected † | not answered here † | 4+ † |
 
-\* VideoSqueezer's column is read from its own published privacy policy, not
-from its repository: its manifest, its TelemetryDeck setup and its App Store
-age rating have not been checked here. Confirm them in the app before writing
-any sentence that leans on them — the paragraph below is what happens when
-that order is reversed.
+Read on 20 September 2026 out of each repository's `PrivacyInfo.xcprivacy` and
+project file — not out of anything already written on a page. **The first row
+being identical is the trap**: the apps look alike there and differ in the two
+below it, so a sentence lifted from one policy is wrong about exactly the thing
+its reader came for.
+
+Harbor Rush and SpeedyCards both linked TelemetryDeck, and both have removed it
+— Harbor Rush by SPEC-DECISION D20 (19 September 2026), which reverses D17. In
+both the App ID was always empty, so no build either of them shipped ever sent
+anything. Harbor Rush's removal is in its working tree; a build carrying the
+inert SDK may still be the one on the store.
+
+† No age rating here is in a form a checker can read. TappyMusic's 4+ is in its
+`docs/APPSTORE.md`, Harbor Rush's 9+ in `appstore/asc-submission-answers.md`,
+MorseHero's 4+ in its `docs/RELEASE.md`; SpeedyCards' release playbook only
+*expects* 4+, and VideoSqueezer's is unanswered in its repository. App Store
+Connect is the one place that settles it — look there before writing a sentence
+that leans on a rating.
 
 "No analytics, no data leaves the device" was written into Harbor Rush's
 landing page in eleven languages before anyone checked its privacy manifest.
@@ -167,7 +184,7 @@ SpeedyCards' privacy policy described *melody packs and cliparts*, and claimed
 the app was "designed for children and rated 4+", and was live that way.
 
 The index at the root is the fastest place to make this mistake, because it is
-the one page that has all four apps on it. It is built so that it cannot: a
+the one page that has all five apps on it. It is built so that it cannot: a
 card carries only what its own app says about itself.
 
 **A blanket rename renames the app, not what the app is about.** Replacing

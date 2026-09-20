@@ -12,7 +12,7 @@ only way back is the browser's back button.
 
 **This is shared rather than owned**, unlike the rest of each app's prose,
 because it is a document about the *operator*, not about the app. One operator,
-one address; a move should not mean editing three repositories. Each app
+one address; a move should not mean editing every app's repository. Each app
 supplies its own support address and name through `Site.impressum`.
 """
 
@@ -54,7 +54,7 @@ def about_the_app(site, language):
 
     Separated out because the portfolio at the root of the Pages site carries
     the same § 5 identification and is not an app: it has no privacy page of
-    its own, and "die App" there would be three of them. One § 5 block, two
+    its own, and "die App" there would be every one of them. One § 5 block, two
     callers, rather than a second copy that would go stale the next time the
     law's wording did.
     """
