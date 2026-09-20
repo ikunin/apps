@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support — JustTalk</title>
+<meta name="description" content="Help with JustTalk: permissions, backends, accuracy, purchases and how to get in touch.">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#1C1C1E">
+<link rel="icon" href="img/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+<link rel="alternate" hreflang="en" href="support.html">
+<link rel="alternate" hreflang="x-default" href="support.html">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="img/icon-512.png" alt="" width="512" height="512">JustTalk</a>
+    <nav class="site">
+      <a href="./">Home</a>
+      <a href="support.html" aria-current="page">Support</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="impressum.html">Impressum</a>
+      <a class="away" href="../">More apps</a>
+    </nav>
+  </div>
+</header>
+
+<main class="legal"><div class="wrap">
+
+<section>
+  <h2>Support</h2>
+  <p>Most questions are answered below. If yours is not, write to <a href="mailto:support.kunin@gmail.com">support.kunin@gmail.com</a>.</p>
+
+  <dl class="faq">
+    <dt>Nothing is pasted when I stop speaking.</dt>
+    <dd>JustTalk types into the app in front by simulating a paste, and macOS only allows that once you grant Accessibility. Open System Settings ▸ Privacy &amp; Security ▸ Accessibility and switch JustTalk on. If it is already on after an update, switch it off and on again — macOS ties the permission to the exact build.</dd>
+
+    <dt>The hotkey does nothing in one particular app.</dt>
+    <dd>Some apps take the key first, and secure input fields — password boxes, some terminals — block synthetic typing entirely by design. Try the same hotkey in TextEdit to tell the two apart.</dd>
+
+    <dt>Transcription is slow, or stops after a few words.</dt>
+    <dd>That is usually the backend rather than the app. On-device Whisper depends on your Mac and on the model size; a cloud backend depends on your connection and on that provider being up. Switching backends in Settings ▸ Speech is the quickest way to find out which.</dd>
+
+    <dt>It keeps misspelling names and jargon.</dt>
+    <dd>Add them to the custom dictionary in Settings. Entries are applied after transcription, so they fix the words the model reliably gets wrong without retraining anything.</dd>
+
+    <dt>Does my voice leave my Mac?</dt>
+    <dd>Only if you choose a cloud backend. With on-device Whisper selected, nothing is uploaded — no account, no network. The privacy policy sets out exactly what each option sends.</dd>
+
+    <dt>I paid, but the app still says the trial expired.</dt>
+    <dd>Open Settings ▸ JustTalk Pro and press Restore a previous purchase. That asks the App Store again, which fixes the case where the app could not see the receipt. Purchases follow your Apple ID, so make sure you are signed in with the one you bought it on.</dd>
+
+    <dt>I bought it on the website. Can I use that key here?</dt>
+    <dd>No. The Mac App Store version is sold only through the App Store and does not accept license keys; the version downloaded from the website uses keys and does not use the App Store. Pick whichever suits you — they are the same app.</dd>
+
+    <dt>Meeting capture records me but not the other side.</dt>
+    <dd>Capturing the other half of a call needs permission to record system audio, which macOS asks for the first time you start a meeting. If you dismissed that prompt, grant it in System Settings ▸ Privacy &amp; Security.</dd>
+
+  </dl>
+
+  <h3>Reporting a problem</h3>
+  <p>Include the app version — it is in the About window — along with your macOS version, which backend you were using and what you expected to happen. A sentence of the text that came out wrong helps more than a description of it.</p>
+
+  <div class="note"><p>This is a small app maintained by one person. Replies are not instant, but every message is read.</p></div>
+</section>
+
+</div></main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© Igor Kunin 2026</span>
+    <nav class="languages"><a href="support.html" hreflang="en" lang="en" aria-current="page">English</a></nav>
+  </div>
+</footer>
+
+</body>
+</html>

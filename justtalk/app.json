@@ -1,0 +1,34 @@
+{
+  "accent": "#0EA4A4",
+  "icon": "img/icon-512.png",
+  "icon_size": 512,
+  "name": "JustTalk",
+  "operator": {
+    "city": "Berlin",
+    "country": "Deutschland",
+    "email": "support.kunin@gmail.com",
+    "name": "Igor Kunin",
+    "phone": "+49 30 56007689",
+    "postcode": "10587",
+    "street": "Fraunhoferstr. 23A",
+    "vat": "DE465106803"
+  },
+  "palette": {
+    "accent": "#0EA4A4",
+    "accent-ink": "#04211F",
+    "bg": "#1C1C1E",
+    "bg-2": "#242426",
+    "cyan": "#39C66E",
+    "dim": "#8A8A8E",
+    "ink": "#F2F2F7",
+    "ink-2": "#A1A1A6",
+    "line": "#3A3A3C",
+    "line-soft": "#2F2F31",
+    "pink": "#F0A93B",
+    "surface": "#2C2C2E",
+    "surface-2": "#343436",
+    "violet": "#7FD8D8"
+  },
+  "slogan": "Talk to your Mac, get text",
+  "store": ""
+}
