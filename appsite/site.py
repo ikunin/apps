@@ -47,6 +47,17 @@ class Site:
     #: every page. Empty writes nothing.
     more_apps: str = ""
 
+    def __post_init__(self):
+        # One source for the language list. An app sets `languages` on the
+        # Site; the Chrome needs the same list for the switcher and the
+        # hreflang links. Pushing it down here means the two cannot be set
+        # inconsistently — the failure mode being a switcher that links to
+        # pages the build never produced. Unconditional: the default is
+        # every language the kit knows, so this is a no-op for every app
+        # that predates the field. Frozen dataclass, hence __setattr__.
+        if not self.chrome.languages:
+            object.__setattr__(self.chrome, "languages", tuple(self.languages))
+
     def directory(self, language):
         return self.out if language == "en" else os.path.join(self.out, language)
 

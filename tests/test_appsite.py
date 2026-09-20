@@ -16,7 +16,7 @@ import tempfile
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from appsite import Chrome, Page, Site, assets, impressum, portfolio
+from appsite import Chrome, Page, Site, assets, impressum, languages, portfolio
 # Not `check`: this file's own assertion helper owns that name.
 from appsite import check as site_check
 from appsite.blocks import cards, hero, landing, section
@@ -402,6 +402,32 @@ for script in sorted(TEMPLATE.glob("*.py")):
         break
 else:
     check("every file in template/ parses", True)
+
+# An app shipping in fewer languages than the kit knows is a config value, not
+# a patch: JustTalk went out in English first, and before this the switcher and
+# the hreflang links still advertised all eleven, so check_site counted eighty
+# dead links against pages the build had never been asked to produce.
+ONE = Site(chrome=Chrome(brand="App", icon="img/i.png", pages=PAGES, copyright="©"),
+           out="site", languages=("en",))
+check("a single-language site lists only its own language",
+      ONE.chrome.language_codes() == ["en"])
+check("the default is still every language the kit knows",
+      SITE.chrome.language_codes() == list(languages.LANGUAGES))
+
+header, footer, alternates, _ = ONE.chrome.render("en", "index.html")
+others = [code for code in languages.LANGUAGES if code != "en"]
+check("its switcher offers no language it was not built in",
+      not any(f'"{code}/' in header or f"/{code}/" in header for code in others))
+check("and it declares no hreflang alternate that does not exist",
+      not any(f"{code}/" in alternates for code in others))
+
+# Setting it on the Chrome directly still wins, so an app with a reason to
+# differ is not locked out by the push-down above.
+EXPLICIT = Site(chrome=Chrome(brand="App", icon="img/i.png", pages=PAGES,
+                              copyright="©", languages=("en", "de")),
+                out="site", languages=("en",))
+check("an explicit Chrome language list is not overwritten",
+      EXPLICIT.chrome.language_codes() == ["en", "de"])
 
 # A landing page has nothing to inherit, so the template ships English only —
 # and must stop rather than publish a site in one language.

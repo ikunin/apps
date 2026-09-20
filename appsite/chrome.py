@@ -49,9 +49,18 @@ class Chrome:
     pages: tuple
     copyright: str
     icon_size: int = 512
+    #: Language codes this site is actually built in, in switcher order.
+    #: Empty means every language the kit knows, which is what every app
+    #: that predates this field gets. A site built in fewer — a new app
+    #: shipping English first — must not advertise the other ten in its
+    #: switcher and its hreflang links: check_site fails the build on the
+    #: dead links, and rightly, because a reader would hit a 404.
+    #: `Site` pushes its own `languages` down here, so an app sets this
+    #: in one place.
+    languages: tuple = ()
 
     def language_codes(self):
-        return list(LANGUAGES)
+        return list(self.languages) if self.languages else list(LANGUAGES)
 
     def render(self, language, current, *, store="", more_apps=""):
         """Returns (header, footer, alternates, root) for one page.
