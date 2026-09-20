@@ -21,7 +21,6 @@ from site_text_support import SUPPORT
 from site_text_terms import TERMS
 
 from appsite import LANGUAGES
-from appsite.portfolio import plain
 from appsite.legal import (APPLE_EULA, APPLE_REFUNDS, GITHUB_PRIVACY, bullets,
                            faq, heading, link, mail, muted, note, p, page)
 
@@ -31,7 +30,7 @@ from appsite.legal import (APPLE_EULA, APPLE_REFUNDS, GITHUB_PRIVACY, bullets,
 #: tells you to edit this file — § 4 sends you to the text tables. Three apps
 #: remembered anyway and the fourth did not, so thirty-three legal pages went
 #: out in eleven languages advertising a different program.
-BRAND = plain(SITE.impressum.get("app") or SITE.chrome.brand)
+BRAND = SITE.name
 
 # Every mailto: on these pages comes from `mail(SITE, ...)`: the address and a
 # subject that names the app, both out of `Site.impressum`. Nothing here writes

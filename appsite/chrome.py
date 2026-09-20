@@ -12,6 +12,17 @@ from dataclasses import dataclass, field
 from .languages import LANGUAGES
 
 
+def plain(brand):
+    """`Harbor&nbsp;Rush` as a person would type it.
+
+    `Chrome.brand` is markup — it carries a non-breaking space so the name
+    cannot wrap in the header — and a card, a `<title>` or a mail subject
+    needs the name as text. It lives beside `brand` because it is the one
+    thing that undoes it.
+    """
+    return html.unescape(brand).replace("\xa0", " ").strip()
+
+
 @dataclass(frozen=True)
 class Page:
     """A page in the navigation.

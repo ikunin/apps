@@ -27,6 +27,8 @@ import os
 
 from . import assets, check, impressum, listing
 from .blocks import button, hero
+# Re-exported: `portfolio.plain` is the name the template imports.
+from .chrome import plain  # noqa: F401
 
 #: What an app leaves in its own site directory for this page to read.
 MANIFEST = "app.json"
@@ -50,15 +52,6 @@ CONFIG = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))
 
 # ------------------------------------------------------------ the manifest ---
 
-def plain(brand):
-    """`Harbor&nbsp;Rush` as a person would type it.
-
-    `Chrome.brand` is markup — it carries a non-breaking space so the name
-    cannot wrap in the header — and a card needs the name as text.
-    """
-    return html.unescape(brand).replace("\xa0", " ").strip()
-
-
 def manifest(site):
     """What one app tells the portfolio about itself.
 
@@ -67,7 +60,7 @@ def manifest(site):
     App Store listing, the icon and the accent from the site's own config.
     Writing a second slogan here would be a second thing to keep in step.
     """
-    name = plain(site.impressum.get("app") or site.chrome.brand)
+    name = site.name
     slogan = listing.read(site, "en", "subtitle")
     icon = os.path.join(site.out, site.chrome.icon)
     if not name:

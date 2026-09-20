@@ -8,7 +8,7 @@ anywhere else in the kit.
 import os
 from dataclasses import dataclass, field
 
-from .chrome import Chrome
+from .chrome import Chrome, plain
 from .languages import LANGUAGES
 
 
@@ -99,6 +99,18 @@ class Site:
         os.makedirs(directory, exist_ok=True)
         with open(os.path.join(directory, name), "w", encoding="utf-8") as handle:
             handle.write(markup)
+
+    @property
+    def name(self):
+        """The app's name as a person would type it.
+
+        The § 5 block names the app and the header carries the same name as
+        markup, so this is `impressum["app"]` with the brand as a fallback —
+        an expression three call sites had written out by hand, one of which
+        (`legal.mail_href`) had neither half of it and raised `KeyError` on a
+        config without an `app` key, which is every config the template ships.
+        """
+        return plain(self.impressum.get("app") or self.chrome.brand)
 
     def local(self, language, name):
         """A link from a page in `language` to a sibling page.

@@ -492,6 +492,29 @@ check("an explicit subject wins over the app's name",
 check("the impressum writes the same link as every other page",
       mail_href(MAIL_SITE) in impressum.page(MAIL_SITE, "de"))
 
+# The subject is the app's name, and there is one resolver for that name:
+# `Site.name`. `mail_href` used to read `impressum["app"]` straight, which
+# raised KeyError on a config without that key — which is every config the
+# template ships — and would have put the brand's own markup in a subject
+# line if an app had declared its § 5 name the way it declares its brand.
+NAMELESS = Site(
+    chrome=Chrome(brand="Harbor&nbsp;Rush", icon="img/i.png",
+                  pages=IMPRESSUM_PAGES, copyright="©"),
+    out="site",
+    impressum={"name": "N", "street": "S", "postcode": "1", "city": "C",
+               "country": "D", "phone": "+49 30 1", "email": "a@b.example"},
+)
+check("a config with no app name falls back to the brand rather than raising",
+      NAMELESS.name == "Harbor Rush"
+      and mail_href(NAMELESS) == "mailto:a@b.example?subject=Harbor%20Rush")
+check("and the brand's markup never reaches a subject line",
+      "nbsp" not in mail_href(NAMELESS))
+check("the § 5 name still wins when there is one",
+      MAIL_SITE.name == "Harbor Rush")
+check("the page title and the mail subject read the same name",
+      Site(chrome=MAIL_SITE.chrome, out="site",
+           impressum=dict(MAIL_SITE.impressum, app="Other")).name == "Other")
+
 # The template is what a new app copies, and a placeholder address that still
 # resolves as a link is the one kind of TODO nothing catches later.
 legal_src = (TEMPLATE / "make_site_legal.py").read_text(encoding="utf-8")

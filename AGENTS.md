@@ -236,6 +236,12 @@ The subject starts with the app's name because one mailbox takes every app's
 mail, and a message titled "Support" could be about any of them. An app filed
 under another name sets `impressum["subject"]` once.
 
+That name is `Site.name` — `impressum["app"]`, or the brand with its markup
+undone — and it is the only place the fallback is written. Use it for a page
+title or anywhere else the app has to name itself; writing
+`plain(SITE.impressum.get("app") or SITE.chrome.brand)` again is how
+`mail_href` came to raise `KeyError` on a config that had no `app` key.
+
 Four of the five apps used to build this link themselves, each writing its own
 name into it, and the copies drifted: MorseHero shipped the template's
 `support@example.com` on a published terms page, two apps capitalised the terms

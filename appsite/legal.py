@@ -45,7 +45,7 @@ def mail_href(site, topic=""):
     `impressum["subject"]` once and every link follows.
     """
     it = site.impressum
-    subject = it.get("subject") or it["app"]
+    subject = it.get("subject") or site.name
     return f'mailto:{it["email"]}?subject={quote(f"{subject} {topic}".strip())}'
 
 

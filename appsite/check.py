@@ -14,8 +14,6 @@ import re
 import sys
 from html.parser import HTMLParser
 
-from . import portfolio
-
 
 class Links(HTMLParser):
     """Every href and src on a page, with the line it came from."""
@@ -72,7 +70,7 @@ def other_apps_named(markup, own):
 def check_pages(site, *, required, impressum):
     problems = []
     out = site.out
-    own = portfolio.plain(site.impressum.get("app") or site.chrome.brand)
+    own = site.name
 
     # Every page, at the root and in each language directory. Walking rather
     # than naming them is the point: a translated page nobody remembered to
