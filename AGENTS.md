@@ -220,11 +220,27 @@ now checks every file with `ast.parse(feature_version=(3, 11))`.
 All of it is overwritten on the next build, so an edit made there is lost
 without ever being wrong enough to notice.
 
-**Never publish a private email address.** Harbor Rush's old site published
-one. Every app now shares one contact address, `support.kunin@gmail.com`, and
-the `mailto:` subject names the app so replies can be sorted. It lives in that
-app's `site_config.py` (`impressum["email"]`) and nowhere else — build the
-links from there rather than writing the address out again.
+**Never publish a private email address, and never build the `mailto:`
+yourself.** Harbor Rush's old site published a private one. Every app now shares
+one contact address, declared once in that app's `site_config.py`
+(`impressum["email"]`), and the link is built by the kit:
+
+```python
+from appsite.legal import mail, mail_href
+mail(SITE)                 # <a href="mailto:…?subject=MyApp">…</a>
+mail(SITE, "terms")        # subject=MyApp terms
+mail_href(SITE)            # the href alone, for prose with its own link text
+```
+
+The subject starts with the app's name because one mailbox takes every app's
+mail, and a message titled "Support" could be about any of them. An app filed
+under another name sets `impressum["subject"]` once.
+
+Four of the five apps used to build this link themselves, each writing its own
+name into it, and the copies drifted: MorseHero shipped the template's
+`support@example.com` on a published terms page, two apps capitalised the terms
+subject and three did not, and two support pages promised an address at the
+bottom of a page that carried none. That is what one seam prevents.
 
 ---
 
