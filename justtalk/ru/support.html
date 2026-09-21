@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Поддержка — JustTalk</title>
+<meta name="description" content="Помощь по JustTalk: разрешения, бэкенды, точность распознавания, покупки и как с нами связаться.">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#1C1C1E">
+<link rel="icon" href="../img/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="stylesheet" href="../style.css">
+<link rel="alternate" hreflang="en" href="../support.html">
+<link rel="alternate" hreflang="de" href="../de/support.html">
+<link rel="alternate" hreflang="fr" href="../fr/support.html">
+<link rel="alternate" hreflang="es" href="../es/support.html">
+<link rel="alternate" hreflang="it" href="../it/support.html">
+<link rel="alternate" hreflang="pt" href="../pt/support.html">
+<link rel="alternate" hreflang="ja" href="../ja/support.html">
+<link rel="alternate" hreflang="ko" href="../ko/support.html">
+<link rel="alternate" hreflang="el" href="../el/support.html">
+<link rel="alternate" hreflang="uk" href="../uk/support.html">
+<link rel="alternate" hreflang="ru" href="../ru/support.html">
+<link rel="alternate" hreflang="x-default" href="../support.html">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="../img/icon-512.png" alt="" width="512" height="512">JustTalk</a>
+    <nav class="site">
+      <a href="./">Главная</a>
+      <a href="support.html" aria-current="page">Помощь</a>
+      <a href="privacy.html">Приватность</a>
+      <a href="terms.html">Условия</a>
+      <a href="../impressum.html">Impressum</a>
+      <a class="away" href="../../">Другие приложения</a>
+    </nav>
+  </div>
+</header>
+
+<main class="legal"><div class="wrap">
+
+<section>
+  <h2>Поддержка</h2>
+  <p>На большинство вопросов ответы есть ниже. Если вашего среди них нет, напишите на <a href="mailto:support.kunin@gmail.com?subject=JustTalk">support.kunin@gmail.com</a>.</p>
+
+  <dl class="faq">
+    <dt>Когда я перестаю говорить, ничего не вставляется.</dt>
+    <dd>JustTalk печатает в активное приложение, имитируя вставку, а macOS разрешает это только после того, как вы предоставите доступ в разделе «Универсальный доступ». Откройте Системные настройки ▸ Конфиденциальность и безопасность ▸ Универсальный доступ и включите JustTalk. Если после обновления доступ уже включён, выключите его и включите заново — macOS привязывает разрешение к конкретной сборке.</dd>
+
+    <dt>В одном конкретном приложении горячая клавиша не работает.</dt>
+    <dd>Некоторые приложения перехватывают клавишу первыми, а защищённые поля ввода — поля паролей, некоторые терминалы — по замыслу вообще блокируют программный ввод текста. Попробуйте ту же горячую клавишу в TextEdit, чтобы отличить один случай от другого.</dd>
+
+    <dt>Распознавание идёт медленно или обрывается после нескольких слов.</dt>
+    <dd>Обычно дело в бэкенде, а не в самом приложении. Локальный Whisper зависит от вашего Mac и размера модели; облачный бэкенд — от вашего соединения и от того, работает ли сейчас сам провайдер. Быстрее всего выяснить, в чём дело, переключив бэкенд в Настройки ▸ Речь.</dd>
+
+    <dt>Оно постоянно неправильно пишет имена и термины.</dt>
+    <dd>Добавьте их в собственный словарь в настройках. Записи применяются уже после распознавания, поэтому они исправляют слова, на которых модель стабильно ошибается, — и для этого ничего не нужно переобучать.</dd>
+
+    <dt>Уходит ли мой голос с моего Mac?</dt>
+    <dd>Только если вы выбрали облачный бэкенд. При выбранном локальном Whisper ничего не загружается — ни учётной записи, ни сети. Политика приватности точно описывает, что отправляет каждый из вариантов.</dd>
+
+    <dt>Я оплатил, но приложение всё равно говорит, что пробный период закончился.</dt>
+    <dd>Откройте Настройки ▸ JustTalk Pro и нажмите «Восстановить покупку». Это заново обращается к App Store и устраняет случаи, когда приложение не видело чек. Покупки привязаны к вашему Apple ID, поэтому убедитесь, что вы вошли под тем же аккаунтом, на который покупали.</dd>
+
+    <dt>Я купил на сайте. Можно ли использовать этот ключ здесь?</dt>
+    <dd>Нет. Версия из Mac App Store продаётся только через App Store и не принимает лицензионные ключи; версия, скачанная с сайта, использует ключи и не связана с App Store. Выбирайте, что вам удобнее, — это одно и то же приложение.</dd>
+
+    <dt>Запись встречи захватывает меня, но не собеседника.</dt>
+    <dd>Чтобы захватывать вторую сторону звонка, нужно разрешение на запись системного звука — macOS запрашивает его при первом запуске встречи. Если вы отклонили этот запрос, предоставьте разрешение в Системные настройки ▸ Конфиденциальность и безопасность.</dd>
+
+  </dl>
+
+  <h3>Как сообщить о проблеме</h3>
+  <p>Укажите версию приложения — она есть в окне «О программе» — а также версию macOS, какой бэкенд вы использовали и чего ожидали. Пара предложений неверно распознанного текста помогает больше, чем его описание.</p>
+
+  <div class="note"><p>Это небольшое приложение, которое поддерживает один человек. Ответы приходят не мгновенно, но каждое сообщение прочитано.</p></div>
+</section>
+
+</div></main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© Igor Kunin 2026</span>
+    <nav class="languages"><a href="../support.html" hreflang="en" lang="en">English</a><a href="../de/support.html" hreflang="de" lang="de">Deutsch</a><a href="../fr/support.html" hreflang="fr" lang="fr">Français</a><a href="../es/support.html" hreflang="es" lang="es">Español</a><a href="../it/support.html" hreflang="it" lang="it">Italiano</a><a href="../pt/support.html" hreflang="pt" lang="pt">Português</a><a href="../ja/support.html" hreflang="ja" lang="ja">日本語</a><a href="../ko/support.html" hreflang="ko" lang="ko">한국어</a><a href="../el/support.html" hreflang="el" lang="el">Ελληνικά</a><a href="../uk/support.html" hreflang="uk" lang="uk">Українська</a><a href="../ru/support.html" hreflang="ru" lang="ru" aria-current="page">Русский</a></nav>
+  </div>
+</footer>
+
+</body>
+</html>

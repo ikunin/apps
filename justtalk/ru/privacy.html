@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Политика приватности — JustTalk</title>
+<meta name="description" content="У JustTalk нет ни аналитики, ни учётных записей. Что покидает ваш Mac, решает выбранный вами бэкенд распознавания и обработки речи — а локальный Whisper не отправляет вообще ничего.">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#1C1C1E">
+<link rel="icon" href="../img/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="stylesheet" href="../style.css">
+<link rel="alternate" hreflang="en" href="../privacy.html">
+<link rel="alternate" hreflang="de" href="../de/privacy.html">
+<link rel="alternate" hreflang="fr" href="../fr/privacy.html">
+<link rel="alternate" hreflang="es" href="../es/privacy.html">
+<link rel="alternate" hreflang="it" href="../it/privacy.html">
+<link rel="alternate" hreflang="pt" href="../pt/privacy.html">
+<link rel="alternate" hreflang="ja" href="../ja/privacy.html">
+<link rel="alternate" hreflang="ko" href="../ko/privacy.html">
+<link rel="alternate" hreflang="el" href="../el/privacy.html">
+<link rel="alternate" hreflang="uk" href="../uk/privacy.html">
+<link rel="alternate" hreflang="ru" href="../ru/privacy.html">
+<link rel="alternate" hreflang="x-default" href="../privacy.html">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="../img/icon-512.png" alt="" width="512" height="512">JustTalk</a>
+    <nav class="site">
+      <a href="./">Главная</a>
+      <a href="support.html">Помощь</a>
+      <a href="privacy.html" aria-current="page">Приватность</a>
+      <a href="terms.html">Условия</a>
+      <a href="../impressum.html">Impressum</a>
+      <a class="away" href="../../">Другие приложения</a>
+    </nav>
+  </div>
+</header>
+
+<main class="legal"><div class="wrap">
+
+<section>
+  <h2>Политика приватности</h2>
+  <p class="muted">Последнее обновление: 20&nbsp;сентября&nbsp;2026&nbsp;г. Действует в отношении приложения JustTalk для macOS и этого сайта.</p>
+
+  <div class="note"><p><strong>У JustTalk нет ни аналитики, ни сборщика отчётов о сбоях, ни слежки, ни учётной записи у нас.</strong> Он не «звонит домой». При обычном использовании он действительно отправляет вашу речь облачному сервису распознавания и полировки текста, который выбираете <em>вы сами</em> и от которого держите ключ, — поэтому здесь в первую очередь важна политика этого провайдера, а не эта. Локальный вариант не отправляет ничего и никуда, но это исключение, а не режим по умолчанию.</p></div>
+
+  <h3>Что остаётся на вашем Mac</h3>
+  <p>Всё, если вы не выбрали облачный бэкенд. Хранится локально и никогда не загружается JustTalk:</p>
+  <ul>
+    <li>История ваших диктовок, включая расшифрованный текст</li>
+    <li>Режимы, ваш собственный словарь и быстрые действия</li>
+    <li>Статистика использования — количество продиктованных слов, сэкономленное время, примерные расходы</li>
+    <li>Записанный звук, который хранится в памяти на время диктовки и не записывается на диск</li>
+    <li>Ключи API и токены входа для настроенных вами сервисов — в Связке ключей macOS</li>
+    <li>Модели Whisper, которые вы скачали, если используете локальное распознавание</li>
+  </ul>
+  <p>Удаление папки Application Support приложения удаляет всё это. У JustTalk нет сервера, с которого можно было бы что-то удалять.</p>
+
+  <h3>Покупки</h3>
+  <p>JustTalk&nbsp;Pro — это разовая покупка, которую целиком обрабатывает Apple. App Store сообщает приложению, есть ли у вас право на использование; ваше имя, email и платёжные данные приложение никогда не видит.</p>
+  <p>Покупка доступна для семейного доступа. Если член вашей семейной группы поделится ею с вами, Apple сообщает приложению только о праве на использование и ничего больше о нём самом.</p>
+
+  <h3>Если вы выбираете облачный бэкенд</h3>
+  <p>JustTalk может отправлять звук или его расшифровку настроенному вами провайдеру — Google, OpenAI, Groq, Mistral, Anthropic или введённому вами самим адресу сервера. Дальше эти данные обрабатываются по политике приватности <em>этого провайдера</em>, а не по этой, и JustTalk не видит, что именно он сохраняет. Приложение показывает, какой провайдер активен, прежде чем вы начнёте запись, а переключение на локальный Whisper останавливает утечку чего бы то ни было с вашего Mac.</p>
+
+  <h3>Что отправляется вместе с вашими словами</h3>
+  <p>Когда используется модель полировки текста, JustTalk может добавлять название приложения, в которое вы диктуете, чтобы результат подходил по контексту. Это можно отключить в Режиме&nbsp;приватности, который останавливает использование и отправку любой информации о приложении или окне.</p>
+
+  <h3>Дети</h3>
+  <p>JustTalk — это инструмент продуктивности для взрослых, а не детское приложение. Оно не собирает персональные данные ни у кого, независимо от возраста.</p>
+
+  <h3>API, требующие обоснования</h3>
+  <p>JustTalk использует микрофон, а при записи встречи — ещё и системный звук, и в обоих случаях запрашивает у macOS разрешение. Он не считывает ни контакты, ни геолокацию, ни фото, ни данные о здоровье. Анкета Apple о приватности для карточки в App Store заполнена именно по этой странице.</p>
+
+  <h3>Этот сайт</h3>
+  <p>Эти страницы — статические файлы, которые отдаёт GitHub&nbsp;Pages. Они не устанавливают cookie, не встраивают скриптов и не используют аналитику. GitHub может вести журнал запросов в рамках обслуживания сайта — см. <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">заявление GitHub о приватности</a>.</p>
+
+  <h3>Изменения</h3>
+  <p>Если эта политика когда-либо изменится, дата вверху изменится вместе с ней. Изменение, снижающее уровень вашей приватности, будет сопровождаться новой версией приложения, а не тихой правкой здесь.</p>
+
+  <h3>Контакты</h3>
+  <p>Вопросы об этой политике или о том, что приложение делает с чем бы то ни было: <a href="support.html">напишите нам</a>.</p>
+  <p class="muted">Это перевод. При расхождениях действует английская версия: <a href="../privacy.html">English</a>.</p>
+</section>
+
+</div></main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© Igor Kunin 2026</span>
+    <nav class="languages"><a href="../privacy.html" hreflang="en" lang="en">English</a><a href="../de/privacy.html" hreflang="de" lang="de">Deutsch</a><a href="../fr/privacy.html" hreflang="fr" lang="fr">Français</a><a href="../es/privacy.html" hreflang="es" lang="es">Español</a><a href="../it/privacy.html" hreflang="it" lang="it">Italiano</a><a href="../pt/privacy.html" hreflang="pt" lang="pt">Português</a><a href="../ja/privacy.html" hreflang="ja" lang="ja">日本語</a><a href="../ko/privacy.html" hreflang="ko" lang="ko">한국어</a><a href="../el/privacy.html" hreflang="el" lang="el">Ελληνικά</a><a href="../uk/privacy.html" hreflang="uk" lang="uk">Українська</a><a href="../ru/privacy.html" hreflang="ru" lang="ru" aria-current="page">Русский</a></nav>
+  </div>
+</footer>
+
+</body>
+</html>
