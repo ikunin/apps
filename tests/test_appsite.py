@@ -525,6 +525,35 @@ check("the template writes no address of its own",
 check("and its support page takes the contact from the kit",
       "{contact}" in support_src)
 
+print("\nthe copyright line")
+
+# Six listings carried three spellings of one line. It is checked rather than
+# remembered because nobody reads six listings side by side.
+with tempfile.TemporaryDirectory() as metadata:
+    os.makedirs(os.path.join(metadata, "en-US"))
+    SAME = Site(chrome=Chrome(brand="App", icon="img/i.png", pages=PAGES,
+                              copyright="©"), out="site", metadata=metadata)
+    check("a missing copyright line is a problem, not a silence",
+          any("copyright.txt" in problem for problem in site_check.check_copyright(SAME)))
+
+    with open(os.path.join(metadata, "copyright.txt"), "w", encoding="utf-8") as handle:
+        handle.write(site_check.COPYRIGHT + "\n")
+    check("the house line passes, trailing newline and all",
+          site_check.check_copyright(SAME) == [])
+
+    with open(os.path.join(metadata, "copyright.txt"), "w", encoding="utf-8") as handle:
+        handle.write("Copyright 2026 Igor Kunin\n")
+    check("and another spelling of the same claim does not",
+          len(site_check.check_copyright(SAME)) == 1)
+
+    # A Mac app keeps it under a platform directory, which is where deliver
+    # looks for it; the check follows rather than insisting on one layout.
+    os.remove(os.path.join(metadata, "copyright.txt"))
+    os.makedirs(os.path.join(metadata, "mac"))
+    with open(os.path.join(metadata, "mac", "copyright.txt"), "w", encoding="utf-8") as handle:
+        handle.write(site_check.COPYRIGHT + "\n")
+    check("found under a platform directory too", site_check.check_copyright(SAME) == [])
+
 print("\nplaceholders that got published")
 
 # A reserved domain cannot be a real destination, so one on a built page is a

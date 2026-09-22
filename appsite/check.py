@@ -229,6 +229,44 @@ LISTING_LIMITS = {
 }
 
 
+#: The copyright line, identical in every app's listing — year included, so
+#: there is one string to change rather than six to notice. Six listings
+#: carried three spellings of it before anybody put them side by side.
+COPYRIGHT = "Copyright © Igor Kunin 2026"
+
+
+def check_copyright(site):
+    """The listing's copyright line, wherever `deliver` expects to find it.
+
+    At the metadata root for an iOS app, and under a platform directory
+    (`mac/`) for one that ships on more than iOS — so this looks in both rather
+    than insisting on the layout.
+    """
+    problems = []
+    if not os.path.isdir(site.metadata):
+        return [f"{site.metadata}: missing"]
+
+    roots = [site.metadata] + [
+        os.path.join(site.metadata, name)
+        for name in sorted(os.listdir(site.metadata))
+        if os.path.isdir(os.path.join(site.metadata, name))
+    ]
+    found = False
+    for root in roots:
+        path = os.path.join(root, "copyright.txt")
+        if not os.path.exists(path):
+            continue
+        found = True
+        with open(path, encoding="utf-8") as handle:
+            line = handle.read().strip()
+        if line != COPYRIGHT:
+            problems.append(
+                f"{path}: {line!r} — every app's listing says {COPYRIGHT!r}")
+    if not found:
+        problems.append(f"{site.metadata}/copyright.txt: missing")
+    return problems
+
+
 def check_listing_limits(site, limits=None):
     """Listing fields are within what App Store Connect accepts.
 
@@ -263,7 +301,8 @@ def main(site, *, required, impressum="impressum.html"):
     """Run every check and exit non-zero on any problem."""
     print("Website")
     problems, pages = check_pages(site, required=required, impressum=impressum)
-    listing = check_listing_urls(site) + check_listing_limits(site)
+    listing = check_listing_urls(site) + check_listing_limits(site) \
+        + check_copyright(site)
 
     for problem in problems + listing:
         print(f"  FAIL {problem}")
@@ -276,4 +315,5 @@ def main(site, *, required, impressum="impressum.html"):
     print("  ok   no page names another app in the family")
     print("  ok   the listing URLs point into this site, in every locale")
     print("  ok   every listing field is within App Store Connect's limits")
+    print(f"  ok   the copyright line is the one every app uses")
     print("\nall tests passed")
