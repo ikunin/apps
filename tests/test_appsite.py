@@ -16,7 +16,8 @@ import tempfile
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from appsite import Chrome, Page, Site, assets, impressum, languages, portfolio
+from appsite import (Chrome, Page, Site, assets, badge, impressum, languages,
+                     portfolio)
 # Not `check`: this file's own assertion helper owns that name.
 from appsite import check as site_check
 from appsite.blocks import cards, hero, landing, section
@@ -87,12 +88,15 @@ check("the brand goes to this language's home", '<a class="brand" href="./">' in
 
 header, _, _, _ = CHROME.render("en", "support.html")
 check("with no store and no siblings, nothing outward is written",
-      'class="away"' not in header and 'class="button' not in header)
+      'class="away"' not in header and 'store-badge' not in header)
 
 header, _, _, _ = CHROME.render("en", "support.html",
                                 store="https://apps.apple.com/app/id1", more_apps="../")
-check("the store is a button at the top of an inner page",
-      'href="https://apps.apple.com/app/id1"' in header and "button small" in header)
+check("the store is Apple's own badge at the top of an inner page",
+      'href="https://apps.apple.com/app/id1"' in header
+      and 'src="badge/app-store-en.svg"' in header)
+check("and never a button this kit drew itself",
+      "App&nbsp;Store" not in header and 'class="button' not in header)
 check("the other apps are one link away", '<a class="away" href="../">More apps</a>' in header)
 
 header, _, _, _ = CHROME.render("ja", "privacy.html",
@@ -102,6 +106,8 @@ check("that link is written from a translated page's own depth",
 check("and carries that language's label", "ほかのアプリ" in header)
 check("the store link is not rewritten for depth",
       'href="https://apps.apple.com/app/id1"' in header)
+check("but the badge beside it is, and speaks the page's language",
+      'src="../badge/app-store-ja.svg"' in header)
 
 _, _, alternates, _ = CHROME.render("de", "support.html")
 check("alternates point at each language's copy of THIS page",
@@ -302,6 +308,9 @@ with tempfile.TemporaryDirectory() as root:
                                               store="https://apps.apple.com/x"))
     check("a store link is offered when the app has one",
           'href="https://apps.apple.com/x"' in with_store)
+    check("as Apple's badge, in the language of the page it sits on",
+          'src="badge/app-store-en.svg"' in with_store
+          and f'alt="{badge.ALT}"' in with_store)
 
     apps = portfolio.build(root, CONFIG)
     with open(os.path.join(root, "index.html"), encoding="utf-8") as handle:
@@ -579,6 +588,50 @@ with tempfile.TemporaryDirectory() as out:
 check("an app that joined the family is caught on another app's page",
       site_check.other_apps_named("<p>Made with JustTalk</p>", "MorseHero") == ["JustTalk"]
       and site_check.other_apps_named("<p>Made with JustTalk</p>", "JustTalk") == [])
+
+# ------------------------------------------------------- Apple's own artwork
+
+print("\nthe App Store badge")
+
+check("every language this kit builds in has artwork to show",
+      set(badge.LOCALES) == set(languages.LANGUAGES))
+check("and the file for each one is committed, not fetched at build time",
+      all(os.path.exists(os.path.join(badge.ARTWORK, f"app-store-{code}.svg"))
+          for code in badge.LOCALES))
+
+# Apple's exports are not one shape. Drawing them all in a box measured from
+# the English one would squeeze Korean and stretch Japanese — which is exactly
+# the "don't modify the badge" the guidelines open with.
+check("each badge is measured at Apple's 40 px minimum, not assumed",
+      badge.box("en") == (120, 40) and badge.box("ja") == (109, 40)
+      and badge.box("ko") == (130, 40))
+check("the words on it are never ours to translate",
+      badge.ALT == "Download on the App Store")
+
+with tempfile.TemporaryDirectory() as out:
+    OFF_STORE = Site(chrome=CHROME, out=out)
+    check("an app that is not on the store carries no badge",
+          badge.install(OFF_STORE) == [] and not os.path.exists(
+              os.path.join(out, badge.DIRECTORY)))
+
+with tempfile.TemporaryDirectory() as out:
+    LIVE = Site(chrome=CHROME, out=out, store="https://apps.apple.com/app/id1",
+                languages=("en", "de"))
+    # Through `assets.install`, which is what every app's build already calls:
+    # the badge arrives with the stylesheet, so no app repository needed a new
+    # step and none can be left drawing its own button.
+    assets.install(LIVE)
+    written = badge.install(LIVE)
+    check("the stylesheet install is what puts it there",
+          os.path.exists(os.path.join(out, badge.file("de"))))
+    check("a live one carries the artwork for its own languages, and no more",
+          len(written) == 2
+          and sorted(os.listdir(os.path.join(out, badge.DIRECTORY)))
+          == ["app-store-de.svg", "app-store-en.svg"])
+    check("installed byte for byte, as the guidelines require",
+          open(os.path.join(out, badge.DIRECTORY, "app-store-de.svg"), "rb").read()
+          == open(os.path.join(badge.ARTWORK, "app-store-de.svg"), "rb").read())
+
 
 print()
 if failures:

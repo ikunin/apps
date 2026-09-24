@@ -143,7 +143,26 @@ The rule lives in `portfolio.card()`, the two tokens are split in
 
 `languages.py` in the kit: add a `Language` with its endonym, App Store
 locale, navigation labels and governing-language clause. Then every app's text
-tables need that language, and its `metadata/<locale>/` must exist.
+tables need that language, and its `metadata/<locale>/` must exist. Apple's
+badge locale goes in `badge.LOCALES` — theirs is spelled differently from App
+Store Connect's — and `python3 refresh_badges.py` fetches the artwork.
+
+### Put an app on the store
+
+One line: `store="https://apps.apple.com/app/id<n>"` in that app's
+`site_config.py`. The header of all of its pages and its card on the index then
+carry **Apple's own badge**, in each page's language, installed with the
+stylesheet. Empty until the app is live, and nothing is drawn.
+
+**Never draw the way into the store.** Apple's marketing guidelines ask that
+nobody recreate the badge, restyle it, stretch it or translate the words on it
+— and *App Store* is a mark that stays in English everywhere, alt text
+included. This kit shipped a little accent-coloured pill reading "App Store"
+for a year, which was all four mistakes in one element. The rules now live in
+`appsite/badge.py`: 40 px tall, a quarter of that in clear space, the black
+badge, the artwork's own width per language (Japanese 109 px, Korean 130), and
+one badge per layout. `link()` there is the only place either surface builds
+one.
 
 ---
 

@@ -1,4 +1,4 @@
-"""Put the kit's stylesheet where the pages expect it.
+"""Put the kit's own files where the pages expect them.
 
 The stylesheet is structure, not content: it draws the blocks in blocks.py, so
 a change to one is usually a change to both. Two copies would drift the first
@@ -7,11 +7,18 @@ time somebody restyled a card in one app.
 An app that wants different colours overrides the tokens rather than forking
 the file — `Site.palette` becomes a `:root` block appended to the end, which is
 enough for an accent, a background and a set of highlight hues.
+
+The App Store badge rides along here rather than in each app's build script:
+the kit gained it in one commit and every app that rebuilds gets it, where
+eleven copies of a two-line install step would have been eleven chances to
+have one app still drawing its own button.
 """
 
 import os
 import re
 import shutil
+
+from . import badge
 
 STYLESHEET = os.path.join(os.path.dirname(__file__), "assets", "style.css")
 
@@ -30,8 +37,13 @@ def default_token(name):
 
 
 def install(site):
-    """Write the stylesheet into the site directory. Returns its path."""
+    """Write the kit's assets into the site directory.
+
+    The stylesheet, whose path it returns, and — for an app that is on the
+    store — Apple's badge in each language this site is built in.
+    """
     os.makedirs(site.out, exist_ok=True)
+    badge.install(site)
     target = os.path.join(site.out, site.stylesheet)
     if not site.palette:
         shutil.copyfile(STYLESHEET, target)

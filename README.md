@@ -63,7 +63,7 @@ Then, in the app's Makefile:
 
 ```make
 site:
-	python3 appstore/install_site_assets.py
+	python3 appstore/install_site_assets.py   # stylesheet + App Store badges
 	python3 appstore/make_site_translations.py
 	python3 appstore/make_site_legal.py
 	python3 appstore/make_site_impressum.py

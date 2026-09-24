@@ -25,7 +25,7 @@ import importlib.util
 import json
 import os
 
-from . import assets, check, impressum, listing
+from . import assets, badge, check, impressum, listing
 from .blocks import button, hero
 # Re-exported: `portfolio.plain` is the name the template imports.
 from .chrome import plain  # noqa: F401
@@ -124,10 +124,9 @@ def read_all(root):
 
 # ---------------------------------------------------------------- the page ---
 
-#: The two things a card can invite you to do. Not translated: this page is
-#: English, and each card leads into a site that is not.
+#: What a card invites you to do, besides the App Store badge beside it. Not
+#: translated: this page is English, and each card leads into a site that is not.
 OPEN = "Open site"
-STORE = "App Store"
 
 
 def card(slug, app):
@@ -141,11 +140,14 @@ def card(slug, app):
     style = f' style="--card-accent: {accent}"' if accent else ""
     size = app.get("icon_size", 512)
     store = app.get("store")
+    # Apple's badge is the way to the store; this kit does not draw its own.
+    # The page is English, so the English artwork — the badge's language
+    # follows the layout it sits in, not the app's eleven.
     buttons = [button(OPEN, f"{slug}/", ghost=bool(store))]
     if store:
-        buttons.insert(0, button(STORE, store))
+        buttons.insert(0, badge.link(store))
     return (f'    <div class="app"{style}>\n'
-            f'      <img src="{slug}/{app["icon"]}" alt="" '
+            f'      <img class="icon" src="{slug}/{app["icon"]}" alt="" '
             f'width="{size}" height="{size}" loading="lazy">\n'
             f'      <h3><a href="{slug}/">{html.escape(app["name"])}</a></h3>\n'
             f'      <p>{html.escape(app["slogan"])}</p>\n'
@@ -280,8 +282,8 @@ def load_config(path=CONFIG):
     return module
 
 
-def install(site):
-    """The root's stylesheet and its mark.
+def install(site, apps=()):
+    """The root's stylesheet, its mark, and the badge its cards need.
 
     The card rules are appended to the kit's own stylesheet rather than served
     beside it: one file, one request, and no chance of the two disagreeing
@@ -289,6 +291,10 @@ def install(site):
     colours, so the page comes out in whatever the palette says.
     """
     target = assets.install(site)
+    # This page belongs to no app and is on no store itself, so `assets` has
+    # installed nothing for it; the badge it needs is the one on the cards.
+    if any(app.get("store") for _, app in apps):
+        badge.copy(site.out, ("en",))
     with open(STYLES, encoding="utf-8") as handle:
         card_rules = handle.read()
     with open(target, "a", encoding="utf-8") as handle:
@@ -320,7 +326,7 @@ def build(root, config=None):
             f"{root}: no {MANIFEST} anywhere — no app has published a card, "
             "and an index with nothing on it is worse than none")
     site = site_at(config, root, apps)
-    install(site)
+    install(site, apps)
     for name, markup in (("index.html", index(config, site, apps)),
                          ("impressum.html", provider(config, site, apps))):
         with open(os.path.join(root, name), "w", encoding="utf-8") as handle:

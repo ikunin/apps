@@ -135,7 +135,15 @@ header.site .wrap { display: flex; align-items: center; gap: 1rem 1.5rem; flex-w
   box-shadow: 0 0 1rem rgba(254, 213, 8, 0.22), 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
-nav.site { margin-left: auto; display: flex; gap: 0.35rem; flex-wrap: wrap; }
+/* Centred, not stretched: the badge is taller than a nav link, and a flex
+   row's default would pull the current page's pill up to its height. */
+nav.site {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
 
 nav.site a {
   color: var(--dim);
@@ -173,24 +181,27 @@ nav.site .away::before {
   background: var(--line);
 }
 
-/* `nav.site a` is more specific than `.button`, so the header's button has to
-   name its own colours or it comes out in the navigation's grey. */
-nav.site .button {
-  color: var(--accent-ink);
-  margin-left: 0.5rem;
+/* Apple's App Store badge. Their guidelines fix most of this: 40 px is the
+   minimum height onscreen, and the clear space around it is at least a quarter
+   of that height. Only the height is set here — the width follows whichever
+   language's artwork is on the page (Japanese is 109 px wide where Korean is
+   130) so nothing is ever stretched to a number this stylesheet invented.
+
+   The grey border is part of the artwork, so this link paints no background of
+   its own: `nav.site a:hover` would otherwise slide a pale slab under the
+   badge's rounded corners. It dims instead, which the guidelines allow because
+   it leaves the artwork alone. */
+.store-badge {
+  display: inline-flex;
+  padding: 0;
+  margin: 10px;
+  transition: opacity 0.18s var(--ease);
 }
 
-nav.site .button:hover { color: var(--accent-ink); background: var(--accent); }
+.store-badge img { display: block; height: 40px; width: auto; }
 
-/* The header's own size of button: the page's call to action is in the hero,
-   and this one must not shout over it. */
-.button.small {
-  font-size: 0.85rem;
-  padding: 0.42rem 1rem;
-  box-shadow: none;
-}
-
-.button.small:hover { transform: none; box-shadow: none; filter: brightness(1.08); }
+nav.site .store-badge:hover,
+.store-badge:hover { background: none; opacity: 0.82; }
 
 /* Two links plus five pages is a wide header. On a phone the nav wraps to its
    own line and the two outward links stay together at its end. */

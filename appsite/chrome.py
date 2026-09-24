@@ -9,6 +9,7 @@ extracted.
 import html
 from dataclasses import dataclass, field
 
+from . import badge
 from .languages import LANGUAGES
 
 
@@ -118,10 +119,11 @@ class Chrome:
             away += (f'      <a class="away" href="{outward(more_apps)}">'
                      f'{html.escape(LANGUAGES[language].nav["apps"])}</a>\n')
         if store:
-            # "App Store" is Apple's own name for it in every one of these
-            # languages, so it is not translated.
-            away += (f'      <a class="button small" href="{outward(store)}">'
-                     'App&nbsp;Store</a>\n')
+            # Apple's own badge, in this page's language. Not a link this kit
+            # styles to look like one: the guidelines ask that nobody redraw
+            # the badge or translate its words, and the button that stood here
+            # for a year was a small violation of both. See badge.py.
+            away += f'      {badge.link(outward(store), language, root)}\n'
 
         header = (
             '<header class="site">\n  <div class="wrap">\n'
