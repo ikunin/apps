@@ -143,7 +143,13 @@ def card(slug, app):
     # Apple's badge is the way to the store; this kit does not draw its own.
     # The page is English, so the English artwork — the badge's language
     # follows the layout it sits in, not the app's eleven.
-    buttons = [button(OPEN, f"{slug}/", ghost=bool(store))]
+    #
+    # "Open site" is the same button on every card, whether or not the app it
+    # belongs to is on the store. It used to go ghost beside the badge, to keep
+    # one solid call to action per card, and the row it made read as two
+    # different kinds of app rather than as one shelf — which is the mistake
+    # the accent rule above exists to prevent, in another guise.
+    buttons = [button(OPEN, f"{slug}/")]
     if store:
         buttons.insert(0, badge.link(store))
     return (f'    <div class="app"{style}>\n'

@@ -311,6 +311,9 @@ with tempfile.TemporaryDirectory() as root:
     check("as Apple's badge, in the language of the page it sits on",
           'src="badge/app-store-en.svg"' in with_store
           and f'alt="{badge.ALT}"' in with_store)
+    check("beside the same Open site button every other card has",
+          'class="button"' in with_store and "ghost" not in with_store
+          and "ghost" not in markup)
 
     apps = portfolio.build(root, CONFIG)
     with open(os.path.join(root, "index.html"), encoding="utf-8") as handle:
