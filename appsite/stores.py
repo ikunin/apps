@@ -72,6 +72,16 @@ def needs_badge(stores=(), store=""):
     return any(platform not in DIRECT for platform, _, _ in live(stores, store))
 
 
+def way(platform, url, action="download", *, language="en", root="", outward=None):
+    """One platform's link, unnamed — for a layout that already names it, such
+    as an app's own per-platform card. Apple's badge, or the drawn link."""
+    outward = outward or (lambda target: target)
+    if platform in DIRECT:
+        label = html.escape(LANGUAGES[language].nav[action])
+        return f'<a class="store-direct" href="{outward(url)}">{label}</a>'
+    return badge.link(outward(url), language, root)
+
+
 def links(stores=(), store="", *, language="en", root="", outward=None):
     """The markup for each way out, one string per platform.
 
@@ -79,16 +89,12 @@ def links(stores=(), store="", *, language="en", root="", outward=None):
     `outward` rewrites a relative link for the page's depth and leaves a full
     URL alone — the header passes its own, a card needs none.
     """
-    outward = outward or (lambda url: url)
     found = live(stores, store)
     named = len(found) > 1
     out = []
     for platform, url, action in found:
-        if platform in DIRECT:
-            label = html.escape(LANGUAGES[language].nav[action])
-            inner = f'<a class="store-direct" href="{outward(url)}">{label}</a>'
-        else:
-            inner = badge.link(outward(url), language, root)
+        inner = way(platform, url, action, language=language, root=root,
+                    outward=outward)
         if named or platform in DIRECT:
             name = APPLE.get(platform) or DIRECT[platform]
             inner = (f'<span class="store-for">'

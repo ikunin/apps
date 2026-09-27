@@ -737,6 +737,13 @@ check("a card published before `stores` still renders its one badge",
                              "store": "https://apps.apple.com/app/id1"})
       .count("store-badge") == 1)
 
+check("a layout that names the platform itself can take the link unnamed",
+      "store-for" not in store_links.way("windows", "https://example.com/dl",
+                                         language="fr")
+      and ">Télécharger</a>" in store_links.way("windows", "https://example.com/dl",
+                                                language="fr")
+      and "store-badge" in store_links.way("mac", "https://apps.apple.com/app/id2"))
+
 print()
 if failures:
     print(f"{len(failures)} failed")
