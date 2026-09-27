@@ -302,8 +302,14 @@ def install(site, apps=()):
     target = assets.install(site)
     # This page belongs to no app and is on no store itself, so `assets` has
     # installed nothing for it; the badge it needs is the one on the cards.
-    if any(stores.needs_badge(app.get("stores"), app.get("store")) for _, app in apps):
-        badge.copy(site.out, ("en",))
+    # Only the stores some card links live — the cards show no coming badges.
+    live = []
+    for _, app in apps:
+        for platform, _url in stores.live(app.get("stores"), app.get("store")):
+            if stores.store_of(platform) not in live:
+                live.append(stores.store_of(platform))
+    if live:
+        badge.copy(site.out, ("en",), tuple(live))
     with open(STYLES, encoding="utf-8") as handle:
         card_rules = handle.read()
     with open(target, "a", encoding="utf-8") as handle:

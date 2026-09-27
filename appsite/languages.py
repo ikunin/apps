@@ -24,12 +24,12 @@ class Language:
     governing: str = ""   # translations say which version wins; "" for the original
 
 
-def _nav(home, support, privacy, terms, apps, download, buy):
-    # `download` and `buy` are the verbs on a store link that is not Apple's
-    # badge — a platform sold directly (appsite/stores.py).
+def _nav(home, support, privacy, terms, apps, soon):
+    # `soon` sits under a store badge whose listing is not open yet
+    # (appsite/stores.py `way`).
     return {"home": home, "support": support, "privacy": privacy,
             "terms": terms, "impressum": "Impressum", "apps": apps,
-            "download": download, "buy": buy}
+            "soon": soon}
 
 
 # Order matters: it is the order of the language switcher and of the hreflang
@@ -37,53 +37,53 @@ def _nav(home, support, privacy, terms, apps, download, buy):
 LANGUAGES = {
     "en": Language("en", "English", "en-US",
                    _nav("Home", "Support", "Privacy", "Terms", "More apps",
-                        "Download", "Buy")),
+                        "Coming soon")),
     "de": Language("de", "Deutsch", "de-DE",
                    _nav("Start", "Hilfe", "Datenschutz", "Nutzung", "Mehr Apps",
-                        "Herunterladen", "Kaufen"),
+                        "Bald verfügbar"),
                    "Dies ist eine Übersetzung. Maßgeblich ist im Zweifel die "
                    "englische Fassung: {link}."),
     "fr": Language("fr", "Français", "fr-FR",
                    _nav("Accueil", "Aide", "Confidentialité", "Conditions", "Autres apps",
-                        "Télécharger", "Acheter"),
+                        "Bientôt disponible"),
                    "Ceci est une traduction. En cas de divergence, la version "
                    "anglaise fait foi : {link}."),
     "es": Language("es", "Español", "es-ES",
                    _nav("Inicio", "Ayuda", "Privacidad", "Condiciones", "Más apps",
-                        "Descargar", "Comprar"),
+                        "Próximamente"),
                    "Esto es una traducción. En caso de discrepancia, prevalece "
                    "la versión en inglés: {link}."),
     "it": Language("it", "Italiano", "it",
                    _nav("Home", "Aiuto", "Privacy", "Condizioni", "Altre app",
-                        "Scarica", "Acquista"),
+                        "Presto disponibile"),
                    "Questa è una traduzione. In caso di difformità prevale la "
                    "versione inglese: {link}."),
     "pt": Language("pt", "Português", "pt-BR",
                    _nav("Início", "Ajuda", "Privacidade", "Termos", "Mais apps",
-                        "Baixar", "Comprar"),
+                        "Em breve"),
                    "Esta é uma tradução. Em caso de divergência, prevalece a "
                    "versão em inglês: {link}."),
     "ja": Language("ja", "日本語", "ja",
                    _nav("ホーム", "サポート", "プライバシー", "利用規約", "ほかのアプリ",
-                        "ダウンロード", "購入"),
+                        "近日公開"),
                    "これは翻訳です。相違がある場合は英語版が優先します：{link}。"),
     "ko": Language("ko", "한국어", "ko",
                    _nav("홈", "지원", "개인정보", "이용약관", "다른 앱",
-                        "다운로드", "구매"),
+                        "출시 예정"),
                    "이 문서는 번역본입니다. 내용이 다를 경우 영어판이 우선합니다: {link}."),
     "el": Language("el", "Ελληνικά", "el",
                    _nav("Αρχική", "Βοήθεια", "Απόρρητο", "Όροι", "Άλλες εφαρμογές",
-                        "Λήψη", "Αγορά"),
+                        "Σύντομα"),
                    "Αυτή είναι μετάφραση. Σε περίπτωση απόκλισης υπερισχύει η "
                    "αγγλική έκδοση: {link}."),
     "uk": Language("uk", "Українська", "uk",
                    _nav("Головна", "Допомога", "Приватність", "Умови", "Інші застосунки",
-                        "Завантажити", "Купити"),
+                        "Незабаром"),
                    "Це переклад. У разі розбіжностей чинною є англійська "
                    "версія: {link}."),
     "ru": Language("ru", "Русский", "ru",
                    _nav("Главная", "Помощь", "Приватность", "Условия", "Другие приложения",
-                        "Скачать", "Купить"),
+                        "Скоро"),
                    "Это перевод. При расхождениях действует английская "
                    "версия: {link}."),
 }

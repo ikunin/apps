@@ -81,12 +81,20 @@ def hero(*, headline, lead, eyebrow=None, emblem=None, buttons=None, parts=()):
 
 
 def cards(entries):
-    """Three-across feature cards. Each: (title, body); title may be markup."""
-    inner = "".join(
-        f'    <div class="card">\n      <h3>{title}</h3>\n'
-        f"      <p>{body}</p>\n    </div>\n"
-        for title, body in entries
-    )
+    """Three-across feature cards. Each: (title, body), or (title, body, foot);
+    title may be markup.
+
+    `foot` is markup pinned to the bottom of its card — a store badge, say — so
+    a row of cards lines its feet up whatever each body's length.
+    """
+    def one(title, body, foot=None):
+        if foot is None:
+            return (f'    <div class="card">\n      <h3>{title}</h3>\n'
+                    f"      <p>{body}</p>\n    </div>\n")
+        return (f'    <div class="card has-foot">\n      <h3>{title}</h3>\n'
+                f"      <p>{body}</p>\n"
+                f'      <div class="card-foot">{foot}</div>\n    </div>\n')
+    inner = "".join(one(*entry) for entry in entries)
     return f'  <div class="cards">\n{inner}  </div>\n'
 
 

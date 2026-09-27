@@ -166,141 +166,15 @@ one.
 
 ### Put an app on several stores
 
-An app that ships as several records, or on a platform Apple does not sell,
-names them all instead: `stores=(("ios", url), ("mac", url), ("windows", url,
-"buy"))`, in the order they should be offered. Apple platforms (`ios iphone ipad
-mac tv watch`) get the badge; a direct platform (`windows`) gets a link this
-kit draws, with a translated `download` or `buy` on it — never Apple's badge
-for a store that is not Apple's. More than one, or any direct one, and each is
-named for its device. An empty url writes nothing, so a record not yet live
-can sit in the list. `appsite/stores.py` is the one renderer; the header and
-the card both call it, and `app.json` carries `stores` only for an app that
+An app that ships as several records, or on Windows, names them all instead:
+`stores=(("ios", url), ("mac", url), ("windows", url))`, in the order they
+should be offered. Each wears **its store's own badge** — Apple's for `ios
+iphone ipad mac tv watch`, Microsoft's "Download from the Microsoft Store" for `windows` —
+and the kit draws no button for any store. More than one live, and each is
+named for its device. An empty url is a platform not live yet: the header and
+the index card write nothing for it, and an app's own download section can show
+it with `stores.way()` — the badge unlinked and dimmed, "coming soon" beneath,
+in the page's language. `appsite/stores.py` is the one renderer; `badge.py`
+holds each store's artwork source and alt text, and `refresh_badges.py` fetches
+both stores' eleven files. `app.json` carries `stores` only for an app that
 sets it, so a single-store app's card does not move.
-
----
-
-## What goes wrong
-
-Every item here has already happened once.
-
-**Never copy a privacy or terms claim between these apps.** They differ in
-ways that make a copied sentence a false statement:
-
-| | TappyMusic | Harbor Rush | SpeedyCards | VideoSqueezer | MorseHero |
-|---|---|---|---|---|---|
-| `PrivacyInfo.xcprivacy` | collects nothing | collects nothing | collects nothing | collects nothing | collects nothing |
-| Declared APIs | `UserDefaults` | `UserDefaults` | `UserDefaults` | `UserDefaults`, `FileTimestamp`, `DiskSpace` | `UserDefaults`, `SystemBootTime`, `FileTimestamp` |
-| Analytics SDK | none, ever | removed | removed | none | none |
-| iCloud | no | no | streaks and XP in the user's KVS | no | no |
-| Age rating | 4+ † | 9+ † | 4+ expected † | not answered here † | 4+ † |
-
-Read on 20 September 2026 out of each repository's `PrivacyInfo.xcprivacy` and
-project file — not out of anything already written on a page. **The first row
-being identical is the trap**: the apps look alike there and differ in the two
-below it, so a sentence lifted from one policy is wrong about exactly the thing
-its reader came for.
-
-Harbor Rush and SpeedyCards both linked TelemetryDeck, and both have removed it
-— Harbor Rush by SPEC-DECISION D20 (19 September 2026), which reverses D17. In
-both the App ID was always empty, so no build either of them shipped ever sent
-anything. Harbor Rush's removal is in its working tree; a build carrying the
-inert SDK may still be the one on the store.
-
-† No age rating here is in a form a checker can read. TappyMusic's 4+ is in its
-`docs/APPSTORE.md`, Harbor Rush's 9+ in `appstore/asc-submission-answers.md`,
-MorseHero's 4+ in its `docs/RELEASE.md`; SpeedyCards' release playbook only
-*expects* 4+, and VideoSqueezer's is unanswered in its repository. App Store
-Connect is the one place that settles it — look there before writing a sentence
-that leans on a rating.
-
-"No analytics, no data leaves the device" was written into Harbor Rush's
-landing page in eleven languages before anyone checked its privacy manifest.
-SpeedyCards' privacy policy described *melody packs and cliparts*, and claimed
-the app was "designed for children and rated 4+", and was live that way.
-
-The index at the root is the fastest place to make this mistake, because it is
-the one page that has every app on it. It is built so that it cannot: a
-card carries only what its own app says about itself.
-
-**A blanket rename renames the app, not what the app is about.** Replacing
-`TappyMusic` with `SpeedyCards` across a file leaves "a particular song" and
-"melody packs" in place, wearing the new name. `check_text.py` looks for this.
-
-**Run both checkers before publishing.**
-
-```sh
-python3 vendor/appsite/check_text.py --texts appstore --app <app>
-make site        # runs check_site.py
-```
-
-`check_text.py` catches out-of-script characters — Cyrillic inside Japanese,
-Korean inside Japanese — which read as fine to anyone who does not read that
-language. It has found four such bugs, two of them already published.
-
-**Listing URLs are per-locale and every one must resolve.** Each locale points
-at its own `<lang>/support.html`. `check_site.py` resolves all 33 per app
-against the files on disk. Verify the live ones after publishing:
-
-```sh
-for f in <metadata>/*/{marketing,support,privacy}_url.txt; do
-  curl -s -o /dev/null -w "%{http_code} $(cat $f)\n" "$(cat $f)"; done
-```
-
-**The kit must parse on Python 3.11.** A backslash inside an f-string
-expression is legal from 3.12 and a `SyntaxError` before it; the package
-imported fine locally and could not be imported at all by CI. The test suite
-now checks every file with `ast.parse(feature_version=(3, 11))`.
-
-**`site/` is generated** — every page, `style.css`, and `app.json` with it.
-All of it is overwritten on the next build, so an edit made there is lost
-without ever being wrong enough to notice.
-
-**Never publish a private email address, and never build the `mailto:`
-yourself.** Harbor Rush's old site published a private one. Every app now shares
-one contact address, declared once in that app's `site_config.py`
-(`impressum["email"]`), and the link is built by the kit:
-
-```python
-from appsite.legal import mail, mail_href
-mail(SITE)                 # <a href="mailto:…?subject=MyApp">…</a>
-mail(SITE, "terms")        # subject=MyApp terms
-mail_href(SITE)            # the href alone, for prose with its own link text
-```
-
-The subject starts with the app's name because one mailbox takes every app's
-mail, and a message titled "Support" could be about any of them. An app filed
-under another name sets `impressum["subject"]` once.
-
-That name is `Site.name` — `impressum["app"]`, or the brand with its markup
-undone — and it is the only place the fallback is written. Use it for a page
-title or anywhere else the app has to name itself; writing
-`plain(SITE.impressum.get("app") or SITE.chrome.brand)` again is how
-`mail_href` came to raise `KeyError` on a config that had no `app` key.
-
-All but one app used to build this link themselves, each writing its own
-name into it, and the copies drifted: MorseHero shipped the template's
-`support@example.com` on a published terms page, two apps capitalised the terms
-subject and three did not, and two support pages promised an address at the
-bottom of a page that carried none. That is what one seam prevents.
-
----
-
-## Checks that must pass
-
-```sh
-cd vendor/appsite && python3 tests/test_appsite.py    # kit: syntax floor, chrome, blocks
-python3 vendor/appsite/check_text.py --texts appstore --app <app>
-make site                                             # links, alt text, listing URLs
-```
-
-## What needs a human, not an agent
-
-- **Creating the support mailbox.** `support.kunin@gmail.com` is the one address
-  every app publishes; confirm it exists and is watched before publishing.
-- **Deciding whether an app ships analytics.** Setting a TelemetryDeck App ID
-  changes the privacy policy, the App Store privacy label and the landing copy
-  in eleven languages. Ask; do not infer it from the code.
-- **The Impressum.** § 5 DDG, a real address and telephone number, and the one
-  hand-written page. Do not generate it.
-- **Judging a translation.** The checkers catch mechanical faults. Nothing here
-  can tell you whether the German reads well.

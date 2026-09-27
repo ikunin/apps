@@ -71,7 +71,7 @@ class Chrome:
     #: in one place.
     languages: tuple = ()
     #: Store links per platform, in the order they should be offered:
-    #: (("ios", url), ("mac", url), ("windows", url, "buy")). An app that ships as ONE App
+    #: (("ios", url), ("mac", url), ("windows", url)). An app that ships as ONE App
     #: Store record keeps using `Site.store` and renders exactly as it always
     #: has. An app that ships as several needs a link each, because one badge
     #: can only point at one listing, and a Mac visitor sent to the iPhone one

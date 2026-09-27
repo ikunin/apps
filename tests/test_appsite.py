@@ -697,23 +697,28 @@ from appsite import stores as store_links
 MIXED = Site(chrome=Chrome(brand="App", icon="img/i.png", pages=PAGES, copyright="©"),
              out="site",
              stores=(("mac", "https://apps.apple.com/app/id2"),
-                     ("windows", "https://example.com/buy", "buy")))
+                     ("windows", "https://apps.microsoft.com/detail/9x")))
 mixed_header, _, _, _ = MIXED.chrome.render("de", "index.html", store=MIXED.store)
-check("a platform sold elsewhere never gets Apple's badge",
-      mixed_header.count("store-badge") == 1 and "example.com/buy" in mixed_header
-      and 'class="store-direct" href="https://example.com/buy"' in mixed_header)
-check("its verb is in the page's language", ">Kaufen</a>" in mixed_header)
-check("and it is named for its platform", ">Windows<" in mixed_header)
-
-ALONE = store_links.links((("windows", "https://example.com/dl"),))
-check("even alone a direct link says what it is for, and defaults to Download",
-      len(ALONE) == 1 and ">Windows<" in ALONE[0] and ">Download</a>" in ALONE[0])
+check("Windows wears Microsoft's badge, never Apple's",
+      "microsoft-de.svg" in mixed_header and 'alt="Download from the Microsoft Store"' in mixed_header
+      and mixed_header.count("app-store-de.svg") == 1)
+check("and each is named for its platform", ">Windows<" in mixed_header and ">Mac<" in mixed_header)
+check("the kit draws no button of its own for any store",
+      "store-direct" not in mixed_header and 'class="button' not in mixed_header)
 
 try:
     store_links.live((("android", "https://x"),))
-    check("an unknown platform is refused, not rendered as Apple's", False)
+    check("an unknown platform is refused, not rendered as somebody's badge", False)
 except SystemExit:
-    check("an unknown platform is refused, not rendered as Apple's", True)
+    check("an unknown platform is refused, not rendered as somebody's badge", True)
+
+PENDING_WIN = store_links.way("windows", "", language="fr")
+check("a platform not live yet still shows its badge on a layout that asks",
+      "microsoft-fr.svg" in PENDING_WIN and "<a " not in PENDING_WIN)
+check("unlinked, and saying so in the page's language",
+      "Bientôt disponible" in PENDING_WIN and "store-pending" in PENDING_WIN)
+check("but the header and the card never show a badge that goes nowhere",
+      store_links.links((("windows", ""), ("mac", ""))) == [])
 
 with tempfile.TemporaryDirectory() as out:
     STATED = Site(chrome=CHROME, out=out, languages=("en",),
@@ -721,28 +726,38 @@ with tempfile.TemporaryDirectory() as out:
     check("an app stated with `stores` alone still gets the badge artwork",
           len(badge.install(STATED)) == 1)
 with tempfile.TemporaryDirectory() as out:
-    WINDOWS_ONLY = Site(chrome=CHROME, out=out, languages=("en",),
-                        stores=(("windows", "https://example.com/dl"),))
-    check("an app sold only outside the App Store carries no Apple artwork",
-          badge.install(WINDOWS_ONLY) == [])
+    COMING = Site(chrome=CHROME, out=out, languages=("en", "de"),
+                  stores=(("mac", ""), ("windows", "")))
+    badge.install(COMING)
+    check("a coming platform's artwork is installed, one store each",
+          sorted(os.listdir(os.path.join(out, badge.DIRECTORY)))
+          == ["app-store-de.svg", "app-store-en.svg", "microsoft-de.svg", "microsoft-en.svg"])
+with tempfile.TemporaryDirectory() as out:
+    check("an app naming no store carries no artwork",
+          badge.install(Site(chrome=CHROME, out=out, languages=("en",))) == [])
 
-check("the card offers every platform, the same way the header does",
+check("every language has Microsoft's artwork too, committed",
+      all(os.path.exists(os.path.join(badge.ARTWORK, f"microsoft-{code}.svg"))
+          for code in badge.MICROSOFT.locales))
+check("measured from the artwork, not assumed", badge.box("en", badge.MICROSOFT)[1] == 40)
+
+check("the card offers every live platform, the same way the header does",
       portfolio.card("app", {"name": "A", "slogan": "s", "icon": "i.png",
                              "store": "",
                              "stores": [["mac", "https://apps.apple.com/app/id2"],
-                                        ["windows", "https://example.com/dl"]]})
+                                        ["windows", "https://apps.microsoft.com/x"],
+                                        ["ios", ""]]})
       .count("store-for-label") == 2)
 check("a card published before `stores` still renders its one badge",
       portfolio.card("app", {"name": "A", "slogan": "s", "icon": "i.png",
                              "store": "https://apps.apple.com/app/id1"})
       .count("store-badge") == 1)
 
-check("a layout that names the platform itself can take the link unnamed",
-      "store-for" not in store_links.way("windows", "https://example.com/dl",
-                                         language="fr")
-      and ">Télécharger</a>" in store_links.way("windows", "https://example.com/dl",
-                                                language="fr")
-      and "store-badge" in store_links.way("mac", "https://apps.apple.com/app/id2"))
+FOOTED = cards([("Mac", "Needs macOS 14.", "<b>badge</b>"), ("Plain", "No foot.")])
+check("a card can carry a foot, pinned below its body",
+      '<div class="card has-foot">' in FOOTED and '<div class="card-foot"><b>badge</b></div>' in FOOTED)
+check("and a card without one is exactly the card it always was",
+      '    <div class="card">\n      <h3>Plain</h3>\n      <p>No foot.</p>\n    </div>\n' in FOOTED)
 
 print()
 if failures:
