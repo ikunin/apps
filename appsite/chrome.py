@@ -9,7 +9,7 @@ extracted.
 import html
 from dataclasses import dataclass, field
 
-from . import badge
+from . import stores as store_links
 from .languages import LANGUAGES
 
 
@@ -48,19 +48,6 @@ class Page:
         return LANGUAGES[language].nav[self.kind]
 
 
-#: What each platform's badge is labelled with. Apple's product names, which
-#: Apple ships untranslated in every one of these languages — the same reason
-#: the badge's own words are never translated.
-STORE_LABELS = {
-    "ios": "iPhone &amp; iPad",
-    "iphone": "iPhone",
-    "ipad": "iPad",
-    "mac": "Mac",
-    "tv": "Apple&nbsp;TV",
-    "watch": "Apple&nbsp;Watch",
-}
-
-
 @dataclass(frozen=True)
 class Chrome:
     """Everything that wraps a page and is identical across pages.
@@ -84,7 +71,7 @@ class Chrome:
     #: in one place.
     languages: tuple = ()
     #: Store links per platform, in the order they should be offered:
-    #: (("ios", url), ("mac", url), ("tv", url)). An app that ships as ONE App
+    #: (("ios", url), ("mac", url), ("windows", url, "buy")). An app that ships as ONE App
     #: Store record keeps using `Site.store` and renders exactly as it always
     #: has. An app that ships as several needs a link each, because one badge
     #: can only point at one listing, and a Mac visitor sent to the iPhone one
@@ -138,21 +125,11 @@ class Chrome:
         if more_apps:
             away += (f'      <a class="away" href="{outward(more_apps)}">'
                      f'{html.escape(LANGUAGES[language].nav["apps"])}</a>\n')
-        # Apple's own badge, in this page's language. Not a link this kit styles
-        # to look like one: the guidelines ask that nobody redraw the badge or
-        # translate its words, and the button that stood here for a year was a
-        # small violation of both. See badge.py.
-        platforms = [(key, url) for key, url in (self.stores or ()) if url]
-        if len(platforms) > 1:
-            # One badge per record, each named for the device it is for. The
-            # badge artwork is the same on every Apple platform, so without the
-            # name three identical badges would be three guesses.
-            for key, url in platforms:
-                away += (f'      <span class="store-for">'
-                         f'<span class="store-for-label">{STORE_LABELS.get(key, key)}</span>'
-                         f'{badge.link(outward(url), language, root)}</span>\n')
-        elif store or platforms:
-            away += f'      {badge.link(outward(store or platforms[0][1]), language, root)}\n'
+        # Apple's badge for an Apple platform, a named link for any other —
+        # the rules, and the one implementation of them, are in stores.py.
+        for way in store_links.links(self.stores, store, language=language,
+                                     root=root, outward=outward):
+            away += f"      {way}\n"
 
         header = (
             '<header class="site">\n  <div class="wrap">\n'

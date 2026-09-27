@@ -164,6 +164,19 @@ badge, the artwork's own width per language (Japanese 109 px, Korean 130), and
 one badge per layout. `link()` there is the only place either surface builds
 one.
 
+### Put an app on several stores
+
+An app that ships as several records, or on a platform Apple does not sell,
+names them all instead: `stores=(("ios", url), ("mac", url), ("windows", url,
+"buy"))`, in the order they should be offered. Apple platforms (`ios iphone ipad
+mac tv watch`) get the badge; a direct platform (`windows`) gets a link this
+kit draws, with a translated `download` or `buy` on it — never Apple's badge
+for a store that is not Apple's. More than one, or any direct one, and each is
+named for its device. An empty url writes nothing, so a record not yet live
+can sit in the list. `appsite/stores.py` is the one renderer; the header and
+the card both call it, and `app.json` carries `stores` only for an app that
+sets it, so a single-store app's card does not move.
+
 ---
 
 ## What goes wrong

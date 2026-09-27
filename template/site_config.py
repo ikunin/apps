@@ -65,6 +65,9 @@ SITE = Site(
     # button for it and leaves the button off while this is empty, so an
     # unreleased app needs no placeholder here.
     store="",                               # TODO(app)
+    # Or, for an app on several stores — one App Store record per platform, or
+    # a platform sold directly: stores=(("ios", url), ("mac", url),
+    # ("windows", url, "buy")). An empty url is a platform not live yet.
 )
 
 #: What the App Store listing points at, so a renamed page fails the build

@@ -25,7 +25,7 @@ import importlib.util
 import json
 import os
 
-from . import assets, badge, check, impressum, listing
+from . import assets, badge, check, impressum, listing, stores
 from .blocks import button, hero
 # Re-exported: `portfolio.plain` is the name the template imports.
 from .chrome import plain  # noqa: F401
@@ -69,7 +69,7 @@ def manifest(site):
         raise SystemExit("subtitle.txt is empty, and it is the card's slogan")
     if not os.path.exists(icon):
         raise SystemExit(f"{icon}: the card's icon is not there")
-    return {
+    card = {
         "name": name,
         "slogan": slogan,
         "icon": site.chrome.icon,
@@ -90,6 +90,11 @@ def manifest(site):
         "operator": {key: site.impressum[key] for key in OPERATOR
                      if site.impressum.get(key)},
     }
+    # Only an app that names its platforms carries them, so every card
+    # published before `stores` existed stays byte for byte what it was.
+    if site.stores:
+        card["stores"] = [list(entry) for entry in site.stores]
+    return card
 
 
 def write(site):
@@ -139,8 +144,8 @@ def card(slug, app):
     accent = app.get("accent")
     style = f' style="--card-accent: {accent}"' if accent else ""
     size = app.get("icon_size", 512)
-    store = app.get("store")
-    # Apple's badge is the way to the store; this kit does not draw its own.
+    # Apple's badge is the way to the App Store, a named link the way to any
+    # other (stores.py); this kit never draws its own App Store button.
     # The page is English, so the English artwork — the badge's language
     # follows the layout it sits in, not the app's eleven.
     #
@@ -149,9 +154,7 @@ def card(slug, app):
     # one solid call to action per card, and the row it made read as two
     # different kinds of app rather than as one shelf — which is the mistake
     # the accent rule above exists to prevent, in another guise.
-    buttons = [button(OPEN, f"{slug}/")]
-    if store:
-        buttons.insert(0, badge.link(store))
+    buttons = stores.links(app.get("stores"), app.get("store")) + [button(OPEN, f"{slug}/")]
     return (f'    <div class="app"{style}>\n'
             f'      <img class="icon" src="{slug}/{app["icon"]}" alt="" '
             f'width="{size}" height="{size}" loading="lazy">\n'
@@ -299,7 +302,7 @@ def install(site, apps=()):
     target = assets.install(site)
     # This page belongs to no app and is on no store itself, so `assets` has
     # installed nothing for it; the badge it needs is the one on the cards.
-    if any(app.get("store") for _, app in apps):
+    if any(stores.needs_badge(app.get("stores"), app.get("store")) for _, app in apps):
         badge.copy(site.out, ("en",))
     with open(STYLES, encoding="utf-8") as handle:
         card_rules = handle.read()

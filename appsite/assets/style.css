@@ -225,6 +225,30 @@ nav.site .store-badge:hover,
 
 nav.site .store-for:hover { background: none; }
 
+/* A platform sold outside the App Store — Windows — gets a link this kit draws,
+   never Apple's badge. It stands the badge's height and shape beside one, so a
+   row of ways in reads as one row, and it is quiet: a hairline and the ink,
+   the way the badge is black and grey rather than the page's accent. */
+.store-direct,
+nav.site a.store-direct {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  margin: 10px;
+  padding: 0 1rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.93rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: border-color 0.18s var(--ease);
+}
+
+.store-direct:hover,
+nav.site a.store-direct:hover { background: none; border-color: var(--accent); }
+
 /* Two links plus five pages is a wide header. On a phone the nav wraps to its
    own line and the two outward links stay together at its end. */
 @media (max-width: 34rem) {

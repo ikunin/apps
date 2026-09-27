@@ -123,4 +123,8 @@ def install(site):
     An app with no listing links nowhere and carries no artwork, which is the
     same rule the header already follows for the link itself.
     """
-    return copy(site.out, site.languages) if site.store else []
+    # Through `stores`: an app stated the new way, with `stores` and no `store`,
+    # linked a badge whose artwork was never copied. And an app sold only
+    # outside the App Store needs none.
+    from . import stores
+    return copy(site.out, site.languages) if stores.needs_badge(site.stores, site.store) else []

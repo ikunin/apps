@@ -689,6 +689,54 @@ check("a full store URL is not rewritten for depth",
 check("and the German page uses the German badge",
       "app-store-de.svg" in deep_header)
 
+
+print("\nstore links beyond the App Store")
+
+from appsite import stores as store_links
+
+MIXED = Site(chrome=Chrome(brand="App", icon="img/i.png", pages=PAGES, copyright="©"),
+             out="site",
+             stores=(("mac", "https://apps.apple.com/app/id2"),
+                     ("windows", "https://example.com/buy", "buy")))
+mixed_header, _, _, _ = MIXED.chrome.render("de", "index.html", store=MIXED.store)
+check("a platform sold elsewhere never gets Apple's badge",
+      mixed_header.count("store-badge") == 1 and "example.com/buy" in mixed_header
+      and 'class="store-direct" href="https://example.com/buy"' in mixed_header)
+check("its verb is in the page's language", ">Kaufen</a>" in mixed_header)
+check("and it is named for its platform", ">Windows<" in mixed_header)
+
+ALONE = store_links.links((("windows", "https://example.com/dl"),))
+check("even alone a direct link says what it is for, and defaults to Download",
+      len(ALONE) == 1 and ">Windows<" in ALONE[0] and ">Download</a>" in ALONE[0])
+
+try:
+    store_links.live((("android", "https://x"),))
+    check("an unknown platform is refused, not rendered as Apple's", False)
+except SystemExit:
+    check("an unknown platform is refused, not rendered as Apple's", True)
+
+with tempfile.TemporaryDirectory() as out:
+    STATED = Site(chrome=CHROME, out=out, languages=("en",),
+                  stores=(("ios", "https://apps.apple.com/app/id1"),))
+    check("an app stated with `stores` alone still gets the badge artwork",
+          len(badge.install(STATED)) == 1)
+with tempfile.TemporaryDirectory() as out:
+    WINDOWS_ONLY = Site(chrome=CHROME, out=out, languages=("en",),
+                        stores=(("windows", "https://example.com/dl"),))
+    check("an app sold only outside the App Store carries no Apple artwork",
+          badge.install(WINDOWS_ONLY) == [])
+
+check("the card offers every platform, the same way the header does",
+      portfolio.card("app", {"name": "A", "slogan": "s", "icon": "i.png",
+                             "store": "",
+                             "stores": [["mac", "https://apps.apple.com/app/id2"],
+                                        ["windows", "https://example.com/dl"]]})
+      .count("store-for-label") == 2)
+check("a card published before `stores` still renders its one badge",
+      portfolio.card("app", {"name": "A", "slogan": "s", "icon": "i.png",
+                             "store": "https://apps.apple.com/app/id1"})
+      .count("store-badge") == 1)
+
 print()
 if failures:
     print(f"{len(failures)} failed")
