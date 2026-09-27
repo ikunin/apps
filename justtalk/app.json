@@ -30,5 +30,22 @@
     "violet": "#7FD8D8"
   },
   "slogan": "Just talk, get polished text",
-  "store": ""
+  "store": "",
+  "stores": [
+    [
+      "mac",
+      "",
+      "download"
+    ],
+    [
+      "windows",
+      "https://github.com/ikunin/justtalk/releases/latest",
+      "download"
+    ],
+    [
+      "ios",
+      "",
+      "download"
+    ]
+  ]
 }
