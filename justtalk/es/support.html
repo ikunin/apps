@@ -46,34 +46,40 @@
   <p>La mayoría de las preguntas están respondidas más abajo. Si la tuya no está, escribe a <a href="mailto:support.kunin@gmail.com?subject=JustTalk">support.kunin@gmail.com</a>.</p>
 
   <dl class="faq">
-    <dt>No se pega nada cuando dejo de hablar.</dt>
+    <dt>En el Mac, no se pega nada cuando dejo de hablar.</dt>
     <dd>JustTalk escribe en la app que tienes delante simulando un pegado, y macOS solo lo permite si le concedes Accesibilidad. Abre Ajustes del Sistema ▸ Privacidad y seguridad ▸ Accesibilidad y activa JustTalk. Si ya está activado después de una actualización, desactívalo y vuelve a activarlo — macOS vincula el permiso a la compilación exacta.</dd>
 
     <dt>La tecla no hace nada en una app en concreto.</dt>
-    <dd>Algunas apps capturan la tecla antes que JustTalk, y los campos de entrada segura — casillas de contraseña, algunas terminales — bloquean la escritura simulada por diseño. Prueba la misma tecla en TextEdit para distinguir un caso del otro.</dd>
+    <dd>Algunas apps capturan la tecla antes que JustTalk, y los campos de entrada segura — casillas de contraseña, algunas terminales — bloquean la escritura simulada por diseño. En Windows, una app que se ejecuta como administrador no acepta lo que escribe otra que no lo hace. Prueba la misma tecla en un editor de texto sencillo para distinguir estos casos.</dd>
+
+    <dt>En el iPhone, el teclado de JustTalk no puede dictar.</dt>
+    <dd>Añádelo en Ajustes ▸ General ▸ Teclado ▸ Teclados ▸ Añadir teclado, luego toca JustTalk y activa «Permitir acceso completo». iOS no deja que un teclado use el micrófono, así que la app JustTalk graba por él — y sin acceso completo el teclado no puede comunicarse con la app.</dd>
+
+    <dt>En el iPhone, el punto naranja sigue encendido aunque no esté hablando.</dt>
+    <dd>Mientras hay una sesión de dictado en curso, la app JustTalk mantiene el micrófono para que el teclado pueda empezar a dictar al instante, e iOS muestra el indicador naranja durante toda la sesión. Dice la verdad. Termina la sesión en la app JustTalk y se apaga — y una sesión que olvides se cierra sola.</dd>
 
     <dt>La transcripción va lenta, o se para después de pocas palabras.</dt>
-    <dd>Normalmente es cosa del backend, no de la app. Whisper en local depende de tu Mac y del tamaño del modelo; un backend en la nube depende de tu conexión y de que ese proveedor esté funcionando. Cambiar de backend en Ajustes ▸ Voz es la forma más rápida de averiguar cuál es la causa.</dd>
+    <dd>Normalmente es cosa del backend, no de la app. La transcripción en local depende de tu dispositivo y del tamaño del modelo; un backend en la nube depende de tu conexión y de que ese proveedor esté funcionando. Cambiar de backend en Ajustes ▸ Voz es la forma más rápida de averiguar cuál es la causa.</dd>
 
     <dt>No deja de escribir mal nombres y jerga.</dt>
     <dd>Añádelos al diccionario personalizado en Ajustes. Las entradas se aplican después de la transcripción, así que corrigen las palabras que el modelo falla siempre sin necesidad de reentrenar nada.</dd>
 
-    <dt>¿Sale mi voz de mi Mac?</dt>
-    <dd>Solo si eliges un backend en la nube. Con Whisper en local seleccionado, no se sube nada — sin cuenta, sin red. La política de privacidad explica exactamente qué envía cada opción.</dd>
+    <dt>¿Sale mi voz de mi dispositivo?</dt>
+    <dd>Solo si eliges un backend en la nube. Con la transcripción en local seleccionada, no se sube nada — sin cuenta, sin red. La política de privacidad explica exactamente qué envía cada opción.</dd>
 
     <dt>He pagado, pero la app sigue diciendo que la prueba ha caducado.</dt>
-    <dd>Abre Ajustes ▸ JustTalk Pro y pulsa Restaurar una compra anterior. Eso vuelve a preguntar al App Store, lo que arregla el caso en que la app no podía ver el recibo. Las compras siguen tu Apple ID, así que asegúrate de haber iniciado sesión con el mismo con el que la compraste.</dd>
+    <dd>Abre JustTalk Pro en los ajustes de la app y elige Restaurar. Eso vuelve a preguntar al App Store, lo que arregla el caso en que la app no podía ver el recibo. Las compras siguen tu Apple ID, así que asegúrate de haber iniciado sesión con el mismo con el que la compraste.</dd>
 
-    <dt>La compré en la web. ¿Puedo usar esa clave aquí?</dt>
-    <dd>No. La versión del Mac App Store se vende solo a través del App Store y no acepta claves de licencia; la versión descargada de la web usa claves y no usa el App Store. Elige la que prefieras — es la misma app.</dd>
+    <dt>¿Una compra sirve para todas las plataformas?</dt>
+    <dd>No. Las apps de Mac y de iPhone son compras separadas del App Store, y ninguna acepta claves de licencia. Windows tiene su propia licencia, que aún no está a la venta — hasta entonces, la app de Windows funciona con su prueba de siete días y después como versión gratuita con un límite diario.</dd>
 
     <dt>La captura de reuniones me graba a mí pero no a la otra parte.</dt>
-    <dd>Capturar la otra mitad de una llamada necesita permiso para grabar el audio del sistema, que macOS pide la primera vez que empiezas una reunión. Si descartaste ese aviso, concédelo en Ajustes del Sistema ▸ Privacidad y seguridad.</dd>
+    <dd>Capturar la otra mitad de una llamada necesita el audio del sistema. En el Mac, macOS pide permiso la primera vez que empiezas una reunión; si descartaste ese aviso, concédelo en Ajustes del Sistema ▸ Privacidad y seguridad. La captura de reuniones está en Mac y Windows, no en el iPhone.</dd>
 
   </dl>
 
   <h3>Informar de un problema</h3>
-  <p>Incluye la versión de la app — está en la ventana Acerca de — junto con tu versión de macOS, qué backend estabas usando y qué esperabas que pasara. Una frase del texto que salió mal ayuda más que una descripción de él.</p>
+  <p>Incluye la versión de la app — está en la pantalla Acerca de — junto con tu dispositivo y su versión de macOS, Windows o iOS, qué backend estabas usando y qué esperabas que pasara. Una frase del texto que salió mal ayuda más que una descripción de él.</p>
 
   <div class="note"><p>Esta es una app pequeña que mantiene una sola persona. Las respuestas no son instantáneas, pero se lee cada mensaje.</p></div>
 </section>

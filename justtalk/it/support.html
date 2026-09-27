@@ -46,34 +46,40 @@
   <p>Qui sotto trovi le risposte alla maggior parte delle domande. Se la tua non c'è, scrivi a <a href="mailto:support.kunin@gmail.com?subject=JustTalk">support.kunin@gmail.com</a>.</p>
 
   <dl class="faq">
-    <dt>Non viene incollato nulla quando smetto di parlare.</dt>
+    <dt>Sul Mac, non viene incollato nulla quando smetto di parlare.</dt>
     <dd>JustTalk scrive nell'app in primo piano simulando un incolla, e macOS lo permette solo dopo che concedi l'accesso ad Accessibilità. Apri Impostazioni di Sistema ▸ Privacy e sicurezza ▸ Accessibilità e attiva JustTalk. Se è già attivo dopo un aggiornamento, disattivalo e riattivalo — macOS lega il permesso alla build esatta.</dd>
 
     <dt>Il tasto non fa nulla in un&#x27;app particolare.</dt>
-    <dd>Alcune app intercettano il tasto per prime, e i campi di input sicuro — caselle per le password, alcuni terminali — bloccano di proposito qualsiasi digitazione simulata. Prova lo stesso tasto in TextEdit per distinguere i due casi.</dd>
+    <dd>Alcune app intercettano il tasto per prime, e i campi di input sicuro — caselle per le password, alcuni terminali — bloccano di proposito qualsiasi digitazione simulata. Su Windows, un'app eseguita come amministratore non accetta la digitazione da un'app che non lo è. Prova lo stesso tasto in un semplice editor di testo per distinguere questi casi.</dd>
+
+    <dt>Su iPhone, la tastiera JustTalk non riesce a dettare.</dt>
+    <dd>Aggiungila in Impostazioni ▸ Generali ▸ Tastiera ▸ Tastiere ▸ Aggiungi nuova tastiera, poi tocca JustTalk e attiva «Consenti accesso completo». iOS non permette a una tastiera di usare il microfono, quindi è l'app JustTalk a registrare per lei — e senza l'accesso completo la tastiera non può raggiungere l'app.</dd>
+
+    <dt>Su iPhone, il puntino arancione resta acceso anche quando non parlo.</dt>
+    <dd>Finché una sessione di dettatura è in corso, l'app JustTalk tiene il microfono così che la tastiera possa iniziare a dettare all'istante, e iOS mostra l'indicatore arancione per tutta la sessione. Dice la verità. Termina la sessione nell'app JustTalk e si spegne — e una sessione che dimentichi si chiude da sola.</dd>
 
     <dt>La trascrizione è lenta, o si interrompe dopo poche parole.</dt>
-    <dd>Di solito è il backend, non l'app. Whisper in locale dipende dal tuo Mac e dalla dimensione del modello; un backend cloud dipende dalla tua connessione e dal fatto che quel fornitore sia raggiungibile. Cambiare backend in Impostazioni ▸ Voce è il modo più rapido per scoprire quale dei due.</dd>
+    <dd>Di solito è il backend, non l'app. La trascrizione in locale dipende dal tuo dispositivo e dalla dimensione del modello; un backend cloud dipende dalla tua connessione e dal fatto che quel fornitore sia raggiungibile. Cambiare backend in Impostazioni ▸ Voce è il modo più rapido per scoprire quale dei due.</dd>
 
     <dt>Continua a sbagliare nomi e termini tecnici.</dt>
     <dd>Aggiungili al dizionario personalizzato in Impostazioni. Le voci vengono applicate dopo la trascrizione, così correggono le parole su cui il modello sbaglia sempre, senza bisogno di riaddestrare nulla.</dd>
 
-    <dt>La mia voce esce dal mio Mac?</dt>
-    <dd>Solo se scegli un backend cloud. Con Whisper in locale selezionato, non viene caricato nulla — nessun account, nessuna rete. L'informativa sulla privacy stabilisce esattamente cosa invia ciascuna opzione.</dd>
+    <dt>La mia voce esce dal mio dispositivo?</dt>
+    <dd>Solo se scegli un backend cloud. Con la trascrizione in locale selezionata, non viene caricato nulla — nessun account, nessuna rete. L'informativa sulla privacy stabilisce esattamente cosa invia ciascuna opzione.</dd>
 
     <dt>Ho pagato, ma l&#x27;app dice ancora che la prova è scaduta.</dt>
-    <dd>Apri Impostazioni ▸ JustTalk Pro e premi Ripristina un acquisto precedente. Questo interpella di nuovo l'App Store, il che risolve il caso in cui l'app non riusciva a vedere la ricevuta. Gli acquisti seguono il tuo ID Apple, quindi assicurati di aver effettuato l'accesso con quello con cui l'hai comprato.</dd>
+    <dd>Apri JustTalk Pro nelle impostazioni dell'app e scegli Ripristina. Questo interpella di nuovo l'App Store, il che risolve il caso in cui l'app non riusciva a vedere la ricevuta. Gli acquisti seguono il tuo ID Apple, quindi assicurati di aver effettuato l'accesso con quello con cui l'hai comprato.</dd>
 
-    <dt>L&#x27;ho comprato sul sito. Posso usare quella chiave qui?</dt>
-    <dd>No. La versione del Mac App Store si vende solo tramite l'App Store e non accetta chiavi di licenza; la versione scaricata dal sito usa le chiavi e non usa l'App Store. Scegli quella che preferisci — sono la stessa app.</dd>
+    <dt>Un solo acquisto vale per tutte le piattaforme?</dt>
+    <dd>No. Le app per Mac e per iPhone sono acquisti separati sull'App Store, e nessuna delle due accetta chiavi di licenza. Windows ha una licenza propria, che non è ancora in vendita — fino ad allora, l'app per Windows funziona con la sua prova di sette giorni e poi come versione gratuita con un limite giornaliero.</dd>
 
     <dt>La cattura delle riunioni registra me ma non l&#x27;altra parte.</dt>
-    <dd>Catturare l'altra metà di una chiamata richiede il permesso di registrare l'audio di sistema, che macOS chiede la prima volta che avvii una riunione. Se hai chiuso quella richiesta senza rispondere, concedilo in Impostazioni di Sistema ▸ Privacy e sicurezza.</dd>
+    <dd>Catturare l'altra metà di una chiamata richiede l'audio di sistema. Sul Mac, macOS chiede il permesso la prima volta che avvii una riunione; se hai chiuso quella richiesta senza rispondere, concedilo in Impostazioni di Sistema ▸ Privacy e sicurezza. La cattura delle riunioni è disponibile su Mac e Windows, non su iPhone.</dd>
 
   </dl>
 
   <h3>Segnalare un problema</h3>
-  <p>Includi la versione dell&#x27;app — si trova nella finestra Informazioni — insieme alla tua versione di macOS, al backend che stavi usando e a cosa ti aspettavi che succedesse. Una frase del testo uscito sbagliato aiuta più di una sua descrizione.</p>
+  <p>Includi la versione dell&#x27;app — si trova nella schermata Informazioni — insieme al tuo dispositivo e alla sua versione di macOS, Windows o iOS, al backend che stavi usando e a cosa ti aspettavi che succedesse. Una frase del testo uscito sbagliato aiuta più di una sua descrizione.</p>
 
   <div class="note"><p>È un&#x27;app piccola, mantenuta da una sola persona. Le risposte non sono immediate, ma ogni messaggio viene letto.</p></div>
 </section>

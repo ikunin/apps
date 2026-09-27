@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Informativa sulla privacy — JustTalk</title>
-<meta name="description" content="JustTalk non ha analisi né account. Quello che esce dal tuo Mac dipende dal backend vocale e linguistico che scegli — e Whisper in locale non invia proprio nulla.">
+<meta name="description" content="JustTalk non ha analisi né account. Quello che esce dal tuo dispositivo dipende dal backend vocale e linguistico che scegli — e la trascrizione in locale non invia proprio nulla.">
 <meta name="color-scheme" content="dark light">
 <meta name="theme-color" content="#1C1C1E">
 <link rel="icon" href="../img/favicon-32.png" sizes="32x32">
@@ -43,28 +43,39 @@
 
 <section>
   <h2>Informativa sulla privacy</h2>
-  <p class="muted">Ultimo aggiornamento: 20&nbsp;settembre&nbsp;2026. Vale per l'app JustTalk per macOS e per questo sito.</p>
+  <p class="muted">Ultimo aggiornamento: 27&nbsp;settembre&nbsp;2026. Vale per le app JustTalk per macOS e Windows, per l'app JustTalk per iOS e la sua tastiera, e per questo sito.</p>
 
   <div class="note"><p><strong>JustTalk non ha analisi, non ha un rilevatore di crash, non fa tracciamento e non ha un account con noi.</strong> Non contatta nessun server proprio. Nell'uso normale, invia però il tuo parlato a un servizio cloud di trascrizione e rifinitura che scegli <em>tu</em> e di cui tieni tu la chiave — quindi la maggior parte di ciò che conta qui è l'informativa di quel fornitore, non questa. L'opzione in locale non invia nulla da nessuna parte, ma è l'eccezione, non la norma.</p></div>
 
-  <h3>Cosa resta sul tuo Mac</h3>
+  <h3>Cosa resta sul tuo dispositivo</h3>
   <p>Tutto, a meno che tu non scelga un backend cloud. Conservato in locale e mai caricato da JustTalk:</p>
   <ul>
     <li>La cronologia delle tue dettature, incluso il testo trascritto</li>
     <li>Le modalità, il tuo dizionario personalizzato e le azioni rapide</li>
     <li>Le statistiche d&#x27;uso — parole dettate, tempo risparmiato, spesa stimata</li>
     <li>L&#x27;audio registrato, tenuto in memoria per la durata di una dettatura e mai scritto su disco</li>
-    <li>Le chiavi API e i token di accesso per i servizi che configuri, nel Portachiavi di macOS</li>
+    <li>Le chiavi API e i token di accesso per i servizi che configuri — nel Portachiavi su Mac e iPhone, in Gestione credenziali di Windows su Windows</li>
     <li>I modelli Whisper che scarichi, se usi la trascrizione in locale</li>
   </ul>
-  <p>Eliminare la cartella Application Support dell&#x27;app elimina tutto questo. JustTalk non ha un server da cui cancellare alcunché.</p>
+  <p>Eliminare l&#x27;app su iPhone o disinstallarla su Windows ne elimina i dati; sul Mac, lo fa l&#x27;eliminazione della cartella Application Support dell&#x27;app. Le chiavi salvate su Windows restano in Gestione credenziali finché non le rimuovi da lì. JustTalk non ha un server da cui cancellare alcunché.</p>
 
   <h3>Acquisti</h3>
-  <p>JustTalk&nbsp;Pro è un acquisto una tantum, gestito interamente da Apple. L'App Store dice all'app se ne hai diritto; non vede mai il tuo nome, la tua email o i dati di pagamento.</p>
-  <p>L&#x27;acquisto è condivisibile in famiglia. Se un membro del tuo gruppo famiglia lo condivide con te, Apple dice all&#x27;app che ne hai diritto e nient&#x27;altro su quella persona.</p>
+  <p>Su Mac e iPhone, JustTalk&nbsp;Pro è un acquisto una tantum, gestito interamente da Apple. L'App Store dice all'app se ne hai diritto; non vede mai il tuo nome, la tua email o i dati di pagamento. Una licenza per Windows non è ancora in vendita. Quando ne richiedi una, la richiesta che ci invii via email contiene il nome e l'indirizzo che vi inserisci e un hash unidirezionale degli identificativi hardware del tuo PC, così che la chiave funzioni su quel PC. Li usiamo per emettere e riemettere la tua chiave e per nient'altro.</p>
+  <p>Entrambi gli acquisti dall&#x27;App Store sono condivisibili in famiglia. Se un membro del tuo gruppo famiglia ne condivide uno con te, Apple dice all&#x27;app che ne hai diritto e nient&#x27;altro su quella persona.</p>
+
+  <h3>La tastiera per iPhone</h3>
+  <p>La tastiera JustTalk chiede <em>Consenti accesso completo</em>, il permesso che iOS richiede prima che una tastiera possa raggiungere la rete o condividere qualcosa con la propria app. Ecco esattamente cosa ne fa:</p>
+  <ul>
+    <li>Non legge ciò che è già nel campo. Scrive, e ricorda ciò che ha scritto perché annulla e le azioni rapide agiscano su quel testo e su nessun altro.</li>
+    <li>Non registra ciò che digiti. I tasti vanno nell&#x27;app in cui stai scrivendo e da nessun&#x27;altra parte.</li>
+    <li>Non invia mai nulla da sé. iOS non permette a una tastiera di aprire il microfono, quindi registra l&#x27;app JustTalk — ed è l&#x27;app, non la tastiera, a parlare con il servizio che hai configurato.</li>
+    <li>Mentre una sessione è attiva, l&#x27;app JustTalk tiene il microfono e iOS lascia accesa l&#x27;indicazione arancione per tutto il tempo. È onesto: il microfono è davvero a tua disposizione finché non fermi la sessione.</li>
+    <li>Su iPhone la dettatura è trascritta sul dispositivo per impostazione predefinita, e questo non invia nulla. È la scelta di un fornitore in Voce che manda il tuo audio da qualche parte.</li>
+    <li>La cronologia delle dettature è disattivata se non la attivi, e quando è attiva viene cifrata sul dispositivo.</li>
+  </ul>
 
   <h3>Quando scegli un backend cloud</h3>
-  <p>JustTalk può inviare l'audio, o la sua trascrizione, a un fornitore che configuri — Google, OpenAI, Groq, Mistral, Anthropic, o un indirizzo server che inserisci tu stesso. Quei dati sono poi gestiti secondo <em>la loro</em> informativa sulla privacy, non questa, e JustTalk non ha alcuna visibilità su cosa conservano. L'app mostra quale fornitore è attivo prima che tu registri, e passare a Whisper in locale impedisce che qualcosa esca dal tuo Mac.</p>
+  <p>JustTalk può inviare l'audio, o la sua trascrizione, a un fornitore che configuri — Google, OpenAI, Groq, Mistral, Anthropic, o un indirizzo server che inserisci tu stesso. Quei dati sono poi gestiti secondo <em>la loro</em> informativa sulla privacy, non questa, e JustTalk non ha alcuna visibilità su cosa conservano. L'app mostra quale fornitore è attivo prima che tu registri, e passare alla trascrizione in locale impedisce che qualcosa esca dal tuo dispositivo.</p>
 
   <h3>Cosa viene inviato insieme alle tue parole</h3>
   <p>Quando è in uso un modello di rifinitura, JustTalk può includere il nome dell'app in cui stai dettando, così il risultato si adatta al contesto. Puoi disattivarlo con la Modalità&nbsp;Privacy, che impedisce che qualsiasi informazione su app o finestra venga usata o inviata.</p>
@@ -73,7 +84,7 @@
   <p>JustTalk è uno strumento di produttività per adulti, non un&#x27;app per bambini. Non raccoglie informazioni personali da nessuno, di qualsiasi età.</p>
 
   <h3>API con motivazione obbligatoria</h3>
-  <p>JustTalk usa il microfono, e l'audio di sistema quando registri una riunione, e chiede il permesso a macOS prima di entrambi. Non legge contatti, posizione, foto né dati sulla salute. Il questionario sulla privacy di Apple per la scheda del prodotto è compilato esattamente sulla base di questa pagina.</p>
+  <p>JustTalk usa il microfono — e, su Mac e Windows, l'audio di sistema quando registri una riunione. macOS e iOS ti chiedono prima il permesso; su Windows decidono le impostazioni del microfono in Privacy e sicurezza. Su iPhone chiede anche l'accesso al riconoscimento vocale, che la trascrizione in locale mantiene sul telefono. Non legge contatti, posizione, foto né dati sulla salute. Il questionario sulla privacy di Apple per le schede del prodotto è compilato esattamente sulla base di questa pagina.</p>
 
   <h3>Questo sito</h3>
   <p>Queste pagine sono file statici serviti da GitHub&nbsp;Pages. Non impostano cookie, non incorporano script e non eseguono analisi. GitHub potrebbe registrare le richieste come parte del servizio — vedi <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">l&#x27;informativa sulla privacy di GitHub</a>.</p>
