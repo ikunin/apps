@@ -203,6 +203,28 @@ nav.site .away::before {
 nav.site .store-badge:hover,
 .store-badge:hover { background: none; opacity: 0.82; }
 
+/* An app that ships as several App Store records gets a badge per platform, and
+   the badge artwork is identical on all of them — so the device name is what
+   tells them apart. It sits above its badge, small and quiet: the badge is the
+   thing being clicked, the label only says which one. */
+.store-for {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 0;
+}
+
+.store-for-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--dim);
+  white-space: nowrap;
+}
+
+nav.site .store-for:hover { background: none; }
+
 /* Two links plus five pages is a wide header. On a phone the nav wraps to its
    own line and the two outward links stay together at its end. */
 @media (max-width: 34rem) {

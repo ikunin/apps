@@ -42,6 +42,12 @@ class Site:
     #: top of every page and the button on this app's portfolio card; empty
     #: writes neither, so an unreleased app carries no dead link.
     store: str = ""
+    #: An app that ships as SEVERAL App Store records — iPhone, Mac, Apple TV —
+    #: has a listing per platform, and one badge can only point at one of them.
+    #: Give them all: (("ios", url), ("mac", url), ("tv", url)), in the order
+    #: they should be offered. Left empty, `store` behaves exactly as it always
+    #: has, which is what every single-platform app wants.
+    stores: tuple = ()
     #: Where the other apps are, relative to this site's root — "../" when the
     #: sites are published side by side. Becomes one link in the header of
     #: every page. Empty writes nothing.
@@ -57,6 +63,9 @@ class Site:
         # that predates the field. Frozen dataclass, hence __setattr__.
         if not self.chrome.languages:
             object.__setattr__(self.chrome, "languages", tuple(self.languages))
+        # Same push-down, same reason: an app states its platforms once.
+        if not self.chrome.stores:
+            object.__setattr__(self.chrome, "stores", tuple(self.stores))
 
     def directory(self, language):
         return self.out if language == "en" else os.path.join(self.out, language)

@@ -636,6 +636,59 @@ with tempfile.TemporaryDirectory() as out:
           == open(os.path.join(badge.ARTWORK, "app-store-de.svg"), "rb").read())
 
 
+print("\nstore links, one app, several platforms")
+
+ONE = Site(chrome=Chrome(brand="App", icon="img/i.png", pages=PAGES, copyright="©"),
+           out="site", store="https://apps.apple.com/app/id1")
+one_header, _, _, _ = ONE.chrome.render("en", "index.html", store=ONE.store)
+check("one platform still gets one badge, exactly as before",
+      one_header.count("store-badge") == 1 and "store-for" not in one_header)
+
+# Several records — iPhone, Mac, Apple TV — need a way in each: one badge can
+# only point at one listing, and the artwork is the same on every platform, so
+# without the device name three identical badges would be three guesses.
+MANY = Site(chrome=Chrome(brand="App", icon="img/i.png", pages=PAGES, copyright="©"),
+            out="site",
+            stores=(("ios", "https://apps.apple.com/app/id1"),
+                    ("mac", "https://apps.apple.com/app/id2"),
+                    ("tv", "https://apps.apple.com/app/id3")))
+many_header, _, _, _ = MANY.chrome.render("en", "index.html", store=MANY.store)
+check("several platforms get a badge each", many_header.count("store-badge") == 3)
+check("each one named for its device",
+      "iPhone &amp; iPad" in many_header and ">Mac<" in many_header
+      and "Apple&nbsp;TV" in many_header)
+check("each badge points at its own listing",
+      "id1" in many_header and "id2" in many_header and "id3" in many_header)
+check("the badge artwork itself is untouched — same markup, three times",
+      many_header.count('alt="' + badge.ALT + '"') == 3)
+
+check("Site pushes its platforms down to the Chrome", MANY.chrome.stores == MANY.stores)
+EXPLICIT_STORES = Site(
+    chrome=Chrome(brand="App", icon="img/i.png", pages=PAGES, copyright="©",
+                  stores=(("mac", "https://apps.apple.com/app/id9"),)),
+    out="site", stores=(("ios", "https://apps.apple.com/app/id1"),))
+check("an explicit Chrome store list is not overwritten",
+      EXPLICIT_STORES.chrome.stores == (("mac", "https://apps.apple.com/app/id9"),))
+
+# A record that exists but is not on sale yet writes nothing, the same way an
+# empty `store` does: an unreleased app must carry no dead link.
+PENDING = Site(chrome=Chrome(brand="App", icon="img/i.png", pages=PAGES, copyright="©"),
+               out="site", stores=(("ios", ""), ("mac", "")))
+pending_header, _, _, _ = PENDING.chrome.render("en", "index.html", store=PENDING.store)
+check("a platform with no listing yet writes no badge", "store-badge" not in pending_header)
+
+SINGLE = Site(chrome=Chrome(brand="App", icon="img/i.png", pages=PAGES, copyright="©"),
+              out="site", stores=(("ios", "https://apps.apple.com/app/id1"),))
+single_header, _, _, _ = SINGLE.chrome.render("en", "index.html", store=SINGLE.store)
+check("one platform stated the new way is still just the badge",
+      single_header.count("store-badge") == 1 and "store-for" not in single_header)
+
+deep_header, _, _, _ = MANY.chrome.render("de", "support.html", store=MANY.store)
+check("a full store URL is not rewritten for depth",
+      "../https" not in deep_header and deep_header.count("apps.apple.com") == 3)
+check("and the German page uses the German badge",
+      "app-store-de.svg" in deep_header)
+
 print()
 if failures:
     print(f"{len(failures)} failed")
