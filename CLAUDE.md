@@ -15,3 +15,10 @@ Three things not to guess at, before you touch anything:
   every app still renders byte-identically: run `make site` in each app
   repository and read `git diff --stat site/`. Anything you did not intend is
   the bug.
+
+## The Claude Code skills live here
+
+`skills/appsite` and `skills/appsite-bump` are the source of the `/appsite` and
+`/appsite-bump` skills (moved from `~/.claude` on 27 Sep 2026). `~/.claude/skills/<name>`
+are symlinks made by `./install.sh`: edit the skills here, and re-run `install.sh`
+only when a new skill folder is added.
