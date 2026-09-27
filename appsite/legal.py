@@ -83,11 +83,50 @@ def faq(pairs):
     return ("dl", pairs)
 
 
+def subheading(text):
+    """A heading inside a `part` — one level under the part's own title."""
+    return ("h4", html.escape(text))
+
+
+def part(title, blocks, anchor=""):
+    """A boxed section of a page that applies to one audience — one platform
+    of several, or "all versions". Its blocks are the page's own blocks, with
+    `subheading` for the headings inside it. `anchor` lets `contents` link to
+    it. For an app on several platforms whose promises differ, this is what
+    keeps a reader from taking the Windows paragraph as the iPhone one."""
+    return ("part", (html.escape(title), anchor, blocks))
+
+
+def contents(entries):
+    """A short list linking to the page's parts: (anchor, label, summary).
+    The summary is markup, one line, saying what that part covers."""
+    return ("toc", entries)
+
+
+def _part(value):
+    title, anchor, blocks = value
+    ident = f' id="{anchor}"' if anchor else ""
+    return (f'  <div class="legal-part"{ident}>\n    <h3>{title}</h3>\n'
+            + "".join("  " + line if line.strip() else line
+                      for line in render(blocks).splitlines(keepends=True))
+            + "  </div>\n")
+
+
+def _toc(entries):
+    items = "".join(f'    <li><a href="#{anchor}">{html.escape(label)}</a>'
+                    f'{" — " + summary if summary else ""}</li>\n'
+                    for anchor, label, summary in entries)
+    return f'  <ul class="legal-toc">\n{items}  </ul>\n'
+
+
 _RENDER = {
     "p": lambda v: f"  <p>{v}</p>\n",
     "muted": lambda v: f'  <p class="muted">{v}</p>\n',
     "note": lambda v: f'  <div class="note"><p>{v}</p></div>\n',
     "h3": lambda v: f"  <h3>{v}</h3>\n",
+    "h4": lambda v: f"  <h4>{v}</h4>\n",
+    "part": _part,
+    "toc": _toc,
     "ul": lambda v: "  <ul>\n" + "".join(f"    <li>{i}</li>\n" for i in v) + "  </ul>\n",
     "dl": lambda v: '  <dl class="faq">\n' + "".join(
         f"    <dt>{html.escape(q)}</dt>\n    <dd>{a}</dd>\n\n" for q, a in v
@@ -95,7 +134,7 @@ _RENDER = {
 }
 
 #: Blocks that open a new thought, and get a blank line above them.
-_BREAK_BEFORE = {"h3", "note", "dl"}
+_BREAK_BEFORE = {"h3", "h4", "note", "dl", "part", "toc"}
 #: Blocks after which a blank line reads better — a dateline is not part of
 #: the paragraph that follows it.
 _BREAK_AFTER = {"muted"}

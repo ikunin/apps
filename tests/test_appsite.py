@@ -759,6 +759,30 @@ check("a card can carry a foot, pinned below its body",
 check("and a card without one is exactly the card it always was",
       '    <div class="card">\n      <h3>Plain</h3>\n      <p>No foot.</p>\n    </div>\n' in FOOTED)
 
+
+print("\nlegal pages in parts, one per platform")
+
+from appsite import legal as legal_blocks
+
+PARTED = legal_blocks.render([
+    legal_blocks.contents([("all", "All versions", "what holds everywhere"),
+                           ("windows", "Windows", "")]),
+    legal_blocks.part("All versions", [legal_blocks.subheading("Cloud"),
+                                       legal_blocks.p("Sent to your provider.")],
+                      anchor="all"),
+    legal_blocks.part("Windows", [legal_blocks.p("Credential Manager.")], anchor="windows"),
+])
+check("each audience is its own box, reachable by anchor",
+      '<div class="legal-part" id="all">' in PARTED
+      and '<div class="legal-part" id="windows">' in PARTED)
+check("a part's title is the page's h3 and its headings step down",
+      "<h3>All versions</h3>" in PARTED and "<h4>Cloud</h4>" in PARTED)
+check("the contents link each part, with its one-line summary",
+      '<li><a href="#all">All versions</a> — what holds everywhere</li>' in PARTED
+      and '<li><a href="#windows">Windows</a></li>' in PARTED)
+check("what is inside a part is the same blocks as anywhere else",
+      "<p>Credential Manager.</p>" in PARTED)
+
 print()
 if failures:
     print(f"{len(failures)} failed")

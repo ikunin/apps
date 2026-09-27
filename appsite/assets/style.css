@@ -625,6 +625,31 @@ td em {
 
 .legal p, .legal li, .legal dd { max-width: var(--measure); }
 .legal h3 { margin-top: 2.25rem; }
+
+/* A page whose promises differ by platform says so in parts: one box per
+   audience — all versions, then each platform — so a reader never takes the
+   Windows paragraph for the iPhone one. The box is the card's surface and
+   hairline, and its title is the page's h3; headings inside it step down. */
+.legal-part {
+  margin-top: 2.25rem;
+  padding: 0.25rem 1.5rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  scroll-margin-top: 5rem;
+}
+.legal-part > h3 {
+  margin: 1.25rem 0 0.25rem;
+  font-size: 1.45rem;
+  letter-spacing: -0.01em;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--line);
+}
+.legal h4 { margin: 1.75rem 0 0.4rem; font-size: 1rem; }
+.legal-part .faq { margin-top: 0.5rem; }
+.legal-toc { padding-left: 1.2rem; }
+.legal-toc li { margin: 0.3rem 0; color: var(--dim); }
+@media (max-width: 34rem) { .legal-part { padding: 0.25rem 1rem 1.25rem; } }
 .legal section { padding-top: clamp(2rem, 5vw, 3rem); }
 
 /* --- a screen beside its explanation -------------------------------------- */
