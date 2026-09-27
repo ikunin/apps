@@ -34,18 +34,15 @@
   "stores": [
     [
       "mac",
-      "",
-      "download"
+      ""
     ],
     [
       "windows",
-      "https://github.com/ikunin/justtalk/releases/latest",
-      "download"
+      ""
     ],
     [
       "ios",
-      "",
-      "download"
+      ""
     ]
   ]
 }
