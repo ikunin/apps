@@ -44,39 +44,83 @@
 <section>
   <h2>Assistance</h2>
   <p>La plupart des questions trouvent leur réponse ci-dessous. Si ce n'est pas le cas de la vôtre, écrivez à <a href="mailto:support.kunin@gmail.com?subject=JustTalk">support.kunin@gmail.com</a>.</p>
+  <p>Les questions qui valent partout d&#x27;abord ; ensuite, ce qui est propre à chaque version :</p>
 
-  <dl class="faq">
-    <dt>Sur Mac, rien ne se colle quand j&#x27;arrête de parler.</dt>
-    <dd>JustTalk écrit dans l'appli au premier plan en simulant un collage, et macOS n'autorise cela qu'une fois l'accès à l'accessibilité accordé. Ouvrez Réglages Système ▸ Confidentialité et sécurité ▸ Accessibilité et activez JustTalk. S'il est déjà activé après une mise à jour, désactivez-le puis réactivez-le — macOS lie l'autorisation à la version exacte de l'app.</dd>
+  <ul class="legal-toc">
+    <li><a href="#all">Toutes les versions</a> — rapidité, précision, ce qui quitte votre appareil, achats</li>
+    <li><a href="#mac">Mac</a> — le collage, la touche, restaurer un achat, les réunions</li>
+    <li><a href="#ios">iPhone et iPad</a> — le clavier, le point orange, restaurer un achat</li>
+    <li><a href="#windows">Windows</a> — la touche, la licence, les réunions</li>
+  </ul>
 
-    <dt>La touche ne fait rien dans une appli en particulier.</dt>
-    <dd>Certaines applis interceptent la touche en premier, et les champs de saisie sécurisée — mots de passe, certains terminaux — bloquent complètement la frappe simulée, par conception. Sous Windows, une appli exécutée en tant qu'administrateur n'accepte pas la saisie d'une appli qui ne l'est pas. Essayez la même touche dans un simple éditeur de texte pour distinguer ces cas.</dd>
+  <div class="legal-part" id="all">
+    <h3>Toutes les versions</h3>
+    <dl class="faq">
+      <dt>La transcription est lente, ou s&#x27;arrête après quelques mots.</dt>
+      <dd>C'est généralement le moteur en cause, pas l'app. La transcription sur l'appareil dépend de votre appareil et de la taille du modèle ; un moteur cloud dépend de votre connexion et de la disponibilité de ce fournisseur. Changer de moteur dans Réglages ▸ Parole est le moyen le plus rapide de savoir lequel.</dd>
 
-    <dt>Sur iPhone ou iPad, le clavier JustTalk n&#x27;arrive pas à dicter.</dt>
-    <dd>Ajoutez-le dans Réglages ▸ Général ▸ Clavier ▸ Claviers ▸ Ajouter un clavier, puis touchez JustTalk et activez « Autoriser l’accès complet ». iOS ne permet pas à un clavier d'utiliser le microphone, c'est donc l'app JustTalk qui enregistre pour lui — et sans l'accès complet, le clavier ne peut pas joindre l'app.</dd>
+      <dt>Elle orthographie mal les noms et le jargon.</dt>
+      <dd>Ajoutez-les au dictionnaire personnalisé dans Réglages. Les entrées s'appliquent après la transcription, elles corrigent donc les mots que le modèle rate systématiquement, sans rien réentraîner.</dd>
 
-    <dt>Sur iPhone ou iPad, le point orange reste allumé alors que je ne parle pas.</dt>
-    <dd>Tant qu'une session de dictée est en cours, l'app JustTalk garde le microphone pour que le clavier puisse commencer à dicter instantanément, et iOS affiche l'indicateur orange pendant toute la session. Il dit vrai. Terminez la session dans l'app JustTalk et il s'éteint — et une session que vous oubliez se ferme d'elle-même.</dd>
+      <dt>Ma voix quitte-t-elle mon appareil ?</dt>
+      <dd>Seulement si vous choisissez un moteur cloud. Avec la transcription sur l'appareil, rien n'est envoyé — aucun compte, aucun réseau. La politique de confidentialité détaille précisément ce que chaque option envoie, version par version.</dd>
 
-    <dt>La transcription est lente, ou s&#x27;arrête après quelques mots.</dt>
-    <dd>C'est généralement le moteur en cause, pas l'app. La transcription sur l'appareil dépend de votre appareil et de la taille du modèle ; un moteur cloud dépend de votre connexion et de la disponibilité de ce fournisseur. Changer de moteur dans Réglages ▸ Parole est le moyen le plus rapide de savoir lequel.</dd>
+      <dt>Un seul achat couvre-t-il toutes les plateformes ?</dt>
+      <dd>Non. L'app Mac et l'app iPhone et iPad sont des achats App Store distincts, et aucune n'accepte de clé de licence. Windows a sa propre licence, qui n'est pas encore en vente.</dd>
 
-    <dt>Elle orthographie mal les noms et le jargon.</dt>
-    <dd>Ajoutez-les au dictionnaire personnalisé dans Réglages. Les entrées s'appliquent après la transcription, elles corrigent donc les mots que le modèle rate systématiquement, sans rien réentraîner.</dd>
+    </dl>
+  </div>
 
-    <dt>Ma voix quitte-t-elle mon appareil ?</dt>
-    <dd>Seulement si vous choisissez un moteur cloud. Avec la transcription sur l'appareil, rien n'est envoyé — aucun compte, aucun réseau. La politique de confidentialité détaille précisément ce que chaque option envoie.</dd>
+  <div class="legal-part" id="mac">
+    <h3>Mac</h3>
+    <dl class="faq">
+      <dt>Rien ne se colle quand j&#x27;arrête de parler.</dt>
+      <dd>JustTalk écrit dans l'appli au premier plan en simulant un collage, et macOS n'autorise cela qu'une fois l'accès à l'accessibilité accordé. Ouvrez Réglages Système ▸ Confidentialité et sécurité ▸ Accessibilité et activez JustTalk. S'il est déjà activé après une mise à jour, désactivez-le puis réactivez-le — macOS lie l'autorisation à la version exacte de l'app.</dd>
 
-    <dt>J&#x27;ai payé, mais l&#x27;app dit toujours que l&#x27;essai a expiré.</dt>
-    <dd>Ouvrez JustTalk Pro dans les réglages de l'app et choisissez Restaurer. Cela interroge à nouveau l'App Store, ce qui règle le cas où l'app n'avait pas pu voir le reçu. Les achats suivent votre identifiant Apple, alors vérifiez que vous êtes connecté avec celui utilisé pour l'achat.</dd>
+      <dt>La touche ne fait rien dans une appli en particulier.</dt>
+      <dd>Certaines applis interceptent la touche en premier, et les champs de saisie sécurisée — mots de passe, certains terminaux — bloquent complètement la frappe simulée, par conception. Essayez la même touche dans TextEdit pour distinguer les deux cas.</dd>
 
-    <dt>Un seul achat couvre-t-il toutes les plateformes ?</dt>
-    <dd>Non. L'app Mac et l'app iPhone et iPad sont des achats App Store distincts, et aucune n'accepte de clé de licence. Windows a sa propre licence, qui n'est pas encore en vente — en attendant, l'app Windows fonctionne pendant ses sept jours d'essai, puis en version gratuite avec une limite quotidienne.</dd>
+      <dt>J&#x27;ai payé, mais l&#x27;app dit toujours que l&#x27;essai a expiré.</dt>
+      <dd>Ouvrez JustTalk Pro dans Réglages et choisissez Restaurer. Cela interroge à nouveau l'App Store, ce qui règle le cas où l'app n'avait pas pu voir le reçu. Les achats suivent votre compte Apple, alors vérifiez que vous êtes connecté avec celui utilisé pour l'achat.</dd>
 
-    <dt>La capture de réunion m&#x27;enregistre, mais pas l&#x27;autre côté.</dt>
-    <dd>Capturer l'autre moitié d'un appel nécessite l'audio système. Sur Mac, macOS demande l'autorisation la première fois que vous démarrez une réunion ; si vous avez ignoré cette demande, accordez-la dans Réglages Système ▸ Confidentialité et sécurité. La capture de réunion existe sur Mac et Windows, pas sur iPhone ni sur iPad.</dd>
+      <dt>La capture de réunion m&#x27;enregistre, mais pas l&#x27;autre côté.</dt>
+      <dd>Capturer l'autre moitié d'un appel nécessite l'autorisation d'enregistrer l'audio système, que macOS demande la première fois que vous démarrez une réunion. Si vous avez ignoré cette demande, accordez-la dans Réglages Système ▸ Confidentialité et sécurité.</dd>
 
-  </dl>
+    </dl>
+  </div>
+
+  <div class="legal-part" id="ios">
+    <h3>iPhone et iPad</h3>
+    <dl class="faq">
+      <dt>Le clavier JustTalk n&#x27;arrive pas à dicter.</dt>
+      <dd>Ajoutez-le dans Réglages ▸ Général ▸ Clavier ▸ Claviers ▸ Ajouter un clavier, puis touchez JustTalk et activez « Autoriser l’accès complet ». iOS ne permet pas à un clavier d'utiliser le microphone, c'est donc l'app JustTalk qui enregistre pour lui — et sans l'accès complet, le clavier ne peut pas joindre l'app.</dd>
+
+      <dt>Le point orange reste allumé alors que je ne parle pas.</dt>
+      <dd>Tant qu'une session de dictée est en cours, l'app JustTalk garde le microphone pour que le clavier puisse commencer à dicter instantanément, et iOS affiche l'indicateur orange pendant toute la session. Il dit vrai. Terminez la session dans l'app JustTalk et il s'éteint — et une session que vous oubliez se ferme d'elle-même.</dd>
+
+      <dt>J&#x27;ai payé, mais l&#x27;app dit toujours que l&#x27;essai a expiré.</dt>
+      <dd>Ouvrez JustTalk Pro dans les réglages de l'app et choisissez Restaurer. Cela interroge à nouveau l'App Store. Les achats suivent votre compte Apple : le même compte sur votre iPhone et votre iPad débloque les deux.</dd>
+
+      <dt>Y a-t-il une capture de réunion ?</dt>
+      <dd>Pas sur iPhone ni sur iPad — c'est une fonction Mac et Windows. Les enregistrements que vous avez déjà peuvent être transcrits via la feuille de partage.</dd>
+
+    </dl>
+  </div>
+
+  <div class="legal-part" id="windows">
+    <h3>Windows</h3>
+    <dl class="faq">
+      <dt>La touche ne fait rien dans une fenêtre en particulier.</dt>
+      <dd>Windows ne permet pas à une appli exécutée sans droits d'administrateur d'écrire dans une appli qui en dispose. Si la fenêtre dans laquelle vous dictez a été lancée « en tant qu'administrateur », JustTalk ne peut pas l'atteindre ; la même touche dans le Bloc-notes permet de distinguer les deux cas.</dd>
+
+      <dt>Comment débloquer la version Windows ?</dt>
+      <dd>Une licence Windows n'est pas encore en vente. En attendant, l'app fonctionne pendant ses sept jours d'essai, puis en version gratuite avec une limite quotidienne. Les achats App Store pour Mac, iPhone ou iPad ne s'appliquent pas à Windows.</dd>
+
+      <dt>La capture de réunion m&#x27;enregistre, mais pas l&#x27;autre côté.</dt>
+      <dd>Capturer l'autre moitié d'un appel nécessite l'audio système de ce PC. Vérifiez que l'appel passe par le périphérique de sortie par défaut, et que les paramètres du microphone dans Confidentialité et sécurité autorisent JustTalk.</dd>
+
+    </dl>
+  </div>
 
   <h3>Signaler un problème</h3>
   <p>Indiquez la version de l&#x27;app — elle figure dans l&#x27;écran À propos —, ainsi que votre appareil et sa version de macOS, Windows ou iOS, le moteur que vous utilisiez et ce que vous attendiez. Une phrase du texte sorti de travers aide plus qu&#x27;une description de celui-ci.</p>

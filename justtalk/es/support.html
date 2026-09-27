@@ -44,39 +44,83 @@
 <section>
   <h2>Soporte</h2>
   <p>La mayoría de las preguntas están respondidas más abajo. Si la tuya no está, escribe a <a href="mailto:support.kunin@gmail.com?subject=JustTalk">support.kunin@gmail.com</a>.</p>
+  <p>Primero, las preguntas que valen para todo; después, lo propio de cada versión:</p>
 
-  <dl class="faq">
-    <dt>En el Mac, no se pega nada cuando dejo de hablar.</dt>
-    <dd>JustTalk escribe en la app que tienes delante simulando un pegado, y macOS solo lo permite si le concedes Accesibilidad. Abre Ajustes del Sistema ▸ Privacidad y seguridad ▸ Accesibilidad y activa JustTalk. Si ya está activado después de una actualización, desactívalo y vuelve a activarlo — macOS vincula el permiso a la compilación exacta.</dd>
+  <ul class="legal-toc">
+    <li><a href="#all">Todas las versiones</a> — velocidad, precisión, qué sale de tu dispositivo, compras</li>
+    <li><a href="#mac">Mac</a> — el pegado, la tecla, restaurar una compra, reuniones</li>
+    <li><a href="#ios">iPhone y iPad</a> — el teclado, el punto naranja, restaurar una compra</li>
+    <li><a href="#windows">Windows</a> — la tecla, la licencia, reuniones</li>
+  </ul>
 
-    <dt>La tecla no hace nada en una app en concreto.</dt>
-    <dd>Algunas apps capturan la tecla antes que JustTalk, y los campos de entrada segura — casillas de contraseña, algunas terminales — bloquean la escritura simulada por diseño. En Windows, una app que se ejecuta como administrador no acepta lo que escribe otra que no lo hace. Prueba la misma tecla en un editor de texto sencillo para distinguir estos casos.</dd>
+  <div class="legal-part" id="all">
+    <h3>Todas las versiones</h3>
+    <dl class="faq">
+      <dt>La transcripción va lenta, o se para después de pocas palabras.</dt>
+      <dd>Normalmente es cosa del backend, no de la app. La transcripción en local depende de tu dispositivo y del tamaño del modelo; un backend en la nube depende de tu conexión y de que ese proveedor esté funcionando. Cambiar de backend en Ajustes ▸ Voz es la forma más rápida de averiguar cuál es la causa.</dd>
 
-    <dt>En el iPhone o el iPad, el teclado de JustTalk no puede dictar.</dt>
-    <dd>Añádelo en Ajustes ▸ General ▸ Teclado ▸ Teclados ▸ Añadir teclado, luego toca JustTalk y activa «Permitir acceso completo». iOS no deja que un teclado use el micrófono, así que la app JustTalk graba por él — y sin acceso completo el teclado no puede comunicarse con la app.</dd>
+      <dt>No deja de escribir mal nombres y jerga.</dt>
+      <dd>Añádelos al diccionario personalizado en Ajustes. Las entradas se aplican después de la transcripción, así que corrigen las palabras que el modelo falla siempre sin necesidad de reentrenar nada.</dd>
 
-    <dt>En el iPhone o el iPad, el punto naranja sigue encendido aunque no esté hablando.</dt>
-    <dd>Mientras hay una sesión de dictado en curso, la app JustTalk mantiene el micrófono para que el teclado pueda empezar a dictar al instante, e iOS muestra el indicador naranja durante toda la sesión. Dice la verdad. Termina la sesión en la app JustTalk y se apaga — y una sesión que olvides se cierra sola.</dd>
+      <dt>¿Sale mi voz de mi dispositivo?</dt>
+      <dd>Solo si eliges un backend en la nube. Con la transcripción en local seleccionada, no se sube nada — sin cuenta, sin red. La política de privacidad explica exactamente qué envía cada opción, versión por versión.</dd>
 
-    <dt>La transcripción va lenta, o se para después de pocas palabras.</dt>
-    <dd>Normalmente es cosa del backend, no de la app. La transcripción en local depende de tu dispositivo y del tamaño del modelo; un backend en la nube depende de tu conexión y de que ese proveedor esté funcionando. Cambiar de backend en Ajustes ▸ Voz es la forma más rápida de averiguar cuál es la causa.</dd>
+      <dt>¿Una compra sirve para todas las plataformas?</dt>
+      <dd>No. La app de Mac y la de iPhone y iPad son compras separadas del App Store, y ninguna acepta claves de licencia. Windows tiene su propia licencia, que aún no está a la venta.</dd>
 
-    <dt>No deja de escribir mal nombres y jerga.</dt>
-    <dd>Añádelos al diccionario personalizado en Ajustes. Las entradas se aplican después de la transcripción, así que corrigen las palabras que el modelo falla siempre sin necesidad de reentrenar nada.</dd>
+    </dl>
+  </div>
 
-    <dt>¿Sale mi voz de mi dispositivo?</dt>
-    <dd>Solo si eliges un backend en la nube. Con la transcripción en local seleccionada, no se sube nada — sin cuenta, sin red. La política de privacidad explica exactamente qué envía cada opción.</dd>
+  <div class="legal-part" id="mac">
+    <h3>Mac</h3>
+    <dl class="faq">
+      <dt>No se pega nada cuando dejo de hablar.</dt>
+      <dd>JustTalk escribe en la app que tienes delante simulando un pegado, y macOS solo lo permite si le concedes Accesibilidad. Abre Ajustes del Sistema ▸ Privacidad y seguridad ▸ Accesibilidad y activa JustTalk. Si ya está activado después de una actualización, desactívalo y vuelve a activarlo — macOS vincula el permiso a la compilación exacta.</dd>
 
-    <dt>He pagado, pero la app sigue diciendo que la prueba ha caducado.</dt>
-    <dd>Abre JustTalk Pro en los ajustes de la app y elige Restaurar. Eso vuelve a preguntar al App Store, lo que arregla el caso en que la app no podía ver el recibo. Las compras siguen tu Apple ID, así que asegúrate de haber iniciado sesión con el mismo con el que la compraste.</dd>
+      <dt>La tecla no hace nada en una app en concreto.</dt>
+      <dd>Algunas apps capturan la tecla antes que JustTalk, y los campos de entrada segura — casillas de contraseña, algunas terminales — bloquean la escritura simulada por diseño. Prueba la misma tecla en TextEdit para distinguir los dos casos.</dd>
 
-    <dt>¿Una compra sirve para todas las plataformas?</dt>
-    <dd>No. La app de Mac y la de iPhone y iPad son compras separadas del App Store, y ninguna acepta claves de licencia. Windows tiene su propia licencia, que aún no está a la venta — hasta entonces, la app de Windows funciona con su prueba de siete días y después como versión gratuita con un límite diario.</dd>
+      <dt>He pagado, pero la app sigue diciendo que la prueba ha caducado.</dt>
+      <dd>Abre JustTalk Pro en Ajustes y elige Restaurar. Eso vuelve a preguntar al App Store, lo que arregla el caso en que la app no podía ver el recibo. Las compras siguen tu cuenta de Apple, así que asegúrate de haber iniciado sesión con la misma con la que la compraste.</dd>
 
-    <dt>La captura de reuniones me graba a mí pero no a la otra parte.</dt>
-    <dd>Capturar la otra mitad de una llamada necesita el audio del sistema. En el Mac, macOS pide permiso la primera vez que empiezas una reunión; si descartaste ese aviso, concédelo en Ajustes del Sistema ▸ Privacidad y seguridad. La captura de reuniones está en Mac y Windows, no en el iPhone ni en el iPad.</dd>
+      <dt>La captura de reuniones me graba a mí pero no a la otra parte.</dt>
+      <dd>Capturar la otra mitad de una llamada necesita permiso para grabar el audio del sistema, que macOS pide la primera vez que empiezas una reunión. Si descartaste ese aviso, concédelo en Ajustes del Sistema ▸ Privacidad y seguridad.</dd>
 
-  </dl>
+    </dl>
+  </div>
+
+  <div class="legal-part" id="ios">
+    <h3>iPhone y iPad</h3>
+    <dl class="faq">
+      <dt>El teclado de JustTalk no puede dictar.</dt>
+      <dd>Añádelo en Ajustes ▸ General ▸ Teclado ▸ Teclados ▸ Añadir teclado, luego toca JustTalk y activa «Permitir acceso completo». iOS no deja que un teclado use el micrófono, así que la app JustTalk graba por él — y sin acceso completo el teclado no puede comunicarse con la app.</dd>
+
+      <dt>El punto naranja sigue encendido aunque no esté hablando.</dt>
+      <dd>Mientras hay una sesión de dictado en curso, la app JustTalk mantiene el micrófono para que el teclado pueda empezar a dictar al instante, e iOS muestra el indicador naranja durante toda la sesión. Dice la verdad. Termina la sesión en la app JustTalk y se apaga — y una sesión que olvides se cierra sola.</dd>
+
+      <dt>He pagado, pero la app sigue diciendo que la prueba ha caducado.</dt>
+      <dd>Abre JustTalk Pro en los ajustes de la app y elige Restaurar. Eso vuelve a preguntar al App Store. Las compras siguen tu cuenta de Apple, así que la misma en tu iPhone y en tu iPad desbloquea ambos.</dd>
+
+      <dt>¿Hay captura de reuniones?</dt>
+      <dd>No en el iPhone ni en el iPad — es una función de Mac y Windows. Las grabaciones que ya tengas se pueden transcribir desde la hoja de compartir.</dd>
+
+    </dl>
+  </div>
+
+  <div class="legal-part" id="windows">
+    <h3>Windows</h3>
+    <dl class="faq">
+      <dt>La tecla no hace nada en una ventana en concreto.</dt>
+      <dd>Windows no deja que una app que se ejecuta sin derechos de administrador escriba en otra que sí los tiene. Si la ventana en la que dictas se abrió «como administrador», JustTalk no puede llegar a ella; la misma tecla en el Bloc de notas distingue los dos casos.</dd>
+
+      <dt>¿Cómo desbloqueo la versión de Windows?</dt>
+      <dd>La licencia de Windows aún no está a la venta. Hasta entonces, la app funciona con su prueba de siete días y después como versión gratuita con un límite diario. Las compras del App Store para Mac, iPhone o iPad no se trasladan a Windows.</dd>
+
+      <dt>La captura de reuniones me graba a mí pero no a la otra parte.</dt>
+      <dd>Capturar la otra mitad de una llamada necesita el audio del sistema de este PC. Comprueba que la llamada suena por el dispositivo de salida predeterminado y que los ajustes del micrófono en Privacidad y seguridad permiten JustTalk.</dd>
+
+    </dl>
+  </div>
 
   <h3>Informar de un problema</h3>
   <p>Incluye la versión de la app — está en la pantalla Acerca de — junto con tu dispositivo y su versión de macOS, Windows o iOS, qué backend estabas usando y qué esperabas que pasara. Una frase del texto que salió mal ayuda más que una descripción de él.</p>

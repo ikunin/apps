@@ -44,39 +44,83 @@
 <section>
   <h2>Support</h2>
   <p>Die meisten Fragen werden unten beantwortet. Ist deine nicht dabei, schreib an <a href="mailto:support.kunin@gmail.com?subject=JustTalk">support.kunin@gmail.com</a>.</p>
+  <p>Zuerst die Fragen, die überall gelten; danach, was für jede Version besonders ist:</p>
 
-  <dl class="faq">
-    <dt>Auf dem Mac wird nichts eingefügt, wenn ich aufhöre zu sprechen.</dt>
-    <dd>JustTalk tippt in die App im Vordergrund, indem es ein Einfügen simuliert, und macOS erlaubt das erst, wenn du Bedienungshilfen erlaubst. Öffne Systemeinstellungen ▸ Datenschutz &amp; Sicherheit ▸ Bedienungshilfen und schalte JustTalk ein. Ist es nach einem Update bereits eingeschaltet, schalte es einmal aus und wieder ein — macOS bindet die Berechtigung an den genauen Build.</dd>
+  <ul class="legal-toc">
+    <li><a href="#all">Alle Versionen</a> — Geschwindigkeit, Genauigkeit, was dein Gerät verlässt, Käufe</li>
+    <li><a href="#mac">Mac</a> — Einfügen, der Hotkey, einen Kauf wiederherstellen, Meetings</li>
+    <li><a href="#ios">iPhone und iPad</a> — die Tastatur, der orange Punkt, einen Kauf wiederherstellen</li>
+    <li><a href="#windows">Windows</a> — der Hotkey, die Lizenz, Meetings</li>
+  </ul>
 
-    <dt>Der Hotkey tut in einer bestimmten App nichts.</dt>
-    <dd>Manche Apps fangen die Taste zuerst ab, und sichere Eingabefelder — Passwortfelder, manche Terminals — blockieren simuliertes Tippen absichtlich vollständig. Unter Windows nimmt eine App, die als Administrator läuft, keine Eingaben von einer App an, die das nicht tut. Probier denselben Hotkey in einem einfachen Texteditor aus, um diese Fälle zu unterscheiden.</dd>
+  <div class="legal-part" id="all">
+    <h3>Alle Versionen</h3>
+    <dl class="faq">
+      <dt>Die Transkription ist langsam oder bricht nach ein paar Wörtern ab.</dt>
+      <dd>Das liegt meist am Backend, nicht an der App. Die Transkription auf dem Gerät hängt von deinem Gerät und von der Modellgröße ab; ein Cloud-Backend hängt von deiner Verbindung und davon ab, ob der Anbieter erreichbar ist. Am schnellsten findest du es heraus, indem du das Backend unter Einstellungen ▸ Sprache wechselst.</dd>
 
-    <dt>Auf iPhone oder iPad kann die JustTalk-Tastatur nicht diktieren.</dt>
-    <dd>Füge sie unter Einstellungen ▸ Allgemein ▸ Tastatur ▸ Tastaturen ▸ Tastatur hinzufügen hinzu, tippe dann auf JustTalk und schalte „Vollzugriff erlauben“ ein. iOS lässt eine Tastatur nicht auf das Mikrofon zugreifen, deshalb nimmt die JustTalk-App für sie auf — und ohne Vollzugriff kann die Tastatur die App nicht erreichen.</dd>
+      <dt>Namen und Fachbegriffe werden immer wieder falsch geschrieben.</dt>
+      <dd>Füge sie dem eigenen Wörterbuch in den Einstellungen hinzu. Einträge werden nach der Transkription angewendet und korrigieren so die Wörter, die das Modell zuverlässig falsch schreibt, ohne dass irgendetwas neu trainiert wird.</dd>
 
-    <dt>Auf iPhone oder iPad bleibt der orange Punkt an, obwohl ich nicht spreche.</dt>
-    <dd>Solange eine Diktiersitzung läuft, hält die JustTalk-App das Mikrofon bereit, damit die Tastatur sofort mit dem Diktieren beginnen kann, und iOS zeigt die orange Anzeige für die ganze Sitzung. Sie sagt die Wahrheit. Beende die Sitzung in der JustTalk-App, und der Punkt geht aus — und eine Sitzung, die du vergisst, beendet sich von selbst.</dd>
+      <dt>Verlässt meine Stimme mein Gerät?</dt>
+      <dd>Nur wenn du ein Cloud-Backend wählst. Ist die Transkription auf dem Gerät ausgewählt, wird nichts hochgeladen — kein Konto, kein Netzwerk. Die Datenschutzerklärung legt genau fest, was welche Option sendet, Version für Version.</dd>
 
-    <dt>Die Transkription ist langsam oder bricht nach ein paar Wörtern ab.</dt>
-    <dd>Das liegt meist am Backend, nicht an der App. Die Transkription auf dem Gerät hängt von deinem Gerät und von der Modellgröße ab; ein Cloud-Backend hängt von deiner Verbindung und davon ab, ob der Anbieter erreichbar ist. Am schnellsten findest du es heraus, indem du das Backend unter Einstellungen ▸ Sprache wechselst.</dd>
+      <dt>Gilt ein Kauf für alle Plattformen?</dt>
+      <dd>Nein. Die Mac-App und die App für iPhone und iPad sind getrennte App-Store-Käufe, und keine von beiden akzeptiert Lizenzschlüssel. Windows hat eine eigene Lizenz, die noch nicht erhältlich ist.</dd>
 
-    <dt>Namen und Fachbegriffe werden immer wieder falsch geschrieben.</dt>
-    <dd>Füge sie dem eigenen Wörterbuch in den Einstellungen hinzu. Einträge werden nach der Transkription angewendet und korrigieren so die Wörter, die das Modell zuverlässig falsch schreibt, ohne dass irgendetwas neu trainiert wird.</dd>
+    </dl>
+  </div>
 
-    <dt>Verlässt meine Stimme mein Gerät?</dt>
-    <dd>Nur wenn du ein Cloud-Backend wählst. Ist die Transkription auf dem Gerät ausgewählt, wird nichts hochgeladen — kein Konto, kein Netzwerk. Die Datenschutzerklärung legt genau fest, was welche Option sendet.</dd>
+  <div class="legal-part" id="mac">
+    <h3>Mac</h3>
+    <dl class="faq">
+      <dt>Es wird nichts eingefügt, wenn ich aufhöre zu sprechen.</dt>
+      <dd>JustTalk tippt in die App im Vordergrund, indem es ein Einfügen simuliert, und macOS erlaubt das erst, wenn du Bedienungshilfen erlaubst. Öffne Systemeinstellungen ▸ Datenschutz &amp; Sicherheit ▸ Bedienungshilfen und schalte JustTalk ein. Ist es nach einem Update bereits eingeschaltet, schalte es einmal aus und wieder ein — macOS bindet die Berechtigung an den genauen Build.</dd>
 
-    <dt>Ich habe bezahlt, aber die App sagt weiterhin, die Testphase sei abgelaufen.</dt>
-    <dd>Öffne JustTalk Pro in den Einstellungen der App und wähle „Wiederherstellen“. Das fragt den App Store erneut, was den Fall behebt, dass die App den Kaufbeleg nicht sehen konnte. Käufe folgen deiner Apple-ID, stell also sicher, dass du mit der angemeldet bist, mit der du gekauft hast.</dd>
+      <dt>Der Hotkey tut in einer bestimmten App nichts.</dt>
+      <dd>Manche Apps fangen die Taste zuerst ab, und sichere Eingabefelder — Passwortfelder, manche Terminals — blockieren simuliertes Tippen absichtlich vollständig. Probier denselben Hotkey in TextEdit aus, um die beiden Fälle zu unterscheiden.</dd>
 
-    <dt>Gilt ein Kauf für alle Plattformen?</dt>
-    <dd>Nein. Die Mac-App und die App für iPhone und iPad sind getrennte App-Store-Käufe, und keine von beiden akzeptiert Lizenzschlüssel. Windows hat eine eigene Lizenz, die noch nicht erhältlich ist — bis dahin läuft die Windows-App sieben Tage als Testversion und danach als kostenlose Version mit Tageslimit.</dd>
+      <dt>Ich habe bezahlt, aber die App sagt weiterhin, die Testphase sei abgelaufen.</dt>
+      <dd>Öffne JustTalk Pro in den Einstellungen und wähle „Wiederherstellen“. Das fragt den App Store erneut, was den Fall behebt, dass die App den Kaufbeleg nicht sehen konnte. Käufe folgen deinem Apple Account, stell also sicher, dass du mit dem angemeldet bist, mit dem du gekauft hast.</dd>
 
-    <dt>Die Meeting-Aufnahme nimmt mich auf, aber nicht die andere Seite.</dt>
-    <dd>Um die andere Hälfte eines Anrufs aufzunehmen, ist Systemaudio nötig. Auf dem Mac fragt macOS beim ersten gestarteten Meeting nach der Berechtigung; falls du diese Abfrage weggeklickt hast, erteile sie unter Systemeinstellungen ▸ Datenschutz &amp; Sicherheit. Die Meeting-Aufnahme gibt es auf Mac und Windows, nicht auf iPhone oder iPad.</dd>
+      <dt>Die Meeting-Aufnahme nimmt mich auf, aber nicht die andere Seite.</dt>
+      <dd>Um die andere Hälfte eines Anrufs aufzunehmen, braucht es die Berechtigung, Systemaudio aufzunehmen, nach der macOS beim ersten gestarteten Meeting fragt. Falls du diese Abfrage weggeklickt hast, erteile sie unter Systemeinstellungen ▸ Datenschutz &amp; Sicherheit.</dd>
 
-  </dl>
+    </dl>
+  </div>
+
+  <div class="legal-part" id="ios">
+    <h3>iPhone und iPad</h3>
+    <dl class="faq">
+      <dt>Die JustTalk-Tastatur kann nicht diktieren.</dt>
+      <dd>Füge sie unter Einstellungen ▸ Allgemein ▸ Tastatur ▸ Tastaturen ▸ Tastatur hinzufügen hinzu, tippe dann auf JustTalk und schalte „Vollzugriff erlauben“ ein. iOS lässt eine Tastatur nicht auf das Mikrofon zugreifen, deshalb nimmt die JustTalk-App für sie auf — und ohne Vollzugriff kann die Tastatur die App nicht erreichen.</dd>
+
+      <dt>Der orange Punkt bleibt an, obwohl ich nicht spreche.</dt>
+      <dd>Solange eine Diktiersitzung läuft, hält die JustTalk-App das Mikrofon bereit, damit die Tastatur sofort mit dem Diktieren beginnen kann, und iOS zeigt die orange Anzeige für die ganze Sitzung. Sie sagt die Wahrheit. Beende die Sitzung in der JustTalk-App, und der Punkt geht aus — und eine Sitzung, die du vergisst, beendet sich von selbst.</dd>
+
+      <dt>Ich habe bezahlt, aber die App sagt weiterhin, die Testphase sei abgelaufen.</dt>
+      <dd>Öffne JustTalk Pro in den Einstellungen der App und wähle „Wiederherstellen“. Das fragt den App Store erneut. Käufe folgen deinem Apple Account, derselbe auf deinem iPhone und deinem iPad schaltet also beide frei.</dd>
+
+      <dt>Gibt es eine Meeting-Aufnahme?</dt>
+      <dd>Nicht auf iPhone und iPad — das ist eine Funktion für Mac und Windows. Aufnahmen, die du schon hast, kannst du über das Teilen-Menü transkribieren.</dd>
+
+    </dl>
+  </div>
+
+  <div class="legal-part" id="windows">
+    <h3>Windows</h3>
+    <dl class="faq">
+      <dt>Der Hotkey tut in einem bestimmten Fenster nichts.</dt>
+      <dd>Windows lässt eine App, die ohne Administratorrechte läuft, nicht in eine tippen, die mit ihnen läuft. Wurde das Fenster, in das du diktierst, „als Administrator“ gestartet, kann JustTalk es nicht erreichen; derselbe Hotkey im Editor unterscheidet die beiden Fälle.</dd>
+
+      <dt>Wie schalte ich die Windows-Version frei?</dt>
+      <dd>Eine Windows-Lizenz ist noch nicht erhältlich. Bis dahin läuft die App sieben Tage als Testversion und danach als kostenlose Version mit Tageslimit. App-Store-Käufe für Mac, iPhone oder iPad gelten nicht für Windows.</dd>
+
+      <dt>Die Meeting-Aufnahme nimmt mich auf, aber nicht die andere Seite.</dt>
+      <dd>Um die andere Hälfte eines Anrufs aufzunehmen, braucht es das Systemaudio dieses PCs. Prüf, dass der Anruf über das Standard-Ausgabegerät wiedergegeben wird und dass die Mikrofon-Einstellungen unter Datenschutz und Sicherheit JustTalk erlauben.</dd>
+
+    </dl>
+  </div>
 
   <h3>Ein Problem melden</h3>
   <p>Gib die App-Version an — sie steht unter „Über JustTalk“ — zusammen mit deinem Gerät und seiner macOS-, Windows- oder iOS-Version, welches Backend du verwendet hast und was du erwartet hattest. Ein Satz des Textes, der falsch herauskam, hilft mehr als eine Beschreibung davon.</p>

@@ -43,51 +43,106 @@
 
 <section>
   <h2>Política de Privacidade</h2>
-  <p class="muted">Última atualização: 27&nbsp;de setembro&nbsp;de 2026. Vale para os apps JustTalk para macOS e Windows, para o app JustTalk para iOS e seu teclado, e para este site.</p>
+  <p class="muted">Última atualização: 27&nbsp;de setembro&nbsp;de 2026. Vale para os apps JustTalk para macOS, para iPhone e iPad (com seu teclado) e para Windows, e para este site.</p>
 
   <div class="note"><p><strong>O JustTalk não tem analytics, relator de falhas, rastreamento nem conta conosco.</strong> Ele não se comunica com nenhum servidor nosso. No uso normal, ele envia sua fala a um serviço de transcrição e revisão na nuvem que <em>você</em> escolhe e para o qual guarda a chave — então a maior parte do que importa aqui é a política desse provedor, não esta. A opção no dispositivo não envia nada a lugar nenhum, mas ela é a exceção, não o padrão.</p></div>
+  <p>A primeira parte vale para todas as versões. As versões para Mac, para iPhone e iPad e para Windows diferem depois em algumas coisas, cada uma explicada em sua própria parte:</p>
 
-  <h3>O que fica no seu dispositivo</h3>
-  <p>Tudo, a menos que você escolha um backend na nuvem. Guardado localmente e nunca enviado pelo JustTalk:</p>
-  <ul>
-    <li>Seu histórico de ditados, incluindo o texto transcrito</li>
-    <li>Modos, seu dicionário personalizado e ações rápidas</li>
-    <li>Estatísticas de uso — palavras ditadas, tempo economizado, gasto estimado</li>
-    <li>O áudio gravado, mantido na memória durante o ditado e nunca escrito em disco</li>
-    <li>Chaves de API e tokens de login dos serviços que você configura — no Chaveiro no Mac, no iPhone e no iPad, no Gerenciador de Credenciais do Windows no Windows</li>
-    <li>Os modelos do Whisper que você baixar, se você usar transcrição no dispositivo</li>
-  </ul>
-  <p>Apagar o app no iPhone ou no iPad, ou desinstalá-lo no Windows, apaga os dados dele; no Mac, isso é feito apagando a pasta Application Support do app. As chaves salvas no Windows ficam no Gerenciador de Credenciais até você removê-las de lá. O JustTalk não tem servidor de onde apagar qualquer coisa.</p>
-
-  <h3>Compras</h3>
-  <p>No Mac, no iPhone e no iPad, o JustTalk&nbsp;Pro é uma compra única, tratada inteiramente pela Apple. A App Store informa ao app se ele está habilitado; ela nunca vê seu nome, seu e-mail ou os dados do seu pagamento. A licença para Windows ainda não está à venda. Quando você solicitar uma, o pedido que você nos envia por e-mail traz o nome e o endereço de e-mail que você digitar nele e um hash unidirecional dos identificadores de hardware do seu PC, para que a chave funcione nesse PC. Usamos esses dados para emitir e reemitir sua chave, e para nada mais.</p>
-  <p>As duas compras na App Store podem ser compartilhadas em família. Se um membro do seu grupo familiar compartilhar uma delas com você, a Apple informa ao app que ele está habilitado e nada mais sobre essa pessoa.</p>
-
-  <h3>O teclado do iPhone e do iPad</h3>
-  <p>O teclado do JustTalk pede <em>Permitir acesso total</em>, a permissão que o iOS exige antes de um teclado poder acessar a rede ou partilhar algo com a sua própria app. É exatamente isto que faz com ela:</p>
-  <ul>
-    <li>Não lê o que já está no campo. Escreve, e guarda o que escreveu para que o desfazer e as ações rápidas atuem sobre esse texto e mais nenhum.</li>
-    <li>Não registra o que escreves. As teclas vão para a app onde estás a escrever e para nenhum outro lugar.</li>
-    <li>Nunca envia nada por si próprio. O iOS não deixa um teclado abrir o microfone, por isso é a app JustTalk que grava — e é a app, não o teclado, que fala com o serviço que configuraste.</li>
-    <li>Enquanto uma sessão está a correr, a app JustTalk mantém o microfone e o iOS deixa o indicador laranja aceso todo o tempo. É honesto: o microfone está realmente à tua disposição até parares a sessão.</li>
-    <li>No iPhone e no iPad o ditado é transcrito no dispositivo por omissão, o que não envia nada. Escolher um fornecedor em Voz é o que envia o teu áudio para algum lugar.</li>
-    <li>O teu histórico de ditados está desligado a não ser que o ligues, e quando está ligado é cifrado no dispositivo.</li>
+  <ul class="legal-toc">
+    <li><a href="#all">Todas as versões</a> — o que é guardado, o que é enviado, e para quem</li>
+    <li><a href="#mac">Mac</a> — Chaveiro, compra na App Store, permissões do macOS, contexto do app</li>
+    <li><a href="#ios">iPhone e iPad</a> — o teclado e o Acesso Total, Chaveiro, compra na App Store</li>
+    <li><a href="#windows">Windows</a> — Gerenciador de Credenciais, o pedido de licença, permissões do Windows, contexto do app</li>
+    <li><a href="#site">Este site</a></li>
   </ul>
 
-  <h3>Quando você escolhe um backend na nuvem</h3>
-  <p>O JustTalk pode enviar o áudio, ou a transcrição dele, a um provedor que você configura — Google, OpenAI, Groq, Mistral, Anthropic, ou um endereço de servidor que você mesmo informa. Esses dados passam a ser tratados pela política de privacidade <em>deles</em>, não por esta, e o JustTalk não tem visibilidade sobre o que eles guardam. O app mostra qual provedor está ativo antes de você gravar, e trocar para a transcrição no dispositivo impede que qualquer coisa saia do seu dispositivo.</p>
+  <div class="legal-part" id="all">
+    <h3>Todas as versões</h3>
+    <h4>O que fica no seu dispositivo</h4>
+    <p>Tudo, a menos que você escolha um backend na nuvem. Guardado localmente e nunca enviado pelo JustTalk:</p>
+    <ul>
+      <li>Seu histórico de ditados, incluindo o texto transcrito — desligado, a menos que você o ative</li>
+      <li>Modos, seu dicionário personalizado e ações rápidas</li>
+      <li>Estatísticas de uso — palavras ditadas, tempo economizado, gasto estimado</li>
+      <li>O áudio gravado, mantido na memória durante o ditado e nunca escrito em disco</li>
+      <li>Chaves de API e tokens de login dos serviços que você configura — onde cada plataforma os guarda está na parte dela, abaixo</li>
+      <li>Os modelos de fala que você baixar, se você usar transcrição no dispositivo</li>
+    </ul>
+    <p>O JustTalk não tem servidor, então não há nada seu em um servidor para apagar. Como remover o que está no seu dispositivo está na parte de cada plataforma.</p>
 
-  <h3>O que é enviado junto com suas palavras</h3>
-  <p>Quando um modelo de revisão está em uso, o JustTalk pode incluir o nome do app em que você está ditando para que o resultado combine com o contexto. Você pode desligar isso com o Modo&nbsp;Privacidade, que impede que qualquer informação de app ou janela seja usada ou enviada.</p>
+    <h4>Quando você escolhe um backend na nuvem</h4>
+    <p>O JustTalk pode enviar o áudio, ou a transcrição dele, a um provedor que você configura — Google, OpenAI, Groq, Mistral, Anthropic, ou um endereço de servidor que você mesmo informa. Esses dados passam a ser tratados pela política de privacidade <em>deles</em>, não por esta, e o JustTalk não tem visibilidade sobre o que eles guardam. O app mostra qual provedor está ativo antes de você gravar, e trocar para a transcrição no dispositivo impede que qualquer coisa saia do seu dispositivo.</p>
 
-  <h3>Crianças</h3>
-  <p>O JustTalk é uma ferramenta de produtividade para adultos, não um app infantil. Ele não coleta informações pessoais de ninguém, de qualquer idade.</p>
+    <h4>Modo Privacidade</h4>
+    <p>Um único botão, em todas as versões, que mantém um ditado inteiramente no seu dispositivo: a fala é reconhecida no dispositivo, a revisão roda apenas com um modelo de linguagem no dispositivo (ou é pulada se você não tiver nenhum), nenhum histórico é guardado e, no Mac e no Windows, nenhuma informação sobre o app em que você está digitando é lida. Desligá-lo restaura exatamente o que você tinha configurado.</p>
 
-  <h3>APIs de motivo obrigatório</h3>
-  <p>O JustTalk usa o microfone — e, no Mac e no Windows, o áudio do sistema quando você grava uma reunião. O macOS e o iOS pedem sua permissão antes; no Windows, quem decide são as configurações do microfone em Privacidade e segurança. No iPhone e no iPad ele também pede acesso ao reconhecimento de fala, que a transcrição local mantém no dispositivo. Ele não lê contatos, localização, fotos nem dados de saúde. O questionário de privacidade da Apple para as fichas dos apps é respondido exatamente a partir desta página.</p>
+    <h4>Crianças</h4>
+    <p>O JustTalk é uma ferramenta de produtividade para adultos, não um app infantil. Ele não coleta informações pessoais de ninguém, de qualquer idade.</p>
+  </div>
 
-  <h3>Este site</h3>
-  <p>Estas páginas são arquivos estáticos servidos pelo GitHub&nbsp;Pages. Elas não gravam cookies, não incorporam scripts e não executam analytics. O GitHub pode registrar as requisições como parte da operação do serviço — veja <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">a declaração de privacidade do GitHub</a>.</p>
+  <div class="legal-part" id="mac">
+    <h3>Mac</h3>
+    <h4>Onde suas chaves ficam guardadas</h4>
+    <p>Chaves de API e tokens de login ficam guardados no Chaveiro do macOS. Apagar a pasta Application Support do app apaga todo o resto que o JustTalk guarda.</p>
+
+    <h4>O que é enviado junto com suas palavras</h4>
+    <p>Quando um modelo de revisão está em uso, o JustTalk envia a ele uma linha de contexto sobre onde você está digitando: o nome do app, o título da janela e, em um navegador, o endereço da página. Isso ajuda o resultado a combinar — uma resposta num app de e-mail, uma mensagem num chat — e vai para o provedor que você escolheu junto com suas palavras. Títulos de janela e endereços de página podem revelar muito; o Modo&nbsp;Privacidade impede que qualquer parte disso seja lida ou enviada.</p>
+
+    <h4>Compra</h4>
+    <p>O JustTalk&nbsp;Pro para Mac é uma compra única, tratada inteiramente pela Apple. A App Store informa ao app se ele está habilitado; ele nunca vê seu nome, seu e-mail ou os dados do seu pagamento. A compra pode ser compartilhada em família: se um membro do seu grupo familiar a compartilhar com você, a Apple informa ao app que ele está habilitado e nada mais sobre essa pessoa.</p>
+
+    <h4>Permissões</h4>
+    <p>O JustTalk usa o microfone, e o áudio do sistema quando você grava uma reunião; o macOS pede sua permissão antes de qualquer um dos dois. Ele precisa de Acessibilidade para colar o resultado no app em primeiro plano. Ele não lê contatos, localização, fotos nem dados de saúde.</p>
+  </div>
+
+  <div class="legal-part" id="ios">
+    <h3>iPhone e iPad</h3>
+    <h4>O teclado</h4>
+    <p>O teclado do JustTalk pede <em>Permitir acesso total</em>, a permissão que o iOS exige antes que um teclado possa acessar a rede ou compartilhar algo com o próprio app. É exatamente isto que ele faz com ela:</p>
+    <ul>
+      <li>Não lê o que já está no campo. Digita, e guarda o que digitou para que o desfazer e as ações rápidas atuem sobre esse texto e nenhum outro.</li>
+      <li>Não registra o que você digita. As teclas vão para o app em que você está digitando e para nenhum outro lugar.</li>
+      <li>Nunca envia nada por conta própria. O iOS não deixa um teclado abrir o microfone, por isso é o app JustTalk que grava — e é o app, não o teclado, que se comunica com o serviço que você configurou.</li>
+      <li>Enquanto uma sessão está em andamento, o app JustTalk mantém o microfone e o iOS deixa o indicador laranja aceso o tempo todo. É honesto: o microfone está realmente à sua disposição até você encerrar a sessão.</li>
+      <li>O ditado é transcrito no dispositivo por padrão, o que não envia nada. Escolher um provedor em Fala é o que envia seu áudio para algum lugar.</li>
+      <li>O teclado não consegue ver em qual app está digitando, então nenhum nome de app é enviado junto com suas palavras.</li>
+    </ul>
+
+    <h4>Seu histórico</h4>
+    <p>Seu histórico de ditados, quando você o mantém, é criptografado no dispositivo.</p>
+
+    <h4>Onde suas chaves ficam guardadas</h4>
+    <p>Chaves de API e tokens de login ficam guardados no Chaveiro do iOS. Apagar o app apaga tudo o que o JustTalk guarda.</p>
+
+    <h4>Compra</h4>
+    <p>O JustTalk&nbsp;Pro para iPhone e iPad é uma compra única própria, separada da do Mac e tratada inteiramente pela Apple. A App Store informa ao app se ele está habilitado; ele nunca vê seu nome, seu e-mail ou os dados do seu pagamento. Ela pode ser compartilhada em família, e um membro da família que a compartilhe não revela nada sobre si ao app.</p>
+
+    <h4>Permissões</h4>
+    <p>O app pede acesso ao microfone e ao reconhecimento de fala; com a transcrição no dispositivo, o reconhecimento fica no dispositivo. Ele não lê contatos, localização, fotos nem dados de saúde.</p>
+  </div>
+
+  <div class="legal-part" id="windows">
+    <h3>Windows</h3>
+    <p>A versão para Windows não é um produto da Apple e não é vendida pela App Store, então nenhuma das partes da Apple acima se aplica a ela.</p>
+
+    <h4>Onde suas chaves ficam guardadas</h4>
+    <p>Chaves de API e tokens de login ficam guardados no Gerenciador de Credenciais do Windows. Desinstalar o app apaga todo o resto que o JustTalk guarda; as chaves ficam no Gerenciador de Credenciais até você removê-las de lá.</p>
+
+    <h4>O que é enviado junto com suas palavras</h4>
+    <p>Quando um modelo de revisão está em uso, o JustTalk envia a ele uma linha de contexto sobre onde você está digitando: o nome do app, o título da janela e, em um navegador, o endereço da página. Isso ajuda o resultado a combinar — uma resposta num app de e-mail, uma mensagem num chat — e vai para o provedor que você escolheu junto com suas palavras. Títulos de janela e endereços de página podem revelar muito; o Modo&nbsp;Privacidade impede que qualquer parte disso seja lida ou enviada.</p>
+
+    <h4>A licença</h4>
+    <p>A licença para Windows ainda não está à venda. Quando você solicitar uma, o pedido que você nos envia por e-mail traz o nome e o endereço de e-mail que você digitar nele e um hash unidirecional dos identificadores de hardware do seu PC, para que a chave funcione nesse PC. Usamos esses dados para emitir e reemitir sua chave, e para nada mais.</p>
+
+    <h4>Permissões</h4>
+    <p>O JustTalk usa o microfone, e o áudio do sistema quando você grava uma reunião; quem decide se ele pode são as configurações do microfone em Privacidade e segurança. Ele não lê contatos, localização, fotos nem dados de saúde.</p>
+  </div>
+
+  <div class="legal-part" id="site">
+    <h3>Este site</h3>
+    <p>Estas páginas são arquivos estáticos servidos pelo GitHub&nbsp;Pages. Elas não gravam cookies, não incorporam scripts e não executam analytics. O GitHub pode registrar as requisições como parte da operação do serviço — veja <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">a declaração de privacidade do GitHub</a>.</p>
+    <p>O questionário de privacidade da Apple para as duas fichas na App Store é respondido exatamente a partir desta página.</p>
+  </div>
 
   <h3>Alterações</h3>
   <p>Se esta política mudar, a data no topo muda junto. Uma mudança que reduzisse sua privacidade viria com uma nova versão do app, não com uma edição silenciosa aqui.</p>

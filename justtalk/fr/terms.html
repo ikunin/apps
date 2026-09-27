@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Conditions d&#x27;utilisation — JustTalk</title>
-<meta name="description" content="Conditions d&#x27;utilisation de JustTalk sur macOS, Windows et iOS.">
+<meta name="description" content="Conditions d&#x27;utilisation de JustTalk sur Mac, sur iPhone et iPad, et sur Windows.">
 <meta name="color-scheme" content="dark light">
 <meta name="theme-color" content="#1C1C1E">
 <link rel="icon" href="../img/favicon-32.png" sizes="32x32">
@@ -45,27 +45,71 @@
   <h2>Conditions d&#x27;utilisation</h2>
   <p class="muted">Dernière mise à jour le 27&nbsp;septembre&nbsp;2026.</p>
 
-  <p>Sur Mac, iPhone et iPad, JustTalk est concédé sous licence, non vendu, au titre du <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Contrat de licence utilisateur final standard</a> d'Apple, qui s'applique intégralement ; les conditions ci-dessous s'y ajoutent et ne le remplacent pas. Sous Windows, les conditions ci-dessous s'appliquent seules.</p>
+  <p>La première partie engage toutes les versions. Les versions Mac, iPhone et iPad, et Windows sont concédées sous licence et vendues différemment, chacune exposée dans sa propre partie :</p>
 
-  <h3>Achats</h3>
-  <p>JustTalk&nbsp;Pro est un <strong>achat unique</strong>, pas un abonnement. Rien ne se renouvelle et il n'y a rien à résilier. L'app Mac et l'app iPhone et iPad s'achètent séparément, chacune sur l'App Store. Une licence Windows n'est pas encore en vente ; en attendant, l'app Windows fonctionne pendant sa période d'essai gratuite, puis en version gratuite.</p>
-  <p>Les achats App Store sont traités par Apple. Les remboursements relèvent d'Apple, via <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>. Si un achat est remboursé, l'app revient à son niveau gratuit.</p>
-  <p>JustTalk&nbsp;Pro supprime la limite quotidienne et le plafond de longueur du texte dicté. Il ne débloque aucune fonctionnalité retenue dans la version gratuite — chaque moteur, mode, dictionnaire et action rapide est disponible sans lui.</p>
+  <ul class="legal-toc">
+    <li><a href="#all">Toutes les versions</a> — la version gratuite, les coûts d&#x27;IA, votre contenu, aucune garantie</li>
+    <li><a href="#mac">Mac</a> — le contrat de licence d&#x27;Apple, l&#x27;achat App Store et les remboursements</li>
+    <li><a href="#ios">iPhone et iPad</a> — le contrat de licence d&#x27;Apple, l&#x27;achat App Store et les remboursements</li>
+    <li><a href="#windows">Windows</a> — ces seules conditions, et la licence</li>
+  </ul>
 
-  <h3>Les services d&#x27;IA tiers, et qui les paie</h3>
-  <p>JustTalk n'inclut pas les modèles de parole et de langage qu'il utilise. Vous choisissez où ils tournent. <strong>Si vous choisissez un service cloud — Google, OpenAI, Groq, Mistral, Anthropic, OpenRouter ou tout autre point d'accès que vous configurez — vous êtes le client de ce fournisseur, pas le nôtre.</strong> Vous créez le compte, vous détenez la clé API, et <strong>ce fournisseur vous facture directement tout ce que l'app envoie en votre nom</strong>. Ces frais s'ajoutent au prix de cette app. Ils relèvent de votre accord avec ce fournisseur, et nous ne pouvons ni les voir, ni les plafonner, ni les annuler, ni les rembourser. L'usage augmente avec ce que vous dictez et avec le modèle choisi ; vérifiez donc les tarifs de votre fournisseur et fixez-y une limite de dépense si vous le souhaitez. Faire tourner les modèles en local, en revanche, ne coûte rien au-delà de votre propre matériel.</p>
+  <div class="legal-part" id="all">
+    <h3>Toutes les versions</h3>
+    <h4>La version gratuite et JustTalk Pro</h4>
+    <p>Chaque version est entièrement débloquée pendant un essai de sept jours, puis continue de fonctionner en version gratuite avec une limite quotidienne. La débloquer définitivement est un <strong>achat unique</strong>, pas un abonnement : rien ne se renouvelle et il n'y a rien à résilier. La façon dont chaque plateforme le vend est indiquée dans sa partie.</p>
+    <p>L'achat supprime la limite quotidienne et le plafond de longueur du texte dicté. Il ne débloque aucune fonctionnalité retenue dans la version gratuite — chaque moteur, mode, dictionnaire et action rapide est disponible sans lui.</p>
 
-  <h3>Vos mots, et ce vers quoi vous pointez l&#x27;app</h3>
-  <p>Ce que vous dictez vous appartient. Si vous configurez un moteur cloud, il vous incombe de disposer du droit d&#x27;envoyer ce contenu au fournisseur choisi, et de respecter ses conditions. Les clés que vous saisissez sont les vôtres à gérer.</p>
+    <h4>Les services d&#x27;IA tiers, et qui les paie</h4>
+    <p>JustTalk n'inclut pas les modèles de parole et de langage qu'il utilise. Vous choisissez où ils tournent. <strong>Si vous choisissez un service cloud — Google, OpenAI, Groq, Mistral, Anthropic, OpenRouter ou tout autre point d'accès que vous configurez — vous êtes le client de ce fournisseur, pas le nôtre.</strong> Vous créez le compte, vous détenez la clé API, et <strong>ce fournisseur vous facture directement tout ce que l'app envoie en votre nom</strong>. Ces frais s'ajoutent au prix de cette app. Ils relèvent de votre accord avec ce fournisseur, et nous ne pouvons ni les voir, ni les plafonner, ni les annuler, ni les rembourser. L'usage augmente avec ce que vous dictez et avec le modèle choisi ; vérifiez donc les tarifs de votre fournisseur et fixez-y une limite de dépense si vous le souhaitez. Faire tourner les modèles en local, en revanche, ne coûte rien au-delà de votre propre matériel.</p>
 
-  <h3>Les modèles que l&#x27;app peut utiliser</h3>
-  <p>JustTalk ne fournit aucun modèle de parole ou de langage qui lui soit propre. La transcription sur l'appareil utilise Whisper — via <a href="https://github.com/argmaxinc/WhisperKit">WhisperKit</a> sur Mac et Faster-Whisper sous Windows, téléchargé à la demande — ou, sur iPhone et iPad, la reconnaissance vocale intégrée au système. Les modèles de langage locaux, facultatifs, sont téléchargés depuis leurs propres éditeurs et couverts par leurs propres licences, que l'app affiche sous Remerciements.</p>
+    <h4>Vos mots, et ce vers quoi vous pointez l&#x27;app</h4>
+    <p>Ce que vous dictez vous appartient. Si vous configurez un moteur cloud, il vous incombe de disposer du droit d&#x27;envoyer ce contenu au fournisseur choisi, et de respecter ses conditions. Les clés que vous saisissez sont les vôtres à gérer.</p>
 
-  <h3>Ce que l&#x27;app ne fait pas</h3>
-  <p>Elle n'affiche aucune publicité, ne contient aucune fonction sociale, et n'émet aucune requête réseau que vous n'ayez configurée. Voir la <a href="privacy.html">politique de confidentialité</a>.</p>
+    <h4>Les modèles que l&#x27;app peut utiliser</h4>
+    <p>JustTalk ne fournit aucun modèle de parole ou de langage qui lui soit propre. Les modèles de langage locaux, facultatifs, sont téléchargés depuis leurs propres éditeurs et couverts par leurs propres licences, que l&#x27;app affiche sous Remerciements. Le système de reconnaissance vocale sur l&#x27;appareil qu&#x27;utilise chaque version est indiqué dans sa partie.</p>
 
-  <h3>Aucune garantie</h3>
-  <p>L&#x27;app est fournie telle quelle. La transcription et la mise au propre sont effectuées par des modèles statistiques et seront parfois erronées ; vérifiez tout ce qui compte avant de l&#x27;envoyer. Dans la mesure permise par la loi, et sans limiter les droits dont vous disposez en tant que consommateur, aucune garantie n&#x27;est accordée.</p>
+    <h4>Ce que l&#x27;app ne fait pas</h4>
+    <p>Elle n'affiche aucune publicité, ne contient aucune fonction sociale, et n'émet aucune requête réseau que vous n'ayez configurée. Voir la <a href="privacy.html">politique de confidentialité</a>.</p>
+
+    <h4>Aucune garantie</h4>
+    <p>L&#x27;app est fournie telle quelle. La transcription et la mise au propre sont effectuées par des modèles statistiques et seront parfois erronées ; vérifiez tout ce qui compte avant de l&#x27;envoyer. Dans la mesure permise par la loi, et sans limiter les droits dont vous disposez en tant que consommateur, aucune garantie n&#x27;est accordée.</p>
+  </div>
+
+  <div class="legal-part" id="mac">
+    <h3>Mac</h3>
+    <p>L'app Mac est concédée sous licence, non vendue, au titre du <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Contrat de licence utilisateur final standard</a> d'Apple, qui s'applique intégralement ; ces conditions s'y ajoutent et ne le remplacent pas.</p>
+
+    <h4>Achat et remboursements</h4>
+    <p>JustTalk&nbsp;Pro pour Mac s'achète une fois sur le Mac App Store et ne débloque que l'app Mac.</p>
+    <p>Les achats App Store sont traités par Apple. Les remboursements relèvent d'Apple, via <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>. Si un achat est remboursé, l'app revient à sa version gratuite.</p>
+
+    <h4>Transcription sur l&#x27;appareil</h4>
+    <p>Whisper, via <a href="https://github.com/argmaxinc/WhisperKit">WhisperKit</a>, téléchargé à la demande.</p>
+  </div>
+
+  <div class="legal-part" id="ios">
+    <h3>iPhone et iPad</h3>
+    <p>L'app iPhone et iPad, avec son clavier, est concédée sous licence, non vendue, au titre du <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Contrat de licence utilisateur final standard</a> d'Apple, qui s'applique intégralement ; ces conditions s'y ajoutent et ne le remplacent pas.</p>
+
+    <h4>Achat et remboursements</h4>
+    <p>JustTalk&nbsp;Pro pour iPhone et iPad s'achète une fois sur l'App Store, séparément de celui du Mac, et débloque l'app sur chaque iPhone et iPad connecté avec le même compte Apple.</p>
+    <p>Les achats App Store sont traités par Apple. Les remboursements relèvent d'Apple, via <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>. Si un achat est remboursé, l'app revient à sa version gratuite.</p>
+
+    <h4>Transcription sur l&#x27;appareil</h4>
+    <p>La reconnaissance vocale intégrée au système ; rien à télécharger.</p>
+  </div>
+
+  <div class="legal-part" id="windows">
+    <h3>Windows</h3>
+    <p>L&#x27;app Windows n&#x27;est pas un produit Apple. Le contrat de licence d&#x27;Apple ne s&#x27;y applique pas ; les conditions de cette page s&#x27;appliquent seules.</p>
+
+    <h4>La licence</h4>
+    <p>Une licence Windows n&#x27;est pas encore en vente. En attendant, l&#x27;app Windows fonctionne pendant sa période d&#x27;essai gratuite, puis en version gratuite. Son prix, sa façon d&#x27;être vendue et la manière de demander un remboursement seront indiqués ici avant sa mise en vente.</p>
+
+    <h4>Transcription sur l&#x27;appareil</h4>
+    <p>Whisper, via Faster-Whisper, téléchargé à la demande.</p>
+  </div>
 
   <h3>Modifications</h3>
   <p>Ces conditions peuvent changer avec une nouvelle version de l&#x27;app. La date ci-dessus change avec elles, et un changement important est associé à la version qui le motive.</p>
