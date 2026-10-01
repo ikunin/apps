@@ -30,5 +30,19 @@
     "violet": "#9fc9a8"
   },
   "slogan": "Think Fast. Play Faster.",
-  "store": ""
+  "store": "",
+  "stores": [
+    [
+      "ios",
+      "https://apps.apple.com/app/id6815868216"
+    ],
+    [
+      "mac",
+      ""
+    ],
+    [
+      "tv",
+      ""
+    ]
+  ]
 }
