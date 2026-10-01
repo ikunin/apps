@@ -153,6 +153,15 @@ The site's headline and lead come from here, so the other ten locales are not
 optional. Per locale: `subtitle keywords promotional_text release_notes
 description name marketing_url support_url privacy_url`.
 
+**Ask the market first** (the `appstore-aso` skill): before writing a name,
+subtitle, keyword field or promotional text, run
+`python3 ~/.claude/skills/appstore-pilot/aso.py brief . --storefront <cc>` for
+each locale's storefront (`--scan` once when it reports no data). It says which
+words people search there, how crowded they are, what competitors call
+themselves, which brand words to avoid, and which fields an experiment is
+measuring (leave those alone). Write each locale's keywords from its own
+storefront's searches, not as a translation of the English field.
+
 **Hard limits, and Connect rejects rather than truncates.** `check_site.py`
 measures every field in every locale, so `make site` catches an overrun before a
 submission does — but knowing them while writing saves a round trip:
