@@ -33,6 +33,7 @@
       <a href="support.html">Aiuto</a>
       <a href="privacy.html" aria-current="page">Privacy</a>
       <a href="terms.html">Condizioni</a>
+      <a href="ai.html">IA</a>
       <a href="../impressum.html">Impressum</a>
       <a class="away" href="../../">Altre app</a>
     </nav>
@@ -61,11 +62,10 @@
     <h4>Cosa resta sul tuo dispositivo</h4>
     <p>Tutto, a meno che tu non scelga un backend cloud. Conservato in locale e mai caricato da JustTalk:</p>
     <ul>
-      <li>La cronologia delle tue dettature, incluso il testo trascritto — disattivata se non la attivi</li>
-      <li>Le modalità, il tuo dizionario personalizzato e le azioni rapide</li>
+      <li>Le modalità, il tuo dizionario personalizzato e le azioni</li>
       <li>Le statistiche d&#x27;uso — parole dettate, tempo risparmiato, spesa stimata</li>
       <li>L&#x27;audio registrato, tenuto in memoria per la durata di una dettatura e mai scritto su disco</li>
-      <li>Le chiavi API e i token di accesso per i servizi che configuri — dove li conserva ciascuna piattaforma è spiegato più sotto, nella sua parte</li>
+      <li>Le chiavi API per i servizi che configuri — dove le conserva ciascuna piattaforma è spiegato più sotto, nella sua parte</li>
       <li>I modelli vocali che scarichi, se usi la trascrizione in locale</li>
     </ul>
     <p>JustTalk non ha un server, quindi non c&#x27;è nulla di tuo da cancellare su un server. Come rimuovere ciò che è sul tuo dispositivo è spiegato nella parte di ciascuna piattaforma.</p>
@@ -74,7 +74,8 @@
     <p>JustTalk può inviare l'audio, o la sua trascrizione, a un fornitore che configuri — Google, OpenAI, Groq, Mistral, Anthropic, o un indirizzo server che inserisci tu stesso. Quei dati sono poi gestiti secondo <em>la loro</em> informativa sulla privacy, non questa, e JustTalk non ha alcuna visibilità su cosa conservano. L'app mostra quale fornitore è attivo prima che tu registri, e passare alla trascrizione in locale impedisce che qualcosa esca dal tuo dispositivo.</p>
 
     <h4>Modalità Privacy</h4>
-    <p>Un solo interruttore, in ogni versione, che tiene una dettatura interamente sul tuo dispositivo: il parlato viene riconosciuto sul dispositivo, la rifinitura passa solo da un modello linguistico sul dispositivo (o viene saltata se non ne hai uno), non si conserva alcuna cronologia e, su Mac e Windows, non viene letta alcuna informazione sull'app in cui stai scrivendo. Disattivarlo ripristina esattamente ciò che avevi configurato.</p>
+    <p>Un solo interruttore, in ogni versione, che tiene una dettatura interamente sul tuo dispositivo: il parlato viene riconosciuto sul dispositivo, la rifinitura passa solo da un modello linguistico sul dispositivo (o viene saltata se non ne hai uno) e, su Mac e Windows, non viene letta alcuna informazione sull'app in cui stai scrivendo. Disattivarlo ripristina esattamente ciò che avevi configurato.</p>
+    <p>Come JustTalk usa l'IA, come viene segnalato ciò che genera e cosa ti chiede il regolamento europeo sull'IA: vedi la <a href="ai.html">dichiarazione sull&#x27;IA</a>.</p>
 
     <h4>Bambini</h4>
     <p>JustTalk è uno strumento di produttività per adulti, non un&#x27;app per bambini. Non raccoglie informazioni personali da nessuno, di qualsiasi età.</p>
@@ -83,7 +84,7 @@
   <div class="legal-part" id="mac">
     <h3>Mac</h3>
     <h4>Dove sono conservate le tue chiavi</h4>
-    <p>Le chiavi API e i token di accesso sono conservati nel Portachiavi di macOS. Eliminare la cartella Application Support dell&#x27;app elimina tutto il resto che JustTalk conserva.</p>
+    <p>Le chiavi API sono conservate nel Portachiavi di macOS. Eliminare la cartella Application Support dell&#x27;app elimina tutto il resto che JustTalk conserva.</p>
 
     <h4>Cosa viene inviato insieme alle tue parole</h4>
     <p>Quando è in uso un modello di rifinitura, JustTalk gli comunica solo il nome dell'app in cui stai dettando, perché il risultato si adatti: una risposta in un'app di posta, un messaggio in una chat. La Modalità&nbsp;Privacy impedisce che venga letto o inviato persino il nome dell'app.</p>
@@ -100,7 +101,7 @@
     <h4>La tastiera</h4>
     <p>La tastiera JustTalk chiede <em>Consenti accesso completo</em>, il permesso che iOS richiede prima che una tastiera possa raggiungere la rete o condividere qualcosa con la propria app. Ecco esattamente cosa ne fa:</p>
     <ul>
-      <li>Non legge ciò che è già nel campo. Scrive, e ricorda ciò che ha scritto perché annulla e le azioni rapide agiscano su quel testo e su nessun altro.</li>
+      <li>Non legge ciò che è già nel campo. Scrive, e ricorda ciò che ha scritto perché annulla e le azioni agiscano su quel testo e su nessun altro.</li>
       <li>Non registra ciò che digiti. I tasti vanno nell&#x27;app in cui stai scrivendo e da nessun&#x27;altra parte.</li>
       <li>Non invia mai nulla da sé. iOS non permette a una tastiera di aprire il microfono, quindi registra l&#x27;app JustTalk — ed è l&#x27;app, non la tastiera, a parlare con il servizio che hai configurato.</li>
       <li>Mentre una sessione è attiva, l&#x27;app JustTalk tiene il microfono e iOS lascia accesa l&#x27;indicazione arancione per tutto il tempo. È onesto: il microfono è davvero a tua disposizione finché non fermi la sessione.</li>
@@ -108,11 +109,11 @@
       <li>La tastiera non può vedere in quale app sta scrivendo, quindi nessun nome di app viene mai inviato insieme alle tue parole.</li>
     </ul>
 
-    <h4>La tua cronologia</h4>
-    <p>La cronologia delle tue dettature, se la conservi, è cifrata sul dispositivo.</p>
+    <h4>Nessuna cronologia</h4>
+    <p>JustTalk non conserva nulla di ciò che detti. L&#x27;aggiornamento elimina la cronologia eventualmente conservata da una versione precedente.</p>
 
     <h4>Dove sono conservate le tue chiavi</h4>
-    <p>Le chiavi API e i token di accesso sono conservati nel Portachiavi di iOS. Eliminare l&#x27;app elimina tutto ciò che JustTalk conserva.</p>
+    <p>Le chiavi API sono conservate nel Portachiavi di iOS. Eliminare l&#x27;app elimina tutto ciò che JustTalk conserva.</p>
 
     <h4>Acquisto</h4>
     <p>JustTalk&nbsp;Pro per iPhone e iPad è un acquisto una tantum a sé, separato da quello per Mac e gestito interamente da Apple. L'App Store dice all'app se ne hai diritto; l'app non vede mai il tuo nome, la tua email o i dati di pagamento. È condivisibile in famiglia, e un familiare che lo condivide non rivela nulla di sé all'app.</p>
@@ -126,7 +127,7 @@
     <p>La versione per Windows non è un prodotto Apple e non è venduta tramite l&#x27;App Store, quindi nessuna delle parti Apple qui sopra la riguarda.</p>
 
     <h4>Dove sono conservate le tue chiavi</h4>
-    <p>Le chiavi API e i token di accesso sono conservati in Gestione credenziali di Windows. Disinstallare l&#x27;app elimina tutto il resto che JustTalk conserva; le chiavi restano in Gestione credenziali finché non le rimuovi da lì.</p>
+    <p>Le chiavi API sono conservate in Gestione credenziali di Windows. Disinstallare l&#x27;app elimina tutto il resto che JustTalk conserva; le chiavi restano in Gestione credenziali finché non le rimuovi da lì.</p>
 
     <h4>Cosa viene inviato insieme alle tue parole</h4>
     <p>Quando è in uso un modello di rifinitura, JustTalk gli comunica solo il nome dell'app in cui stai dettando, perché il risultato si adatti: una risposta in un'app di posta, un messaggio in una chat. La Modalità&nbsp;Privacy impedisce che venga letto o inviato persino il nome dell'app.</p>

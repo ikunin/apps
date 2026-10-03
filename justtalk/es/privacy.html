@@ -33,6 +33,7 @@
       <a href="support.html">Ayuda</a>
       <a href="privacy.html" aria-current="page">Privacidad</a>
       <a href="terms.html">Condiciones</a>
+      <a href="ai.html">IA</a>
       <a href="../impressum.html">Impressum</a>
       <a class="away" href="../../">Más apps</a>
     </nav>
@@ -61,11 +62,10 @@
     <h4>Qué se queda en tu dispositivo</h4>
     <p>Todo, a menos que elijas un backend en la nube. Se guarda en local y JustTalk nunca lo sube:</p>
     <ul>
-      <li>Tu historial de dictado, incluido el texto transcrito — desactivado salvo que lo actives</li>
-      <li>Los modos, tu diccionario personalizado y las acciones rápidas</li>
+      <li>Los modos, tu diccionario personalizado y las acciones</li>
       <li>Estadísticas de uso — palabras dictadas, tiempo ahorrado, gasto estimado</li>
       <li>El audio grabado, que se mantiene en memoria durante el dictado y no se escribe en el disco</li>
-      <li>Las claves de API y los tokens de inicio de sesión de los servicios que configures — dónde los guarda cada plataforma se explica más abajo, en su parte</li>
+      <li>Las claves de API de los servicios que configures — dónde las guarda cada plataforma se explica más abajo, en su parte</li>
       <li>Los modelos de voz que descargues, si usas la transcripción en local</li>
     </ul>
     <p>JustTalk no tiene ningún servidor, así que no hay nada tuyo en uno que borrar. Cómo quitar lo que hay en tu dispositivo se explica en la parte de cada plataforma.</p>
@@ -74,7 +74,8 @@
     <p>JustTalk puede enviar el audio, o su transcripción, a un proveedor que tú configures — Google, OpenAI, Groq, Mistral, Anthropic, o una dirección de servidor que introduzcas tú mismo. Esos datos se gestionan entonces según <em>su</em> política de privacidad, no esta, y JustTalk no tiene visibilidad de lo que conservan. La app muestra qué proveedor está activo antes de grabar, y cambiar a la transcripción en local hace que nada de esto salga de tu dispositivo.</p>
 
     <h4>Modo privado</h4>
-    <p>Un solo interruptor, en todas las versiones, que mantiene un dictado por completo en tu dispositivo: la voz se reconoce en el dispositivo, el pulido solo pasa por un modelo de lenguaje en el dispositivo (o se omite si no tienes ninguno), no se guarda historial y, en Mac y Windows, no se lee ninguna información sobre la app en la que escribes. Desactivarlo restaura exactamente lo que tenías configurado.</p>
+    <p>Un solo interruptor, en todas las versiones, que mantiene un dictado por completo en tu dispositivo: la voz se reconoce en el dispositivo, el pulido solo pasa por un modelo de lenguaje en el dispositivo (o se omite si no tienes ninguno) y, en Mac y Windows, no se lee ninguna información sobre la app en la que escribes. Desactivarlo restaura exactamente lo que tenías configurado.</p>
+    <p>Cómo usa JustTalk la IA, cómo se marca lo que genera y qué te exige el Reglamento europeo de IA: consulta la <a href="ai.html">declaración sobre IA</a>.</p>
 
     <h4>Menores</h4>
     <p>JustTalk es una herramienta de productividad para adultos, no una app infantil. No recoge información personal de nadie, sea cual sea su edad.</p>
@@ -83,7 +84,7 @@
   <div class="legal-part" id="mac">
     <h3>Mac</h3>
     <h4>Dónde se guardan tus claves</h4>
-    <p>Las claves de API y los tokens de inicio de sesión se guardan en el llavero de macOS. Borrar la carpeta Application Support de la app borra todo lo demás que guarda JustTalk.</p>
+    <p>Las claves de API se guardan en el llavero de macOS. Borrar la carpeta Application Support de la app borra todo lo demás que guarda JustTalk.</p>
 
     <h4>Qué se envía junto con tus palabras</h4>
     <p>Cuando se usa un modelo de pulido, JustTalk solo le indica el nombre de la app en la que estás dictando, para que el resultado encaje: una respuesta en una app de correo, un mensaje en un chat. El Modo&nbsp;privado impide que se lea o se envíe incluso el nombre de la app.</p>
@@ -100,7 +101,7 @@
     <h4>El teclado</h4>
     <p>El teclado de JustTalk pide <em>Permitir acceso completo</em>, el permiso que iOS exige antes de que un teclado pueda acceder a la red o compartir algo con su propia app. Esto es exactamente lo que hace con él:</p>
     <ul>
-      <li>No lee lo que ya hay en el campo. Escribe, y recuerda lo que escribió para que deshacer y las acciones rápidas actúen sobre ese texto y ningún otro.</li>
+      <li>No lee lo que ya hay en el campo. Escribe, y recuerda lo que escribió para que deshacer y las acciones actúen sobre ese texto y ningún otro.</li>
       <li>No registra lo que escribes. Las teclas van a la app en la que escribes y a ningún otro sitio.</li>
       <li>Nunca envía nada por sí mismo. iOS no permite que un teclado abra el micrófono, así que graba la app de JustTalk: y es la app, no el teclado, la que habla con el servicio que configuraste.</li>
       <li>Mientras hay una sesión activa, la app de JustTalk mantiene el micrófono e iOS deja el indicador naranja encendido todo el tiempo. Es honesto: el micrófono está realmente a tu disposición hasta que detienes la sesión.</li>
@@ -108,11 +109,11 @@
       <li>El teclado no puede ver en qué app está escribiendo, así que nunca se envía ningún nombre de app con tus palabras.</li>
     </ul>
 
-    <h4>Tu historial</h4>
-    <p>Tu historial de dictado, si lo guardas, se cifra en el dispositivo.</p>
+    <h4>Sin historial</h4>
+    <p>JustTalk no guarda nada de lo que dictas. Al actualizar se borra el historial que hubiera guardado una versión anterior.</p>
 
     <h4>Dónde se guardan tus claves</h4>
-    <p>Las claves de API y los tokens de inicio de sesión se guardan en el llavero de iOS. Eliminar la app borra todo lo que guarda JustTalk.</p>
+    <p>Las claves de API se guardan en el llavero de iOS. Eliminar la app borra todo lo que guarda JustTalk.</p>
 
     <h4>Compra</h4>
     <p>JustTalk&nbsp;Pro para iPhone y iPad es una compra puntual propia, independiente de la del Mac y gestionada por completo por Apple. El App Store le dice a la app si tiene derecho a ella; nunca ve tu nombre, tu correo electrónico ni tus datos de pago. Es compartible en familia, y un miembro de la familia que la comparta no le revela nada de sí mismo a la app.</p>
@@ -126,7 +127,7 @@
     <p>La versión de Windows no es un producto de Apple y no se vende en el App Store, así que no se le aplica ninguna de las partes de Apple de arriba.</p>
 
     <h4>Dónde se guardan tus claves</h4>
-    <p>Las claves de API y los tokens de inicio de sesión se guardan en el Administrador de credenciales de Windows. Desinstalar la app borra todo lo demás que guarda JustTalk; las claves se quedan en el Administrador de credenciales hasta que las quites de ahí.</p>
+    <p>Las claves de API se guardan en el Administrador de credenciales de Windows. Desinstalar la app borra todo lo demás que guarda JustTalk; las claves se quedan en el Administrador de credenciales hasta que las quites de ahí.</p>
 
     <h4>Qué se envía junto con tus palabras</h4>
     <p>Cuando se usa un modelo de pulido, JustTalk solo le indica el nombre de la app en la que estás dictando, para que el resultado encaje: una respuesta en una app de correo, un mensaje en un chat. El Modo&nbsp;privado impide que se lea o se envíe incluso el nombre de la app.</p>

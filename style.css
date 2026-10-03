@@ -181,7 +181,7 @@ nav.site .away::before {
   background: var(--line);
 }
 
-/* Apple's App Store badge. Their guidelines fix most of this: 40 px is the
+/* A store's badge — Apple's or Microsoft's. Apple's guidelines fix most of this: 40 px is the
    minimum height onscreen, and the clear space around it is at least a quarter
    of that height. Only the height is set here — the width follows whichever
    language's artwork is on the page (Japanese is 109 px wide where Korean is
@@ -225,29 +225,26 @@ nav.site .store-badge:hover,
 
 nav.site .store-for:hover { background: none; }
 
-/* A platform sold outside the App Store — Windows — gets a link this kit draws,
-   never Apple's badge. It stands the badge's height and shape beside one, so a
-   row of ways in reads as one row, and it is quiet: a hairline and the ink,
-   the way the badge is black and grey rather than the page's accent. */
-.store-direct,
-nav.site a.store-direct {
+/* A platform whose listing is not open yet: its store's badge, unlinked and
+   dimmed, with "coming soon" beneath. The artwork is untouched — the opacity
+   is on the wrapper, the same treatment a badge's hover already gets — and it
+   does not react to the pointer, because there is nowhere to go yet. */
+.store-pending {
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
-  height: 40px;
-  margin: 10px;
-  padding: 0 1rem;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  color: var(--ink);
-  font-weight: 600;
-  font-size: 0.93rem;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: border-color 0.18s var(--ease);
+  gap: 2px;
 }
 
-.store-direct:hover,
-nav.site a.store-direct:hover { background: none; border-color: var(--accent); }
+.store-pending .store-badge { opacity: 0.6; pointer-events: none; margin-bottom: 0; }
+
+.store-pending-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--dim);
+  white-space: nowrap;
+}
 
 /* Two links plus five pages is a wide header. On a phone the nav wraps to its
    own line and the two outward links stay together at its end. */
@@ -466,6 +463,13 @@ li { margin: 0.35rem 0; }
 }
 
 .card h3 { margin: 0 0 0.4rem; font-size: 1.05rem; }
+
+/* A card with a foot — a store badge — stacks its content and pushes the foot
+   to the bottom, so badges in a row line up whatever each body's length. The
+   foot is sized for the widest badge the kit ships (Microsoft's German one,
+   166 px plus Apple's quarter-height clear space) inside a 16rem card. */
+.card.has-foot { display: flex; flex-direction: column; }
+.card-foot { margin-top: auto; padding-top: 1.25rem; display: flex; justify-content: center; }
 .card p { margin: 0; color: var(--dim); font-size: 0.96rem; }
 
 .card .icon {
@@ -621,6 +625,31 @@ td em {
 
 .legal p, .legal li, .legal dd { max-width: var(--measure); }
 .legal h3 { margin-top: 2.25rem; }
+
+/* A page whose promises differ by platform says so in parts: one box per
+   audience — all versions, then each platform — so a reader never takes the
+   Windows paragraph for the iPhone one. The box is the card's surface and
+   hairline, and its title is the page's h3; headings inside it step down. */
+.legal-part {
+  margin-top: 2.25rem;
+  padding: 0.25rem 1.5rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  scroll-margin-top: 5rem;
+}
+.legal-part > h3 {
+  margin: 1.25rem 0 0.25rem;
+  font-size: 1.45rem;
+  letter-spacing: -0.01em;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--line);
+}
+.legal h4 { margin: 1.75rem 0 0.4rem; font-size: 1rem; }
+.legal-part .faq { margin-top: 0.5rem; }
+.legal-toc { padding-left: 1.2rem; }
+.legal-toc li { margin: 0.3rem 0; color: var(--dim); }
+@media (max-width: 34rem) { .legal-part { padding: 0.25rem 1rem 1.25rem; } }
 .legal section { padding-top: clamp(2rem, 5vw, 3rem); }
 
 /* --- a screen beside its explanation -------------------------------------- */

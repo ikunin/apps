@@ -33,6 +33,7 @@
       <a href="support.html">Support</a>
       <a href="privacy.html" aria-current="page">Privacy</a>
       <a href="terms.html">Terms</a>
+      <a href="ai.html">AI</a>
       <a href="impressum.html">Impressum</a>
       <a class="away" href="../">More apps</a>
     </nav>
@@ -61,11 +62,10 @@
     <h4>What stays on your device</h4>
     <p>All of it, unless you pick a cloud backend. Stored locally and never uploaded by JustTalk:</p>
     <ul>
-      <li>Your dictation history, including the transcribed text — off unless you switch it on</li>
-      <li>Modes, your custom dictionary and quick actions</li>
+      <li>Modes, your custom dictionary and actions</li>
       <li>Usage statistics — words dictated, time saved, estimated spend</li>
       <li>Recorded audio, which is held in memory for the length of a dictation and not written to disk</li>
-      <li>API keys and sign-in tokens for the services you configure — where each platform keeps them is in its part below</li>
+      <li>API keys for the services you configure — where each platform keeps them is in its part below</li>
       <li>Speech models you download, if you use on-device transcription</li>
     </ul>
     <p>JustTalk has no server, so there is nothing of yours on one to delete. How to remove what is on your device is in each platform&#x27;s part.</p>
@@ -74,7 +74,8 @@
     <p>JustTalk can send audio, or the transcript of it, to a provider you configure — Google, OpenAI, Groq, Mistral, Anthropic, or a server address you enter yourself. That data is then handled under <em>their</em> privacy policy, not this one, and JustTalk has no visibility into what they keep. The app shows which provider is active before you record, and switching to on-device transcription stops any of it from leaving your device.</p>
 
     <h4>Privacy Mode</h4>
-    <p>One switch, in every version, that keeps a dictation entirely on your device: speech is recognised on the device, polishing runs only through a language model on the device (or is skipped if you have none), no history is kept, and on Mac and Windows no information about the app you are typing into is read. Switching it off restores exactly what you had configured.</p>
+    <p>One switch, in every version, that keeps a dictation entirely on your device: speech is recognised on the device, polishing runs only through a language model on the device (or is skipped if you have none), and on Mac and Windows no information about the app you are typing into is read. Switching it off restores exactly what you had configured.</p>
+    <p>How JustTalk uses AI, how what it generates is marked, and what the EU&nbsp;AI&nbsp;Act asks of you: see the <a href="ai.html">AI statement</a>.</p>
 
     <h4>Children</h4>
     <p>JustTalk is a productivity tool for adults, not a children&#x27;s app. It collects no personal information from anyone, of any age.</p>
@@ -83,7 +84,7 @@
   <div class="legal-part" id="mac">
     <h3>Mac</h3>
     <h4>Where your keys are kept</h4>
-    <p>API keys and sign-in tokens are stored in the macOS Keychain. Deleting the app&#x27;s Application Support folder deletes everything else JustTalk keeps.</p>
+    <p>API keys are stored in the macOS Keychain. Deleting the app&#x27;s Application Support folder deletes everything else JustTalk keeps.</p>
 
     <h4>What is sent alongside your words</h4>
     <p>When a polishing model is in use, JustTalk tells it only the name of the app you are dictating into, so the result fits: a reply in a mail app, a message in a chat. Privacy&nbsp;Mode stops even the app's name being read or sent.</p>
@@ -100,7 +101,7 @@
     <h4>The keyboard</h4>
     <p>The JustTalk keyboard asks for <em>Allow&nbsp;Full&nbsp;Access</em>, which is the permission iOS requires before a keyboard may reach the network or share anything with its own app. Here is exactly what it does with it:</p>
     <ul>
-      <li>It does not read what is already in the field. It types, and it keeps track of what it typed so that undo and the quick actions can work on that text and nothing else.</li>
+      <li>It does not read what is already in the field. It types, and it keeps track of what it typed so that undo and the actions can work on that text and nothing else.</li>
       <li>It does not log what you type. Keys you press go into the app you are typing into and nowhere else.</li>
       <li>It never sends anything anywhere itself. iOS does not let a keyboard open the microphone, so the JustTalk app records — and it is the app, not the keyboard, that talks to the service you configured.</li>
       <li>While a session is running, the JustTalk app holds the microphone and iOS lights the orange indicator for the whole time. That is honest: the microphone genuinely is available to you until you stop the session.</li>
@@ -108,11 +109,11 @@
       <li>The keyboard cannot see which app it is typing into, so no app name is ever sent with your words.</li>
     </ul>
 
-    <h4>Your history</h4>
-    <p>Your dictation history, when you keep it, is encrypted on the device.</p>
+    <h4>No history</h4>
+    <p>JustTalk keeps no record of what you dictate. Updating deletes any history an earlier version kept.</p>
 
     <h4>Where your keys are kept</h4>
-    <p>API keys and sign-in tokens are stored in the iOS Keychain. Deleting the app deletes everything JustTalk keeps.</p>
+    <p>API keys are stored in the iOS Keychain. Deleting the app deletes everything JustTalk keeps.</p>
 
     <h4>Purchase</h4>
     <p>JustTalk&nbsp;Pro for iPhone and iPad is a one-time purchase of its own, separate from the Mac one and handled entirely by Apple. The App Store tells the app whether it is entitled; it never sees your name, your email or your payment details. It is Family Shareable, and a family member sharing it tells the app nothing about them.</p>
@@ -126,7 +127,7 @@
     <p>The Windows version is not an Apple product and is not sold through the App Store, so none of the Apple parts above applies to it.</p>
 
     <h4>Where your keys are kept</h4>
-    <p>API keys and sign-in tokens are stored in Windows Credential Manager. Uninstalling the app deletes everything else JustTalk keeps; keys stay in Credential Manager until you remove them there.</p>
+    <p>API keys are stored in Windows Credential Manager. Uninstalling the app deletes everything else JustTalk keeps; keys stay in Credential Manager until you remove them there.</p>
 
     <h4>What is sent alongside your words</h4>
     <p>When a polishing model is in use, JustTalk tells it only the name of the app you are dictating into, so the result fits: a reply in a mail app, a message in a chat. Privacy&nbsp;Mode stops even the app's name being read or sent.</p>
