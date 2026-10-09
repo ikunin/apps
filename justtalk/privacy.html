@@ -44,15 +44,15 @@
 
 <section>
   <h2>Privacy Policy</h2>
-  <p class="muted">Last updated 27&nbsp;September&nbsp;2026. Applies to the JustTalk apps for macOS, for iPhone and iPad (with its keyboard) and for Windows, and to this website.</p>
+  <p class="muted">Last updated 9&nbsp;October&nbsp;2026. Applies to the JustTalk apps for macOS, for iPhone and iPad (with its keyboard) and for Windows, and to this website.</p>
 
-  <div class="note"><p><strong>JustTalk has no analytics, no crash reporter, no tracking and no account with us.</strong> It does not phone home. It does, in normal use, send your speech to a cloud transcription and polishing service that <em>you</em> choose and hold the key for — so most of what matters here is that provider's policy, not this one. The on-device option sends nothing anywhere, but it is the exception rather than the default.</p></div>
+  <div class="note"><p><strong>Nothing you type or say is ever sent to us.</strong> JustTalk has no server, no analytics, no crash reporter, no tracking and no account with us; it does not phone home. Your words go only to the transcription and polishing service that <em>you</em> choose and hold the key for — or nowhere at all, if you keep everything on your device — so most of what matters here is that provider's policy, not this one.</p></div>
   <p>The first part holds for every version. The Mac, iPhone and iPad, and Windows versions then differ in a few things, each set out in its own part:</p>
 
   <ul class="legal-toc">
     <li><a href="#all">All versions</a> — what is kept, what is sent, and to whom</li>
     <li><a href="#mac">Mac</a> — Keychain, App Store purchase, macOS permissions, app context</li>
-    <li><a href="#ios">iPhone and iPad</a> — the keyboard and Full Access, Keychain, App Store purchase</li>
+    <li><a href="#ios">iPhone and iPad</a> — the keyboard and Full Access, the log of what left your device, Keychain, App Store purchase</li>
     <li><a href="#windows">Windows</a> — Credential Manager, the licence request, Windows permissions, app context</li>
     <li><a href="#site">This website</a></li>
   </ul>
@@ -99,15 +99,19 @@
   <div class="legal-part" id="ios">
     <h3>iPhone and iPad</h3>
     <h4>The keyboard</h4>
-    <p>The JustTalk keyboard asks for <em>Allow&nbsp;Full&nbsp;Access</em>, which is the permission iOS requires before a keyboard may reach the network or share anything with its own app. Here is exactly what it does with it:</p>
+    <p>The JustTalk keyboard asks for <em>Allow&nbsp;Full&nbsp;Access</em>. Full Access is what lets the JustTalk keyboard receive what the JustTalk app hears, and reach the service you chose. Without it, a keyboard can only type letters. iOS warns that it lets the developer transmit anything you type; here is exactly what JustTalk does with it:</p>
     <ul>
       <li>It does not read what is already in the field. It types, and it keeps track of what it typed so that undo and the actions can work on that text and nothing else.</li>
       <li>It does not log what you type. Keys you press go into the app you are typing into and nowhere else.</li>
-      <li>It never sends anything anywhere itself. iOS does not let a keyboard open the microphone, so the JustTalk app records — and it is the app, not the keyboard, that talks to the service you configured.</li>
+      <li>Nothing goes to us. iOS does not let a keyboard open the microphone, so the JustTalk app records and sends your dictation only to the service you chose; Fix my typing and actions go from the keyboard to that same service. There is no JustTalk server anywhere on the way.</li>
       <li>While a session is running, the JustTalk app holds the microphone and iOS lights the orange indicator for the whole time. That is honest: the microphone genuinely is available to you until you stop the session.</li>
-      <li>Dictation is transcribed on the device by default, which sends nothing at all. Choosing a provider in Speech is what sends your audio anywhere.</li>
-      <li>The keyboard cannot see which app it is typing into, so no app name is ever sent with your words.</li>
+      <li>With Private chosen under Settings → How JustTalk writes, speech is recognised and polished on the device and nothing leaves it. Fast and Best use the cloud service you set up with your own key.</li>
+      <li>The keyboard cannot see which app it is typing into, so no app name is ever sent with your words. It can tell only that a field is a chat or a search box, from its return key, so that the style fits.</li>
+      <li>Password fields always get Apple&#x27;s keyboard: iOS never offers a third-party keyboard there.</li>
     </ul>
+
+    <h4>What left your iPhone</h4>
+    <p>Settings → Privacy → What left your iPhone lists every request the app or the keyboard sent in the last seven days: when, what for (dictation, polishing, Fix my typing, an action, a file), the domain and the size — never the words. The domains are the ones iOS's own App Privacy Report shows (Settings → Privacy &amp; Security → App Privacy Report), so you can compare the two. The log stays on the device.</p>
 
     <h4>No history</h4>
     <p>JustTalk keeps no record of what you dictate. Updating deletes any history an earlier version kept.</p>

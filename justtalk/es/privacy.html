@@ -44,15 +44,15 @@
 
 <section>
   <h2>Política de privacidad</h2>
-  <p class="muted">Última actualización: 27&nbsp;de septiembre&nbsp;de 2026. Se aplica a las apps JustTalk para macOS, para iPhone y iPad (con su teclado) y para Windows, y a este sitio web.</p>
+  <p class="muted">Última actualización: 9&nbsp;de octubre&nbsp;de 2026. Se aplica a las apps JustTalk para macOS, para iPhone y iPad (con su teclado) y para Windows, y a este sitio web.</p>
 
-  <div class="note"><p><strong>JustTalk no tiene analítica, ni informador de fallos, ni rastreo, ni cuenta con nosotros.</strong> No llama a casa. En uso normal, sí envía tu voz a un servicio de transcripción y pulido en la nube que <em>tú</em> eliges y del que tú tienes la clave — así que lo que de verdad importa aquí es la política de ese proveedor, no esta. La opción en local no envía nada a ningún sitio, pero es la excepción, no la opción por defecto.</p></div>
+  <div class="note"><p><strong>Nada de lo que escribes o dices se nos envía nunca.</strong> JustTalk no tiene servidor, ni analíticas, ni informes de fallos, ni rastreo, ni cuenta con nosotros; no llama a casa. Tus palabras van solo al servicio de transcripción y pulido que <em>tú</em> eliges y cuya clave tienes — o a ninguna parte, si lo dejas todo en tu dispositivo —, así que lo que más importa aquí es la política de ese proveedor, no esta.</p></div>
   <p>La primera parte vale para todas las versiones. Las versiones para Mac, para iPhone y iPad, y para Windows se diferencian después en algunas cosas, cada una explicada en su propia parte:</p>
 
   <ul class="legal-toc">
     <li><a href="#all">Todas las versiones</a> — qué se guarda, qué se envía y a quién</li>
     <li><a href="#mac">Mac</a> — llavero, compra en el App Store, permisos de macOS, contexto de la app</li>
-    <li><a href="#ios">iPhone y iPad</a> — el teclado y el acceso completo, llavero, compra en el App Store</li>
+    <li><a href="#ios">iPhone y iPad</a> — el teclado y el acceso completo, el registro de lo que salió de tu dispositivo, llavero, compra en el App Store</li>
     <li><a href="#windows">Windows</a> — Administrador de credenciales, la solicitud de licencia, permisos de Windows, contexto de la app</li>
     <li><a href="#site">Este sitio web</a></li>
   </ul>
@@ -99,15 +99,19 @@
   <div class="legal-part" id="ios">
     <h3>iPhone y iPad</h3>
     <h4>El teclado</h4>
-    <p>El teclado de JustTalk pide <em>Permitir acceso completo</em>, el permiso que iOS exige antes de que un teclado pueda acceder a la red o compartir algo con su propia app. Esto es exactamente lo que hace con él:</p>
+    <p>El teclado JustTalk pide <em>Permitir&nbsp;acceso&nbsp;total</em>. El acceso total es lo que permite al teclado JustTalk recibir lo que oye la app JustTalk y llegar al servicio que elegiste. Sin él, un teclado solo puede escribir letras. iOS advierte que permite al desarrollador transmitir todo lo que escribes; esto es exactamente lo que JustTalk hace con él:</p>
     <ul>
       <li>No lee lo que ya hay en el campo. Escribe, y recuerda lo que escribió para que deshacer y las acciones actúen sobre ese texto y ningún otro.</li>
       <li>No registra lo que escribes. Las teclas van a la app en la que escribes y a ningún otro sitio.</li>
-      <li>Nunca envía nada por sí mismo. iOS no permite que un teclado abra el micrófono, así que graba la app de JustTalk: y es la app, no el teclado, la que habla con el servicio que configuraste.</li>
+      <li>Nada nos llega. iOS no deja que un teclado abra el micrófono, así que la app JustTalk graba y envía tu dictado solo al servicio que elegiste; «Corregir lo que escribo» y las acciones van del teclado a ese mismo servicio. No hay ningún servidor de JustTalk en todo el camino.</li>
       <li>Mientras hay una sesión activa, la app de JustTalk mantiene el micrófono e iOS deja el indicador naranja encendido todo el tiempo. Es honesto: el micrófono está realmente a tu disposición hasta que detienes la sesión.</li>
-      <li>El dictado se transcribe en el dispositivo por defecto, lo que no envía nada. Elegir un proveedor en Voz es lo que envía tu audio a algún sitio.</li>
-      <li>El teclado no puede ver en qué app está escribiendo, así que nunca se envía ningún nombre de app con tus palabras.</li>
+      <li>Con «Privado» elegido en Ajustes → Cómo escribe JustTalk, la voz se reconoce y se pule en el dispositivo y nada sale de él. «Rápido» y «Mejor» usan el servicio en la nube que configuras con tu propia clave.</li>
+      <li>El teclado no puede ver en qué app escribe, así que nunca se envía el nombre de una app con tus palabras. Solo distingue, por la tecla de retorno, si un campo es un chat o una búsqueda, para que el estilo encaje.</li>
+      <li>Los campos de contraseña siempre usan el teclado de Apple: iOS nunca ofrece ahí un teclado de terceros.</li>
     </ul>
+
+    <h4>Qué salió de tu iPhone</h4>
+    <p>Ajustes → Privacidad → Qué salió de tu iPhone muestra cada solicitud que la app o el teclado enviaron en los últimos siete días: cuándo, para qué (dictado, pulido, Corregir lo que escribo, una acción, un archivo), el dominio y el tamaño — nunca las palabras. Son los mismos dominios que muestra el Informe de privacidad de las apps de iOS (Ajustes → Privacidad y seguridad → Informe de privacidad de las apps), así que puedes comparar ambos. El registro se queda en el dispositivo.</p>
 
     <h4>Sin historial</h4>
     <p>JustTalk no guarda nada de lo que dictas. Al actualizar se borra el historial que hubiera guardado una versión anterior.</p>

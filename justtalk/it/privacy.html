@@ -44,15 +44,15 @@
 
 <section>
   <h2>Informativa sulla privacy</h2>
-  <p class="muted">Ultimo aggiornamento: 27&nbsp;settembre&nbsp;2026. Vale per le app JustTalk per macOS, per iPhone e iPad (con la sua tastiera) e per Windows, e per questo sito.</p>
+  <p class="muted">Ultimo aggiornamento: 9&nbsp;ottobre&nbsp;2026. Vale per le app JustTalk per macOS, per iPhone e iPad (con la sua tastiera) e per Windows, e per questo sito.</p>
 
-  <div class="note"><p><strong>JustTalk non ha analisi, non ha un rilevatore di crash, non fa tracciamento e non ha un account con noi.</strong> Non contatta nessun server proprio. Nell'uso normale, invia però il tuo parlato a un servizio cloud di trascrizione e rifinitura che scegli <em>tu</em> e di cui tieni tu la chiave — quindi la maggior parte di ciò che conta qui è l'informativa di quel fornitore, non questa. L'opzione in locale non invia nulla da nessuna parte, ma è l'eccezione, non la norma.</p></div>
+  <div class="note"><p><strong>Nulla di ciò che scrivi o dici viene mai inviato a noi.</strong> JustTalk non ha server, analisi, report degli arresti anomali, tracciamento né account presso di noi; non telefona a casa. Le tue parole vanno solo al servizio di trascrizione e rifinitura che scegli <em>tu</em> e di cui hai la chiave — o da nessuna parte, se tieni tutto sul dispositivo — quindi ciò che conta di più è l'informativa di quel fornitore, non questa.</p></div>
   <p>La prima parte vale per ogni versione. Le versioni per Mac, per iPhone e iPad e per Windows differiscono poi in alcuni aspetti, ciascuno descritto nella sua parte:</p>
 
   <ul class="legal-toc">
     <li><a href="#all">Tutte le versioni</a> — cosa viene conservato, cosa viene inviato, e a chi</li>
     <li><a href="#mac">Mac</a> — Portachiavi, acquisto sull&#x27;App Store, permessi di macOS, contesto dell&#x27;app</li>
-    <li><a href="#ios">iPhone e iPad</a> — la tastiera e l&#x27;accesso completo, Portachiavi, acquisto sull&#x27;App Store</li>
+    <li><a href="#ios">iPhone e iPad</a> — la tastiera e l&#x27;accesso completo, il registro di ciò che ha lasciato il dispositivo, Portachiavi, acquisto sull&#x27;App Store</li>
     <li><a href="#windows">Windows</a> — Gestione credenziali, la richiesta di licenza, permessi di Windows, contesto dell&#x27;app</li>
     <li><a href="#site">Questo sito</a></li>
   </ul>
@@ -99,15 +99,19 @@
   <div class="legal-part" id="ios">
     <h3>iPhone e iPad</h3>
     <h4>La tastiera</h4>
-    <p>La tastiera JustTalk chiede <em>Consenti accesso completo</em>, il permesso che iOS richiede prima che una tastiera possa raggiungere la rete o condividere qualcosa con la propria app. Ecco esattamente cosa ne fa:</p>
+    <p>La tastiera JustTalk chiede <em>Consenti&nbsp;accesso&nbsp;completo</em>. L'accesso completo permette alla tastiera JustTalk di ricevere ciò che l'app JustTalk sente e di raggiungere il servizio che hai scelto. Senza, una tastiera può solo digitare lettere. iOS avverte che permette allo sviluppatore di trasmettere tutto ciò che scrivi; ecco esattamente cosa ne fa JustTalk:</p>
     <ul>
       <li>Non legge ciò che è già nel campo. Scrive, e ricorda ciò che ha scritto perché annulla e le azioni agiscano su quel testo e su nessun altro.</li>
       <li>Non registra ciò che digiti. I tasti vanno nell&#x27;app in cui stai scrivendo e da nessun&#x27;altra parte.</li>
-      <li>Non invia mai nulla da sé. iOS non permette a una tastiera di aprire il microfono, quindi registra l&#x27;app JustTalk — ed è l&#x27;app, non la tastiera, a parlare con il servizio che hai configurato.</li>
+      <li>Niente arriva a noi. iOS non permette a una tastiera di aprire il microfono, quindi è l&#x27;app JustTalk a registrare e a inviare la dettatura solo al servizio che hai scelto; «Correggi ciò che scrivo» e le azioni vanno dalla tastiera a quello stesso servizio. Lungo tutto il percorso non c&#x27;è alcun server JustTalk.</li>
       <li>Mentre una sessione è attiva, l&#x27;app JustTalk tiene il microfono e iOS lascia accesa l&#x27;indicazione arancione per tutto il tempo. È onesto: il microfono è davvero a tua disposizione finché non fermi la sessione.</li>
-      <li>La dettatura è trascritta sul dispositivo per impostazione predefinita, e questo non invia nulla. È la scelta di un fornitore in Voce che manda il tuo audio da qualche parte.</li>
-      <li>La tastiera non può vedere in quale app sta scrivendo, quindi nessun nome di app viene mai inviato insieme alle tue parole.</li>
+      <li>Con «Privato» scelto in Impostazioni → Come scrive JustTalk, la voce viene riconosciuta e rifinita sul dispositivo e nulla ne esce. «Veloce» e «Migliore» usano il servizio cloud che configuri con la tua chiave.</li>
+      <li>La tastiera non può vedere in quale app sta scrivendo, quindi nessun nome di app viene mai inviato con le tue parole. Capisce solo, dal tasto Invio, se un campo è una chat o una ricerca, perché lo stile sia adatto.</li>
+      <li>I campi password ricevono sempre la tastiera di Apple: lì iOS non offre mai una tastiera di terze parti.</li>
     </ul>
+
+    <h4>Cosa ha lasciato il tuo iPhone</h4>
+    <p>Impostazioni → Privacy → Cosa ha lasciato il tuo iPhone elenca ogni richiesta inviata dall'app o dalla tastiera negli ultimi sette giorni: quando, per cosa (dettatura, rifinitura, Correggi ciò che scrivo, un'azione, un file), il dominio e la dimensione — mai le parole. Sono gli stessi domini mostrati dal Resoconto privacy delle app di iOS (Impostazioni → Privacy e sicurezza → Resoconto privacy delle app), così puoi confrontarli. Il registro resta sul dispositivo.</p>
 
     <h4>Nessuna cronologia</h4>
     <p>JustTalk non conserva nulla di ciò che detti. L&#x27;aggiornamento elimina la cronologia eventualmente conservata da una versione precedente.</p>
