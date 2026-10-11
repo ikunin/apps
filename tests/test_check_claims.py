@@ -45,6 +45,15 @@ class ClaimTests(unittest.TestCase):
         text = "Pro unlocks the game on iPhone, iPad, Mac and Apple TV. Single themes are sold separately."
         self.assertIsNotNone(c.verdict(text, SPEEDY))
 
+    def test_json_translations_are_read(self):
+        import json
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            path = os.path.join(tmp, "de.json")
+            json.dump({"home": {"lockup": "Ein Kauf für Mac, Windows, iPhone und iPad."}}, open(path, "w"))
+            self.assertEqual(list(c._json_values(path)),
+                             [(f"{path} home.lockup", "Ein Kauf für Mac, Windows, iPhone und iPad.")])
+
     def test_the_fastfile_cannot_sell_an_undeclared_record(self):
         import json
         import tempfile

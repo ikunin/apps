@@ -129,20 +129,41 @@ def _strings_values(path):
             yield f"{path} {key}", value
 
 
+def _json_values(path, prefix=""):
+    """Every string in a JSON file (an app that keeps its translations as data, not as Python tables)."""
+    def walk(node, where):
+        if isinstance(node, str):
+            yield f"{path} {where}", node
+        elif isinstance(node, dict):
+            for key, value in node.items():
+                yield from walk(value, f"{where}.{key}" if where else key)
+        elif isinstance(node, list):
+            for number, value in enumerate(node):
+                yield from walk(value, f"{where}[{number}]")
+    with open(path, encoding="utf-8") as handle:
+        yield from walk(json.load(handle), prefix)
+
+
+def _read(path):
+    if path.endswith(".strings"):
+        return _strings_values(path)
+    return _json_values(path) if path.endswith(".json") else _paragraphs(path)
+
+
 def texts(directory, also):
     import check_text   # the kit's own, next to this file
     for file, language, key, text in check_text.tables(directory):
         yield f"{directory}/{os.path.basename(file)} [{language}] {key}", text
     for pattern in also:
         for path in sorted(glob.glob(pattern)):
-            yield from (_strings_values(path) if path.endswith(".strings") else _paragraphs(path))
+            yield from _read(path)
 
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     parser.add_argument("--texts", default="appstore", help="directory of site_text_*.py / make_site_translations.py")
     parser.add_argument("--records", default="appstore/purchase_records.json")
-    parser.add_argument("--also", action="append", default=[], help="more files (glob): listing, docs, .strings")
+    parser.add_argument("--also", action="append", default=[], help="more files (glob): listing, docs, .strings, .json")
     args = parser.parse_args(argv)
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     if not os.path.isfile(args.records):
