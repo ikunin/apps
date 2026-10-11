@@ -20,7 +20,7 @@ from appsite import (Chrome, Page, Site, assets, badge, impressum, languages,
                      portfolio)
 # Not `check`: this file's own assertion helper owns that name.
 from appsite import check as site_check
-from appsite.blocks import cards, hero, landing, section
+from appsite.blocks import cards, film, hero, landing, section
 from appsite.legal import (bullets, heading, mail, mail_href, muted, note, p,
                            render)
 
@@ -782,6 +782,24 @@ check("the contents link each part, with its one-line summary",
       and '<li><a href="#windows">Windows</a></li>' in PARTED)
 check("what is inside a part is the same blocks as anywhere else",
       "<p>Credential Manager.</p>" in PARTED)
+
+print("\nfilm")
+FILM = film(src="media/reel.mp4", poster="media/reel.jpg", label='A "launch" film',
+            width=720, height=1280, credit="Music: <a href=\"https://ende.app\">ende.app</a>")
+check("the film is the site's own file, with a poster and the browser's controls",
+      '<source src="media/reel.mp4" type="video/mp4">' in FILM and 'poster="media/reel.jpg"' in FILM
+      and " controls " in FILM)
+check("it never plays or downloads by itself, and stays inline on an iPhone",
+      "autoplay" not in FILM and 'preload="none"' in FILM and "playsinline" in FILM)
+check("its label is escaped and names it for a screen reader",
+      'aria-label="A &quot;launch&quot; film"' in FILM)
+check("a portrait film is held narrow; a landscape one is not",
+      'class="film portrait"' in FILM
+      and 'class="film"' in film(src="a.mp4", poster="a.jpg", label="x", width=1920, height=1080))
+check("the credit is markup under the film, and absent when not given",
+      '<figcaption>Music: <a href="https://ende.app">ende.app</a></figcaption>' in FILM
+      and "figcaption" not in film(src="a.mp4", poster="a.jpg", label="x", width=1, height=1))
+check("the stylesheet draws it", ".film video" in pathlib.Path(assets.STYLESHEET).read_text())
 
 print()
 if failures:

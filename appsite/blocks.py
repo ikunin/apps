@@ -109,6 +109,29 @@ def showcase(*, image, heading, paragraphs):
             "  </div>\n")
 
 
+def film(*, src, poster, label, width, height, credit=None):
+    """A launch film, served by the site itself — no player from anyone else, so
+    nothing watches who watches, and no privacy policy has to change for it.
+
+    It never plays by itself: a film with music must not start making noise on a
+    page someone opened to read, and `preload="none"` behind the poster spends
+    none of a phone's data until the viewer asks. `playsinline` keeps an iPhone
+    from throwing it full-screen. `label` names it for a screen reader, in the
+    page's language; `credit` is markup under it (a music licence wants one).
+    A portrait film is held narrow — at full width it would be a page tall.
+    """
+    kind = "film portrait" if height > width else "film"
+    caption = f"    <figcaption>{credit}</figcaption>\n" if credit else ""
+    label = html.escape(label)
+    return (f'  <figure class="{kind}">\n'
+            f'    <video controls playsinline preload="none" poster="{poster}" '
+            f'width="{width}" height="{height}" aria-label="{label}">\n'
+            f'      <source src="{src}" type="video/mp4">\n'
+            f'      <a href="{src}">{label}</a>\n'
+            "    </video>\n"
+            f"{caption}  </figure>\n")
+
+
 def note(markup):
     return f'  <div class="note"><p>{markup}</p></div>\n'
 
