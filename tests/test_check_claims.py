@@ -54,12 +54,17 @@ class ClaimTests(unittest.TestCase):
             self.assertEqual(list(c._json_values(path)),
                              [(f"{path} home.lockup", "Ein Kauf für Mac, Windows, iPhone und iPad.")])
 
+    def test_accepted_keys_are_found_in_every_language(self):
+        self.assertEqual(c._key("appstore/translations/de.json terms.p_free"), "terms.p_free")
+        self.assertEqual(c._key("appstore/site_text_terms.py [de] p_free"), "p_free")
+        self.assertEqual(c._key("appstore/translations/de.json support.faq_all[3][1]"), "support.faq_all")
+
     def test_the_fastfile_cannot_sell_an_undeclared_record(self):
         import json
         import tempfile
         with tempfile.TemporaryDirectory() as tmp:
             records, fastfile = os.path.join(tmp, "r.json"), os.path.join(tmp, "Fastfile")
-            json.dump({"a": ["Mac"]}, open(records, "w"))
+            json.dump({"records": {"a": ["Mac"]}}, open(records, "w"))
             open(fastfile, "w").write('MAC = {\n  app_id: "a",\n}\nIOS = {\n  app_id: "b",\n}\n')
             with self.assertRaises(SystemExit):
                 c.load_records(records, fastfile)
