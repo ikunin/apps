@@ -33,7 +33,7 @@ promises false.
 Add the kit as a submodule and write one config file:
 
 ```sh
-git submodule add https://github.com/ikunin/appsite.git vendor/appsite
+git submodule add https://github.com/ikunin/apps.git vendor/appsite
 mkdir appstore && cp vendor/appsite/template/* appstore/
 ```
 

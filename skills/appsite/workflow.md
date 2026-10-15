@@ -1,7 +1,7 @@
 # /appsite — add an App Store companion site
 
 Build the eleven-language site an app on the store needs — home, support,
-privacy, terms, Impressum — from `github.com/ikunin/appsite`, translate the App
+privacy, terms, Impressum — from `github.com/ikunin/apps`, translate the App
 Store listing to match, and publish to `ikunin.github.io/apps/<slug>/`.
 
 **The failure mode of this skill is publishing another app's promises.** The
@@ -64,7 +64,7 @@ Use AskUserQuestion. Get these; do not guess:
 ## 3. Install the kit
 
 ```sh
-git submodule add https://github.com/ikunin/appsite.git vendor/appsite
+git submodule add https://github.com/ikunin/apps.git vendor/appsite
 mkdir -p appstore && cp vendor/appsite/template/*.py appstore/
 ```
 
