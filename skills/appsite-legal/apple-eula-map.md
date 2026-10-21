@@ -33,6 +33,17 @@ the October 2026 reading.
 | Third-party terms (e.g. the AI provider, iCloud) | §7, §9 |
 | Third-party beneficiary: Apple may enforce | §2 |
 
+## App Review guidelines the legal pages answer
+
+- 5.1.1(i): a privacy policy linked from the listing and the app, saying what
+  is collected, uses, third parties, retention/deletion, how to revoke consent.
+- 5.1.1(v): an app with accounts lets users delete them (JustTalk has none —
+  say so).
+- 5.1.2(i): data shared with third parties, **including third-party AI**,
+  disclosed and asked for first.
+- 3.1.2 (subscriptions only): a functional link to the Terms of Use (EULA) in
+  the description or the EULA field.
+
 ## Beyond Apple — what an AI/notes app adds
 
 - Costs of the user's own AI provider: you are their customer; we cannot see,

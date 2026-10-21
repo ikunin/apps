@@ -1,5 +1,5 @@
 #!/bin/zsh
-# Link this repository's Claude Code skills (skills/appsite, skills/appsite-bump)
+# Link this repository's Claude Code skills (skills/appsite, skills/appsite-bump, skills/appsite-legal)
 # into ~/.claude/skills. The repository is their source (27 Sep): edit them here,
 # and a change is live at once through the link; re-run this only for a new skill.
 #

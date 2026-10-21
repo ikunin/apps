@@ -18,7 +18,9 @@ Three things not to guess at, before you touch anything:
 
 ## The Claude Code skills live here
 
-`skills/appsite` and `skills/appsite-bump` are the source of the `/appsite` and
-`/appsite-bump` skills (moved from `~/.claude` on 27 Sep 2026). `~/.claude/skills/<name>`
+`skills/appsite`, `skills/appsite-bump` and `skills/appsite-legal` are the source of the
+`/appsite`, `/appsite-bump` and `/appsite-legal` skills (moved from `~/.claude` on 27 Sep
+2026; `appsite-legal` — terms and privacy policy, Apple's EULA covered, three review
+rounds — added 21 Oct 2026). `~/.claude/skills/<name>`
 are symlinks made by `./install.sh`: edit the skills here, and re-run `install.sh`
 only when a new skill folder is added.

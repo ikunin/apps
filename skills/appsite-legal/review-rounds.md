@@ -1,4 +1,7 @@
-# Three adversarial rounds
+# Adversarial rounds
+
+Three on the terms, then one on the privacy policy. Each is a full read as
+that reader; findings go into the app's `docs/compliance/terms-review.md`.
 
 Read the full draft once per round, as that reader, and write every finding
 as `# | finding | fix`. Apply all fixes before translating.
@@ -43,6 +46,22 @@ Walk `apple-eula-map.md` row by row. Typical misses:
 - A UI label that is not the app's real label in that language.
 - The privacy policy and the terms disagreeing on any fact (check both, and
   the store descriptions, which repeat the master text).
+
+## Round 4 — a privacy regulator (the privacy policy)
+
+Walk `./privacy-checklist.md`. Typical misses:
+- Transfers outside the EU (the mail provider) with no safeguard named.
+- Portability and withdrawal of consent missing from the rights.
+- "No crash reporter" while Apple's opt-in crash sharing can still reach us.
+- A third-party AI provider receiving data without being named and asked for
+  first (App Review 5.1.2(i)).
+- The policy, the App Privacy label and `PrivacyInfo.xcprivacy` disagreeing.
+- A feature added since the last update with no item of its own.
+
+## Round 0 — before any round: is each sentence true?
+
+For every factual sentence, the file it was checked in. A sentence no one can
+point at is removed, not softened.
 
 ## Recurring language traps
 
