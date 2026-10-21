@@ -56,9 +56,11 @@
   </div>
 
   <div class="shots wide">
-    <figure><img src="../img/ru/board.png" alt="Стол посреди раунда: карты приходят, а комбинации исчезают." width="880" height="405" loading="eager"></figure>
-    <figure><img src="../img/ru/tv.png" alt="Та же игра на телевизоре, с дивана." width="880" height="495" loading="lazy"></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-ru-board-png"><img src="../img/ru/board.png" alt="Стол посреди раунда: карты приходят, а комбинации исчезают." width="880" height="405" loading="eager"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-ru-tv-png"><img src="../img/ru/tv.png" alt="Та же игра на телевизоре, с дивана." width="880" height="495" loading="lazy"></button></figure>
   </div>
+  <div popover id="zoom-img-ru-board-png" class="zoom-view" style="--ratio: 2.1728; --most: 1760px"><button class="zoom-shut" type="button" popovertarget="zoom-img-ru-board-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/ru/board.png" alt="" width="880" height="405" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Стол посреди раунда: карты приходят, а комбинации исчезают.</figcaption></div>
+  <div popover id="zoom-img-ru-tv-png" class="zoom-view" style="--ratio: 1.7778; --most: 1760px"><button class="zoom-shut" type="button" popovertarget="zoom-img-ru-tv-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/ru/tv.png" alt="" width="880" height="495" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Та же игра на телевизоре, с дивана.</figcaption></div>
 
   <div class="stats">
     <div><b>5</b><span>платформ</span></div>
@@ -117,12 +119,13 @@
   <h2>Полноценная игра на запястье</h2>
   <p>SpeedyCards на Apple Watch — не пульт, а вся игра, созданная для быстрого взгляда. Поле занимает весь экран, каждый ход мягко касается запястья, а играть можно без iPhone поблизости.</p>
   <div class="showcase">
-    <img src="../img/ru/watch.png" alt="Поле на Apple Watch, рядом — целевое число, время и оставшиеся карты." width="569" height="780" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-ru-watch-png"><img src="../img/ru/watch.png" alt="Поле на Apple Watch, рядом — целевое число, время и оставшиеся карты." width="569" height="780" loading="lazy"></button>
     <div>
       <h3>Начать бесплатно</h3>
       <p>«Классика» и «Испытание дня» на часах бесплатны. Каждый другой режим даёт три бесплатные партии; Apple Watch Edition или SpeedyCards Pro открывает все.</p>
     </div>
   </div>
+  <div popover id="zoom-img-ru-watch-png" class="zoom-view" style="--ratio: 0.7295; --most: 1138px"><button class="zoom-shut" type="button" popovertarget="zoom-img-ru-watch-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/ru/watch.png" alt="" width="569" height="780" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Поле на Apple Watch, рядом — целевое число, время и оставшиеся карты.</figcaption></div>
   <div class="cards">
     <div class="card">
       <h3>Создано для запястья</h3>
@@ -143,12 +146,13 @@
   <h2>Пять платформ, одна игра</h2>
   <p>Одна игра на каждом устройстве Apple. Pro покупается один раз для iPhone, iPad и Apple Watch вместе; Mac и Apple TV — отдельные приложения со своей покупкой. Серии и прогресс следуют за вами через ваш iCloud, который мы не можем читать.</p>
   <div class="showcase">
-    <img src="../img/ru/phone.png" alt="Стол на телефоне, вертикально." width="560" height="1216" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-ru-phone-png"><img src="../img/ru/phone.png" alt="Стол на телефоне, вертикально." width="560" height="1216" loading="lazy"></button>
     <div>
       <h3>Стол — где бы вы ни были</h3>
       <p>Вертикально на телефоне, горизонтально на Mac, через комнату на телевизоре и одним взглядом на часах. Тот же расклад, те же правила, тот же подход к вашему рекорду.</p>
     </div>
   </div>
+  <div popover id="zoom-img-ru-phone-png" class="zoom-view" style="--ratio: 0.4605; --most: 1120px"><button class="zoom-shut" type="button" popovertarget="zoom-img-ru-phone-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/ru/phone.png" alt="" width="560" height="1216" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Стол на телефоне, вертикально.</figcaption></div>
 </section>
 
 <section>
@@ -171,6 +175,7 @@
 
 </div>
 </main>
+<span hidden id="zoom-close">Закрыть</span>
 
 <footer class="site">
   <div class="wrap">

@@ -56,9 +56,11 @@
   </div>
 
   <div class="shots wide">
-    <figure><img src="../img/de/board.png" alt="Ein Feld mitten in der Runde, während Karten nachkommen und Kombinationen verschwinden." width="880" height="405" loading="eager"></figure>
-    <figure><img src="../img/de/tv.png" alt="Dasselbe Spiel auf dem Fernseher, vom Sofa aus." width="880" height="495" loading="lazy"></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-de-board-png"><img src="../img/de/board.png" alt="Ein Feld mitten in der Runde, während Karten nachkommen und Kombinationen verschwinden." width="880" height="405" loading="eager"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-de-tv-png"><img src="../img/de/tv.png" alt="Dasselbe Spiel auf dem Fernseher, vom Sofa aus." width="880" height="495" loading="lazy"></button></figure>
   </div>
+  <div popover id="zoom-img-de-board-png" class="zoom-view" style="--ratio: 2.1728; --most: 1760px"><button class="zoom-shut" type="button" popovertarget="zoom-img-de-board-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/de/board.png" alt="" width="880" height="405" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Ein Feld mitten in der Runde, während Karten nachkommen und Kombinationen verschwinden.</figcaption></div>
+  <div popover id="zoom-img-de-tv-png" class="zoom-view" style="--ratio: 1.7778; --most: 1760px"><button class="zoom-shut" type="button" popovertarget="zoom-img-de-tv-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/de/tv.png" alt="" width="880" height="495" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Dasselbe Spiel auf dem Fernseher, vom Sofa aus.</figcaption></div>
 
   <div class="stats">
     <div><b>5</b><span>Plattformen</span></div>
@@ -117,12 +119,13 @@
   <h2>Ein ganzes Spiel am Handgelenk</h2>
   <p>SpeedyCards auf der Apple Watch ist keine Fernbedienung, sondern das ganze Spiel, gemacht für einen Blick. Das Spielfeld füllt den Bildschirm, jeder Zug tippt auf Ihr Handgelenk, und es läuft auch ohne iPhone in der Nähe.</p>
   <div class="showcase">
-    <img src="../img/de/watch.png" alt="Das Spielfeld auf der Apple Watch, daneben Zielzahl, Zeit und verbleibende Karten." width="569" height="780" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-de-watch-png"><img src="../img/de/watch.png" alt="Das Spielfeld auf der Apple Watch, daneben Zielzahl, Zeit und verbleibende Karten." width="569" height="780" loading="lazy"></button>
     <div>
       <h3>Kostenlos starten</h3>
       <p>Klassisch und die Tägliche Challenge sind auf der Uhr kostenlos. Jeder andere Modus bietet drei Gratisrunden; die Apple Watch Edition oder SpeedyCards Pro schaltet alle frei.</p>
     </div>
   </div>
+  <div popover id="zoom-img-de-watch-png" class="zoom-view" style="--ratio: 0.7295; --most: 1138px"><button class="zoom-shut" type="button" popovertarget="zoom-img-de-watch-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/de/watch.png" alt="" width="569" height="780" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Das Spielfeld auf der Apple Watch, daneben Zielzahl, Zeit und verbleibende Karten.</figcaption></div>
   <div class="cards">
     <div class="card">
       <h3>Für das Handgelenk gebaut</h3>
@@ -143,12 +146,13 @@
   <h2>Fünf Plattformen, ein Spiel</h2>
   <p>Ein Spiel auf jedem Apple-Gerät. Pro kaufen Sie einmal für iPhone, iPad und Apple Watch zusammen; Mac und Apple TV sind separate Apps mit jeweils eigenem Kauf. Serien und Fortschritt folgen Ihnen über Ihre eigene iCloud, die wir nicht lesen können.</p>
   <div class="showcase">
-    <img src="../img/de/phone.png" alt="Das Feld auf einem Telefon, im Hochformat." width="560" height="1216" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-de-phone-png"><img src="../img/de/phone.png" alt="Das Feld auf einem Telefon, im Hochformat." width="560" height="1216" loading="lazy"></button>
     <div>
       <h3>Das Feld, wo immer Sie sind</h3>
       <p>Hochkant auf dem Telefon, quer auf dem Mac, quer durchs Zimmer auf dem Fernseher und ein Blick auf der Uhr. Dasselbe Blatt, dieselben Regeln, derselbe Anlauf auf Ihren Rekord.</p>
     </div>
   </div>
+  <div popover id="zoom-img-de-phone-png" class="zoom-view" style="--ratio: 0.4605; --most: 1120px"><button class="zoom-shut" type="button" popovertarget="zoom-img-de-phone-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/de/phone.png" alt="" width="560" height="1216" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Das Feld auf einem Telefon, im Hochformat.</figcaption></div>
 </section>
 
 <section>
@@ -171,6 +175,7 @@
 
 </div>
 </main>
+<span hidden id="zoom-close">Schließen</span>
 
 <footer class="site">
   <div class="wrap">

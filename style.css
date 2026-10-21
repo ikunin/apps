@@ -369,7 +369,8 @@ h1 {
 .shots figure:last-child  img  { transform: rotateY(-16deg) translateZ(-3rem) translateY(1.25rem); }
 .shots figure:nth-child(2) img { width: min(16.5rem, 30vw); }
 
-.shots figure:hover img { transform: rotateY(0) translateZ(0) translateY(-0.4rem); }
+.shots figure:hover img,
+.shots .zoom:focus-visible img { transform: rotateY(0) translateZ(0) translateY(-0.4rem); }
 
 /* Landscape screenshots. A fan of three wide images is a stack of letterboxes
    with nothing to see; they want width instead, one under the other on a
@@ -382,7 +383,8 @@ h1 {
 .shots.wide figure:last-child img,
 .shots.wide figure:nth-child(2) img { transform: none; width: 100%; }
 
-.shots.wide figure:hover img { transform: translateY(-0.4rem); }
+.shots.wide figure:hover img,
+.shots.wide .zoom:focus-visible img { transform: translateY(-0.4rem); }
 
 @media (min-width: 46rem) {
   .shots.wide { grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); }
@@ -412,6 +414,23 @@ h1 {
 }
 
 .stats span { font-size: 0.88rem; color: var(--dim); }
+
+/* --- film (blocks.film) --------------------------------------------------- */
+
+.film { margin: clamp(2.5rem, 6vw, 4rem) auto 0; max-width: 46rem; text-align: center; }
+.film.portrait { max-width: min(22rem, 82vw); }
+
+.film video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--surface);
+  border-radius: clamp(1rem, 2.4vw, 1.9rem);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.65), 0 0 0 0.5px rgba(255, 255, 255, 0.06);
+}
+
+.film figcaption { margin-top: 0.75rem; font-size: 0.8rem; color: var(--dim); }
 
 /* --- sections ------------------------------------------------------------ */
 
@@ -650,6 +669,89 @@ td em {
 .legal-toc { padding-left: 1.2rem; }
 .legal-toc li { margin: 0.3rem 0; color: var(--dim); }
 @media (max-width: 34rem) { .legal-part { padding: 0.25rem 1rem 1.25rem; } }
+/* --- a screenshot, full size (blocks.zoomable) ----------------------------- */
+
+/* No script: the thumbnail is a button naming a popover, and the browser owns
+   the top layer, Esc, a tap outside and focus. The scrim is dark in both
+   themes, as a photo viewer's is, so the caption is light in both. */
+.zoom {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: zoom-in;
+  border-radius: clamp(1rem, 2.4vw, 1.9rem);
+}
+.zoom:focus-visible, .zoom-shut:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+/* Hidden first, shown only by a selector an old browser cannot parse, so a
+   Safari without popovers sees today's page and nothing more. */
+.zoom-view { display: none; }
+.zoom-view:popover-open {
+  display: grid;
+  justify-items: center;
+  gap: 0.8rem;
+  margin: auto;
+  padding: 0;
+  border: 0;
+  background: none;
+  max-width: none;
+  max-height: none;
+  overflow: visible;
+  transition: opacity 0.25s var(--ease), transform 0.35s var(--ease),
+              display 0.35s allow-discrete, overlay 0.35s allow-discrete;
+}
+@starting-style { .zoom-view:popover-open { opacity: 0; transform: scale(0.94); } }
+.zoom-view::backdrop { background: rgba(4, 3, 9, 0.86); backdrop-filter: blur(6px); }
+html:has(.zoom-view:popover-open) { overflow: hidden; }
+
+.zoom-shut { position: relative; padding: 0; border: 0; background: none; cursor: zoom-out; border-radius: clamp(1rem, 2.5vw, 1.8rem); }
+
+/* As large as the screen allows, by the shot's own shape (--ratio), and never
+   past the pixels in the file (--most). */
+.zoom-view img {
+  display: block;
+  height: auto;
+  width: min(94vw, calc(84dvh * var(--ratio)), var(--most));
+  border-radius: clamp(1rem, 2.5vw, 1.8rem);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #000;
+  box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.6);
+}
+
+.zoom-x {
+  position: absolute;
+  top: -0.9rem;
+  right: -0.9rem;
+  width: 2.3rem;
+  height: 2.3rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #f6f4ff;
+  color: #07060d;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1;
+  box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.4);
+}
+
+.zoom-view figcaption {
+  max-width: min(36rem, 90vw);
+  margin: 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #e9e6f5;
+  text-wrap: balance;
+}
+
+/* On a phone the image is as wide as the screen; the × moves inside it. */
+@media (max-width: 34rem) {
+  .zoom-x { top: 0.5rem; right: 0.5rem; }
+}
+
 .legal section { padding-top: clamp(2rem, 5vw, 3rem); }
 
 /* --- a screen beside its explanation -------------------------------------- */
@@ -677,7 +779,7 @@ td em {
 /* One column once the phone would be too narrow to read. */
 @media (max-width: 46rem) {
   .showcase { grid-template-columns: 1fr; justify-items: center; }
-  .showcase img { max-width: 15rem; }
+  .showcase .zoom { max-width: 15rem; }
 }
 
 /* --- the app lockup ------------------------------------------------------ */

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SpeedyCards — Think Fast.</title>
+<title>SpeedyCards — Daily Speed Patience Challenge</title>
 <meta name="description" content="SpeedyCards is a fast, elegant solitaire-style card race for iPhone, iPad, Mac, Apple TV, and Apple Watch. Clear the board by spotting combos — a lone 10, a pair summing to ten, or">
 <meta name="color-scheme" content="dark light">
 <meta name="theme-color" content="#101820">
@@ -48,7 +48,7 @@
     <img src="img/logo.png" alt="" width="942" height="390" loading="eager">
   </div>
   <p class="eyebrow">iPhone · iPad · Mac · Apple TV · Apple Watch</p>
-  <h1>Think Fast.<br><span class="glow">Play Faster.</span></h1>
+  <h1><span class="glow">Daily Speed Patience Challenge</span></h1>
   <p class="lead">SpeedyCards is a fast, elegant solitaire-style card race for iPhone, iPad, Mac, Apple TV, and Apple Watch. Clear the board by spotting combos — a lone 10, a pair summing to ten, or Jack-Queen-King. Each clear deals fresh cards, so you work through the whole deck as fast as you can. Race the clock, or a friend on the identical deal.</p>
   <div class="actions">
     <a class="button" href="#how">How it plays</a>
@@ -56,9 +56,11 @@
   </div>
 
   <div class="shots wide">
-    <figure><img src="img/en/board.png" alt="A board mid-round, with cards dealing in as combos are cleared." width="880" height="405" loading="eager"></figure>
-    <figure><img src="img/en/tv.png" alt="The same game on a television, played from the couch." width="880" height="495" loading="lazy"></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-en-board-png"><img src="img/en/board.png" alt="A board mid-round, with cards dealing in as combos are cleared." width="880" height="405" loading="eager"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-en-tv-png"><img src="img/en/tv.png" alt="The same game on a television, played from the couch." width="880" height="495" loading="lazy"></button></figure>
   </div>
+  <div popover id="zoom-img-en-board-png" class="zoom-view" style="--ratio: 2.1728; --most: 1760px"><button class="zoom-shut" type="button" popovertarget="zoom-img-en-board-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="img/en/board.png" alt="" width="880" height="405" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>A board mid-round, with cards dealing in as combos are cleared.</figcaption></div>
+  <div popover id="zoom-img-en-tv-png" class="zoom-view" style="--ratio: 1.7778; --most: 1760px"><button class="zoom-shut" type="button" popovertarget="zoom-img-en-tv-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="img/en/tv.png" alt="" width="880" height="495" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>The same game on a television, played from the couch.</figcaption></div>
 
   <div class="stats">
     <div><b>5</b><span>platforms</span></div>
@@ -117,12 +119,13 @@
   <h2>A full game on your wrist</h2>
   <p>SpeedyCards on Apple Watch is not a remote — it is the whole game, made for a glance. The board fills the screen, every move taps your wrist, and it plays without your iPhone nearby.</p>
   <div class="showcase">
-    <img src="img/en/watch.png" alt="The board on Apple Watch, with the target number, the time and the cards left beside it." width="569" height="780" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-en-watch-png"><img src="img/en/watch.png" alt="The board on Apple Watch, with the target number, the time and the cards left beside it." width="569" height="780" loading="lazy"></button>
     <div>
       <h3>Free to start</h3>
       <p>Classic and the Daily Challenge are free on the watch. Every other mode gives you three free plays; the Apple Watch Edition, or SpeedyCards Pro, unlocks them all.</p>
     </div>
   </div>
+  <div popover id="zoom-img-en-watch-png" class="zoom-view" style="--ratio: 0.7295; --most: 1138px"><button class="zoom-shut" type="button" popovertarget="zoom-img-en-watch-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="img/en/watch.png" alt="" width="569" height="780" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>The board on Apple Watch, with the target number, the time and the cards left beside it.</figcaption></div>
   <div class="cards">
     <div class="card">
       <h3>Built for the wrist</h3>
@@ -143,12 +146,13 @@
   <h2>Five platforms, one game</h2>
   <p>One game on every Apple device. Pro is bought once for iPhone, iPad and Apple Watch together; Mac and Apple TV are separate apps, each with its own purchase. Streaks and progress follow you through your own iCloud, which we cannot read.</p>
   <div class="showcase">
-    <img src="img/en/phone.png" alt="The board on a phone, held in portrait." width="560" height="1216" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-en-phone-png"><img src="img/en/phone.png" alt="The board on a phone, held in portrait." width="560" height="1216" loading="lazy"></button>
     <div>
       <h3>The board, wherever you are</h3>
       <p>Portrait on a phone, landscape on a Mac, across the room on a television, and a glance on the watch. Same deal, same rules, same run at your record.</p>
     </div>
   </div>
+  <div popover id="zoom-img-en-phone-png" class="zoom-view" style="--ratio: 0.4605; --most: 1120px"><button class="zoom-shut" type="button" popovertarget="zoom-img-en-phone-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="img/en/phone.png" alt="" width="560" height="1216" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>The board on a phone, held in portrait.</figcaption></div>
 </section>
 
 <section>
@@ -171,6 +175,7 @@
 
 </div>
 </main>
+<span hidden id="zoom-close">Close</span>
 
 <footer class="site">
   <div class="wrap">

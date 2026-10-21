@@ -56,9 +56,11 @@
   </div>
 
   <div class="shots wide">
-    <figure><img src="../img/es/board.png" alt="Un tablero a media ronda, con cartas entrando mientras se despejan combinaciones." width="880" height="405" loading="eager"></figure>
-    <figure><img src="../img/es/tv.png" alt="El mismo juego en un televisor, jugado desde el sofá." width="880" height="495" loading="lazy"></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-es-board-png"><img src="../img/es/board.png" alt="Un tablero a media ronda, con cartas entrando mientras se despejan combinaciones." width="880" height="405" loading="eager"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-es-tv-png"><img src="../img/es/tv.png" alt="El mismo juego en un televisor, jugado desde el sofá." width="880" height="495" loading="lazy"></button></figure>
   </div>
+  <div popover id="zoom-img-es-board-png" class="zoom-view" style="--ratio: 2.1728; --most: 1760px"><button class="zoom-shut" type="button" popovertarget="zoom-img-es-board-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/es/board.png" alt="" width="880" height="405" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Un tablero a media ronda, con cartas entrando mientras se despejan combinaciones.</figcaption></div>
+  <div popover id="zoom-img-es-tv-png" class="zoom-view" style="--ratio: 1.7778; --most: 1760px"><button class="zoom-shut" type="button" popovertarget="zoom-img-es-tv-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/es/tv.png" alt="" width="880" height="495" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>El mismo juego en un televisor, jugado desde el sofá.</figcaption></div>
 
   <div class="stats">
     <div><b>5</b><span>plataformas</span></div>
@@ -117,12 +119,13 @@
   <h2>Un juego completo en tu muñeca</h2>
   <p>SpeedyCards en Apple Watch no es un mando a distancia: es el juego entero, hecho para un vistazo. El tablero llena la pantalla, cada jugada da un toque en tu muñeca y se juega sin tu iPhone cerca.</p>
   <div class="showcase">
-    <img src="../img/es/watch.png" alt="El tablero en el Apple Watch, con el objetivo, el tiempo y las cartas restantes al lado." width="569" height="780" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-es-watch-png"><img src="../img/es/watch.png" alt="El tablero en el Apple Watch, con el objetivo, el tiempo y las cartas restantes al lado." width="569" height="780" loading="lazy"></button>
     <div>
       <h3>Gratis para empezar</h3>
       <p>Clásico y el Reto diario son gratis en el reloj. Cada otro modo ofrece tres partidas gratis; Apple Watch Edition, o SpeedyCards Pro, los desbloquea todos.</p>
     </div>
   </div>
+  <div popover id="zoom-img-es-watch-png" class="zoom-view" style="--ratio: 0.7295; --most: 1138px"><button class="zoom-shut" type="button" popovertarget="zoom-img-es-watch-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/es/watch.png" alt="" width="569" height="780" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>El tablero en el Apple Watch, con el objetivo, el tiempo y las cartas restantes al lado.</figcaption></div>
   <div class="cards">
     <div class="card">
       <h3>Hecho para la muñeca</h3>
@@ -143,12 +146,13 @@
   <h2>Cinco plataformas, un juego</h2>
   <p>Un solo juego en cada dispositivo Apple. Pro se compra una vez para iPhone, iPad y Apple Watch juntos; Mac y Apple TV son apps independientes, cada una con su propia compra. Las rachas y el progreso te siguen por tu propio iCloud, que nosotros no podemos leer.</p>
   <div class="showcase">
-    <img src="../img/es/phone.png" alt="El tablero en un teléfono, en vertical." width="560" height="1216" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-es-phone-png"><img src="../img/es/phone.png" alt="El tablero en un teléfono, en vertical." width="560" height="1216" loading="lazy"></button>
     <div>
       <h3>El tablero, estés donde estés</h3>
       <p>Vertical en el teléfono, apaisado en el Mac, al otro lado del salón en el televisor, y de un vistazo en el reloj. Mismo reparto, mismas reglas, mismo intento de batir tu récord.</p>
     </div>
   </div>
+  <div popover id="zoom-img-es-phone-png" class="zoom-view" style="--ratio: 0.4605; --most: 1120px"><button class="zoom-shut" type="button" popovertarget="zoom-img-es-phone-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/es/phone.png" alt="" width="560" height="1216" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>El tablero en un teléfono, en vertical.</figcaption></div>
 </section>
 
 <section>
@@ -171,6 +175,7 @@
 
 </div>
 </main>
+<span hidden id="zoom-close">Cerrar</span>
 
 <footer class="site">
   <div class="wrap">
