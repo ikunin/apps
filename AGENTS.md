@@ -147,6 +147,16 @@ tables need that language, and its `metadata/<locale>/` must exist. Apple's
 badge locale goes in `badge.LOCALES` — theirs is spelled differently from App
 Store Connect's — and `python3 refresh_badges.py` fetches the artwork.
 
+### Screenshots open full size
+
+Every image `blocks.shots()` and `blocks.showcase()` draw is a button that
+opens it over the page, captioned with its alt text (`blocks.zoomable`). It is
+the browser's `popover` and CSS only — **never add a script for it**. Every
+app's privacy policy says its pages embed no scripts, in eleven languages; a
+lightbox library would make that false on every site. That is also why there
+is no previous/next: done properly, it needs one. The close button's word is
+`close` in `languages.py`, written once per page by `Site.document`.
+
 ### Put an app on the store
 
 One line: `store="https://apps.apple.com/app/id<n>"` in that app's

@@ -11,6 +11,11 @@ or a link, which is the same bargain `legal.py` makes.
 """
 
 import html
+import re
+
+#: The id of the hidden word that names every enlarged view's close button.
+#: `Site.document` writes it, in the page's language, on a page that has one.
+ZOOM_CLOSE = "zoom-close"
 
 
 def button(label, href, ghost=False):
@@ -24,20 +29,46 @@ def actions(buttons, *, style=""):
     return f'  <div class="actions"{attr}>\n{inner}  </div>\n'
 
 
+def zoomable(src, alt, w, h, loading):
+    """A screenshot that opens full size over the page: (thumbnail, view).
+
+    No script — every app's privacy policy says its pages embed none. The
+    thumbnail is a button naming a popover, and the browser does the rest: the
+    top layer, Esc, a tap outside, focus going back. A browser without
+    popovers sees the thumbnail and nothing else (the stylesheet hides the
+    view). The view reuses the same file, which the apps ship at twice the
+    size it is drawn, so it is never let past twice its drawn width; the alt
+    text becomes its caption, and the enlarged copy is `alt=""` so a screen
+    reader is told once.
+    """
+    ident = "zoom-" + re.sub(r"[^a-z0-9]+", "-", src.lower()).strip("-")
+    alt = html.escape(alt)
+    thumb = (f'<button class="zoom" type="button" popovertarget="{ident}">'
+             f'<img src="{src}" alt="{alt}" width="{w}" height="{h}" '
+             f'loading="{loading}"></button>')
+    view = (f'  <div popover id="{ident}" class="zoom-view" '
+            f'style="--ratio: {w / h:.4f}; --most: {2 * w}px">'
+            f'<button class="zoom-shut" type="button" popovertarget="{ident}" '
+            f'popovertargetaction="hide" aria-labelledby="{ZOOM_CLOSE}">'
+            f'<img src="{src}" alt="" width="{w}" height="{h}" loading="lazy">'
+            '<span class="zoom-x" aria-hidden="true">×</span></button>'
+            f"<figcaption>{alt}</figcaption></div>\n")
+    return thumb, view
+
+
 def shots(images, *, wide=False):
     """The screenshots under the hero. Each: (src, alt, w, h, loading).
 
     Portrait shots are fanned, which reads as a phone. `wide=True` lays
     landscape shots out as a grid instead — three fanned letterboxes are a
-    stack of slivers with nothing visible in them.
+    stack of slivers with nothing visible in them. Each opens full size
+    (`zoomable`).
     """
-    figures = "".join(
-        f'    <figure><img src="{src}" alt="{html.escape(alt)}" '
-        f'width="{w}" height="{h}" loading="{loading}"></figure>\n'
-        for src, alt, w, h, loading in images
-    )
+    pairs = [zoomable(*image) for image in images]
+    figures = "".join(f"    <figure>{thumb}</figure>\n" for thumb, _ in pairs)
     kind = "shots wide" if wide else "shots"
-    return f'  <div class="{kind}">\n{figures}  </div>\n'
+    return (f'  <div class="{kind}">\n{figures}  </div>\n'
+            + "".join(view for _, view in pairs))
 
 
 def stats(pairs):
@@ -99,14 +130,14 @@ def cards(entries):
 
 
 def showcase(*, image, heading, paragraphs):
-    """A screenshot beside prose. `image` is (src, alt, w, h)."""
-    src, alt, w, h = image
+    """A screenshot beside prose. `image` is (src, alt, w, h); it opens full
+    size (`zoomable`)."""
+    thumb, view = zoomable(*image, "lazy")
     body = "".join(f"      {para}\n" for para in paragraphs)
     return ('  <div class="showcase">\n'
-            f'    <img src="{src}" alt="{html.escape(alt)}" '
-            f'width="{w}" height="{h}" loading="lazy">\n'
+            f"    {thumb}\n"
             f"    <div>\n      <h3>{html.escape(heading)}</h3>\n{body}    </div>\n"
-            "  </div>\n")
+            "  </div>\n" + view)
 
 
 def film(*, src, poster, label, width, height, credit=None):

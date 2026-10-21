@@ -8,6 +8,7 @@ anywhere else in the kit.
 import os
 from dataclasses import dataclass, field
 
+from .blocks import ZOOM_CLOSE
 from .chrome import Chrome, plain
 from .languages import LANGUAGES
 
@@ -77,6 +78,12 @@ class Site:
         # A page that exists in one language declares no alternates, and must
         # not leave a blank line in <head> where they would have been.
         alternates = f"{alternates}\n" if alternates else ""
+        # The word every enlarged screenshot's close button is labelled by,
+        # once per page and only on a page that has one, so the others stay
+        # byte-identical (blocks.zoomable).
+        if f'aria-labelledby="{ZOOM_CLOSE}"' in main:
+            word = LANGUAGES[language].nav["close"]
+            main += f'<span hidden id="{ZOOM_CLOSE}">{word}</span>\n'
         icons = ""
         if self.favicon:
             icons += (f'<link rel="icon" href="{root}{self.favicon}" '

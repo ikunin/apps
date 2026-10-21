@@ -20,7 +20,7 @@ from appsite import (Chrome, Page, Site, assets, badge, impressum, languages,
                      portfolio)
 # Not `check`: this file's own assertion helper owns that name.
 from appsite import check as site_check
-from appsite.blocks import cards, film, hero, landing, section
+from appsite.blocks import cards, film, hero, landing, section, shots, showcase
 from appsite.legal import (bullets, heading, mail, mail_href, muted, note, p,
                            render)
 
@@ -800,6 +800,41 @@ check("the credit is markup under the film, and absent when not given",
       '<figcaption>Music: <a href="https://ende.app">ende.app</a></figcaption>' in FILM
       and "figcaption" not in film(src="a.mp4", poster="a.jpg", label="x", width=1, height=1))
 check("the stylesheet draws it", ".film video" in pathlib.Path(assets.STYLESHEET).read_text())
+
+# --- a screenshot opens full size (blocks.zoomable) ---------------------------
+
+SHOTS = shots([("img/a.jpg", 'The "a" screen', 440, 956, "eager"),
+               ("img/sub/b.jpg", "B", 440, 956, "lazy")])
+SHOWCASE = showcase(image=("img/w.jpg", "W", 480, 360), heading="H", paragraphs=["<p>x</p>"])
+check("each screenshot is a button that opens its own enlarged view",
+      '<button class="zoom" type="button" popovertarget="zoom-img-a-jpg">' in SHOTS
+      and '<div popover id="zoom-img-a-jpg" class="zoom-view"' in SHOTS
+      and 'popovertarget="zoom-img-sub-b-jpg"' in SHOTS
+      and '<div popover id="zoom-img-sub-b-jpg"' in SHOTS)
+check("the thumbnail keeps its alt, size and loading; the view repeats the file, lazily",
+      '<img src="img/a.jpg" alt="The &quot;a&quot; screen" width="440" height="956" loading="eager">' in SHOTS
+      and '<img src="img/a.jpg" alt="" width="440" height="956" loading="lazy">' in SHOTS)
+check("the alt text is the caption, said once to a screen reader",
+      "<figcaption>The &quot;a&quot; screen</figcaption>" in SHOTS)
+check("the view is sized by its shape and never past twice its drawn width",
+      'style="--ratio: 0.4603; --most: 880px"' in SHOTS
+      and 'style="--ratio: 1.3333; --most: 960px"' in SHOWCASE)
+check("the showcase image zooms the same way",
+      'popovertarget="zoom-img-w-jpg"' in SHOWCASE and 'id="zoom-img-w-jpg"' in SHOWCASE)
+check("the enlarged view closes itself, labelled by the page's own word",
+      'popovertarget="zoom-img-a-jpg" popovertargetaction="hide" aria-labelledby="zoom-close"' in SHOTS)
+check("no script: the privacy policies promise none", "<script" not in SHOTS + SHOWCASE)
+check("every language has a word for closing it",
+      all(language.nav.get("close") for language in languages.LANGUAGES.values()))
+ZOOMED = SITE.document("de", "index.html", title="t", description="d", main=SHOTS)
+check("a page with a zoom carries the close label in its own language",
+      '<span hidden id="zoom-close">Schließen</span>' in ZOOMED)
+check("a page without one is unchanged",
+      "zoom-close" not in SITE.document("de", "index.html", title="t", description="d",
+                                        main="<main></main>"))
+STYLE = pathlib.Path(assets.STYLESHEET).read_text()
+check("an old browser never sees the views: hidden unless the popover is open",
+      ".zoom-view { display: none; }" in STYLE and ".zoom-view:popover-open" in STYLE)
 
 print()
 if failures:
