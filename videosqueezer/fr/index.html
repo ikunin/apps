@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VideoSqueezer — Plus d’espace, même qualité</title>
+<title>VideoSqueezer — Réduire vos vidéos, même en 4K</title>
 <meta name="description" content="Votre iPhone déborde de vidéos. VideoSqueezer repère les clips qui prennent le plus de place, les rend considérablement plus légers tout en gardant l’image telle que vous l’avez fi">
 <meta name="color-scheme" content="dark light">
 <meta name="theme-color" content="#0B0A12">
@@ -44,7 +44,7 @@
 
 <div class="hero wrap">
   <p class="eyebrow">Compresseur vidéo pour iPhone, iPad et Mac</p>
-  <h1>Plus d’espace,<br><span class="glow">même qualité</span></h1>
+  <h1>Réduire vos vidéos,<br><span class="glow">même en 4K</span></h1>
   <p class="lead">Votre iPhone déborde de vidéos. VideoSqueezer repère les clips qui prennent le plus de place, les rend considérablement plus légers tout en gardant l’image telle que vous l’avez filmée, et vous rend l’espace — le tout sur votre appareil.</p>
   <div class="actions">
     <a class="button" href="#how">Comment ça marche</a>
@@ -52,10 +52,13 @@
   </div>
 
   <div class="shots">
-    <figure><img src="../img/forecast.png" alt="La prévision de taille d’une vidéo : sa taille actuelle, la nouvelle taille et la fourchette autour." width="440" height="956" loading="lazy"></figure>
-    <figure><img src="../img/radar.png" alt="Radar d’espace : une liste classée de vidéos, chacune indiquant l’espace que sa compression libérerait." width="440" height="956" loading="eager"></figure>
-    <figure><img src="../img/queue.png" alt="La file d’attente : plusieurs vidéos en cours de compression, avec la progression globale et le temps restant." width="440" height="956" loading="lazy"></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-forecast-png"><img src="../img/forecast.png" alt="La prévision de taille d’une vidéo : sa taille actuelle, la nouvelle taille et la fourchette autour." width="440" height="956" loading="lazy"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-radar-png"><img src="../img/radar.png" alt="Radar d’espace : une liste classée de vidéos, chacune indiquant l’espace que sa compression libérerait." width="440" height="956" loading="eager"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-queue-png"><img src="../img/queue.png" alt="La file d’attente : plusieurs vidéos en cours de compression, avec la progression globale et le temps restant." width="440" height="956" loading="lazy"></button></figure>
   </div>
+  <div popover id="zoom-img-forecast-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-forecast-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/forecast.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>La prévision de taille d’une vidéo : sa taille actuelle, la nouvelle taille et la fourchette autour.</figcaption></div>
+  <div popover id="zoom-img-radar-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-radar-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/radar.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Radar d’espace : une liste classée de vidéos, chacune indiquant l’espace que sa compression libérerait.</figcaption></div>
+  <div popover id="zoom-img-queue-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-queue-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/queue.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>La file d’attente : plusieurs vidéos en cours de compression, avec la progression globale et le temps restant.</figcaption></div>
 
   <div class="stats">
     <div><b>0</b><span>envoi</span></div>
@@ -88,36 +91,39 @@
 <section>
   <h2>Des fichiers plus légers, qui ressemblent toujours à vos vidéos</h2>
   <div class="showcase">
-    <img src="../img/compare.png" alt="Avant et après : l’image originale et l’image compressée côte à côte, séparées par un curseur à faire glisser." width="440" height="956" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-compare-png"><img src="../img/compare.png" alt="Avant et après : l’image originale et l’image compressée côte à côte, séparées par un curseur à faire glisser." width="440" height="956" loading="lazy"></button>
     <div>
       <h3>Jugez-en par vous-même</h3>
       <p>L’essentiel de ce qui rend une vidéo de téléphone si lourde, ce sont des données que vous ne verrez jamais. VideoSqueezer utilise le HEVC, un format efficace, conserve la résolution et la fréquence d’images, et s’adapte à chaque clip, car un coucher de soleil et un match de foot ne se compressent pas du tout de la même façon.</p>
       <p>Ne nous croyez pas sur parole. Faites glisser la séparation sur la même image, maintenez pour agrandir à l’échelle réelle des pixels, et décidez avant qu’un seul original ne soit touché.</p>
     </div>
   </div>
+  <div popover id="zoom-img-compare-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-compare-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/compare.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Avant et après : l’image originale et l’image compressée côte à côte, séparées par un curseur à faire glisser.</figcaption></div>
 </section>
 
 <section>
   <h2>De l’espace en plus, sans crainte</h2>
   <div class="showcase">
-    <img src="../img/freed.png" alt="Historique : l’espace réellement récupéré, avec les originaux qu’on peut encore remettre en place." width="440" height="956" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-freed-png"><img src="../img/freed.png" alt="Historique : l’espace réellement récupéré, avec les originaux qu’on peut encore remettre en place." width="440" height="956" loading="lazy"></button>
     <div>
       <h3>Rien n’est perdu pour de bon</h3>
       <p>Les apps de nettoyage adorent les gros boutons rouges « Supprimer ». Pas VideoSqueezer. Les originaux de Photos attendent 30 jours dans Supprimés récemment ; ceux de Fichiers sont conservés là où vous pouvez les remettre en place.</p>
       <p>Et le chiffre affiché est honnête : l’espace réellement libéré est séparé de celui que vous pourriez seulement libérer.</p>
     </div>
   </div>
+  <div popover id="zoom-img-freed-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-freed-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/freed.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Historique : l’espace réellement récupéré, avec les originaux qu’on peut encore remettre en place.</figcaption></div>
 </section>
 
 <section>
   <h2>Conçu pour le grand ménage</h2>
   <div class="showcase">
-    <img src="../img/crop.png" alt="Recadrage d’une vidéo paysage en format portrait 9:16." width="440" height="956" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-crop-png"><img src="../img/crop.png" alt="Recadrage d’une vidéo paysage en format portrait 9:16." width="440" height="956" loading="lazy"></button>
     <div>
       <h3>Un cadrage pour chaque écran</h3>
       <p>Coupez ce dont vous n’avez pas besoin, sans rien perdre en qualité, et recadrez en 1:1, 16:9, 9:16, 4:3 ou dans n’importe quelle forme, d’un simple pincement. Réglez-le une fois et appliquez-le à toutes les vidéos importées.</p>
     </div>
   </div>
+  <div popover id="zoom-img-crop-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-crop-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/crop.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Recadrage d’une vidéo paysage en format portrait 9:16.</figcaption></div>
   <div class="cards">
     <div class="card">
       <h3>Laissez tourner</h3>
@@ -206,6 +212,7 @@
 
 </div>
 </main>
+<span hidden id="zoom-close">Fermer</span>
 
 <footer class="site">
   <div class="wrap">

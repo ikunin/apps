@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VideoSqueezer — Free up storage, keep quality</title>
+<title>VideoSqueezer — Reduce Size, Batch Resize 4K</title>
 <meta name="description" content="Your iPhone is full of video. VideoSqueezer finds the clips taking up the most space, makes them dramatically smaller while keeping them looking the way you shot them, and gives yo">
 <meta name="color-scheme" content="dark light">
 <meta name="theme-color" content="#0B0A12">
@@ -44,7 +44,7 @@
 
 <div class="hero wrap">
   <p class="eyebrow">Video compressor for iPhone, iPad and Mac</p>
-  <h1>Free up storage,<br><span class="glow">keep quality</span></h1>
+  <h1>Reduce Size,<br><span class="glow">Batch Resize 4K</span></h1>
   <p class="lead">Your iPhone is full of video. VideoSqueezer finds the clips taking up the most space, makes them dramatically smaller while keeping them looking the way you shot them, and gives you the space back — all on your device.</p>
   <div class="actions">
     <a class="button" href="#how">See how it works</a>
@@ -52,10 +52,13 @@
   </div>
 
   <div class="shots">
-    <figure><img src="img/forecast.png" alt="The size forecast for a video: its current size, the new size, and the range around it." width="440" height="956" loading="lazy"></figure>
-    <figure><img src="img/radar.png" alt="Space Radar: a ranked list of videos, each showing how much space compressing it would free." width="440" height="956" loading="eager"></figure>
-    <figure><img src="img/queue.png" alt="The queue: several videos compressing, with overall progress and time left." width="440" height="956" loading="lazy"></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-forecast-png"><img src="img/forecast.png" alt="The size forecast for a video: its current size, the new size, and the range around it." width="440" height="956" loading="lazy"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-radar-png"><img src="img/radar.png" alt="Space Radar: a ranked list of videos, each showing how much space compressing it would free." width="440" height="956" loading="eager"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-queue-png"><img src="img/queue.png" alt="The queue: several videos compressing, with overall progress and time left." width="440" height="956" loading="lazy"></button></figure>
   </div>
+  <div popover id="zoom-img-forecast-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-forecast-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="img/forecast.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>The size forecast for a video: its current size, the new size, and the range around it.</figcaption></div>
+  <div popover id="zoom-img-radar-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-radar-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="img/radar.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Space Radar: a ranked list of videos, each showing how much space compressing it would free.</figcaption></div>
+  <div popover id="zoom-img-queue-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-queue-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="img/queue.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>The queue: several videos compressing, with overall progress and time left.</figcaption></div>
 
   <div class="stats">
     <div><b>0</b><span>uploads</span></div>
@@ -88,36 +91,39 @@
 <section>
   <h2>Smaller files that still look like your videos</h2>
   <div class="showcase">
-    <img src="img/compare.png" alt="Before and after: the original and the compressed frame side by side, split by a draggable divider." width="440" height="956" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-compare-png"><img src="img/compare.png" alt="Before and after: the original and the compressed frame side by side, split by a draggable divider." width="440" height="956" loading="lazy"></button>
     <div>
       <h3>Judge it with your own eyes</h3>
       <p>Most of what makes a phone video huge is data you will never see. VideoSqueezer uses efficient HEVC, keeps the resolution and frame rate, and adapts to each clip, because a sunset and a football match compress very differently.</p>
       <p>Don&#x27;t take our word for it. Drag the split across the same frame, hold to magnify at real pixel scale, and decide before a single original is touched.</p>
     </div>
   </div>
+  <div popover id="zoom-img-compare-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-compare-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="img/compare.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Before and after: the original and the compressed frame side by side, split by a draggable divider.</figcaption></div>
 </section>
 
 <section>
   <h2>Space back, without the fear</h2>
   <div class="showcase">
-    <img src="img/freed.png" alt="History: the space actually reclaimed, with originals that can still be put back." width="440" height="956" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-freed-png"><img src="img/freed.png" alt="History: the space actually reclaimed, with originals that can still be put back." width="440" height="956" loading="lazy"></button>
     <div>
       <h3>Nothing gone for good</h3>
       <p>Cleaner apps love a big red Delete button. VideoSqueezer does not. Originals from Photos wait in Recently Deleted for 30 days; originals from Files are held where you can put them back.</p>
       <p>And the number it shows you is honest: space you actually freed is kept apart from space you merely could.</p>
     </div>
   </div>
+  <div popover id="zoom-img-freed-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-freed-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="img/freed.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>History: the space actually reclaimed, with originals that can still be put back.</figcaption></div>
 </section>
 
 <section>
   <h2>Built for the big clear-out</h2>
   <div class="showcase">
-    <img src="img/crop.png" alt="Cropping a landscape video to a 9:16 portrait frame." width="440" height="956" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-crop-png"><img src="img/crop.png" alt="Cropping a landscape video to a 9:16 portrait frame." width="440" height="956" loading="lazy"></button>
     <div>
       <h3>Crop for any screen</h3>
       <p>Trim what you don&#x27;t need, which costs nothing in quality, and crop to 1:1, 16:9, 9:16, 4:3 or any shape with a pinch. Set it once and apply it to every video you imported.</p>
     </div>
   </div>
+  <div popover id="zoom-img-crop-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-crop-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="img/crop.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Cropping a landscape video to a 9:16 portrait frame.</figcaption></div>
   <div class="cards">
     <div class="card">
       <h3>Leave it running</h3>
@@ -206,6 +212,7 @@
 
 </div>
 </main>
+<span hidden id="zoom-close">Close</span>
 
 <footer class="site">
   <div class="wrap">

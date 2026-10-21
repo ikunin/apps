@@ -52,10 +52,13 @@
   </div>
 
   <div class="shots">
-    <figure><img src="../img/forecast.png" alt="Η πρόβλεψη μεγέθους ενός βίντεο: το τρέχον μέγεθος, το νέο μέγεθος και το εύρος γύρω του." width="440" height="956" loading="lazy"></figure>
-    <figure><img src="../img/radar.png" alt="Ραντάρ χώρου: μια καταταγμένη λίστα βίντεο, με τον χώρο που θα ελευθέρωνε η συμπίεση του καθενός." width="440" height="956" loading="eager"></figure>
-    <figure><img src="../img/queue.png" alt="Η ουρά: αρκετά βίντεο σε συμπίεση, με τη συνολική πρόοδο και τον χρόνο που απομένει." width="440" height="956" loading="lazy"></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-forecast-png"><img src="../img/forecast.png" alt="Η πρόβλεψη μεγέθους ενός βίντεο: το τρέχον μέγεθος, το νέο μέγεθος και το εύρος γύρω του." width="440" height="956" loading="lazy"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-radar-png"><img src="../img/radar.png" alt="Ραντάρ χώρου: μια καταταγμένη λίστα βίντεο, με τον χώρο που θα ελευθέρωνε η συμπίεση του καθενός." width="440" height="956" loading="eager"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-queue-png"><img src="../img/queue.png" alt="Η ουρά: αρκετά βίντεο σε συμπίεση, με τη συνολική πρόοδο και τον χρόνο που απομένει." width="440" height="956" loading="lazy"></button></figure>
   </div>
+  <div popover id="zoom-img-forecast-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-forecast-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/forecast.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Η πρόβλεψη μεγέθους ενός βίντεο: το τρέχον μέγεθος, το νέο μέγεθος και το εύρος γύρω του.</figcaption></div>
+  <div popover id="zoom-img-radar-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-radar-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/radar.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Ραντάρ χώρου: μια καταταγμένη λίστα βίντεο, με τον χώρο που θα ελευθέρωνε η συμπίεση του καθενός.</figcaption></div>
+  <div popover id="zoom-img-queue-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-queue-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/queue.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Η ουρά: αρκετά βίντεο σε συμπίεση, με τη συνολική πρόοδο και τον χρόνο που απομένει.</figcaption></div>
 
   <div class="stats">
     <div><b>0</b><span>μεταφορτώσεις</span></div>
@@ -88,36 +91,39 @@
 <section>
   <h2>Μικρότερα αρχεία που μοιάζουν ακόμη με τα βίντεό σου</h2>
   <div class="showcase">
-    <img src="../img/compare.png" alt="Πριν και μετά: το πρωτότυπο και το συμπιεσμένο καρέ δίπλα δίπλα, χωρισμένα από μια διαχωριστική γραμμή που σύρεται." width="440" height="956" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-compare-png"><img src="../img/compare.png" alt="Πριν και μετά: το πρωτότυπο και το συμπιεσμένο καρέ δίπλα δίπλα, χωρισμένα από μια διαχωριστική γραμμή που σύρεται." width="440" height="956" loading="lazy"></button>
     <div>
       <h3>Κρίνε με τα μάτια σου</h3>
       <p>Το μεγαλύτερο μέρος από ό,τι κάνει ένα βίντεο κινητού τεράστιο είναι δεδομένα που δεν θα δεις ποτέ. Το VideoSqueezer χρησιμοποιεί το αποδοτικό HEVC, κρατά την ανάλυση και τον ρυθμό καρέ, και προσαρμόζεται σε κάθε κλιπ, γιατί ένα ηλιοβασίλεμα και ένας ποδοσφαιρικός αγώνας συμπιέζονται πολύ διαφορετικά.</p>
       <p>Μη μας πιστεύεις στον λόγο μας. Σύρε τη διαχωριστική γραμμή πάνω στο ίδιο καρέ, κράτα πατημένο για μεγέθυνση σε πραγματική κλίμακα pixel, και αποφάσισε πριν αγγιχτεί έστω και ένα πρωτότυπο.</p>
     </div>
   </div>
+  <div popover id="zoom-img-compare-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-compare-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/compare.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Πριν και μετά: το πρωτότυπο και το συμπιεσμένο καρέ δίπλα δίπλα, χωρισμένα από μια διαχωριστική γραμμή που σύρεται.</figcaption></div>
 </section>
 
 <section>
   <h2>Χώρος πίσω, χωρίς φόβο</h2>
   <div class="showcase">
-    <img src="../img/freed.png" alt="Ιστορικό: ο χώρος που όντως ανακτήθηκε, με πρωτότυπα που μπορούν ακόμη να επαναφερθούν." width="440" height="956" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-freed-png"><img src="../img/freed.png" alt="Ιστορικό: ο χώρος που όντως ανακτήθηκε, με πρωτότυπα που μπορούν ακόμη να επαναφερθούν." width="440" height="956" loading="lazy"></button>
     <div>
       <h3>Τίποτα δεν χάνεται οριστικά</h3>
       <p>Οι εφαρμογές καθαρισμού λατρεύουν ένα μεγάλο κόκκινο κουμπί Διαγραφής. Το VideoSqueezer όχι. Τα πρωτότυπα από τις Φωτογραφίες μένουν 30 ημέρες στα «Πρόσφατα διαγραμμένα»· τα πρωτότυπα από τα Αρχεία διατηρούνται εκεί όπου μπορείς να τα επαναφέρεις.</p>
       <p>Και ο αριθμός που σου δείχνει είναι έντιμος: ο χώρος που όντως ελευθέρωσες μετριέται χωριστά από τον χώρο που απλώς θα μπορούσες να ελευθερώσεις.</p>
     </div>
   </div>
+  <div popover id="zoom-img-freed-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-freed-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/freed.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Ιστορικό: ο χώρος που όντως ανακτήθηκε, με πρωτότυπα που μπορούν ακόμη να επαναφερθούν.</figcaption></div>
 </section>
 
 <section>
   <h2>Φτιαγμένο για το μεγάλο ξεκαθάρισμα</h2>
   <div class="showcase">
-    <img src="../img/crop.png" alt="Περικοπή ενός οριζόντιου βίντεο σε κάθετο καρέ 9:16." width="440" height="956" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-crop-png"><img src="../img/crop.png" alt="Περικοπή ενός οριζόντιου βίντεο σε κάθετο καρέ 9:16." width="440" height="956" loading="lazy"></button>
     <div>
       <h3>Περικοπή για κάθε οθόνη</h3>
       <p>Κόψε ό,τι δεν χρειάζεσαι, χωρίς κανένα κόστος σε ποιότητα, και κάνε περικοπή σε 1:1, 16:9, 9:16, 4:3 ή οποιοδήποτε σχήμα με ένα τσίμπημα. Ρύθμισέ το μία φορά και εφάρμοσέ το σε κάθε βίντεο που εισήγαγες.</p>
     </div>
   </div>
+  <div popover id="zoom-img-crop-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-crop-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/crop.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Περικοπή ενός οριζόντιου βίντεο σε κάθετο καρέ 9:16.</figcaption></div>
   <div class="cards">
     <div class="card">
       <h3>Άφησέ το να τρέχει</h3>
@@ -206,6 +212,7 @@
 
 </div>
 </main>
+<span hidden id="zoom-close">Κλείσιμο</span>
 
 <footer class="site">
   <div class="wrap">

@@ -52,10 +52,13 @@
   </div>
 
   <div class="shots">
-    <figure><img src="../img/forecast.png" alt="A previsão de tamanho de um vídeo: o tamanho atual, o novo tamanho e a faixa em torno dele." width="440" height="956" loading="lazy"></figure>
-    <figure><img src="../img/radar.png" alt="Radar de espaço: uma lista ordenada de vídeos, cada um mostrando quanto espaço comprimi-lo liberaria." width="440" height="956" loading="eager"></figure>
-    <figure><img src="../img/queue.png" alt="A fila: vários vídeos sendo comprimidos, com o progresso geral e o tempo restante." width="440" height="956" loading="lazy"></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-forecast-png"><img src="../img/forecast.png" alt="A previsão de tamanho de um vídeo: o tamanho atual, o novo tamanho e a faixa em torno dele." width="440" height="956" loading="lazy"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-radar-png"><img src="../img/radar.png" alt="Radar de espaço: uma lista ordenada de vídeos, cada um mostrando quanto espaço comprimi-lo liberaria." width="440" height="956" loading="eager"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-queue-png"><img src="../img/queue.png" alt="A fila: vários vídeos sendo comprimidos, com o progresso geral e o tempo restante." width="440" height="956" loading="lazy"></button></figure>
   </div>
+  <div popover id="zoom-img-forecast-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-forecast-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/forecast.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>A previsão de tamanho de um vídeo: o tamanho atual, o novo tamanho e a faixa em torno dele.</figcaption></div>
+  <div popover id="zoom-img-radar-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-radar-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/radar.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Radar de espaço: uma lista ordenada de vídeos, cada um mostrando quanto espaço comprimi-lo liberaria.</figcaption></div>
+  <div popover id="zoom-img-queue-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-queue-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/queue.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>A fila: vários vídeos sendo comprimidos, com o progresso geral e o tempo restante.</figcaption></div>
 
   <div class="stats">
     <div><b>0</b><span>uploads</span></div>
@@ -88,36 +91,39 @@
 <section>
   <h2>Arquivos menores que continuam com a cara dos seus vídeos</h2>
   <div class="showcase">
-    <img src="../img/compare.png" alt="Antes e depois: o quadro original e o comprimido lado a lado, separados por uma divisória que se arrasta." width="440" height="956" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-compare-png"><img src="../img/compare.png" alt="Antes e depois: o quadro original e o comprimido lado a lado, separados por uma divisória que se arrasta." width="440" height="956" loading="lazy"></button>
     <div>
       <h3>Julgue com seus próprios olhos</h3>
       <p>Quase tudo o que deixa um vídeo de celular enorme são dados que você nunca vai ver. O VideoSqueezer usa o eficiente HEVC, mantém a resolução e a taxa de quadros e se adapta a cada vídeo, porque um pôr do sol e uma partida de futebol se comprimem de jeitos muito diferentes.</p>
       <p>Não acredite só na nossa palavra. Arraste a divisória sobre o mesmo quadro, segure para ampliar em escala real de pixels e decida antes que um único original seja tocado.</p>
     </div>
   </div>
+  <div popover id="zoom-img-compare-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-compare-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/compare.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Antes e depois: o quadro original e o comprimido lado a lado, separados por uma divisória que se arrasta.</figcaption></div>
 </section>
 
 <section>
   <h2>Espaço de volta, sem medo</h2>
   <div class="showcase">
-    <img src="../img/freed.png" alt="Histórico: o espaço realmente recuperado, com originais que ainda podem ser devolvidos." width="440" height="956" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-freed-png"><img src="../img/freed.png" alt="Histórico: o espaço realmente recuperado, com originais que ainda podem ser devolvidos." width="440" height="956" loading="lazy"></button>
     <div>
       <h3>Nada se perde para sempre</h3>
       <p>Apps de limpeza adoram um grande botão vermelho de Excluir. O VideoSqueezer, não. Os originais das Fotos ficam em Excluídos Recentemente por 30 dias; os originais dos Arquivos são guardados onde você pode devolvê-los.</p>
       <p>E o número que ele mostra é honesto: o espaço que você realmente liberou fica separado do espaço que você apenas poderia liberar.</p>
     </div>
   </div>
+  <div popover id="zoom-img-freed-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-freed-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/freed.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Histórico: o espaço realmente recuperado, com originais que ainda podem ser devolvidos.</figcaption></div>
 </section>
 
 <section>
   <h2>Feito para a grande faxina</h2>
   <div class="showcase">
-    <img src="../img/crop.png" alt="Recortando um vídeo horizontal para um quadro vertical 9:16." width="440" height="956" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-crop-png"><img src="../img/crop.png" alt="Recortando um vídeo horizontal para um quadro vertical 9:16." width="440" height="956" loading="lazy"></button>
     <div>
       <h3>Recorte para qualquer tela</h3>
       <p>Corte o que você não precisa, sem custo nenhum de qualidade, e recorte em 1:1, 16:9, 9:16, 4:3 ou qualquer formato com um gesto de pinça. Configure uma vez e aplique a todos os vídeos que você importou.</p>
     </div>
   </div>
+  <div popover id="zoom-img-crop-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-crop-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/crop.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Recortando um vídeo horizontal para um quadro vertical 9:16.</figcaption></div>
   <div class="cards">
     <div class="card">
       <h3>Deixe rodando</h3>
@@ -206,6 +212,7 @@
 
 </div>
 </main>
+<span hidden id="zoom-close">Fechar</span>
 
 <footer class="site">
   <div class="wrap">

@@ -52,10 +52,13 @@
   </div>
 
   <div class="shots">
-    <figure><img src="../img/forecast.png" alt="동영상의 크기 예측: 현재 크기, 새 크기, 그리고 그 범위." width="440" height="956" loading="lazy"></figure>
-    <figure><img src="../img/radar.png" alt="공간 레이더: 압축하면 확보되는 공간이 각각 표시된 동영상 순위 목록." width="440" height="956" loading="eager"></figure>
-    <figure><img src="../img/queue.png" alt="대기열: 여러 동영상이 압축 중이며, 전체 진행 상황과 남은 시간이 표시됩니다." width="440" height="956" loading="lazy"></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-forecast-png"><img src="../img/forecast.png" alt="동영상의 크기 예측: 현재 크기, 새 크기, 그리고 그 범위." width="440" height="956" loading="lazy"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-radar-png"><img src="../img/radar.png" alt="공간 레이더: 압축하면 확보되는 공간이 각각 표시된 동영상 순위 목록." width="440" height="956" loading="eager"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-queue-png"><img src="../img/queue.png" alt="대기열: 여러 동영상이 압축 중이며, 전체 진행 상황과 남은 시간이 표시됩니다." width="440" height="956" loading="lazy"></button></figure>
   </div>
+  <div popover id="zoom-img-forecast-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-forecast-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/forecast.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>동영상의 크기 예측: 현재 크기, 새 크기, 그리고 그 범위.</figcaption></div>
+  <div popover id="zoom-img-radar-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-radar-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/radar.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>공간 레이더: 압축하면 확보되는 공간이 각각 표시된 동영상 순위 목록.</figcaption></div>
+  <div popover id="zoom-img-queue-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-queue-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/queue.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>대기열: 여러 동영상이 압축 중이며, 전체 진행 상황과 남은 시간이 표시됩니다.</figcaption></div>
 
   <div class="stats">
     <div><b>0</b><span>업로드</span></div>
@@ -88,36 +91,39 @@
 <section>
   <h2>작아져도, 여전히 내 동영상 그대로</h2>
   <div class="showcase">
-    <img src="../img/compare.png" alt="변환 전후: 드래그할 수 있는 구분선으로 나뉜 원본과 압축된 프레임." width="440" height="956" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-compare-png"><img src="../img/compare.png" alt="변환 전후: 드래그할 수 있는 구분선으로 나뉜 원본과 압축된 프레임." width="440" height="956" loading="lazy"></button>
     <div>
       <h3>직접 눈으로 판단하세요</h3>
       <p>휴대폰 동영상을 거대하게 만드는 것은 대부분 눈에 보이지 않는 데이터입니다. VideoSqueezer는 효율적인 HEVC를 사용하고, 해상도와 프레임 레이트를 유지하며, 영상마다 맞춰 조정합니다. 노을과 축구 경기는 압축되는 방식이 전혀 다르니까요.</p>
       <p>저희 말만 믿지 마세요. 같은 프레임 위에서 분할선을 드래그하고, 길게 눌러 실제 픽셀 크기로 확대해 본 뒤, 원본에 손대기 전에 결정하세요.</p>
     </div>
   </div>
+  <div popover id="zoom-img-compare-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-compare-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/compare.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>변환 전후: 드래그할 수 있는 구분선으로 나뉜 원본과 압축된 프레임.</figcaption></div>
 </section>
 
 <section>
   <h2>걱정 없이 공간 되찾기</h2>
   <div class="showcase">
-    <img src="../img/freed.png" alt="기록: 실제로 되찾은 공간과, 아직 되돌려 놓을 수 있는 원본." width="440" height="956" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-freed-png"><img src="../img/freed.png" alt="기록: 실제로 되찾은 공간과, 아직 되돌려 놓을 수 있는 원본." width="440" height="956" loading="lazy"></button>
     <div>
       <h3>영영 사라지는 것은 없습니다</h3>
       <p>정리 앱들은 커다란 빨간 삭제 버튼을 좋아합니다. VideoSqueezer는 그렇지 않습니다. 사진의 원본은 ‘최근 삭제된 항목’에 30일 동안 남고, 파일의 원본은 되돌려 놓을 수 있는 곳에 보관됩니다.</p>
       <p>보여 주는 숫자도 정직합니다. 실제로 확보한 공간은 확보할 수 있을 뿐인 공간과 구분해 표시됩니다.</p>
     </div>
   </div>
+  <div popover id="zoom-img-freed-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-freed-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/freed.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>기록: 실제로 되찾은 공간과, 아직 되돌려 놓을 수 있는 원본.</figcaption></div>
 </section>
 
 <section>
   <h2>대규모 정리를 위해 만들었습니다</h2>
   <div class="showcase">
-    <img src="../img/crop.png" alt="가로 동영상을 9:16 세로 프레임으로 자르는 모습." width="440" height="956" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-crop-png"><img src="../img/crop.png" alt="가로 동영상을 9:16 세로 프레임으로 자르는 모습." width="440" height="956" loading="lazy"></button>
     <div>
       <h3>어떤 화면에도 맞게 자르기</h3>
       <p>필요 없는 부분은 다듬기로 잘라 내세요. 화질은 전혀 손해 보지 않습니다. 자르기는 1:1, 16:9, 9:16, 4:3 또는 핀치로 원하는 모양대로. 한 번 설정하면 가져온 모든 동영상에 적용할 수 있습니다.</p>
     </div>
   </div>
+  <div popover id="zoom-img-crop-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-crop-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/crop.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>가로 동영상을 9:16 세로 프레임으로 자르는 모습.</figcaption></div>
   <div class="cards">
     <div class="card">
       <h3>켜 두고 맡기기</h3>
@@ -206,6 +212,7 @@
 
 </div>
 </main>
+<span hidden id="zoom-close">닫기</span>
 
 <footer class="site">
   <div class="wrap">

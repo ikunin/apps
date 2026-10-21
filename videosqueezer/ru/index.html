@@ -52,10 +52,13 @@
   </div>
 
   <div class="shots">
-    <figure><img src="../img/forecast.png" alt="Прогноз размера видео: текущий размер, новый размер и диапазон вокруг него." width="440" height="956" loading="lazy"></figure>
-    <figure><img src="../img/radar.png" alt="Радар места: упорядоченный список видео, у каждого указано, сколько места освободит его сжатие." width="440" height="956" loading="eager"></figure>
-    <figure><img src="../img/queue.png" alt="Очередь: несколько видео сжимаются, видны общий прогресс и оставшееся время." width="440" height="956" loading="lazy"></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-forecast-png"><img src="../img/forecast.png" alt="Прогноз размера видео: текущий размер, новый размер и диапазон вокруг него." width="440" height="956" loading="lazy"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-radar-png"><img src="../img/radar.png" alt="Радар места: упорядоченный список видео, у каждого указано, сколько места освободит его сжатие." width="440" height="956" loading="eager"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-queue-png"><img src="../img/queue.png" alt="Очередь: несколько видео сжимаются, видны общий прогресс и оставшееся время." width="440" height="956" loading="lazy"></button></figure>
   </div>
+  <div popover id="zoom-img-forecast-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-forecast-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/forecast.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Прогноз размера видео: текущий размер, новый размер и диапазон вокруг него.</figcaption></div>
+  <div popover id="zoom-img-radar-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-radar-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/radar.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Радар места: упорядоченный список видео, у каждого указано, сколько места освободит его сжатие.</figcaption></div>
+  <div popover id="zoom-img-queue-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-queue-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/queue.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Очередь: несколько видео сжимаются, видны общий прогресс и оставшееся время.</figcaption></div>
 
   <div class="stats">
     <div><b>0</b><span>выгрузок</span></div>
@@ -88,36 +91,39 @@
 <section>
   <h2>Файлы меньше, а видео выглядят как прежде</h2>
   <div class="showcase">
-    <img src="../img/compare.png" alt="До и после: оригинальный и сжатый кадр рядом, разделенные подвижным разделителем." width="440" height="956" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-compare-png"><img src="../img/compare.png" alt="До и после: оригинальный и сжатый кадр рядом, разделенные подвижным разделителем." width="440" height="956" loading="lazy"></button>
     <div>
       <h3>Оцените своими глазами</h3>
       <p>Большая часть того, что делает видео с телефона огромным, — данные, которых вы никогда не увидите. VideoSqueezer использует экономичный HEVC, сохраняет разрешение и частоту кадров и подстраивается под каждый ролик: закат и футбольный матч сжимаются совсем по-разному.</p>
       <p>Не верьте нам на слово. Проведите разделитель по одному и тому же кадру, удерживайте, чтобы увеличить до реального масштаба пикселей, и решайте, прежде чем будет затронут хоть один оригинал.</p>
     </div>
   </div>
+  <div popover id="zoom-img-compare-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-compare-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/compare.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>До и после: оригинальный и сжатый кадр рядом, разделенные подвижным разделителем.</figcaption></div>
 </section>
 
 <section>
   <h2>Больше места — и никакого страха</h2>
   <div class="showcase">
-    <img src="../img/freed.png" alt="История: действительно освобожденное место и оригиналы, которые еще можно вернуть." width="440" height="956" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-freed-png"><img src="../img/freed.png" alt="История: действительно освобожденное место и оригиналы, которые еще можно вернуть." width="440" height="956" loading="lazy"></button>
     <div>
       <h3>Ничего не удаляется безвозвратно</h3>
       <p>Приложения-чистильщики обожают большую красную кнопку «Удалить». VideoSqueezer — нет. Оригиналы из Фото 30 дней ждут в «Недавно удаленных»; оригиналы из Файлов хранятся там, откуда их можно вернуть.</p>
       <p>А число, которое вы видите, честное: место, которое вы действительно освободили, учитывается отдельно от того, которое только можно освободить.</p>
     </div>
   </div>
+  <div popover id="zoom-img-freed-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-freed-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/freed.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>История: действительно освобожденное место и оригиналы, которые еще можно вернуть.</figcaption></div>
 </section>
 
 <section>
   <h2>Для большой чистки</h2>
   <div class="showcase">
-    <img src="../img/crop.png" alt="Кадрирование горизонтального видео в вертикальный кадр 9:16." width="440" height="956" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-crop-png"><img src="../img/crop.png" alt="Кадрирование горизонтального видео в вертикальный кадр 9:16." width="440" height="956" loading="lazy"></button>
     <div>
       <h3>Кадр под любой экран</h3>
       <p>Отрежьте лишнее — качеству это ничего не стоит — и кадрируйте в 1:1, 16:9, 9:16, 4:3 или в любую форму жестом двух пальцев. Настройте один раз и примените ко всем импортированным видео.</p>
     </div>
   </div>
+  <div popover id="zoom-img-crop-png" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-crop-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/crop.png" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Кадрирование горизонтального видео в вертикальный кадр 9:16.</figcaption></div>
   <div class="cards">
     <div class="card">
       <h3>Пусть работает</h3>
@@ -206,6 +212,7 @@
 
 </div>
 </main>
+<span hidden id="zoom-close">Закрыть</span>
 
 <footer class="site">
   <div class="wrap">
