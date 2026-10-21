@@ -51,10 +51,13 @@
   </div>
 
   <div class="shots">
-    <figure><img src="../img/card.jpg" alt="デコーダーカード：暗い基板の上に金色のパッドで描かれたモールスの木、パッドごとにランプ。" width="440" height="956" loading="eager"></figure>
-    <figure><img src="../img/training.jpg" alt="トレーニングのドリル。覚えた文字のところはカードが消えています。" width="440" height="956" loading="lazy"></figure>
-    <figure><img src="../img/progress.jpg" alt="統計画面：毎分の語数の推移と、文字ごとのバー。" width="440" height="956" loading="lazy"></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-card-jpg"><img src="../img/card.jpg" alt="デコーダーカード：暗い基板の上に金色のパッドで描かれたモールスの木、パッドごとにランプ。" width="440" height="956" loading="eager"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-training-jpg"><img src="../img/training.jpg" alt="トレーニングのドリル。覚えた文字のところはカードが消えています。" width="440" height="956" loading="lazy"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-progress-jpg"><img src="../img/progress.jpg" alt="統計画面：毎分の語数の推移と、文字ごとのバー。" width="440" height="956" loading="lazy"></button></figure>
   </div>
+  <div popover id="zoom-img-card-jpg" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-card-jpg" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/card.jpg" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>デコーダーカード：暗い基板の上に金色のパッドで描かれたモールスの木、パッドごとにランプ。</figcaption></div>
+  <div popover id="zoom-img-training-jpg" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-training-jpg" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/training.jpg" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>トレーニングのドリル。覚えた文字のところはカードが消えています。</figcaption></div>
+  <div popover id="zoom-img-progress-jpg" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-progress-jpg" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/progress.jpg" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>統計画面：毎分の語数の推移と、文字ごとのバー。</figcaption></div>
 
   <div class="stats">
     <div><b>11</b><span>言語</span></div>
@@ -169,6 +172,7 @@
 
 </div>
 </main>
+<span hidden id="zoom-close">閉じる</span>
 
 <footer class="site">
   <div class="wrap">

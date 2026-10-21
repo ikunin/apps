@@ -51,10 +51,13 @@
   </div>
 
   <div class="shots">
-    <figure><img src="../img/card.jpg" alt="Декодувальна плата: дерево абетки Морзе із золотих площадок на темній платі, з лампою в кожній." width="440" height="956" loading="eager"></figure>
-    <figure><img src="../img/training.jpg" alt="Тренувальна вправа: плата згасла там, де знаки вже вивчено." width="440" height="956" loading="lazy"></figure>
-    <figure><img src="../img/progress.jpg" alt="Екран статистики: слова за хвилину в часі та смужка для кожного знака." width="440" height="956" loading="lazy"></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-card-jpg"><img src="../img/card.jpg" alt="Декодувальна плата: дерево абетки Морзе із золотих площадок на темній платі, з лампою в кожній." width="440" height="956" loading="eager"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-training-jpg"><img src="../img/training.jpg" alt="Тренувальна вправа: плата згасла там, де знаки вже вивчено." width="440" height="956" loading="lazy"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-progress-jpg"><img src="../img/progress.jpg" alt="Екран статистики: слова за хвилину в часі та смужка для кожного знака." width="440" height="956" loading="lazy"></button></figure>
   </div>
+  <div popover id="zoom-img-card-jpg" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-card-jpg" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/card.jpg" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Декодувальна плата: дерево абетки Морзе із золотих площадок на темній платі, з лампою в кожній.</figcaption></div>
+  <div popover id="zoom-img-training-jpg" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-training-jpg" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/training.jpg" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Тренувальна вправа: плата згасла там, де знаки вже вивчено.</figcaption></div>
+  <div popover id="zoom-img-progress-jpg" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-progress-jpg" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/progress.jpg" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Екран статистики: слова за хвилину в часі та смужка для кожного знака.</figcaption></div>
 
   <div class="stats">
     <div><b>11</b><span>мов</span></div>
@@ -169,6 +172,7 @@
 
 </div>
 </main>
+<span hidden id="zoom-close">Закрити</span>
 
 <footer class="site">
   <div class="wrap">

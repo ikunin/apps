@@ -51,10 +51,13 @@
   </div>
 
   <div class="shots">
-    <figure><img src="../img/card.jpg" alt="La scheda di decodifica: l&#x27;albero del morse in piazzole dorate su un circuito scuro, con una lampada in ognuna." width="440" height="956" loading="eager"></figure>
-    <figure><img src="../img/training.jpg" alt="L&#x27;esercizio di allenamento, con la scheda sbiadita dove i caratteri sono stati imparati." width="440" height="956" loading="lazy"></figure>
-    <figure><img src="../img/progress.jpg" alt="Una schermata di statistiche: parole al minuto nel tempo e una barra per ogni carattere." width="440" height="956" loading="lazy"></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-card-jpg"><img src="../img/card.jpg" alt="La scheda di decodifica: l&#x27;albero del morse in piazzole dorate su un circuito scuro, con una lampada in ognuna." width="440" height="956" loading="eager"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-training-jpg"><img src="../img/training.jpg" alt="L&#x27;esercizio di allenamento, con la scheda sbiadita dove i caratteri sono stati imparati." width="440" height="956" loading="lazy"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-progress-jpg"><img src="../img/progress.jpg" alt="Una schermata di statistiche: parole al minuto nel tempo e una barra per ogni carattere." width="440" height="956" loading="lazy"></button></figure>
   </div>
+  <div popover id="zoom-img-card-jpg" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-card-jpg" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/card.jpg" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>La scheda di decodifica: l&#x27;albero del morse in piazzole dorate su un circuito scuro, con una lampada in ognuna.</figcaption></div>
+  <div popover id="zoom-img-training-jpg" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-training-jpg" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/training.jpg" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>L&#x27;esercizio di allenamento, con la scheda sbiadita dove i caratteri sono stati imparati.</figcaption></div>
+  <div popover id="zoom-img-progress-jpg" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-progress-jpg" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/progress.jpg" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Una schermata di statistiche: parole al minuto nel tempo e una barra per ogni carattere.</figcaption></div>
 
   <div class="stats">
     <div><b>11</b><span>lingue</span></div>
@@ -169,6 +172,7 @@
 
 </div>
 </main>
+<span hidden id="zoom-close">Chiudi</span>
 
 <footer class="site">
   <div class="wrap">

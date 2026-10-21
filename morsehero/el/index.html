@@ -51,10 +51,13 @@
   </div>
 
   <div class="shots">
-    <figure><img src="../img/card.jpg" alt="Η κάρτα αποκωδικοποίησης: το δέντρο του Μορς σε χρυσές νησίδες πάνω σε σκούρα πλακέτα, με μια λάμπα σε κάθε νησίδα." width="440" height="956" loading="eager"></figure>
-    <figure><img src="../img/training.jpg" alt="Η άσκηση προπόνησης, με την κάρτα σβησμένη εκεί όπου οι χαρακτήρες έχουν μαθευτεί." width="440" height="956" loading="lazy"></figure>
-    <figure><img src="../img/progress.jpg" alt="Οθόνη στατιστικών: λέξεις ανά λεπτό στον χρόνο και μια μπάρα για κάθε χαρακτήρα." width="440" height="956" loading="lazy"></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-card-jpg"><img src="../img/card.jpg" alt="Η κάρτα αποκωδικοποίησης: το δέντρο του Μορς σε χρυσές νησίδες πάνω σε σκούρα πλακέτα, με μια λάμπα σε κάθε νησίδα." width="440" height="956" loading="eager"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-training-jpg"><img src="../img/training.jpg" alt="Η άσκηση προπόνησης, με την κάρτα σβησμένη εκεί όπου οι χαρακτήρες έχουν μαθευτεί." width="440" height="956" loading="lazy"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-progress-jpg"><img src="../img/progress.jpg" alt="Οθόνη στατιστικών: λέξεις ανά λεπτό στον χρόνο και μια μπάρα για κάθε χαρακτήρα." width="440" height="956" loading="lazy"></button></figure>
   </div>
+  <div popover id="zoom-img-card-jpg" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-card-jpg" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/card.jpg" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Η κάρτα αποκωδικοποίησης: το δέντρο του Μορς σε χρυσές νησίδες πάνω σε σκούρα πλακέτα, με μια λάμπα σε κάθε νησίδα.</figcaption></div>
+  <div popover id="zoom-img-training-jpg" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-training-jpg" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/training.jpg" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Η άσκηση προπόνησης, με την κάρτα σβησμένη εκεί όπου οι χαρακτήρες έχουν μαθευτεί.</figcaption></div>
+  <div popover id="zoom-img-progress-jpg" class="zoom-view" style="--ratio: 0.4603; --most: 880px"><button class="zoom-shut" type="button" popovertarget="zoom-img-progress-jpg" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/progress.jpg" alt="" width="440" height="956" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Οθόνη στατιστικών: λέξεις ανά λεπτό στον χρόνο και μια μπάρα για κάθε χαρακτήρα.</figcaption></div>
 
   <div class="stats">
     <div><b>11</b><span>γλώσσες</span></div>
@@ -169,6 +172,7 @@
 
 </div>
 </main>
+<span hidden id="zoom-close">Κλείσιμο</span>
 
 <footer class="site">
   <div class="wrap">
