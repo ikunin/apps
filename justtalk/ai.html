@@ -44,7 +44,7 @@
 
 <section>
   <h2>AI statement</h2>
-  <p class="muted">Last updated 2&nbsp;October&nbsp;2026.</p>
+  <p class="muted">Last updated 14&nbsp;October&nbsp;2026.</p>
 
   <div class="note"><p><strong>JustTalk uses AI models made by others.</strong> It ships no AI model of its own: you choose the service that recognises your speech and the one that polishes your text. This page explains, in plain language, how that fits the EU&nbsp;AI&nbsp;Act. It is how we read our obligations, not legal advice.</p></div>
 
@@ -55,8 +55,8 @@
   <h3>How AI output is marked</h3>
   <ul>
     <li>Polishing a dictation and Fix my typing are assistive editing: they tidy up your own words (punctuation, filler words, spelling) rather than write new content, so their result carries no separate label.</li>
-    <li>Text the app generates is labelled as AI where you see it in the app: an instruction written for you by AI, on every platform, and on iPhone and iPad the result of an Action. On Mac and Windows an Action’s result replaces the selected text directly in the other app, so it carries no label there; meeting minutes and summaries are written to files, which carry the marker line below.</li>
-    <li>Files the app writes, such as meeting minutes and transcripts, carry the line “Generated with AI by JustTalk”, followed by the service and model in brackets. Markdown and text files have it as a header line and WebVTT subtitles as a NOTE block. SRT subtitles have none, because the format has no place for comments.</li>
+    <li>Text the app generates is labelled as AI where you see it in the app: an instruction written for you by AI, on every platform, and on iPhone and iPad the result of an Action. On Mac and Windows an Action’s result replaces the selected text directly in the other app, so it carries no label there. In JustTalk Notes, minutes and other text an AI wrote or changed are captioned as written by AI, and kept in version history as AI versions.</li>
+    <li>Notes and minutes you export, share, copy or print — as PDF, Word, Markdown or text — carry the line “Generated with AI by JustTalk”, followed by the service and model in brackets; WebVTT subtitles have it as a NOTE block, and SRT subtitles have none, because the format has no place for comments. The line is on by default; if you turn it off in Settings → Notes → Exports, telling your readers is up to you. PDF and Word files of text an AI wrote or changed still carry an “AI-generated” tag in their document properties, which cannot be turned off.</li>
   </ul>
 
   <h3>If you publish what it writes</h3>
@@ -73,11 +73,18 @@
     <li>running critical infrastructure</li>
   </ul>
 
-  <h3>Where your voice and text go</h3>
-  <p>Only to the services you configure: your audio to the speech service you chose, your text to the polishing service you chose, each under that provider’s own terms. Nothing goes to us. With Privacy&nbsp;Mode on, everything stays on your device. The details are in the <a href="privacy.html">privacy policy</a>.</p>
+  <h3>What goes to the services you chose, and when</h3>
+  <p>JustTalk asks before anything first goes to a cloud service. Only to the speech and polishing services you configure, with your own key, and only when you use a feature that needs them:</p>
+  <ul>
+    <li>Dictating: your voice to the speech service; the text to the polishing service, with the mode&#x27;s instructions, your own dictionary (Your words) and the name of the app you are writing in (Mac, Windows) or up to 300 characters of the text before the cursor (iPhone, iPad), so the style fits.</li>
+    <li>Actions: the selected text, or else the text of the field.</li>
+    <li>Fix my typing (iPhone, iPad; on by default): when you pause or end a sentence, the sentence you typed with the text before it. You can turn it off in Settings → Keyboard.</li>
+    <li>Notes and meetings: the recording, to transcribe it; the transcript, for minutes, live minutes (Mac, Windows) and a title; the note, when you ask the AI box or apply a format; your question and the passages that answer it, when you ask a folder of notes.</li>
+  </ul>
+  <p>Each service handles it under your agreement with it and its own terms; some keep requests for a while, and some free plans let the provider use them to improve its models. Nothing goes to us. With Privacy&nbsp;Mode on, your words stay on your device. The details are in the <a href="privacy.html">privacy policy</a>.</p>
 
   <h3>See it in the app</h3>
-  <p>The screen <em>Your data &amp; AI</em> shows, live, where your voice and your text go with the settings you have now. On iPhone and iPad: Settings&nbsp;→ About&nbsp;→ Your data &amp; AI. On Mac and Windows: in the About window.</p>
+  <p>The screen <em>Your data &amp; AI</em> shows, live, where your voice and your text go with the settings you have now, and lists the cloud services you allowed, each with Revoke. It is in Settings&nbsp;→ Privacy in every version; on Mac and Windows the menu bar or tray opens it too.</p>
 
   <h3>Changes</h3>
   <p>This statement changes as the app and the rules around it change, and the date at the top changes with it.</p>

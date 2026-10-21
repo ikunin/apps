@@ -44,7 +44,7 @@
 
 <section>
   <h2>KI-Erklärung</h2>
-  <p class="muted">Zuletzt aktualisiert am 2.&nbsp;Oktober&nbsp;2026.</p>
+  <p class="muted">Zuletzt aktualisiert am 14.&nbsp;Oktober&nbsp;2026.</p>
 
   <div class="note"><p><strong>JustTalk nutzt KI-Modelle anderer Anbieter.</strong> Es liefert kein eigenes KI-Modell aus: Du wählst den Dienst, der deine Sprache erkennt, und den, der deinen Text überarbeitet. Diese Seite erklärt in einfachen Worten, wie das zur EU-KI-Verordnung (AI&nbsp;Act) passt. Sie beschreibt, wie wir unsere Pflichten verstehen, und ist keine Rechtsberatung.</p></div>
 
@@ -55,8 +55,8 @@
   <h3>Wie KI-Ergebnisse gekennzeichnet sind</h3>
   <ul>
     <li>Das Überarbeiten eines Diktats und „Tippfehler korrigieren“ sind unterstützende Bearbeitung: Sie bringen deine eigenen Worte in Form (Satzzeichen, Füllwörter, Rechtschreibung), statt neue Inhalte zu schreiben, deshalb trägt ihr Ergebnis keine eigene Kennzeichnung.</li>
-    <li>Text, den die App erzeugt, ist in der App als KI gekennzeichnet, wo du ihn siehst: eine Anweisung, die die KI für dich geschrieben hat, auf jeder Plattform, und auf iPhone und iPad das Ergebnis einer Aktion. Auf Mac und Windows ersetzt das Ergebnis einer Aktion den markierten Text direkt in der anderen App und trägt dort deshalb keine Kennzeichnung; Besprechungsprotokolle und Zusammenfassungen werden in Dateien geschrieben, die die unten beschriebene Markierungszeile tragen.</li>
-    <li>Dateien, die die App schreibt, etwa Besprechungsprotokolle und Transkripte, tragen die Zeile „Generated with AI by JustTalk“, gefolgt von Dienst und Modell in Klammern. Markdown- und Textdateien haben sie als Kopfzeile, WebVTT-Untertitel als NOTE-Block. SRT-Untertitel haben keine, weil das Format keinen Platz für Kommentare hat.</li>
+    <li>Text, den die App erzeugt, ist in der App als KI gekennzeichnet, wo du ihn siehst: eine Anweisung, die die KI für dich geschrieben hat, auf jeder Plattform, und auf iPhone und iPad das Ergebnis einer Aktion. Auf Mac und Windows ersetzt das Ergebnis einer Aktion den markierten Text direkt in der anderen App und trägt dort deshalb keine Kennzeichnung. In JustTalk Notes sind Protokolle und anderer Text, den eine KI geschrieben oder geändert hat, als von KI geschrieben ausgewiesen und im Versionsverlauf als KI-Versionen aufbewahrt.</li>
+    <li>Notizen und Protokolle, die du exportierst, teilst, kopierst oder druckst — als PDF, Word, Markdown oder Text —, tragen die Zeile „Generated with AI by JustTalk“, gefolgt von Dienst und Modell in Klammern; WebVTT-Untertitel haben sie als NOTE-Block, und SRT-Untertitel haben keine, weil das Format keinen Platz für Kommentare hat. Die Zeile ist standardmäßig an; schaltest du sie unter Einstellungen → Notizen → Exporte aus, liegt es an dir, deine Leser zu informieren. PDF- und Word-Dateien mit Text, den eine KI geschrieben oder geändert hat, tragen trotzdem in ihren Dokumenteigenschaften den Hinweis „AI-generated“; der lässt sich nicht abschalten.</li>
   </ul>
 
   <h3>Wenn du veröffentlichst, was sie schreibt</h3>
@@ -73,11 +73,18 @@
     <li>Betrieb kritischer Infrastruktur</li>
   </ul>
 
-  <h3>Wohin deine Stimme und dein Text gehen</h3>
-  <p>Nur zu den Diensten, die du einrichtest: deine Aufnahme zum gewählten Spracherkennungsdienst, dein Text zum gewählten Überarbeitungsdienst, jeweils nach den Bedingungen dieses Anbieters. Nichts geht an uns. Mit eingeschaltetem Privatmodus bleibt alles auf deinem Gerät. Die Einzelheiten stehen in der <a href="privacy.html">Datenschutzerklärung</a>.</p>
+  <h3>Was an die gewählten Dienste geht, und wann</h3>
+  <p>JustTalk fragt, bevor etwas zum ersten Mal an einen Cloud-Dienst geht. Nur an die Sprach- und Überarbeitungsdienste, die du mit deinem eigenen Schlüssel einrichtest, und nur, wenn du eine Funktion nutzt, die sie braucht:</p>
+  <ul>
+    <li>Diktieren: deine Stimme an den Sprachdienst; der Text an den Überarbeitungsdienst, mit den Anweisungen des Modus, deinem eigenen Wörterbuch („Deine Wörter“) und dem Namen der App, in der du schreibst (Mac, Windows), oder bis zu 300 Zeichen Text vor dem Cursor (iPhone, iPad), damit der Stil passt.</li>
+    <li>Aktionen: der markierte Text, sonst der Text des Feldes.</li>
+    <li>Tippfehler korrigieren (iPhone, iPad; standardmäßig an): wenn du innehältst oder einen Satz beendest, der getippte Satz mit dem Text davor. Du kannst es unter Einstellungen → Tastatur ausschalten.</li>
+    <li>Notizen und Besprechungen: die Aufnahme, um sie zu transkribieren; das Transkript für Protokoll, Live-Protokoll (Mac, Windows) und Titel; die Notiz, wenn du die KI-Box fragst oder ein Format anwendest; deine Frage und die Abschnitte, die sie beantworten, wenn du einen Ordner mit Notizen fragst.</li>
+  </ul>
+  <p>Jeder Dienst behandelt das nach deiner Vereinbarung mit ihm und seinen eigenen Bedingungen; manche bewahren Anfragen eine Zeit lang auf, und bei manchen kostenlosen Tarifen darf der Anbieter sie nutzen, um seine Modelle zu verbessern. Nichts geht an uns. Mit eingeschaltetem Privatmodus bleiben deine Worte auf deinem Gerät. Die Einzelheiten stehen in der <a href="privacy.html">Datenschutzerklärung</a>.</p>
 
   <h3>In der App nachsehen</h3>
-  <p>Der Bildschirm <em>Deine Daten und KI</em> zeigt live, wohin deine Stimme und dein Text mit deinen aktuellen Einstellungen gehen. Auf iPhone und iPad: Einstellungen&nbsp;→ Über&nbsp;→ Deine Daten und KI. Auf Mac und Windows: im Fenster „Über JustTalk“.</p>
+  <p>Der Bildschirm <em>Deine Daten und KI</em> zeigt live, wohin deine Stimme und dein Text mit deinen aktuellen Einstellungen gehen, und listet die Cloud-Dienste, die du erlaubt hast, jeweils mit „Widerrufen“. Er ist in jeder Version unter Einstellungen&nbsp;→ Datenschutz; auf Mac und Windows öffnet ihn auch die Menüleiste bzw. das Symbol im Infobereich.</p>
 
   <h3>Änderungen</h3>
   <p>Diese Erklärung ändert sich, wenn sich die App und die Regeln um sie herum ändern, und das Datum oben ändert sich mit.</p>

@@ -44,9 +44,9 @@
 
 <section>
   <h2>Privacy Policy</h2>
-  <p class="muted">Last updated 9&nbsp;October&nbsp;2026. Applies to the JustTalk apps for macOS, for iPhone and iPad (with its keyboard) and for Windows, and to this website.</p>
+  <p class="muted">Last updated 21&nbsp;October&nbsp;2026. Applies to the JustTalk apps for macOS, for iPhone and iPad (with its keyboard) and for Windows, and to this website.</p>
 
-  <div class="note"><p><strong>Nothing you type or say is ever sent to us.</strong> JustTalk has no server, no analytics, no crash reporter, no tracking and no account with us; it does not phone home. Your words go only to the transcription and polishing service that <em>you</em> choose and hold the key for — or nowhere at all, if you keep everything on your device — so most of what matters here is that provider's policy, not this one.</p></div>
+  <div class="note"><p><strong>Nothing you dictate, type or record is ever sent to us.</strong> JustTalk has no server, no analytics, no crash reporter, no tracking and no account with us; it does not phone home. The only personal details that ever reach us are the ones you send us yourself: an email to support or, on Windows, a licence request. Your words go only to the transcription and polishing service that <em>you</em> choose and hold the key for — or nowhere at all, if you keep everything on your device — so much of what matters here is that provider's terms, not this policy. The few other connections the app makes are listed below, under Other connections.</p></div>
   <p>The first part holds for every version. The Mac, iPhone and iPad, and Windows versions then differ in a few things, each set out in its own part:</p>
 
   <ul class="legal-toc">
@@ -59,41 +59,71 @@
 
   <div class="legal-part" id="all">
     <h3>All versions</h3>
-    <h4>What stays on your device</h4>
-    <p>All of it, unless you pick a cloud backend. Stored locally and never uploaded by JustTalk:</p>
+    <h4>What JustTalk never keeps</h4>
     <ul>
-      <li>Modes, your custom dictionary and actions</li>
-      <li>Usage statistics — words dictated, time saved, estimated spend</li>
-      <li>Recorded audio, which is held in memory for the length of a dictation and not written to disk</li>
-      <li>API keys for the services you configure — where each platform keeps them is in its part below</li>
-      <li>Speech models you download, if you use on-device transcription</li>
+      <li>A history of your dictations: not the text, not the recording. Your words go into the app you are typing in, and JustTalk keeps no copy of them.</li>
+      <li>Anything about you on a server: JustTalk has none, and no analytics, tracking, crash reporter or account.</li>
+      <li>Your words in its statistics. They are counts only — words, time, language, mode and, on Mac and Windows, the app — never what you said.</li>
     </ul>
-    <p>JustTalk has no server, so there is nothing of yours on one to delete. How to remove what is on your device is in each platform&#x27;s part.</p>
+
+    <h4>What stays for a moment</h4>
+    <ul>
+      <li>Your last dictation, so you can paste it again if it landed in the wrong place. Only the last one: the next dictation replaces it.</li>
+      <li>On Mac and Windows it is held in memory only, never written to disk, and is gone after 10 minutes or when JustTalk quits.</li>
+      <li>On iPhone and iPad the keyboard and the app are separate, so the app hands each dictation to the keyboard in a file only the two can read. The file is never part of a backup. It is emptied after 10 minutes, or once the keyboard has typed it when the setting below is off; if iOS has paused JustTalk, that happens the next time JustTalk or its keyboard opens. The last action&#x27;s or Fix my typing&#x27;s answer is handed over the same way.</li>
+      <li>You can turn this off in Settings → Privacy → Keep my last dictation for 10 minutes (on by default). What is held is then cleared at once, and nothing is kept.</li>
+      <li>The recording of a dictation exists only while it is transcribed. On Mac and Windows, if a dictation fails, it is held in memory so you can try again, until your next dictation.</li>
+      <li>On Windows, dictations are kept out of Windows clipboard history.</li>
+    </ul>
+
+    <h4>What you choose to keep</h4>
+    <p>JustTalk Notes keeps only what you start yourself: a note, a voice note, a meeting, an imported recording or transcript.</p>
+    <ul>
+      <li>It lives in JustTalk&#x27;s own storage on that device — and on a Mac, iPhone or iPad in your own iCloud too, only if you turn on notes sync (below); never on a server of ours.</li>
+      <li>Recordings are kept for 30 days by default, then deleted; the note and its transcript stay. You can choose until the minutes are written, 7 days, 30 days, a year or always, in Settings → Notes.</li>
+      <li>Transcripts are kept with the note, or for 30 days after the minutes are written, as you choose. Earlier text of a note stays in its version history until the note is deleted.</li>
+      <li>A deleted note stays in Recently deleted for 30 days. When it leaves — after 30 days, or when you delete it there — nothing of it remains in JustTalk on that device; only copies and backups outlive it (yours, and system backups such as Time Machine, File History or an iPhone or iPad backup until they expire). You can also delete just a note&#x27;s recording or transcript, or every recording at once. JustTalk removes what is due when it starts (on iPhone and iPad, when you open Notes) and after each recording, so on a device where it has not run for a while, that happens the next time it does.</li>
+      <li>Copies you make — exports, shares and backups (only if you turn them on) — are ordinary files you manage. Deleting the note does not delete them.</li>
+      <li>Link previews: a link alone on its line gets a card with the page&#x27;s picture and title. JustTalk fetches that page once, so that website sees the link and your IP address, as it would if you opened it; nothing else from your note is sent. On by default, never in Privacy Mode, and you can turn it off.</li>
+      <li>Title suggestions: your polishing service names a meeting from its minutes. On by default, never in Privacy Mode, and you can turn it off.</li>
+      <li>Asking your notes (JustTalk Pro): to find what a question is about, JustTalk keeps a search index of your notes on the device, beside the library, and a search model it downloads once; a locked folder&#x27;s index is encrypted like the folder. Only the passages that answer the question, with your question, go to your polishing service — or to none, when it runs on the device.</li>
+      <li>Widgets, Spotlight and Handoff: the widgets show your notes and to-dos, and on iPhone and iPad Spotlight finds notes by their words (Settings → Notes → Show in Spotlight, on by default; its index stays on the device). Nothing from a locked folder appears in either. With Hide titles or Privacy Mode on, the widgets show no titles, to-dos or events and Spotlight no titles; in Privacy Mode Spotlight holds no notes at all. Handoff between your Apple devices passes only which note is open and where you were reading, never its title or text.</li>
+    </ul>
+    <p>Your settings, modes, dictionary, actions and phrases, the API keys for the services you configure (where each platform keeps them is in its part below) and any speech models you download are stored on your device too. JustTalk has no server, so there is nothing of yours on one to delete.</p>
 
     <h4>When you choose a cloud backend</h4>
-    <p>JustTalk can send audio, or the transcript of it, to a provider you configure — Google, OpenAI, Groq, Mistral, Anthropic, or a server address you enter yourself. That data is then handled under <em>their</em> privacy policy, not this one, and JustTalk has no visibility into what they keep. The app shows which provider is active before you record, and switching to on-device transcription stops any of it from leaving your device.</p>
+    <p>JustTalk can send audio, or the text of it, to a provider you configure — Google, OpenAI, Groq, Mistral, Anthropic, OpenRouter, or a server address you enter yourself — together with the instructions of the mode you use and your own dictionary (Your words), so the result is styled and spelled as you want. You sign up with that provider and hold the key, so you are its customer: it handles what you send under your agreement with it and <em>its</em> privacy policy, not this one, and we never see any of it. Providers differ. Some keep requests for a while, for example to detect abuse, and some free plans let the provider use what you send to improve its models, which can mean that people there read it. Check your provider's terms before you dictate anything confidential, or keep it on your device. If you dictate other people's personal data at work, you are responsible for the agreement your law requires with that provider; many offer a data processing agreement. The app shows which provider is active, and Privacy&nbsp;Mode keeps your words on your device. JustTalk asks before anything first goes to a cloud service: when you choose one, it shows what goes there and links that provider's privacy policy, and you can revoke it at any time in Your&nbsp;data&nbsp;&amp;&nbsp;AI.</p>
+
+    <h4>Other connections</h4>
+    <p>Apart from the services you set up, JustTalk connects only to Apple (for App Store purchases, iCloud sync and Apple&#x27;s speech models), to the publishers of the models and tools you choose to download (such as Hugging Face, GitHub, Homebrew, Python.org and PyPI, depending on the version), and to the website of a link you put on a line of its own in a note, for its preview. Each of them sees your device&#x27;s IP address, as any connection does. Apart from that one link, none of them receives anything you dictate, type or record.</p>
+
+    <h4>iCloud sync (Mac, iPhone and iPad)</h4>
+    <p>Your settings, modes, actions, phrases and dictionary (Your words) are kept in step between your devices through iCloud: Apple stores them in your own iCloud account, under Apple&#x27;s privacy policy, and we cannot read them. Sync is on unless you turn it off — on a Mac in Settings → Configuration, on iPhone and iPad in Settings → iCloud &amp;amp; Backup — and it pauses in Privacy Mode. JustTalk Notes goes to iCloud only if you turn on notes sync — on a Mac in Settings → Notes, on iPhone and iPad in Settings → iCloud &amp;amp; Backup; it is off by default. The text of your notes is then end-to-end encrypted, so Apple cannot read it either; pictures, and recordings only if you include them, are stored as attachments that Apple encrypts; a locked folder goes only as its encrypted files, and its keys through iCloud Keychain. Turning it off stops syncing and deletes nothing. API keys and dictations are never synced.</p>
 
     <h4>Privacy Mode</h4>
-    <p>One switch, in every version, that keeps a dictation entirely on your device: speech is recognised on the device, polishing runs only through a language model on the device (or is skipped if you have none), and on Mac and Windows no information about the app you are typing into is read. Switching it off restores exactly what you had configured.</p>
+    <p>One switch, in every version, that keeps a dictation entirely on your device: speech is recognised on the device, polishing runs only through a language model on the device (or is skipped if you have none), and on Mac and Windows no information about the app you are typing into is read. Switching it off restores exactly what you had configured. While it is on, link previews and title suggestions are off, Fix my typing uses only the device, and iCloud sync pauses. Turning it on may first download a speech model.</p>
     <p>How JustTalk uses AI, how what it generates is marked, and what the EU&nbsp;AI&nbsp;Act asks of you: see the <a href="ai.html">AI statement</a>.</p>
 
     <h4>Children</h4>
-    <p>JustTalk is a productivity tool for adults, not a children&#x27;s app. It collects no personal information from anyone, of any age.</p>
+    <p>JustTalk is a productivity tool for adults, not a children&#x27;s app. The apps collect no personal information from anyone, of any age; the only personal details we receive are those you send us yourself.</p>
+
+    <h4>Who is responsible, and your rights</h4>
+    <p>Responsible for this policy, and for the personal details we receive, is Igor Kunin, Berlin, Germany (full address in the <a href="impressum.html">Impressum</a>), reachable at <a href="mailto:support.kunin@gmail.com?subject=JustTalk%20privacy">support.kunin@gmail.com</a>. We receive personal details only when you send them: an email to support, which we use to answer you, or a Windows licence request — your name, email address and a hash of your PC — which we use to issue and re-issue your key. We process them to do what you asked of us (Article&nbsp;6(1)(b) GDPR) and, for licence records, to meet tax and accounting duties (Article&nbsp;6(1)(c)). We keep emails only as long as we need them to help you, and licence records for as long as a key may need re-issuing or the law requires. Email reaches us through our email provider, Google. We do not sell or share personal information. You can ask us for access to what we hold about you, a copy of it, its correction or deletion, and restrict or object to its use, and you can complain to a data protection authority — where you live, or in Berlin the Berliner Beauftragte für Datenschutz und Informationsfreiheit.</p>
   </div>
 
   <div class="legal-part" id="mac">
     <h3>Mac</h3>
     <h4>Where your keys are kept</h4>
-    <p>API keys are stored in the macOS Keychain. Deleting the app&#x27;s Application Support folder deletes everything else JustTalk keeps.</p>
+    <p>API keys are stored in the macOS Keychain on this Mac and are not synced through iCloud Keychain; they stay there until you remove them in JustTalk or in Keychain Access. Deleting the app&#x27;s Application Support folder deletes everything else JustTalk keeps. That includes JustTalk Notes; copies you saved yourself — exports and backups — stay where you saved them. The keys that open a locked Notes folder are kept in the Keychain as well, behind Touch ID or your Mac&#x27;s password, and synced end to end encrypted through iCloud Keychain so your other Macs can open the folder; they go when you remove its lock.</p>
 
     <h4>What is sent alongside your words</h4>
-    <p>When a polishing model is in use, JustTalk tells it only the name of the app you are dictating into, so the result fits: a reply in a mail app, a message in a chat. Privacy&nbsp;Mode stops even the app's name being read or sent.</p>
+    <p>When a polishing model is in use, JustTalk tells it, besides the mode's instructions and Your words, the name of the app you are dictating into and — with Continue what is already written on, as it is by default — up to 300 characters of the text before the cursor, so the result fits and carries on the sentence there: a reply in a mail app, a message in a chat. Privacy&nbsp;Mode stops both being read or sent.</p>
 
     <h4>Purchase</h4>
     <p>JustTalk&nbsp;Pro for Mac is a one-time purchase handled entirely by Apple. The App Store tells the app whether it is entitled; it never sees your name, your email or your payment details. The purchase is Family Shareable: if a member of your family group shares it with you, Apple tells the app it is entitled and nothing else about them.</p>
 
     <h4>Permissions</h4>
-    <p>JustTalk uses the microphone, and system audio when you record a meeting; macOS asks your permission before either. It needs Accessibility to paste the result into the app in front of you. It reads no contacts, no location, no photos and no health data.</p>
+    <p>JustTalk uses the microphone, and system audio when you record a meeting; macOS asks your permission before either. It needs Accessibility to paste the result into the app in front of you. It reads no contacts, no location, no photos and no health data. If you connect your calendar for the widgets, JustTalk reads the title, time and attendees of your next events, only on this Mac, and macOS asks you first.</p>
   </div>
 
   <div class="legal-part" id="ios">
@@ -101,29 +131,29 @@
     <h4>The keyboard</h4>
     <p>The JustTalk keyboard asks for <em>Allow&nbsp;Full&nbsp;Access</em>. Full Access is what lets the JustTalk keyboard receive what the JustTalk app hears, and reach the service you chose. Without it, a keyboard can only type letters. iOS warns that it lets the developer transmit anything you type; here is exactly what JustTalk does with it:</p>
     <ul>
-      <li>It does not read what is already in the field. It types, and it keeps track of what it typed so that undo and the actions can work on that text and nothing else.</li>
-      <li>It does not log what you type. Keys you press go into the app you are typing into and nowhere else.</li>
+      <li>It reads up to 300 characters of the text before the cursor, only to fit a dictation&#x27;s style and for Fix my typing and actions, and sends it only with them, to the service you chose. It keeps none of it, apart from the word pairs that next-word suggestions learn (below). It keeps track of what it typed so that undo and the actions can work on that text.</li>
+      <li>It does not log what you type. Keys you press go into the app you are typing into. With Fix my typing on — it is on by default — the sentence you just typed, with the text before it, goes to your polishing service when you pause, to correct typos; you can turn it off in Settings → Keyboard. It reads the clipboard only when you insert a phrase that contains the clipboard placeholder.</li>
       <li>Nothing goes to us. iOS does not let a keyboard open the microphone, so the JustTalk app records and sends your dictation only to the service you chose; Fix my typing and actions go from the keyboard to that same service. There is no JustTalk server anywhere on the way.</li>
       <li>While a session is running, the JustTalk app holds the microphone and iOS lights the orange indicator for the whole time. That is honest: the microphone genuinely is available to you until you stop the session.</li>
-      <li>With Private chosen under Settings → How JustTalk writes, speech is recognised and polished on the device and nothing leaves it. Fast and Best quality use the cloud service you set up with your own key.</li>
+      <li>With the Private profile chosen under Settings → Quality &amp;amp; AI, speech is recognised and polished on the device and nothing leaves it. The Groq and My server profiles, and profiles of your own, use the services you set up, with your own key or your own server.</li>
       <li>The keyboard cannot see which app it is typing into, so no app name is ever sent with your words. It can tell only that a field is a chat or a search box, from its return key, so that the style fits.</li>
       <li>Password fields always get Apple&#x27;s keyboard: iOS never offers a third-party keyboard there.</li>
     </ul>
 
     <h4>What left your iPhone</h4>
-    <p>Settings → Privacy → What left your iPhone lists the services the app or the keyboard has contacted: each one's domain, what it was used for (dictation, polishing, Fix my typing, an action, a file) and when it was last contacted — never the words. The domains are the ones iOS's own App Privacy Report shows (Settings → Privacy &amp; Security → App Privacy Report), so you can compare the two. The list stays on the device.</p>
+    <p>Settings → Privacy → What left your iPhone lists the speech and polishing services the app or the keyboard has contacted: each one's domain, what it was used for (dictation, polishing, Fix my typing, an action, a file) and when it was last contacted — never the words. The domains are the ones iOS's own App Privacy Report shows (Settings → Privacy &amp; Security → App Privacy Report), so you can compare the two. The list stays on the device.</p>
 
-    <h4>No history</h4>
-    <p>JustTalk keeps no record of what you dictate. Updating deletes any history an earlier version kept.</p>
+    <h4>What the keyboard keeps</h4>
+    <p>The app hands each dictation to the keyboard in a file only the two can read. The file is never part of a backup. It is emptied after 10 minutes, or once the keyboard has typed it when Keep my last dictation is off; if iOS paused JustTalk, that happens the next time JustTalk or its keyboard opens. To suggest the next word, the keyboard counts which word follows which as you type: word pairs, never sentences, never from fields for passwords, names, addresses or card numbers or fields with autocorrection off, kept on the device and never synced or sent. Settings → Keyboard → Forget learned words deletes them. Updating deletes any dictation history an earlier version kept.</p>
 
     <h4>Where your keys are kept</h4>
-    <p>API keys are stored in the iOS Keychain. Deleting the app deletes everything JustTalk keeps.</p>
+    <p>API keys are stored in the iOS Keychain on this device and are not synced through iCloud Keychain; like other Keychain items, they are part of an encrypted device backup. Deleting the app deletes everything else JustTalk keeps on the device, but iOS can keep the keys in the Keychain: remove them in JustTalk first if you want them gone. What iCloud sync stored stays in your iCloud account. Copies you saved yourself — exports and backups — stay where you saved them. The keys that open a locked Notes folder are kept in the Keychain as well, behind Face ID, Touch ID or your passcode, and synced end to end encrypted through iCloud Keychain so your Mac and your other devices can open the folder; they go when you remove its lock.</p>
 
     <h4>Purchase</h4>
     <p>JustTalk&nbsp;Pro for iPhone and iPad is a one-time purchase of its own, separate from the Mac one and handled entirely by Apple. The App Store tells the app whether it is entitled; it never sees your name, your email or your payment details. It is Family Shareable, and a family member sharing it tells the app nothing about them.</p>
 
     <h4>Permissions</h4>
-    <p>The app asks for the microphone and for speech recognition; with on-device transcription, recognition stays on the device. It reads no contacts, no location, no photos and no health data.</p>
+    <p>The app asks for the microphone — for dictation, voice notes and meetings, which it records with the device&#x27;s own microphone — and for speech recognition; with on-device transcription, recognition stays on the device. It asks for the camera only when you take a photo for a note, for Face ID only to open a locked folder, and for the local network only to reach a server address you enter. If you connect your calendar for the widgets, JustTalk reads the title, time and attendees of your next events, only on this device, and iOS asks you first. It reads no contacts, no location and no health data; a photo goes into a note only when you choose it, without its camera or place data.</p>
   </div>
 
   <div class="legal-part" id="windows">
@@ -131,10 +161,10 @@
     <p>The Windows version is not an Apple product and is not sold through the App Store, so none of the Apple parts above applies to it.</p>
 
     <h4>Where your keys are kept</h4>
-    <p>API keys are stored in Windows Credential Manager. Uninstalling the app deletes everything else JustTalk keeps; keys stay in Credential Manager until you remove them there.</p>
+    <p>API keys are stored in Windows Credential Manager. Uninstalling the app deletes everything else JustTalk keeps; keys stay in Credential Manager until you remove them there. Copies you saved yourself — exports and backups — stay where you saved them.</p>
 
     <h4>What is sent alongside your words</h4>
-    <p>When a polishing model is in use, JustTalk tells it only the name of the app you are dictating into, so the result fits: a reply in a mail app, a message in a chat. Privacy&nbsp;Mode stops even the app's name being read or sent.</p>
+    <p>When a polishing model is in use, JustTalk tells it, besides the mode's instructions and Your words, the name of the app you are dictating into and — with Continue what is already written on, as it is by default — up to 300 characters of the text before the cursor, so the result fits and carries on the sentence there: a reply in a mail app, a message in a chat. Privacy&nbsp;Mode stops both being read or sent.</p>
 
     <h4>The licence</h4>
     <p>A Windows licence is not on sale yet. When you request one, the request you send us by email carries the name and email address you type into it and a one-way hash of your PC&#x27;s hardware identifiers, so that the key works on that PC. We use them to issue and re-issue your key and for nothing else.</p>

@@ -44,7 +44,7 @@
 
 <section>
   <h2>Déclaration sur l&#x27;IA</h2>
-  <p class="muted">Dernière mise à jour le 2&nbsp;octobre&nbsp;2026.</p>
+  <p class="muted">Dernière mise à jour le 14&nbsp;octobre&nbsp;2026.</p>
 
   <div class="note"><p><strong>JustTalk utilise des modèles d'IA conçus par d'autres.</strong> Il n'embarque aucun modèle d'IA qui lui soit propre : c'est vous qui choisissez le service qui reconnaît votre voix et celui qui met votre texte au propre. Cette page explique simplement comment cela s'inscrit dans le règlement européen sur l'IA (AI&nbsp;Act). C'est notre lecture de nos obligations, pas un conseil juridique.</p></div>
 
@@ -55,8 +55,8 @@
   <h3>Comment les contenus d&#x27;IA sont signalés</h3>
   <ul>
     <li>La mise au propre d&#x27;une dictée et « Corriger ma saisie » relèvent de l&#x27;aide à la rédaction : elles remettent en forme vos propres mots (ponctuation, mots de remplissage, orthographe) sans écrire de nouveau contenu, c&#x27;est pourquoi leur résultat ne porte pas de mention distincte.</li>
-    <li>Le texte que l&#x27;app génère est signalé comme IA là où vous le voyez dans l&#x27;app : une instruction rédigée pour vous par l&#x27;IA, sur toutes les plateformes, et sur iPhone et iPad le résultat d&#x27;une Action. Sur Mac et Windows, le résultat d&#x27;une Action remplace directement le texte sélectionné dans l&#x27;autre app ; il n&#x27;y porte donc aucune mention. Les comptes rendus et résumés de réunion sont écrits dans des fichiers, qui portent la ligne de marquage décrite ci-dessous.</li>
-    <li>Les fichiers que l&#x27;app écrit, comme les comptes rendus de réunion et les transcriptions, portent la ligne « Generated with AI by JustTalk », suivie du service et du modèle entre parenthèses. Les fichiers Markdown et texte l&#x27;ont en ligne d&#x27;en-tête, les sous-titres WebVTT sous forme de bloc NOTE. Les sous-titres SRT n&#x27;en ont pas, car le format ne prévoit pas de commentaires.</li>
+    <li>Le texte que l&#x27;app génère est signalé comme IA là où vous le voyez dans l&#x27;app : une instruction rédigée pour vous par l&#x27;IA, sur toutes les plateformes, et sur iPhone et iPad le résultat d&#x27;une Action. Sur Mac et Windows, le résultat d&#x27;une Action remplace directement le texte sélectionné dans l&#x27;autre app ; il n&#x27;y porte donc aucune mention. Dans JustTalk Notes, les comptes rendus et les autres textes qu&#x27;une IA a écrits ou modifiés portent la mention « écrit par l&#x27;IA » et sont conservés dans l&#x27;historique des versions comme versions IA.</li>
+    <li>Les notes et comptes rendus que vous exportez, partagez, copiez ou imprimez — en PDF, Word, Markdown ou texte — portent la ligne « Generated with AI by JustTalk », suivie du service et du modèle entre parenthèses ; les sous-titres WebVTT l&#x27;ont sous forme de bloc NOTE, et les sous-titres SRT n&#x27;en ont pas, car le format ne prévoit pas de commentaires. La ligne est activée par défaut ; si vous la désactivez dans Réglages → Notes → Exportations, c&#x27;est à vous d&#x27;en informer vos lecteurs. Les fichiers PDF et Word dont le texte a été écrit ou modifié par une IA portent toutefois la mention « AI-generated » dans leurs propriétés de document ; celle-ci ne se désactive pas.</li>
   </ul>
 
   <h3>Si vous publiez ce qu&#x27;il écrit</h3>
@@ -73,11 +73,18 @@
     <li>l&#x27;exploitation d&#x27;infrastructures critiques</li>
   </ul>
 
-  <h3>Où vont votre voix et votre texte</h3>
-  <p>Uniquement vers les services que vous configurez : votre audio vers le service de reconnaissance vocale choisi, votre texte vers le service de mise au propre choisi, chacun selon les conditions de ce fournisseur. Rien ne nous est envoyé. Avec le Mode confidentialité activé, tout reste sur votre appareil. Les détails figurent dans la <a href="privacy.html">politique de confidentialité</a>.</p>
+  <h3>Ce qui va aux services que vous avez choisis, et quand</h3>
+  <p>JustTalk demande avant que quoi que ce soit parte pour la première fois vers un service cloud. Uniquement aux services de reconnaissance vocale et de mise en forme que vous configurez, avec votre propre clé, et seulement quand vous utilisez une fonction qui en a besoin :</p>
+  <ul>
+    <li>Dicter : votre voix au service vocal ; le texte au service de mise en forme, avec les instructions du mode, votre propre dictionnaire (Vos mots) et le nom de l&#x27;app où vous écrivez (Mac, Windows) ou jusqu&#x27;à 300 caractères du texte avant le curseur (iPhone, iPad), pour que le style convienne.</li>
+    <li>Actions : le texte sélectionné, sinon le texte du champ.</li>
+    <li>Corriger ma saisie (iPhone, iPad ; activé par défaut) : quand vous faites une pause ou finissez une phrase, la phrase tapée avec le texte qui la précède. Vous pouvez le désactiver dans Réglages → Clavier.</li>
+    <li>Notes et réunions : l&#x27;enregistrement, pour le transcrire ; la transcription, pour le compte rendu, le compte rendu en direct (Mac, Windows) et un titre ; la note, quand vous interrogez la zone IA ou appliquez un format ; votre question et les passages qui y répondent, quand vous interrogez un dossier de notes.</li>
+  </ul>
+  <p>Chaque service les traite selon votre accord avec lui et ses propres conditions ; certains conservent les requêtes un certain temps, et certaines offres gratuites permettent au fournisseur de les utiliser pour améliorer ses modèles. Rien ne nous parvient. Avec le mode confidentialité activé, vos mots restent sur votre appareil. Les détails sont dans la <a href="privacy.html">politique de confidentialité</a>.</p>
 
   <h3>Le voir dans l&#x27;app</h3>
-  <p>L'écran <em>Vos données et l'IA</em> montre en direct où vont votre voix et votre texte avec vos réglages actuels. Sur iPhone et iPad : Réglages&nbsp;→ À propos&nbsp;→ Vos données et l'IA. Sur Mac et Windows : dans la fenêtre « À propos de JustTalk ».</p>
+  <p>L'écran <em>Vos données et l'IA</em> montre en direct où vont votre voix et votre texte avec vos réglages actuels, et liste les services cloud que vous avez autorisés, chacun avec « Révoquer ». Il se trouve dans Réglages&nbsp;→ Confidentialité dans toutes les versions ; sur Mac et Windows, la barre des menus ou l'icône de la zone de notification l'ouvrent aussi.</p>
 
   <h3>Modifications</h3>
   <p>Cette déclaration évolue avec l&#x27;app et les règles qui l&#x27;encadrent, et la date en haut de page change avec elle.</p>
