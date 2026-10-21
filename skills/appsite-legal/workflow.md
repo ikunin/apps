@@ -1,4 +1,4 @@
-# /app-legal — Terms of Use and Privacy Policy for an app's site
+# /appsite-legal — Terms of Use and Privacy Policy for an app's site
 
 The legal pages live in the app's appsite (`appstore/site_text_terms.py`,
 `appstore/site_text_privacy.py`, `appstore/site_text_ai.py`, the other ten
