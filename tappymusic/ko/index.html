@@ -55,10 +55,13 @@
   </div>
 
   <div class="shots">
-    <figure><img src="../img/library.png" alt="멜로디 팩과 그 안의 곡이 보이는 목록." width="660" height="1434" loading="lazy"></figure>
-    <figure><img src="../img/play.png" alt="곡을 연주하는 중의 화면. 두드릴 때마다 그림이 튀어나옵니다." width="660" height="1434" loading="eager"></figure>
-    <figure><img src="../img/follow.png" alt="공에 맞춰 연주: 길 위를 튀는 공이 다음 음에 내려앉습니다." width="660" height="1434" loading="lazy"></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-library-png"><img src="../img/library.png" alt="멜로디 팩과 그 안의 곡이 보이는 목록." width="660" height="1434" loading="lazy"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-play-png"><img src="../img/play.png" alt="곡을 연주하는 중의 화면. 두드릴 때마다 그림이 튀어나옵니다." width="660" height="1434" loading="eager"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-follow-png"><img src="../img/follow.png" alt="공에 맞춰 연주: 길 위를 튀는 공이 다음 음에 내려앉습니다." width="660" height="1434" loading="lazy"></button></figure>
   </div>
+  <div popover id="zoom-img-library-png" class="zoom-view" style="--ratio: 0.4603; --most: 1320px"><button class="zoom-shut" type="button" popovertarget="zoom-img-library-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/library.png" alt="" width="660" height="1434" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>멜로디 팩과 그 안의 곡이 보이는 목록.</figcaption></div>
+  <div popover id="zoom-img-play-png" class="zoom-view" style="--ratio: 0.4603; --most: 1320px"><button class="zoom-shut" type="button" popovertarget="zoom-img-play-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/play.png" alt="" width="660" height="1434" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>곡을 연주하는 중의 화면. 두드릴 때마다 그림이 튀어나옵니다.</figcaption></div>
+  <div popover id="zoom-img-follow-png" class="zoom-view" style="--ratio: 0.4603; --most: 1320px"><button class="zoom-shut" type="button" popovertarget="zoom-img-follow-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/follow.png" alt="" width="660" height="1434" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>공에 맞춰 연주: 길 위를 튀는 공이 다음 음에 내려앉습니다.</figcaption></div>
 
   <div class="stats">
     <div><b>128</b><span>곡</span></div>
@@ -106,12 +109,13 @@
   <p><strong>First Taps</strong> — 동요 열 곡 — 은 무료이고 내용도 빠짐없습니다. 유료 팩은 모두 한 곡을 무료로 연주할 수 있어, 들어 보지 않고 사는 일은 없습니다.</p>
   <p><a class="button ghost" href="songs.html">128곡 모두 보기</a></p>
   <div class="showcase">
-    <img src="../img/world.png" alt="목록에 있는 지역 팩들. 프랑스 샹송부터 클레즈머까지." width="660" height="1434" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-world-png"><img src="../img/world.png" alt="목록에 있는 지역 팩들. 프랑스 샹송부터 클레즈머까지." width="660" height="1434" loading="lazy"></button>
     <div>
       <h3>유럽을 여행하는 노래</h3>
       <p>여덟 개의 팩, 유럽 곳곳의 여덟 가지 전통: 프랑스 샹송, 독일 민요, 이탈리아 타란텔라, 스페인 호타, 러시아 민요, 우크라이나 호파크, 그리스 춤곡, 그리고 클레즈머. 여러 세대에 걸쳐 불려 온 노래를 이제 아이가 자기 손으로 연주합니다.</p>
     </div>
   </div>
+  <div popover id="zoom-img-world-png" class="zoom-view" style="--ratio: 0.4603; --most: 1320px"><button class="zoom-shut" type="button" popovertarget="zoom-img-world-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/world.png" alt="" width="660" height="1434" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>목록에 있는 지역 팩들. 프랑스 샹송부터 클레즈머까지.</figcaption></div>
 </section>
 
 <section>
@@ -150,13 +154,14 @@
     </div>
   </div>
   <div class="showcase">
-    <img src="../img/cliparts.png" alt="클립아트 편집 화면. 이모지 여섯 개와 미리보기." width="660" height="1434" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-cliparts-png"><img src="../img/cliparts.png" alt="클립아트 편집 화면. 이모지 여섯 개와 미리보기." width="660" height="1434" loading="lazy"></button>
     <div>
       <h3>이모지 여섯 개면 벌써 작품입니다</h3>
       <p>기기가 아는 이모지를 입력하면 아래 미리보기가 두드렸을 때 튀어나올 모습을 그대로 보여줍니다 — 앱이 실제로 그리는 것과 같은 방식입니다. 뒤에 올 색을 고르고 원하는 곡에 입히세요.</p>
       <p class="muted">내 곡과 내 클립아트만은 다시 내려받을 수 없기에, 앱이 평범한 zip 파일로 저장합니다. 어디에나 보관할 수 있습니다.</p>
     </div>
   </div>
+  <div popover id="zoom-img-cliparts-png" class="zoom-view" style="--ratio: 0.4603; --most: 1320px"><button class="zoom-shut" type="button" popovertarget="zoom-img-cliparts-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/cliparts.png" alt="" width="660" height="1434" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>클립아트 편집 화면. 이모지 여섯 개와 미리보기.</figcaption></div>
 </section>
 
 <section id="faq">
@@ -204,6 +209,7 @@
 
 </div>
 </main>
+<span hidden id="zoom-close">닫기</span>
 
 <footer class="site">
   <div class="wrap">

@@ -55,10 +55,13 @@
   </div>
 
   <div class="shots">
-    <figure><img src="img/library.png" alt="The library, showing packs of melodies with their songs listed." width="660" height="1434" loading="lazy"></figure>
-    <figure><img src="img/play.png" alt="Twinkle, Twinkle mid-song, with stars thrown up by each tap." width="660" height="1434" loading="eager"></figure>
-    <figure><img src="img/follow.png" alt="The follow guide: a bouncing ball over the road, landing on the next note." width="660" height="1434" loading="lazy"></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-library-png"><img src="img/library.png" alt="The library, showing packs of melodies with their songs listed." width="660" height="1434" loading="lazy"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-play-png"><img src="img/play.png" alt="Twinkle, Twinkle mid-song, with stars thrown up by each tap." width="660" height="1434" loading="eager"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-follow-png"><img src="img/follow.png" alt="The follow guide: a bouncing ball over the road, landing on the next note." width="660" height="1434" loading="lazy"></button></figure>
   </div>
+  <div popover id="zoom-img-library-png" class="zoom-view" style="--ratio: 0.4603; --most: 1320px"><button class="zoom-shut" type="button" popovertarget="zoom-img-library-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="img/library.png" alt="" width="660" height="1434" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>The library, showing packs of melodies with their songs listed.</figcaption></div>
+  <div popover id="zoom-img-play-png" class="zoom-view" style="--ratio: 0.4603; --most: 1320px"><button class="zoom-shut" type="button" popovertarget="zoom-img-play-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="img/play.png" alt="" width="660" height="1434" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Twinkle, Twinkle mid-song, with stars thrown up by each tap.</figcaption></div>
+  <div popover id="zoom-img-follow-png" class="zoom-view" style="--ratio: 0.4603; --most: 1320px"><button class="zoom-shut" type="button" popovertarget="zoom-img-follow-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="img/follow.png" alt="" width="660" height="1434" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>The follow guide: a bouncing ball over the road, landing on the next note.</figcaption></div>
 
   <div class="stats">
     <div><b>128</b><span>melodies</span></div>
@@ -106,12 +109,13 @@
   <p><strong>First Taps</strong> — ten nursery favourites — is free and complete. Every paid pack plays one melody free, so nothing is bought unheard.</p>
   <p><a class="button ghost" href="songs.html">Browse all 128 songs</a></p>
   <div class="showcase">
-    <img src="img/world.png" alt="The library&#x27;s regional packs, from French chansons to Klezmer." width="660" height="1434" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-world-png"><img src="img/world.png" alt="The library&#x27;s regional packs, from French chansons to Klezmer." width="660" height="1434" loading="lazy"></button>
     <div>
       <h3>Songs from home</h3>
       <p>Eight packs, each from one tradition: French chansons, German folk songs, Italian tarantellas, Spanish jotas, Russian folk, Ukrainian hopaks, Greek dances and Klezmer. For a family living far from where it began, these are the songs a grandparent sang — played by a grandchild&#x27;s own hands.</p>
     </div>
   </div>
+  <div popover id="zoom-img-world-png" class="zoom-view" style="--ratio: 0.4603; --most: 1320px"><button class="zoom-shut" type="button" popovertarget="zoom-img-world-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="img/world.png" alt="" width="660" height="1434" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>The library&#x27;s regional packs, from French chansons to Klezmer.</figcaption></div>
 </section>
 
 <section>
@@ -150,13 +154,14 @@
     </div>
   </div>
   <div class="showcase">
-    <img src="img/cliparts.png" alt="The clipart editor, with six emoji and a live preview." width="660" height="1434" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-cliparts-png"><img src="img/cliparts.png" alt="The clipart editor, with six emoji and a live preview." width="660" height="1434" loading="lazy"></button>
     <div>
       <h3>Six emoji, and you have made something</h3>
       <p>Type any emoji your phone knows and the preview underneath shows exactly what a tap will throw up — drawn by the same renderer the app plays with. Pick the colour behind them and give the look to any song.</p>
       <p class="muted">Your own songs and cliparts are the only things nothing can re-download, so the app writes them to an ordinary zip file you can keep anywhere.</p>
     </div>
   </div>
+  <div popover id="zoom-img-cliparts-png" class="zoom-view" style="--ratio: 0.4603; --most: 1320px"><button class="zoom-shut" type="button" popovertarget="zoom-img-cliparts-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="img/cliparts.png" alt="" width="660" height="1434" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>The clipart editor, with six emoji and a live preview.</figcaption></div>
 </section>
 
 <section id="faq">
@@ -204,6 +209,7 @@
 
 </div>
 </main>
+<span hidden id="zoom-close">Close</span>
 
 <footer class="site">
   <div class="wrap">

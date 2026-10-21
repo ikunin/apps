@@ -55,10 +55,13 @@
   </div>
 
   <div class="shots">
-    <figure><img src="../img/library.png" alt="A biblioteca, com os pacotes de melodias e suas músicas." width="660" height="1434" loading="lazy"></figure>
-    <figure><img src="../img/play.png" alt="A tela de tocar no meio da música, com as figuras lançadas por cada toque." width="660" height="1434" loading="eager"></figure>
-    <figure><img src="../img/follow.png" alt="O guia: uma bola quicando sobre o caminho, que cai na próxima nota." width="660" height="1434" loading="lazy"></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-library-png"><img src="../img/library.png" alt="A biblioteca, com os pacotes de melodias e suas músicas." width="660" height="1434" loading="lazy"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-play-png"><img src="../img/play.png" alt="A tela de tocar no meio da música, com as figuras lançadas por cada toque." width="660" height="1434" loading="eager"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-follow-png"><img src="../img/follow.png" alt="O guia: uma bola quicando sobre o caminho, que cai na próxima nota." width="660" height="1434" loading="lazy"></button></figure>
   </div>
+  <div popover id="zoom-img-library-png" class="zoom-view" style="--ratio: 0.4603; --most: 1320px"><button class="zoom-shut" type="button" popovertarget="zoom-img-library-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/library.png" alt="" width="660" height="1434" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>A biblioteca, com os pacotes de melodias e suas músicas.</figcaption></div>
+  <div popover id="zoom-img-play-png" class="zoom-view" style="--ratio: 0.4603; --most: 1320px"><button class="zoom-shut" type="button" popovertarget="zoom-img-play-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/play.png" alt="" width="660" height="1434" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>A tela de tocar no meio da música, com as figuras lançadas por cada toque.</figcaption></div>
+  <div popover id="zoom-img-follow-png" class="zoom-view" style="--ratio: 0.4603; --most: 1320px"><button class="zoom-shut" type="button" popovertarget="zoom-img-follow-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/follow.png" alt="" width="660" height="1434" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>O guia: uma bola quicando sobre o caminho, que cai na próxima nota.</figcaption></div>
 
   <div class="stats">
     <div><b>128</b><span>melodias</span></div>
@@ -106,12 +109,13 @@
   <p><strong>First Taps</strong> — dez clássicos infantis — é grátis e completo. Todo pacote pago toca uma melodia de graça: nada se compra sem ter ouvido.</p>
   <p><a class="button ghost" href="songs.html">Ver as 128 músicas</a></p>
   <div class="showcase">
-    <img src="../img/world.png" alt="Os pacotes regionais da biblioteca, das tarantelas italianas ao klezmer." width="660" height="1434" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-world-png"><img src="../img/world.png" alt="Os pacotes regionais da biblioteca, das tarantelas italianas ao klezmer." width="660" height="1434" loading="lazy"></button>
     <div>
       <h3>Músicas da terra dos avós</h3>
       <p>Oito pacotes, cada um de uma tradição: tarantelas italianas, jotas espanholas, chansons francesas, canções folclóricas alemãs, danças gregas, músicas folclóricas russas, hopaks ucranianos e klezmer. Para uma família que vive longe de onde tudo começou, são as músicas que os avós cantavam — tocadas pelas mãos dos netos.</p>
     </div>
   </div>
+  <div popover id="zoom-img-world-png" class="zoom-view" style="--ratio: 0.4603; --most: 1320px"><button class="zoom-shut" type="button" popovertarget="zoom-img-world-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/world.png" alt="" width="660" height="1434" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Os pacotes regionais da biblioteca, das tarantelas italianas ao klezmer.</figcaption></div>
 </section>
 
 <section>
@@ -150,13 +154,14 @@
     </div>
   </div>
   <div class="showcase">
-    <img src="../img/cliparts.png" alt="O editor de cliparts, com seis emojis e uma prévia." width="660" height="1434" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-cliparts-png"><img src="../img/cliparts.png" alt="O editor de cliparts, com seis emojis e uma prévia." width="660" height="1434" loading="lazy"></button>
     <div>
       <h3>Seis emojis, e você criou algo</h3>
       <p>Digite qualquer emoji que seu telefone conheça: a prévia abaixo mostra exatamente o que vai saltar a cada toque, desenhada pelo mesmo motor com que o app toca. Escolha a cor atrás e dê o visual para a música que quiser.</p>
       <p class="muted">Suas músicas e seus cliparts são as únicas coisas que nada pode baixar de novo, então o app grava tudo num arquivo zip comum que você guarda onde quiser.</p>
     </div>
   </div>
+  <div popover id="zoom-img-cliparts-png" class="zoom-view" style="--ratio: 0.4603; --most: 1320px"><button class="zoom-shut" type="button" popovertarget="zoom-img-cliparts-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/cliparts.png" alt="" width="660" height="1434" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>O editor de cliparts, com seis emojis e uma prévia.</figcaption></div>
 </section>
 
 <section id="faq">
@@ -204,6 +209,7 @@
 
 </div>
 </main>
+<span hidden id="zoom-close">Fechar</span>
 
 <footer class="site">
   <div class="wrap">

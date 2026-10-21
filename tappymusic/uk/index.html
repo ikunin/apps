@@ -55,10 +55,13 @@
   </div>
 
   <div class="shots">
-    <figure><img src="../img/library.png" alt="Бібліотека з наборами мелодій та їхніми піснями." width="660" height="1434" loading="lazy"></figure>
-    <figure><img src="../img/play.png" alt="Екран гри посеред пісні, з малюнками від кожного дотику." width="660" height="1434" loading="eager"></figure>
-    <figure><img src="../img/follow.png" alt="Слідкуй за м’ячиком: стрибучий м’ячик над доріжкою приземляється на наступну ноту." width="660" height="1434" loading="lazy"></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-library-png"><img src="../img/library.png" alt="Бібліотека з наборами мелодій та їхніми піснями." width="660" height="1434" loading="lazy"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-play-png"><img src="../img/play.png" alt="Екран гри посеред пісні, з малюнками від кожного дотику." width="660" height="1434" loading="eager"></button></figure>
+    <figure><button class="zoom" type="button" popovertarget="zoom-img-follow-png"><img src="../img/follow.png" alt="Слідкуй за м’ячиком: стрибучий м’ячик над доріжкою приземляється на наступну ноту." width="660" height="1434" loading="lazy"></button></figure>
   </div>
+  <div popover id="zoom-img-library-png" class="zoom-view" style="--ratio: 0.4603; --most: 1320px"><button class="zoom-shut" type="button" popovertarget="zoom-img-library-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/library.png" alt="" width="660" height="1434" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Бібліотека з наборами мелодій та їхніми піснями.</figcaption></div>
+  <div popover id="zoom-img-play-png" class="zoom-view" style="--ratio: 0.4603; --most: 1320px"><button class="zoom-shut" type="button" popovertarget="zoom-img-play-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/play.png" alt="" width="660" height="1434" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Екран гри посеред пісні, з малюнками від кожного дотику.</figcaption></div>
+  <div popover id="zoom-img-follow-png" class="zoom-view" style="--ratio: 0.4603; --most: 1320px"><button class="zoom-shut" type="button" popovertarget="zoom-img-follow-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/follow.png" alt="" width="660" height="1434" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Слідкуй за м’ячиком: стрибучий м’ячик над доріжкою приземляється на наступну ноту.</figcaption></div>
 
   <div class="stats">
     <div><b>128</b><span>мелодій</span></div>
@@ -106,12 +109,13 @@
   <p>Набір <strong>First Taps</strong> — десять улюблених дитячих — безкоштовний і повний. Кожен платний набір грає одну мелодію безкоштовно, тож ніщо не купується непочутим.</p>
   <p><a class="button ghost" href="songs.html">Переглянути всі 128 пісень</a></p>
   <div class="showcase">
-    <img src="../img/world.png" alt="Регіональні набори в бібліотеці — від французьких шансонів до клезмеру." width="660" height="1434" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-world-png"><img src="../img/world.png" alt="Регіональні набори в бібліотеці — від французьких шансонів до клезмеру." width="660" height="1434" loading="lazy"></button>
     <div>
       <h3>Пісні з рідного краю</h3>
       <p>Вісім наборів, кожен — з однієї традиції: українські гопаки, французькі шансони, німецькі народні пісні, італійські тарантели, іспанські хоти, грецькі танці, клезмер і російські народні. Для родини, що живе далеко від місць, звідки походить, це пісні, які співали бабуся з дідусем, — зіграні рученятами онуків.</p>
     </div>
   </div>
+  <div popover id="zoom-img-world-png" class="zoom-view" style="--ratio: 0.4603; --most: 1320px"><button class="zoom-shut" type="button" popovertarget="zoom-img-world-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/world.png" alt="" width="660" height="1434" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Регіональні набори в бібліотеці — від французьких шансонів до клезмеру.</figcaption></div>
 </section>
 
 <section>
@@ -150,13 +154,14 @@
     </div>
   </div>
   <div class="showcase">
-    <img src="../img/cliparts.png" alt="Редактор кліпартів із шістьма емодзі та попереднім переглядом." width="660" height="1434" loading="lazy">
+    <button class="zoom" type="button" popovertarget="zoom-img-cliparts-png"><img src="../img/cliparts.png" alt="Редактор кліпартів із шістьма емодзі та попереднім переглядом." width="660" height="1434" loading="lazy"></button>
     <div>
       <h3>Шість емодзі — і ви вже щось створили</h3>
       <p>Введіть будь-які емодзі, які знає ваш телефон: попередній перегляд унизу покаже саме те, що злетить від дотику, намальоване тим самим механізмом, яким грає застосунок. Виберіть колір позаду й дайте цей вигляд будь-якій пісні.</p>
       <p class="muted">Власні пісні та кліпарти — єдине, чого ніщо не завантажить повторно, тож застосунок записує їх у звичайний zip-архів, який можна тримати де завгодно.</p>
     </div>
   </div>
+  <div popover id="zoom-img-cliparts-png" class="zoom-view" style="--ratio: 0.4603; --most: 1320px"><button class="zoom-shut" type="button" popovertarget="zoom-img-cliparts-png" popovertargetaction="hide" aria-labelledby="zoom-close"><img src="../img/cliparts.png" alt="" width="660" height="1434" loading="lazy"><span class="zoom-x" aria-hidden="true">×</span></button><figcaption>Редактор кліпартів із шістьма емодзі та попереднім переглядом.</figcaption></div>
 </section>
 
 <section id="faq">
@@ -204,6 +209,7 @@
 
 </div>
 </main>
+<span hidden id="zoom-close">Закрити</span>
 
 <footer class="site">
   <div class="wrap">
