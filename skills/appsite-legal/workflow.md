@@ -99,6 +99,17 @@ Clauses that must be in the EU-safe form (German law; also safe elsewhere):
   otherwise excluded — name the app's real risks (data not backed up; results,
   availability and charges of services the user chose). Also for anyone
   acting for us.
+- **A cap at the price — only outside EU consumers.** The owner will ask for
+  "liability limited to the app's price". For EU/EEA/CH consumers it fails:
+  the unlimited cases cannot be capped, a cap below the typical foreseeable
+  damage fails § 307 BGB, and an invalid standard-terms clause falls *whole*
+  (no reduction to the valid part) — an aggressive cap can leave unlimited
+  statutory liability. Add the cap as its own sentence for everyone else:
+  "If you are not a consumer living in the EU, EEA or Switzerland, or you use
+  the apps for your business, our total liability for slight negligence is
+  limited to the price you paid, or 50 US dollars if that is more; the
+  unlimited cases stay unlimited." Needed because a "these terms apply where
+  they differ" sentence otherwise replaces Apple's own $50 cap for them too.
 - **Withdrawal / refunds**: Apple's Media Services Terms govern withdrawal;
   Apple decides refunds (reportaproblem.apple.com).
 - **Prices change**; a change never touches a purchase made. **Free limits

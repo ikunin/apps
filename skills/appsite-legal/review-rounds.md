@@ -19,6 +19,8 @@ Walk `apple-eula-map.md` row by row. Typical misses:
 
 - "No warranty" → void for consumers: keep statutory rights, limit only the rest.
 - Blanket liability exclusion → void (§ 309 No. 7, § 307 BGB): the German form.
+- A cap at the price for consumers → void, and it takes the whole clause with
+  it; cap only non-EU consumers and business use (price paid or USD 50).
 - Right of withdrawal: who handles it (Apple's Media Services Terms).
 - Price changes vs. buyers at the old price.
 - Free-limit changes that could look like taking back what was paid for.

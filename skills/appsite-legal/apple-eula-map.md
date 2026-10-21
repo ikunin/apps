@@ -14,7 +14,7 @@ the October 2026 reading.
 | c. Termination | ends on breach | §16: user may stop any time; right ends on serious breach; user's data stays on their devices |
 | d. External services | at your risk; not responsible for third-party content; info is general; no harassment/defamation; may change or remove | §9 connected services (name them all); §8 "what AI writes is general information, not professional advice"; §10 lawful use |
 | e. No warranty | as is, as available, all faults; consumer laws may differ | §14 in the EU-safe form: statutory rights unaffected, then "as they are and as available", no further guarantee incl. AI accuracy |
-| f. Liability | no incidental/consequential; $50 cap | §15 German form (unlimited for intent, gross negligence, life/body/health, product liability; slight negligence → essential obligations, foreseeable damage) |
+| f. Liability | no incidental/consequential; $50 cap | §15 German form for EU/EEA/CH consumers (unlimited for intent, gross negligence, life/body/health, product liability; slight negligence → essential obligations, foreseeable damage), then for everyone else and business use a cap: the price paid, or USD 50 if more — otherwise "ours apply where they differ" drops Apple's cap |
 | g. Export | US embargo, denied-party lists, prohibited uses | §10 one sentence "as the EULA sets out", and §2 "export restrictions apply as written" |
 | h. US Government end users | Commercial Items | §2 "applies as written" |
 | i. Governing law | California; EU/CH/NO/IS residents: home law and courts; CISG excluded | §17 ours: licensor's law, CISG excluded, EU/EEA/CH consumers' home protections and courts, merchants at licensor's courts, VSBG statement |
