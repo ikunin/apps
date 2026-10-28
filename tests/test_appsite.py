@@ -332,6 +332,9 @@ with tempfile.TemporaryDirectory() as root:
           'href="apple/privacy.html"' in provider)
     check("its address is the one the apps publish, not one written here",
           "a@b.example" in provider and "Fraunhoferstr" not in provider)
+    check("the index carries the same security section, at #security",
+          'id="security"' in index and "Report a security vulnerability" in index
+          and "mailto:a@b.example?subject=Website%20Security" in index)
     check("a built root passes its own checker", portfolio.check_root(root) == [])
 
     os.remove(os.path.join(root, "apple", "img", "icon.png"))
@@ -526,6 +529,25 @@ check("the § 5 name still wins when there is one",
 check("the page title and the mail subject read the same name",
       Site(chrome=MAIL_SITE.chrome, out="site",
            impressum=dict(MAIL_SITE.impressum, app="Other")).name == "Other")
+
+# CRA Art. 14: every support page says where a vulnerability is reported, in
+# the kit's words, so no app can leave it off or carry a stale copy of them.
+from appsite import legal, security  # noqa: E402
+check("the security section is written in every language the kit speaks",
+      set(security.TEXT) == set(languages.LANGUAGES)
+      and all("{mail}" in t["p"] and t["h"] for t in security.TEXT.values()))
+support_page = legal.page(MAIL_SITE, "de", "support.html", title="T",
+                          description="D", headline="H", blocks=[p("x")],
+                          say_which_version_governs=False)
+check("every support page ends with it, at #security",
+      'id="security"' in support_page and "Sicherheitslücke melden" in support_page
+      and mail_href(MAIL_SITE, "Security") in support_page)
+check("and the subject names the app before the topic",
+      "subject=Harbor%20Rush%20Security" in support_page)
+check("a policy page does not carry it",
+      'id="security"' not in legal.page(MAIL_SITE, "en", "privacy.html", title="T",
+                                        description="D", headline="H",
+                                        blocks=[p("x")]))
 
 # The template is what a new app copies, and a placeholder address that still
 # resolves as a link is the one kind of TODO nothing catches later.

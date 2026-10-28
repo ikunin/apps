@@ -25,7 +25,7 @@ import importlib.util
 import json
 import os
 
-from . import assets, badge, check, impressum, listing, stores
+from . import assets, badge, check, impressum, legal, listing, stores
 from .blocks import button, hero
 # Re-exported: `portfolio.plain` is the name the template imports.
 from .chrome import plain  # noqa: F401
@@ -164,14 +164,20 @@ def card(slug, app):
             '    </div>\n')
 
 
-def body(config, apps):
-    """<main> for the index: the hero, then the apps."""
+def body(config, site, apps):
+    """<main> for the index: the hero, the apps, and where to report a
+    vulnerability — the same section every app's support page ends with, at
+    the same `#security`, which security.txt's Policy line names. It is about
+    the operator, not about the apps, so it is no sentence about them."""
     grid = "".join(card(slug, app) for slug, app in apps)
     return ("<main>\n\n"
             + hero(headline=config.HERO, lead=config.LEAD)
             + '\n<div class="wrap">\n\n<section>\n'
             f'  <div class="apps">\n{grid}  </div>\n'
-            "</section>\n</div>\n</main>\n")
+            "</section>\n\n"
+            '<section class="legal">\n'
+            + legal.render([legal.security(site, "en")])
+            + "</section>\n</div>\n</main>\n")
 
 
 def operator(apps):
@@ -237,7 +243,7 @@ def site_at(config, root, apps):
 
 def index(config, site, apps):
     return site.document("en", "index.html", title=config.TITLE,
-                         description=config.DESCRIPTION, main=body(config, apps))
+                         description=config.DESCRIPTION, main=body(config, site, apps))
 
 
 def provider(config, site, apps):

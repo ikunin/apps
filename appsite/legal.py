@@ -13,6 +13,7 @@ app whose terms do not, does not.
 import html
 from urllib.parse import quote
 
+from . import security as _security
 from .languages import LANGUAGES, ORIGINAL_LINK_LABEL
 
 #: Links every app's terms and privacy pages need, so nobody retypes them.
@@ -162,13 +163,29 @@ def governing(language, name):
     return [muted(clause.format(link=original))]
 
 
+def security(site, language):
+    """"Report a security vulnerability": the kit's own words (`security.py`),
+    one boxed part a link can reach at `#security`. The address and subject
+    come from `mail`, like every other mailto on these pages."""
+    text = _security.TEXT[language]
+    body = html.escape(text["p"], quote=False).format(
+        mail=mail(site, "Security"))
+    return part(text["h"], [p(body)], anchor=_security.ANCHOR)
+
+
 def page(site, language, name, *, title, description, headline, blocks,
          say_which_version_governs=True):
     """One legal page, in one language.
 
     `say_which_version_governs` exists for pages where it would be nonsense —
     a support page makes no promises — not as a way to leave it off a policy.
+
+    Every support page ends with where to report a vulnerability (CRA Art. 14).
+    It is added here, not in each app's make_site_legal.py, so no app can
+    leave it off and no app carries a copy of its words.
     """
+    if name == "support.html":
+        blocks = list(blocks) + [security(site, language)]
     if say_which_version_governs:
         blocks = list(blocks) + governing(language, name)
     body = render(blocks)

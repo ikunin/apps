@@ -188,3 +188,16 @@ in the page's language. `appsite/stores.py` is the one renderer; `badge.py`
 holds each store's artwork source and alt text, and `refresh_badges.py` fetches
 both stores' eleven files. `app.json` carries `stores` only for an app that
 sets it, so a single-store app's card does not move.
+
+### Where a vulnerability is reported
+
+Every `support.html` ends with "Report a security vulnerability", and so does
+the index at the root, at `#security` on both (Cyber Resilience Act Art. 14).
+It is **kit-spoken, like the Impressum**: it is about the operator, not an
+app, so its eleven languages live once in `appsite/security.py` and
+`legal.page` appends it to every support page. Never copy it into an app's
+`site_text_support.py`. It sends reports to the app's own support address
+(`legal.mail`, subject "<app> Security") and promises no response time.
+`https://ikunin.github.io/.well-known/security.txt` (RFC 9116) names the same
+address and the index's `#security` as its Policy; it lives at the host root,
+in the `ikunin/ikunin.github.io` repository, not here.
